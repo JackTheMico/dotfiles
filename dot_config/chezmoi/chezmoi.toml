@@ -1,0 +1,6 @@
+[data]
+[git]
+    autoCommit = true
+    autoPush = false
+[gpg]
+    recipient = "Jack Deng"
