@@ -6,7 +6,7 @@ ignore        = """
     PULLREQ_EDITMSG$
     MERGE_MSG$
     TAG_EDITMSG$"""
-api_key       = 72dad1e4-51c2-42e7-b415-9c42c198f730
+api_key       = {{ (index (lastpass "jackthemicowakatimeapi") 0).password }}
 
 [internal]
 backoff_at      = 
