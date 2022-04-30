@@ -1,0 +1,175 @@
+{
+    "workbench.colorTheme": "Tomorrow Night Blue",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "vim.leader": "<space>",
+    "vim.easymotion": true,
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": false,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["leader", "o", "p"],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility",
+            ]
+        },
+        {
+            "before": ["leader", "f", "s"],
+            "commands": ["workbench.action.files.save",]
+        },
+        {
+            "before": ["leader", "w", "l"],
+            "commands": ["workbench.action.focusRightGroup",]
+        },
+        {
+            "before": ["leader", "w", "h"],
+            "commands": ["workbench.action.focusLeftGroup",]
+        },
+        {
+            "before": ["leader", "w", "j"],
+            "commands": ["workbench.action.focusBelowGroup",]
+        },
+        {
+            "before": ["leader", "w", "k"],
+            "commands": ["workbench.action.focusAboveGroup",]
+        },
+        {
+            "before": ["leader", "w", "L"],
+            "commands": ["workbench.action.moveActiveEditorGroupRight",]
+        },
+        {
+            "before": ["leader", "w", "H"],
+            "commands": ["workbench.action.moveActiveEditorGroupLeft",]
+        },
+        {
+            "before": ["leader", "w", "J"],
+            "commands": ["workbench.action.moveActiveEditorGroupDown",]
+        },
+        {
+            "before": ["leader", "w", "K"],
+            "commands": ["workbench.action.moveActiveEditorGroupUp",]
+        },
+        {
+            "before": ["leader", "w", "v"],
+            "commands": ["workbench.action.splitEditor",]
+        },
+        {
+            "before": ["leader", "w", "w"],
+            "commands": ["workbench.action.focusPreviousGroup",]
+        },
+        {
+            "before": ["leader", "w", "s"],
+            "commands": ["workbench.action.splitEditorOrthogonal",]
+        },
+        {
+            "before": ["leader", "w", "d"],
+            "commands": ["workbench.action.closeActiveEditor",]
+        },
+        {
+            "before": ["leader", "s", "s"],
+            "commands": ["fuzzySearch.activeTextEditor",]
+        },
+        {
+            "before": ["leader", "c", "s"],
+            "commands": [":nohl",]
+        }
+    ],
+    "vim.operatorPendingModeKeyBindings": [
+        {
+            "before": ["L"],
+            "after": ["$"]
+        },
+        {
+            "before": ["H"],
+            "after": ["^"]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+    ],
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<C-e>"],
+            "after": [],
+            "commands": ["cursorEnd"]
+        },
+        {
+            "before": ["<C-a>"],
+            "after": [],
+            "commands": ["cursorHome"]
+        },
+        {
+            "before": ["<C-w>"],
+            "after": [],
+            "commands": ["cursorWordRight"]
+        },
+        {
+            "before": ["<C-r>"],
+            "after": [],
+            "commands": ["cursorWordEndLeft"]
+        }
+    ],
+    "files.autoSave": "afterDelay",
+    "editor.fontFamily": "'Fira Code', 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "normal",
+    "editor.minimap.enabled": false,
+    "editor.cursorStyle": "block-outline",
+    // "editor.tabCompletion": "off",
+    // "editor.snippetSuggestions": "none",
+    "gitlens.hovers.currentLine.over": "line",
+    "editor.lineNumbers": "relative",
+    "git.autofetch": true,
+    "extensions.ignoreRecommendations": true,
+    "git.showPushSuccessNotification": true,
+    "git.supportCancellation": true,
+    "tabnine.experimentalAutoImports": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    // "yassnippet.path": "D:/home/.doom.d/snippets",
+    "yassnippet.mapping": {
+        "python": "python-mode"
+    },
+    "yassnippet.path": "D:\\home\\.doom.d\\snippets",
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "python.pythonPath": "d:\\software\\Scoop\\apps\\pyenv\\current\\pyenv-win\\versions\\3.8.9\\python3.8.exe",
+    "editor.fontSize": 13,
+    "javascript.suggest.paths": false,
+    "typescript.suggest.paths": false,
+    "window.zoomLevel": 1.5,
+    "http.proxy": "http://127.0.0.1:7890",
+    "git.confirmSync": false,
+    "remote.SSH.defaultExtensions": [
+        "gitpod.gitpod-remote-ssh"
+    ],
+    "remote.SSH.configFile": "/tmp/gitpod_ssh_config-633714-153QN5JdC6DY",
+    "diffEditor.ignoreTrimWhitespace": false
+}
