@@ -121,6 +121,7 @@ alias nlvim='neovide --multigrid -- -u "$LUNARVIM_RUNTIME_DIR/lvim/init.lua" "$@
 alias enproxy='export HTTP_PROXY=http://127.0.0.1:7890;export HTTPS_PROXY=http://127.0.0.1:7890;export ALL_PROXY=http://127.0.0.1:7890'
 alias unproxy='unset HTTP_PROXY;unset HTTPS_PROXY;unset ALL_PROXY'
 alias lg=lazygit
+alias chzi=chezmoi
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
