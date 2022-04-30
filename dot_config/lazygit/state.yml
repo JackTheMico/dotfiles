@@ -1,0 +1,21 @@
+lastupdatecheck: 1642698276
+recentrepos:
+- /home/dlwxxxdlw/.local/share/chezmoi
+- /home/dlwxxxdlw/codes/jackdeng/JokeFunnyDotfiles
+- /home/dlwxxxdlw/codes/firework/qa-automation
+- /home/dlwxxxdlw/codes/go/mark
+- /home/dlwxxxdlw/codes/firework/ithor
+- /home/dlwxxxdlw/.config/lvim
+- /home/dlwxxxdlw/Nutstore Files/org
+- /home/dlwxxxdlw/codes/jackdeng/JackTheMico
+- /home/dlwxxxdlw/codes/firework/github_to_confluence
+- /home/dlwxxxdlw/codes/jackdeng/JackDengBlog
+- /home/dlwxxxdlw/.config/lvim.bak
+- /home/dlwxxxdlw/codes/firework/tython
+- /home/dlwxxxdlw/codes/firework/action-confluence-sync
+- /home/dlwxxxdlw/codes/jackdeng/JackTheMico.github.io
+- /home/dlwxxxdlw/codes/firework/dagobah
+startuppopupversion: 5
+customcommandshistory:
+- git revert --continue
+hidecommandlog: true

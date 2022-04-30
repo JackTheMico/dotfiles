@@ -1,0 +1,12 @@
+gui:
+  mainPanelSplitMode: 'horizontal'
+  language: 'en'
+  theme:
+    activeBorderColor:
+      - bold
+      - '#696fd7'
+    optionsTextColor:
+      - magenta
+    selectedLineBgColor:
+      - '#ae9053'
+      # - reverse
