@@ -10,6 +10,9 @@ an executable
 
 -- vim
 vim.opt.expandtab = true
+vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
+vim.opt.guifont = "monospace:h14" -- the font used in graphical neovim applications
+vim.opt.termguicolors = true -- set term gui colors (most terminals support this)
 vim.opt.tabstop = 4
 vim.opt.mouse = "a"
 vim.opt.relativenumber = true
@@ -488,7 +491,7 @@ lvim.plugins = {
           -- uncomment to ignore in lua:
           -- lua = true
         };
-  show_prediction_strength = false;
+        show_prediction_strength = false;
       })
     end
   },
@@ -517,13 +520,19 @@ lvim.plugins = {
     "p00f/nvim-ts-rainbow",
   },
   {
+    'rktjmp/fwatch.nvim',
+  },
+  {
+    'TravonteD/luajob',
+  },
+  {
     "kevinhwang91/rnvimr",
-      cmd = "RnvimrToggle",
-      config = function()
-        vim.g.rnvimr_draw_border = 1
-        vim.g.rnvimr_pick_enable = 1
-        vim.g.rnvimr_bw_enable = 1
-        end,
+    cmd = "RnvimrToggle",
+    config = function()
+      vim.g.rnvimr_draw_border = 1
+      vim.g.rnvimr_pick_enable = 1
+      vim.g.rnvimr_bw_enable = 1
+    end,
   },
 }
 
@@ -568,23 +577,23 @@ orgmode.setup({
 })
 
 -- dapui
-local dap, dapui = require("dap"), require("dapui")
-dapui.setup()
-dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close()
-end
+-- local dap, dapui = require("dap"), require("dapui")
+-- dapui.setup()
+-- dap.listeners.after.event_initialized["dapui_config"] = function()
+--   dapui.open()
+-- end
+-- dap.listeners.before.event_terminated["dapui_config"] = function()
+--   dapui.close()
+-- end
+-- dap.listeners.before.event_exited["dapui_config"] = function()
+--   dapui.close()
+-- end
 
 -- rainbow
 require("nvim-treesitter.configs").setup {
   highlight = {
-     enable = true, -- false will disable the whole extension
-     disable = { "" }, -- list of language that will be disabled     -- ...
+    enable = true, -- false will disable the whole extension
+    disable = { "" }, -- list of language that will be disabled     -- ...
   },
   -- ...
   rainbow = {
@@ -605,10 +614,37 @@ require("nvim-treesitter.configs").setup {
   }
 }
 
+-- himalaya
+local email_num = 0
+local function himalayacounter()
+    local handle = io.popen("tail -n 1 /tmp/himalaya-counter")
+    if handle then
+      local result = handle:read("*a")
+      return result
+    end
+end
+local function himalaya_status()
+  local res = ""
+  email_num = himalayacounter()
+  res = string.format('📫 %d', email_num)
+  return res
+end
+
+local components = require("lvim.core.lualine.components")
+lvim.builtin.lualine.sections.lualine_c = {
+  himalaya_status
+}
+
+local fwatch = require('fwatch')
+fwatch.watch("/tmp/himalaya-counter", {
+  on_event = function()
+    email_num = himalayacounter()
+  end
+})
+
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 lvim.autocommands.custom_groups = {
   -- { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
   -- On entering insert mode in any file, scroll the window so the cursor line is centered
   { "InsertEnter", "*", ":normal zz" },
-  { "VimEnter", "*", ":set guifont=Fira_Code:h14" },
-}
+ }
