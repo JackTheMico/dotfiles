@@ -6,6 +6,7 @@ export LUNARVIM_RUNTIME_DIR="${LUNARVIM_RUNTIME_DIR:-$HOME/.local/share/lunarvim
 export LUNARVIM_CACHE_DIR="${LUNARVIM_CACHE_DIR:-$HOME/.cache/lvim}"
 export WORKON_HOME=$HOME/.pyenv/versions
 export EDITOR=lvim
+export XDG_CONFIG_HOME=$HOME
 
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
@@ -131,6 +132,5 @@ fi
 source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/zsh/site-functions/_chezmoi
-source /usr/share/zsh/site-functions/_alacritty
 eval "$(pyenv init -)"
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
