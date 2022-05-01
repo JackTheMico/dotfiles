@@ -12,16 +12,16 @@ maildir-dir = "{{ .chezmoi.homeDir }}/firework_email/"
 inbox = "{{ .chezmoi.homeDir }}/firework_email/"
 sent = "{{ .chezmoi.homeDir }}/firework_email/sent"
 default = true
-email = "{{ .chezmoi.gmailwork }}"
+email = "{{ .gmailwork }}"
 
 imap-host = "imap.gmail.com"
 imap-port = 993
-imap-login = "{{ .chezmoi.gmailwork }}"
+imap-login = "{{ .gmailwork }}"
 imap-passwd-cmd = "lpass show himalaya-jack --password"
 
 smtp-host = "smtp.gmail.com"
 smtp-port = 465
-smtp-login = "{{ .chezmoi.gmailwork }}"
+smtp-login = "{{ .gmailwork }}"
 smtp-passwd-cmd = "lpass show himalaya-jack --password"
 
 [firework.mailboxes]
@@ -32,14 +32,14 @@ draft = "[Gmail]/Drafts"
 maildir-dir = "{{ .chezmoi.homeDir }}/JokerDFunny_email"
 inbox = "{{ .chezmoi.homeDir }}/JokerDFunny_email/"
 sent = "{{ .chezmoi.homeDir }}/JokerDFunny_email/sent"
-email = "{{ .chezmoi.gmailpersonal }}"
+email = "{{ .gmailpersonal }}"
 
 imap-host = "imap.gmail.com"
 imap-port = 993
-imap-login = "{{ .chezmoi.gmailpersonal }}"
+imap-login = "{{ .gmailpersonal }}"
 imap-passwd-cmd = "lpass show himalaya-Joker --password"
 
 smtp-host = "smtp.gmail.com"
 smtp-port = 465
-smtp-login = "{{ .chezmoi.gmailpersonal }}"
+smtp-login = "{{ .gmailpersonal }}"
 smtp-passwd-cmd = "lpass show himalaya-Joker --password"
