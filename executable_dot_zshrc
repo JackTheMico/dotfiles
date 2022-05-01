@@ -6,7 +6,7 @@ export LUNARVIM_RUNTIME_DIR="${LUNARVIM_RUNTIME_DIR:-$HOME/.local/share/lunarvim
 export LUNARVIM_CACHE_DIR="${LUNARVIM_CACHE_DIR:-$HOME/.cache/lvim}"
 export WORKON_HOME=$HOME/.pyenv/versions
 export EDITOR=lvim
-export XDG_CONFIG_HOME=$HOME
+export XDG_CONFIG_HOME=$HOME/.config
 
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
@@ -116,7 +116,7 @@ plugins=(
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ezsh="chezi edit ~/.zshrc"
+alias ezsh="chzi edit ~/.zshrc"
 alias rezsh="source ~/.zshrc"
 alias nlvim='neovide --multigrid -- -u "$LUNARVIM_RUNTIME_DIR/lvim/init.lua" "$@"'
 alias enproxy='export HTTP_PROXY=http://127.0.0.1:7890;export HTTPS_PROXY=http://127.0.0.1:7890;export ALL_PROXY=http://127.0.0.1:7890'
