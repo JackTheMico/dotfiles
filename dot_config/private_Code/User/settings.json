@@ -144,8 +144,6 @@
     "editor.fontWeight": "normal",
     "editor.minimap.enabled": false,
     "editor.cursorStyle": "block-outline",
-    // "editor.tabCompletion": "off",
-    // "editor.snippetSuggestions": "none",
     "gitlens.hovers.currentLine.over": "line",
     "editor.lineNumbers": "relative",
     "git.autofetch": true,
@@ -154,13 +152,9 @@
     "git.supportCancellation": true,
     "tabnine.experimentalAutoImports": true,
     "security.workspace.trust.untrustedFiles": "open",
-    // "yassnippet.path": "D:/home/.doom.d/snippets",
     "yassnippet.mapping": {
         "python": "python-mode"
     },
-    "yassnippet.path": "D:\\home\\.doom.d\\snippets",
-    "terminal.integrated.defaultProfile.windows": "Command Prompt",
-    "python.pythonPath": "d:\\software\\Scoop\\apps\\pyenv\\current\\pyenv-win\\versions\\3.8.9\\python3.8.exe",
     "editor.fontSize": 13,
     "javascript.suggest.paths": false,
     "typescript.suggest.paths": false,
