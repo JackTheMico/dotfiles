@@ -28,7 +28,7 @@ vim.g.neovide_input_use_logo = true
 vim.g.nvim_tree_respect_buf_cwd = 1
 vim.g.translator_default_engines = { "youdao", "bing", "haici" }
 vim.g.translator_history_enable = true
-vim.g.himalaya_mailbox_picker = 'native'
+vim.g.himalaya_mailbox_picker = 'telescope'
 vim.g.himalaya_telescope_preview_enabled = 0
 vim.o.runtimepath = vim.o.runtimepath .. ',~/.local/share/lunarvim/site/pack/packer/start/himalaya/vim'
 
