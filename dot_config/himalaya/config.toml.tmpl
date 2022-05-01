@@ -1,0 +1,45 @@
+name = "Jack Deng"
+downloads-dir = "~/Downloads/himalaya"
+signature = """
+Firework
+Jack | Data Team
+"""
+default-page-size = 25
+notify-cmd = "{{ .chezmoi.homeDir }}/himalaya-notify.sh"
+
+[firework]
+maildir-dir = "{{ .chezmoi.homeDir }}/firework_email/"
+inbox = "{{ .chezmoi.homeDir }}/firework_email/"
+sent = "{{ .chezmoi.homeDir }}/firework_email/sent"
+default = true
+email = "{{ .chezmoi.gmailwork }}"
+
+imap-host = "imap.gmail.com"
+imap-port = 993
+imap-login = "{{ .chezmoi.gmailwork }}"
+imap-passwd-cmd = "lpass show himalaya-jack --password"
+
+smtp-host = "smtp.gmail.com"
+smtp-port = 465
+smtp-login = "{{ .chezmoi.gmailwork }}"
+smtp-passwd-cmd = "lpass show himalaya-jack --password"
+
+[firework.mailboxes]
+sent = "[Gmail]/Drafts"
+draft = "[Gmail]/Drafts"
+
+[jokerdfunny]
+maildir-dir = "{{ .chezmoi.homeDir }}/JokerDFunny_email"
+inbox = "{{ .chezmoi.homeDir }}/JokerDFunny_email/"
+sent = "{{ .chezmoi.homeDir }}/JokerDFunny_email/sent"
+email = "{{ .chezmoi.gmailpersonal }}"
+
+imap-host = "imap.gmail.com"
+imap-port = 993
+imap-login = "{{ .chezmoi.gmailpersonal }}"
+imap-passwd-cmd = "lpass show himalaya-Joker --password"
+
+smtp-host = "smtp.gmail.com"
+smtp-port = 465
+smtp-login = "{{ .chezmoi.gmailpersonal }}"
+smtp-passwd-cmd = "lpass show himalaya-Joker --password"
