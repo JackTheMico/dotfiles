@@ -25,6 +25,7 @@
 # SOFTWARE.
 
 import re
+import socket
 import subprocess
 from libqtile import bar, layout, widget 
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen, ScratchPad, DropDown
@@ -186,6 +187,17 @@ widget_defaults = dict(
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
+widgets_bottom = [
+    widget.Cmus(),
+    widget.Pomodoro(),
+]
+HOSTNAME = socket.gethostname() 
+if HOSTNAME == 'jack-manjaro':
+    widgets_bottom.extend([
+                        widget.BatteryIcon(),
+                        widget.Battery(),
+                          ])
+screen_bottom =  bar.Bar(widgets_bottom, 20)
 
 screens = [
     Screen(
@@ -216,15 +228,7 @@ screens = [
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
-       bottom=bar.Bar(
-            [
-                widget.BatteryIcon(),
-                widget.Battery(),
-                widget.Cmus(),
-                widget.Pomodoro(),
-            ],
-            20
-        ) 
+       bottom= screen_bottom,
     ),
 ]
 
