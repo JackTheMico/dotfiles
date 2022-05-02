@@ -68,7 +68,8 @@ MY_GROUPS = [
 DEFAULT_SPAWNS = {
     "1T": "alacritty",
     "2W": "qutebrowser",
-    "7H": "htop",
+    "6C": ["discord-canary", "slack"],
+    "7H": "alacritty -e htop",
     "+": "/opt/clash-for-windows-chinese/cfw",
 }
 COLORS = [
@@ -105,7 +106,9 @@ keys = [
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
     Key([MOD], "h", lazy.layout.left(), desc="Move focus to left"),
+    Key([MOD, "control"], "h", lazy.layout.move_left(), desc="Move up a section in treetab"),
     Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
+    Key([MOD, "control"], "l", lazy.layout.move_right(), desc="Move down a section in treetab"),
     Key([MOD], "j", lazy.layout.down(), desc="Move focus down"),
     Key([MOD], "k", lazy.layout.up(), desc="Move focus up"),
     Key([MOD, "shift"], "f", lazy.window.toggle_floating(), desc="toggle floating"),
