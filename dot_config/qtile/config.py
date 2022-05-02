@@ -44,7 +44,7 @@ terminal = guess_terminal()
 default_spawn = {
     "01": "alacritty",
     "02": "qutebrowser",
-    "12": "/opt/clash-for-windows-chinese/cfw"
+    # "12": "/opt/clash-for-windows-chinese/cfw &"
 }
 
 
@@ -81,7 +81,7 @@ def startup():
     start the applications when qtile startup
     :return: None
     """
-    execute("fcitx5 &")
+    # execute("fcitx5 &")
     pass 
 
 keys = [
@@ -238,10 +238,10 @@ screens = [
             [
                 # widget.Notify(),
                 widget.Cmus(),
-                widget.GmailChecker(username="jack@fireworkhq.com",
-                                    # password="rhrazpkbgytmpfyk",
-                                    password=execute_once("lpass show himalaya-jack --password"),
-                                    ),
+                # widget.GmailChecker(username="jack@fireworkhq.com",
+                #                     # password="rhrazpkbgytmpfyk",
+                #                     password=execute("lpass show himalaya-jack --password"),
+                #                     ),
                 widget.Pomodoro(),
             ],
             20
