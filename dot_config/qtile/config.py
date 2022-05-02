@@ -72,9 +72,10 @@ def startup():
     start the applications when qtile startup
     :return: None
     """
-    execute_once("alacritty")
-    execute_once("fcitx5") 
-    execute_once("/opt/clash-for-windows-chinese/cfw")
+    # execute_once("alacritty")
+    # execute_once("fcitx5") 
+    # execute_once("/opt/clash-for-windows-chinese/cfw")
+    pass 
 
 keys = [
     # A list of available commands that can be bound to keys can be found
