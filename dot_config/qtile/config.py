@@ -226,11 +226,12 @@ groups = init_groups()
 #         ]
 #     )
 
-LAYOUT_THEME = {"border_width": 2,
-                "margin": 8,
-                "border_focus": "e1acff",
-                "border_normal": "1D2330"
-                }
+LAYOUT_THEME = {
+    "border_width": 2,
+    "margin": 8,
+    "border_focus": "e1acff",
+    "border_normal": "1D2330",
+}
 layouts = [
     layout.Max(**LAYOUT_THEME),
     # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
@@ -243,47 +244,64 @@ layouts = [
     layout.RatioTile(**LAYOUT_THEME),
     # layout.Tile(),
     layout.TreeTab(
-         font = "Ubuntu",
-         fontsize = 12,
-         sections = ["FIRST", "SECOND", "THIRD", "FOURTH"],
-         section_fontsize = 12,
-         border_width = 2,
-         bg_color = "1c1f24",
-         active_bg = "c678dd",
-         active_fg = "000000",
-         inactive_bg = "a9a1e1",
-         inactive_fg = "1c1f24",
-         padding_left = 0,
-         padding_x = 0,
-         padding_y = 5,
-         section_top = 10,
-         section_bottom = 20,
-         level_shift = 8,
-         vspace = 3,
-         panel_width = 200
+        font="Ubuntu",
+        fontsize=12,
+        sections=["FIRST", "SECOND", "THIRD", "FOURTH"],
+        section_fontsize=12,
+        border_width=2,
+        bg_color="1c1f24",
+        active_bg="c678dd",
+        active_fg="000000",
+        inactive_bg="a9a1e1",
+        inactive_fg="1c1f24",
+        padding_left=0,
+        padding_x=0,
+        padding_y=5,
+        section_top=10,
+        section_bottom=20,
+        level_shift=8,
+        vspace=3,
+        panel_width=200,
     ),
-    layout.Floating(**LAYOUT_THEME) 
+    layout.Floating(**LAYOUT_THEME)
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
 
-widget_defaults = dict(
-    font="Ubuntu Bold",
-    fontsize=12,
-    padding=2,
-    background=COLORS[2]
-)
+widget_defaults = dict(font="Ubuntu Bold", fontsize=12, padding=2, background=COLORS[2])
 extension_defaults = widget_defaults.copy()
 widgets_bottom = [
-    widget.Cmus(),
-    widget.Pomodoro(),
+    widget.Cmus(
+        font="Ubuntu Mono",
+        fontsize=37,
+        padding=5,
+        foreground=COLORS[1],
+        background=COLORS[9],
+    ),
+    widget.Pomodoro(
+        font="Ubuntu Mono",
+        fontsize=37,
+        padding=5,
+        foreground=COLORS[1],
+        background=COLORS[9],
+    ),
 ]
 HOSTNAME = socket.gethostname()
 if HOSTNAME == "jack-manjaro":
     widgets_bottom.extend(
         [
-            widget.BatteryIcon(),
-            widget.Battery(),
+            widget.BatteryIcon(
+                padding=5,
+                foreground=COLORS[1],
+                background=COLORS[9],
+            ),
+            widget.Battery(
+                font="Ubuntu Mono",
+                fontsize=37,
+                padding=5,
+                foreground=COLORS[1],
+                background=COLORS[9],
+            ),
         ]
     )
 screen_bottom = bar.Bar(widgets_bottom, 20)
@@ -359,7 +377,7 @@ screens = [
                     padding=0,
                     font="Hack Nerd Bold",
                     fontsize=14,
-                    format="{name}" 
+                    format="{name}",
                 ),
                 widget.Systray(background=COLORS[0], padding=5),
                 widget.Sep(
@@ -462,7 +480,7 @@ screens = [
                     foreground=COLORS[1],
                     background=COLORS[9],
                     format="%A, %B %d - %H:%M ",
-                    padding = 5
+                    padding=5,
                 ),
                 widget.QuickExit(
                     default_text="🏃",
