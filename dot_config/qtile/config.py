@@ -68,6 +68,7 @@ MY_GROUPS = [
 DEFAULT_SPAWNS = {
     "1T": "alacritty",
     "2W": "qutebrowser",
+    "7H": "htop",
     "+": "/opt/clash-for-windows-chinese/cfw",
 }
 COLORS = [
