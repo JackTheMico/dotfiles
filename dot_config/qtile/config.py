@@ -60,6 +60,7 @@ def spawn_group(name:str):
     if name in DEFAULT_SPAWNS.keys():
         if not is_running(name):
             return Group(name, spawn=DEFAULT_SPAWNS[name])
+    return None 
 
 
 def execute(process):
@@ -142,8 +143,10 @@ def init_groups():
     def _inner(key, name):
         keys.append(Key([MOD], key, lazy.group[name].toscreen()))
         keys.append(Key([MOD, "shift"], key, lazy.window.togroup(name)))
-        spawn_group(name) 
-        return Group(name)
+        group = spawn_group(name) 
+        if not group:
+            group = Group(name)
+        return group
 
     # groups = [("dead_grave", "00")]
     groups = [(str(i), "0" + str(i)) for i in range(1, 10)]
