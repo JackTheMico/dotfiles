@@ -243,9 +243,10 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="FiraCode",
-    fontsize=12,
-    padding=3,
+    font="Ubuntu Bold",
+    fontsize=10,
+    padding=2,
+    background=COLORS[2]
 )
 extension_defaults = widget_defaults.copy()
 widgets_bottom = [
