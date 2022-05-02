@@ -128,7 +128,7 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-    Key([MOD], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([MOD], "Return", lazy.spawn(TERMINAL), desc="Launch Terminal"),
     # Toggle between different layouts as defined below
     Key([MOD], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([MOD], "w", lazy.window.kill(), desc="Kill focused window"),
