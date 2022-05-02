@@ -211,9 +211,9 @@ lvim.lsp.automatic_servers_installation = true
 -- end
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
---   { exe = "yapf", filetypes = { "python" } },
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  { exe = "black", filetypes = { "python" } },
 -- { exe = "isort", filetypes = { "python" } },
 -- {
 --   exe = "prettier",
@@ -223,7 +223,7 @@ lvim.lsp.automatic_servers_installation = true
 --   ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
 --   filetypes = { "typescript", "typescriptreact" },
 -- },
--- }
+}
 
 -- -- set additional linters
 -- local linters = require "lvim.lsp.null-ls.linters"
