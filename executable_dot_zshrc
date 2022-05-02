@@ -124,9 +124,9 @@ alias enproxy='export HTTP_PROXY=http://127.0.0.1:7890;export HTTPS_PROXY=http:/
 alias unproxy='unset HTTP_PROXY;unset HTTPS_PROXY;unset ALL_PROXY'
 alias lg=lazygit
 alias czi=chezmoi
-alias czia=czi applay
-alias czie=czi edit
-alias cziu=czi update
+alias czia="chezmoi applay"
+alias czie="chezmoi edit"
+alias cziu="chezmoi update"
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
