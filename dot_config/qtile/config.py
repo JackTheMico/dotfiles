@@ -60,9 +60,10 @@ def execute_once(process):
     """
     if not is_running(process):
         result = subprocess.Popen(process.split(), stdout=subprocess.PIPE)
-        std = result.stdout.read() 
-        if std:
-            return std.decode().strip()
+        if result.stdout:
+            std = result.stdout.read()
+            if std:
+                return std.decode().strip()
 
 
 @hook.subscribe.startup
