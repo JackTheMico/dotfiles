@@ -27,6 +27,7 @@
 import re
 import socket
 import subprocess
+from libqtile import qtile
 from libqtile import bar, layout, widget
 from libqtile.config import (
     Click,
@@ -58,6 +59,18 @@ DEFAULT_SPAWNS = {
     "11": "fcitx5",
     "12": "/opt/clash-for-windows-chinese/cfw",
 }
+COLORS = [
+    ["#282c34", "#282c34"],
+    ["#1c1f24", "#1c1f24"],
+    ["#dfdfdf", "#dfdfdf"],
+    ["#ff6c6b", "#ff6c6b"],
+    ["#98be65", "#98be65"],
+    ["#da8548", "#da8548"],
+    ["#51afef", "#51afef"],
+    ["#c678dd", "#c678dd"],
+    ["#46d9ff", "#46d9ff"],
+    ["#a9a1e1", "#a9a1e1"],
+]
 
 
 def is_running(process):
@@ -253,6 +266,37 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.Sep(
+                    linewidth=0, padding=6, foreground=COLORS[2], background=COLORS[0]
+                ),
+                widget.Image(
+                    filename="~/.config/qtile/icons/python-white.png",
+                    scale="False",
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(TERMINAL)},
+                ),
+                widget.Sep(
+                    linewidth=0, padding=6, foreground=COLORS[2], background=COLORS[0]
+                ),
+                widget.GroupBox(
+                    font="Hack Nerd Bold",
+                    fontsize=9,
+                    margin_y=3,
+                    margin_x=0,
+                    padding_y=5,
+                    padding_x=3,
+                    borderwidth=3,
+                    active=COLORS[2],
+                    inactive=COLORS[7],
+                    rounded=False,
+                    highlight_color=COLORS[1],
+                    highlight_method="line",
+                    this_current_screen_border=COLORS[6],
+                    this_screen_border=COLORS[4],
+                    other_current_screen_border=COLORS[6],
+                    other_screen_border=COLORS[4],
+                    foreground=COLORS[2],
+                    background=COLORS[0],
+                ),
                 widget.CurrentLayout(),
                 widget.CurrentLayoutIcon(scale=0.6, padding=-4),
                 widget.GroupBox(),
@@ -263,13 +307,6 @@ screens = [
                     random_selection=True,
                     wallpaper_command=["feh", "--bg-max"],
                 ),
-                # widget.Chord(
-                #     chords_colors={
-                #         "launch": ("#ff0000", "#ffffff"),
-                #     },
-                #     name_transform=lambda name: name.upper(),
-                # ),
-                # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 widget.QuickExit(),
