@@ -54,6 +54,18 @@ DARK_ORANGE = "#582c00"
 MOD1 = "mod1"
 MOD = "mod4"
 TERMINAL = guess_terminal()
+MY_GROUPS = [
+    "1T",
+    "2W",
+    "3S",
+    "4S",
+    "5O",
+    "6C",
+    "7H",
+    "8M",
+    "9D",
+    "0D",
+]
 DEFAULT_SPAWNS = {
     "01": "alacritty",
     "02": "qutebrowser",
@@ -190,8 +202,9 @@ def init_groups():
         return group
 
     # groups = [("dead_grave", "00")]
-    groups = [(str(i), "0" + str(i)) for i in range(1, 10)]
-    groups += [("0", "10"), ("minus", "11"), ("equal", "12")]
+    groups = [(str(index+1), str(i)) for index, i in enumerate(MY_GROUPS)]
+    # groups += [("0", "10"), ("minus", "11"), ("equal", "12")]
+    groups += [ ("minus", "-"), ("equal", "+")]
     res_groups = [_inner(*i) for i in groups]
     res_groups += [
         ScratchPad("scratchpad", [DropDown("zsh", TERMINAL, height=0.5, opacity=0.6)])
