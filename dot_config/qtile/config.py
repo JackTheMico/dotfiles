@@ -58,7 +58,7 @@ def is_running(process):
 
 def spawn_group(name:str):
     if name in DEFAULT_SPAWNS.keys():
-        if not is_running(name):
+        if not is_running(DEFAULT_SPAWNS[name]):
             return Group(name, spawn=DEFAULT_SPAWNS[name])
     return None 
 
