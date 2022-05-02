@@ -124,7 +124,7 @@ alias enproxy='export HTTP_PROXY=http://127.0.0.1:7890;export HTTPS_PROXY=http:/
 alias unproxy='unset HTTP_PROXY;unset HTTPS_PROXY;unset ALL_PROXY'
 alias lg=lazygit
 alias czi=chezmoi
-alias czia="chezmoi applay"
+alias czia="chezmoi apply"
 alias czie="chezmoi edit"
 alias cziu="chezmoi update"
 
