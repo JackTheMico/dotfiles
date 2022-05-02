@@ -40,11 +40,11 @@ ORANGE = "#dd6600"
 DARK_ORANGE = "#582c00"
 MOD1 = "mod1"
 MOD = "mod4"
-terminal = guess_terminal()
-default_spawn = {
+TERMINAL = guess_terminal()
+DEFAULT_SPAWNS = {
     "01": "alacritty",
     "02": "qutebrowser",
-    # "12": "/opt/clash-for-windows-chinese/cfw &"
+    "12": "/opt/clash-for-windows-chinese/cfw"
 }
 
 
@@ -57,8 +57,9 @@ def is_running(process):
 
 
 def spawn_group(name:str):
-    if not is_running(name):
-        return Group(name, spawn=name)
+    if name in DEFAULT_SPAWNS.keys():
+        if not is_running(name):
+            return Group(name, spawn=DEFAULT_SPAWNS[name])
 
 
 def execute(process):
@@ -150,7 +151,7 @@ def init_groups():
     res_groups = [_inner(*i) for i in groups]
     res_groups += [
         ScratchPad("scratchpad",
-                   [DropDown("zsh", terminal, height=0.5, opacity=0.6)])
+                   [DropDown("zsh", TERMINAL, height=0.5, opacity=0.6)])
     ]
     keys.append(
         Key([], 'Pause', lazy.group['scratchpad'].dropdown_toggle('zsh')))
@@ -236,12 +237,7 @@ screens = [
         ),
        bottom=bar.Bar(
             [
-                # widget.Notify(),
                 widget.Cmus(),
-                # widget.GmailChecker(username="jack@fireworkhq.com",
-                #                     # password="rhrazpkbgytmpfyk",
-                #                     password=execute("lpass show himalaya-jack --password"),
-                #                     ),
                 widget.Pomodoro(),
             ],
             20
