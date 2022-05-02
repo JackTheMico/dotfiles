@@ -1,5 +1,5 @@
 configuration {
-/*	modi: "window,run,ssh";*/
+modi: "window,run,ssh,drun";
 font: "Fira_Code 12";
 /*	location: 0;*/
 /*	yoffset: 0;*/
@@ -7,7 +7,7 @@ font: "Fira_Code 12";
 /*	fixed-num-lines: true;*/
 show-icons: true;
 /*	terminal: "rofi-sensible-terminal";*/
-/*	ssh-client: "ssh";*/
+ssh-client: "ssh";
 ssh-command: "{terminal} --hold -e {ssh-client} {host} [-p {port}]";
 /*	run-command: "{cmd}";*/
 /*	run-list-command: "";*/
