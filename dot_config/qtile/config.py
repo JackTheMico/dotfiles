@@ -54,17 +54,17 @@ DARK_ORANGE = "#582c00"
 MOD1 = "mod1"
 MOD = "mod4"
 TERMINAL = guess_terminal()
-MY_GROUPS = [
-    "1T",
-    "2W",
-    "3S",
-    "4S",
-    "5O",
-    "6C",
-    "7H",
-    "8M",
-    "9D",
-]
+MY_GROUPS = {
+    "1T": "max",
+    "2W": "treetab",
+    "3S": "max",
+    "4S": "max",
+    "5O": "max",
+    "6C": "treetab",
+    "7H": "max",
+    "8M": "max",
+    "9D": "monatall",
+}
 DEFAULT_SPAWNS = {
     "1T": "alacritty",
     "2W": "qutebrowser",
@@ -94,17 +94,17 @@ def is_running(process):
     return False
 
 
-def spawn_group(name: str):
+def spawn_group(name: str, layout: str):
     if name in DEFAULT_SPAWNS.keys():
         if isinstance(DEFAULT_SPAWNS[name], str):
             if not is_running(DEFAULT_SPAWNS[name]):
-                return Group(name, spawn=DEFAULT_SPAWNS[name])
+                return Group(name, spawn=DEFAULT_SPAWNS[name], layout=layout)
         elif isinstance(DEFAULT_SPAWNS[name], list):
             prolist = []    
             for cmd in DEFAULT_SPAWNS[name]:
                 if not is_running(cmd):
                    prolist.append(cmd) 
-            return Group(name, spawn=prolist)
+            return Group(name, spawn=prolist, layout=layout)
     return None
 
 
@@ -203,18 +203,18 @@ keys = [
 
 
 def init_groups():
-    def _inner(key, name):
+    def _inner(key, name, layout):
         keys.append(Key([MOD], key, lazy.group[name].toscreen()))
         keys.append(Key([MOD, "shift"], key, lazy.window.togroup(name)))
-        group = spawn_group(name)
+        group = spawn_group(name, layout)
         if not group:
-            group = Group(name)
+            group = Group(name, layout=layout)
         return group
 
     # groups = [("dead_grave", "00")]
-    groups = [(str(index+1), str(i)) for index, i in enumerate(MY_GROUPS)]
+    groups = [(str(index), i[0], i[-1]) for index, i in zip(range(1, 10), MY_GROUPS.items())]
     # groups += [("0", "10"), ("minus", "11"), ("equal", "12")]
-    groups += [("0", "0D") , ("minus", "-"), ("equal", "+")]
+    groups += [("0", "0D", "monatall") , ("minus", "-", "floating"), ("equal", "+", "ratiotile")]
     res_groups = [_inner(*i) for i in groups]
     res_groups += [
         ScratchPad("scratchpad", [DropDown("zsh", TERMINAL, height=0.5, opacity=0.6)])
@@ -447,7 +447,7 @@ screens = [
                     foreground=COLORS[1],
                     background=COLORS[6],
                     mouse_callbacks={
-                        "Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")
+                        "Button1": lambda: qtile.cmd_spawn(TERMINAL + " -e htop")
                     },
                     fmt="Mem: {}",
                     padding=5,
