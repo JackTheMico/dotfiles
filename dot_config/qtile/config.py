@@ -253,6 +253,8 @@ widgets_bottom = [
         padding=5,
         foreground=COLORS[1],
         background=COLORS[9],
+        play_color=COLORS[3],
+        noplay_color=COLORS[4]
     ),
     widget.Pomodoro(
         font="Hack Nerd Bold",
