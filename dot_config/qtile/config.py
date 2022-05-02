@@ -26,7 +26,7 @@
 
 import re
 import subprocess
-from libqtile import bar, layout, widget, hook
+from libqtile import bar, layout, widget 
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
@@ -63,29 +63,6 @@ def spawn_group(name:str):
             return Group(name, spawn=DEFAULT_SPAWNS[name])
     return None 
 
-
-def execute(process):
-    """
-    execute a application once
-    :Keyword Arguments:
-     process -- application name
-    :return: None
-    """
-    result = subprocess.Popen(process.split(), stdout=subprocess.PIPE)
-    if result.stdout:
-        std = result.stdout.read()
-        if std:
-            return std.decode().strip()
-
-
-@hook.subscribe.startup_once
-def startup():
-    """
-    start the applications when qtile startup
-    :return: None
-    """
-    # execute("fcitx5 &")
-    pass 
 
 keys = [
     # A list of available commands that can be bound to keys can be found
