@@ -96,8 +96,15 @@ def is_running(process):
 
 def spawn_group(name: str):
     if name in DEFAULT_SPAWNS.keys():
-        if not is_running(DEFAULT_SPAWNS[name]):
-            return Group(name, spawn=DEFAULT_SPAWNS[name])
+        if isinstance(DEFAULT_SPAWNS[name], str):
+            if not is_running(DEFAULT_SPAWNS[name]):
+                return Group(name, spawn=DEFAULT_SPAWNS[name])
+        elif isinstance(DEFAULT_SPAWNS[name], list):
+            prolist = []    
+            for cmd in DEFAULT_SPAWNS[name]:
+                if not is_running(DEFAULT_SPAWNS[name]):
+                   prolist.append(cmd) 
+            return Group(name, spawn=prolist)
     return None
 
 
