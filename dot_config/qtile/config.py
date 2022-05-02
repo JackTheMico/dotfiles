@@ -102,7 +102,7 @@ def spawn_group(name: str):
         elif isinstance(DEFAULT_SPAWNS[name], list):
             prolist = []    
             for cmd in DEFAULT_SPAWNS[name]:
-                if not is_running(DEFAULT_SPAWNS[name]):
+                if not is_running(cmd):
                    prolist.append(cmd) 
             return Group(name, spawn=prolist)
     return None
