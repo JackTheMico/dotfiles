@@ -6,7 +6,7 @@ font: "Fira_Code 12";
 /*	xoffset: 0;*/
 /*	fixed-num-lines: true;*/
 show-icons: true;
-/*	terminal: "rofi-sensible-terminal";*/
+terminal: "alacritty";
 ssh-client: "ssh";
 ssh-command: "{terminal} --hold -e {ssh-client} {host} [-p {port}]";
 /*	run-command: "{cmd}";*/
