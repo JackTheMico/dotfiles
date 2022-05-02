@@ -83,7 +83,7 @@ def startup():
     start the applications when qtile startup
     :return: None
     """
-    # execute("fcitx5 &")
+    execute("fcitx5 &")
     pass 
 
 keys = [
