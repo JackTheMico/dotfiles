@@ -221,10 +221,10 @@ screens = [
             [
                 # widget.Notify(),
                 widget.Cmus(),
-                widget.GmailChecker(username="jack@fireworkhq.com", 
-                                    # password="rhrazpkbgytmpfyk", 
-                                    password=execute_once("lpass show himalaya-jack --password"), 
-                                    ),
+                # widget.GmailChecker(username="jack@fireworkhq.com", 
+                #                     # password="rhrazpkbgytmpfyk", 
+                #                     password=execute_once("lpass show himalaya-jack --password"), 
+                #                     ),
                 widget.Pomodoro(),
             ],
             20
