@@ -71,9 +71,10 @@ def startup():
     start the applications when qtile startup
     :return: None
     """
-    execute_once("alacritty")
-    execute_once("fcitx5")  
-    execute_once("/opt/clash-for-windows-chinese/cfw")
+    # execute_once("alacritty")
+    # execute_once("fcitx5")  
+    # execute_once("/opt/clash-for-windows-chinese/cfw")
+    pass 
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -167,7 +168,7 @@ groups = init_groups()
 
 layouts = [
     layout.Max(),
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     # Try more layouts by unleashing below layouts.
     layout.Stack(num_stacks=2),
     layout.Bsp(),
@@ -202,13 +203,13 @@ screens = [
                     random_selection=True,
                     wallpaper_command=['feh', '--bg-max']
                 ),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                # widget.Chord(
+                #     chords_colors={
+                #         "launch": ("#ff0000", "#ffffff"),
+                #     },
+                #     name_transform=lambda name: name.upper(),
+                # ),
+                # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 widget.QuickExit(),
@@ -220,7 +221,7 @@ screens = [
        bottom=bar.Bar(
             [
                 # widget.Notify(),
-                widget.Cmus(),
+                # widget.Cmus(),
                 # widget.GmailChecker(username="jack@fireworkhq.com", 
                 #                     # password="rhrazpkbgytmpfyk", 
                 #                     password=execute_once("lpass show himalaya-jack --password"), 
