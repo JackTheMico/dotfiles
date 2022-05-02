@@ -297,163 +297,133 @@ screens = [
                     foreground=COLORS[2],
                     background=COLORS[0],
                 ),
-             widget.TextBox(
-                       text = '|',
-                       font = "Hack Nerd Bold",
-                       background = COLORS[0],
-                       foreground = '474747',
-                       padding = 2,
-                       fontsize = 14
-                       ),
-              widget.CurrentLayoutIcon(
-                       custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
-                       foreground = COLORS[2],
-                       background = COLORS[0],
-                       padding = 0,
-                       scale = 0.7
-                       ),
-                widget.CurrentLayout(),
-              widget.CurrentLayout(
-                       foreground = COLORS[2],
-                       background = COLORS[0],
-                       padding = 5
-                       ),
-             widget.TextBox(
-                       text = '|',
-                       font = "Hack Nerd Bold",
-                       background = COLORS[0],
-                       foreground = '474747',
-                       padding = 2,
-                       fontsize = 14
-                       ),
-              widget.WindowName(
-                       foreground = COLORS[6],
-                       background = COLORS[0],
-                       padding = 0
-                       ),
-              widget.Systray(
-                       background = COLORS[0],
-                       padding = 5
-                       ),
-              widget.Sep(
-                       linewidth = 0,
-                       padding = 6,
-                       foreground = COLORS[0],
-                       background = COLORS[0]
-                       ),
-              widget.TextBox(
-                       text = '',
-                       font = "Hack Nerd Bold",
-                       background = COLORS[0],
-                       foreground = COLORS[3],
-                       padding = 0,
-                       fontsize = 37
-                       ),
-             widget.Net(
-                       interface = "enp2s0",
-                       format = 'Net: {down} ↓↑ {up}',
-                       foreground = COLORS[1],
-                       background = COLORS[3],
-                       padding = 5
-                       ),
-              widget.TextBox(
-                       text = '',
-                       font = "Hack Nerd Bold",
-                       background = COLORS[0],
-                       foreground = COLORS[3],
-                       padding = 0,
-                       fontsize = 37
-                       ),
-              widget.ThermalSensor(
-                       foreground = COLORS[1],
-                       background = COLORS[4],
-                       threshold = 90,
-                       fmt = 'Temp: {}',
-                       padding = 5
-                       ),
-              widget.TextBox(
-                       text = '',
-                       font = "Hack Nerd Bold",
-                       background = COLORS[0],
-                       foreground = COLORS[3],
-                       padding = 0,
-                       fontsize = 37
-                       ),
-              widget.CheckUpdates(
-                       update_interval = 1800,
-                       distro = "Arch_checkupdates",
-                       display_format = "Updates: {updates} ",
-                       foreground = COLORS[1],
-                       colour_have_updates = COLORS[1],
-                       colour_no_updates = COLORS[1],
-                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(TERMINAL + ' -e sudo paru')},
-                       padding = 5,
-                       background = COLORS[5]
-                       ),
-              widget.TextBox(
-                       text = '',
-                       font = "Hack Nerd Bold",
-                       background = COLORS[0],
-                       foreground = COLORS[3],
-                       padding = 0,
-                       fontsize = 37
-                       ),
-              widget.Memory(
-                       foreground = COLORS[1],
-                       background = COLORS[6],
-                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e htop')},
-                       fmt = 'Mem: {}',
-                       padding = 5
-                       ),
-              widget.TextBox(
-                       text = '',
-                       font = "Hack Nerd Bold",
-                       background = COLORS[0],
-                       foreground = COLORS[3],
-                       padding = 0,
-                       fontsize = 37
-                       ),
-              widget.Volume(
-                       foreground = COLORS[1],
-                       background = COLORS[7],
-                       fmt = 'Vol: {}',
-                       padding = 5
-                       ),
-              widget.TextBox(
-                       text = '',
-                       font = "Hack Nerd Bold",
-                       background = COLORS[0],
-                       foreground = COLORS[3],
-                       padding = 0,
-                       fontsize = 37
-                       ),
-              widget.KeyboardLayout(
-                       foreground = COLORS[1],
-                       background = COLORS[8],
-                       fmt = 'Keyboard: {}',
-                       padding = 5
-                       ),
-              widget.TextBox(
-                       text = '',
-                       font = "Hack Nerd Bold",
-                       background = COLORS[0],
-                       foreground = COLORS[3],
-                       padding = 0,
-                       fontsize = 37
-                       ),
-              widget.Clock(
-                       foreground = COLORS[1],
-                       background = COLORS[9],
-                       format = "%A, %B %d - %H:%M "
-                       ),
+                widget.TextBox(
+                    text="|",
+                    font="Hack Nerd Bold",
+                    background=COLORS[0],
+                    foreground="474747",
+                    padding=2,
+                    fontsize=14,
+                ),
+                widget.CurrentLayoutIcon(
+                    custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
+                    foreground=COLORS[2],
+                    background=COLORS[0],
+                    padding=0,
+                    scale=0.7,
+                ),
+                widget.CurrentLayout(
+                    foreground=COLORS[2], background=COLORS[0], padding=5,
+                    font="Hack Nerd Bold",
+                    fontsize=14,
+                ),
+                widget.TextBox(
+                    text="|",
+                    font="Hack Nerd Bold",
+                    background=COLORS[0],
+                    foreground="474747",
+                    padding=2,
+                    fontsize=14,
+                ),
+                widget.WindowName(
+                    foreground=COLORS[6], background=COLORS[0], padding=0
+                ),
+                widget.Systray(background=COLORS[0], padding=5),
+                widget.Sep(
+                    linewidth=0, padding=6, foreground=COLORS[0], background=COLORS[0]
+                ),
+                widget.TextBox(
+                    text="",
+                    font="Hack Nerd Bold",
+                    background=COLORS[0],
+                    foreground=COLORS[3],
+                    padding=0,
+                    fontsize=45,
+                ),
+                widget.Net(
+                    interface="enp2s0",
+                    format="Net: {down} ↓↑ {up}",
+                    foreground=COLORS[1],
+                    background=COLORS[3],
+                    padding=5,
+                ),
+                widget.TextBox(
+                    text="",
+                    font="Hack Nerd Bold",
+                    background=COLORS[0],
+                    foreground=COLORS[3],
+                    padding=0,
+                    fontsize=45,
+                ),
+                widget.ThermalSensor(
+                    foreground=COLORS[1],
+                    background=COLORS[4],
+                    threshold=90,
+                    fmt="Temp: {}",
+                    padding=5,
+                ),
+                widget.TextBox(
+                    text="",
+                    font="Hack Nerd Bold",
+                    background=COLORS[0],
+                    foreground=COLORS[3],
+                    padding=0,
+                    fontsize=45,
+                ),
+                widget.CheckUpdates(
+                    update_interval=1800,
+                    distro="Arch_checkupdates",
+                    display_format="Updates: {updates} ",
+                    foreground=COLORS[1],
+                    colour_have_updates=COLORS[1],
+                    colour_no_updates=COLORS[1],
+                    mouse_callbacks={
+                        "Button1": lambda: qtile.cmd_spawn(TERMINAL + " -e sudo paru")
+                    },
+                    padding=5,
+                    background=COLORS[5],
+                ),
+                widget.TextBox(
+                    text="",
+                    font="Hack Nerd Bold",
+                    background=COLORS[0],
+                    foreground=COLORS[3],
+                    padding=0,
+                    fontsize=45,
+                ),
+                widget.Memory(
+                    foreground=COLORS[1],
+                    background=COLORS[6],
+                    mouse_callbacks={
+                        "Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")
+                    },
+                    fmt="Mem: {}",
+                    padding=5,
+                ),
+                widget.TextBox(
+                    text="",
+                    font="Hack Nerd Bold",
+                    background=COLORS[0],
+                    foreground=COLORS[3],
+                    padding=0,
+                    fontsize=45,
+                ),
+                widget.Clock(
+                    foreground=COLORS[1],
+                    background=COLORS[9],
+                    format="%A, %B %d - %H:%M ",
+                ),
                 widget.Wallpaper(
                     directory="/home/dlwxxxdlw/Pictures/wallpapers",
                     random_selection=True,
                     wallpaper_command=["feh", "--bg-max"],
                 ),
-                widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
+                widget.Clock(
+                    foreground=COLORS[1],
+                    background=COLORS[9],
+                    format="%A, %B %d - %H:%M ",
+                ),
+                widget.QuickExit(defalt_text="🏃"),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
@@ -506,8 +476,9 @@ auto_minimize = True
 
 @hook.subscribe.startup_once
 def start_once():
-    home = os.path.expanduser('~')
-    subprocess.call([home + '/.config/qtile/autostart.sh'])
+    home = os.path.expanduser("~")
+    subprocess.call([home + "/.config/qtile/autostart.sh"])
+
 
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
