@@ -218,8 +218,8 @@ screens = [
         ),
        bottom=bar.Bar(
             [
-                widget.BattryIcon(),
-                widget.Battry(),
+                widget.BatteryIcon(),
+                widget.Battery(),
                 widget.BlueTooth(),
                 widget.Cmus(),
                 widget.Pomodoro(),
