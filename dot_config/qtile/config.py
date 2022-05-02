@@ -67,9 +67,9 @@ MY_GROUPS = [
     "0D",
 ]
 DEFAULT_SPAWNS = {
-    "01": "alacritty",
-    "02": "qutebrowser",
-    "12": "/opt/clash-for-windows-chinese/cfw",
+    "1T": "alacritty",
+    "2W": "qutebrowser",
+    "+": "/opt/clash-for-windows-chinese/cfw",
 }
 COLORS = [
     ["#282c34", "#282c34"],
@@ -204,7 +204,7 @@ def init_groups():
     # groups = [("dead_grave", "00")]
     groups = [(str(index+1), str(i)) for index, i in enumerate(MY_GROUPS)]
     # groups += [("0", "10"), ("minus", "11"), ("equal", "12")]
-    groups += [ ("minus", "-"), ("equal", "+")]
+    groups += [("0", "0D") , ("minus", "-"), ("equal", "+")]
     res_groups = [_inner(*i) for i in groups]
     res_groups += [
         ScratchPad("scratchpad", [DropDown("zsh", TERMINAL, height=0.5, opacity=0.6)])
