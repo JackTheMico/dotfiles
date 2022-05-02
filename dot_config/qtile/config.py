@@ -57,7 +57,6 @@ TERMINAL = guess_terminal()
 DEFAULT_SPAWNS = {
     "01": "alacritty",
     "02": "qutebrowser",
-    "11": "fcitx5",
     "12": "/opt/clash-for-windows-chinese/cfw",
 }
 COLORS = [
