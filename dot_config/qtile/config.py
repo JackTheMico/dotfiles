@@ -63,7 +63,7 @@ MY_GROUPS = {
     "6C": "treetab",
     "7H": "max",
     "8M": "max",
-    "9D": "monatall",
+    "9D": "monadtall",
 }
 DEFAULT_SPAWNS = {
     "1T": "alacritty",
@@ -214,7 +214,7 @@ def init_groups():
     # groups = [("dead_grave", "00")]
     groups = [(str(index), i[0], i[-1]) for index, i in zip(range(1, 10), MY_GROUPS.items())]
     # groups += [("0", "10"), ("minus", "11"), ("equal", "12")]
-    groups += [("0", "0D", "monatall") , ("minus", "-", "floating"), ("equal", "+", "ratiotile")]
+    groups += [("0", "0D", "monadtall") , ("minus", "-", "floating"), ("equal", "+", "ratiotile")]
     res_groups = [_inner(*i) for i in groups]
     res_groups += [
         ScratchPad("scratchpad", [DropDown("zsh", TERMINAL, height=0.5, opacity=0.6)])
