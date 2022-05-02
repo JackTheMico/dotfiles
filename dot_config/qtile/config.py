@@ -248,12 +248,12 @@ widget_defaults = dict(font="Ubuntu Bold", fontsize=12, padding=2, background=CO
 extension_defaults = widget_defaults.copy()
 widgets_bottom = [
     widget.Cmus(
-        font="Hack Nerd",
+        font="Hack Nerd Bold",
         fontsize=12,
         padding=5,
         foreground=COLORS[1],
         background=COLORS[9],
-        play_color=COLORS[3],
+        play_color=COLORS[1],
         noplay_color=COLORS[4]
     ),
     widget.Pomodoro(
