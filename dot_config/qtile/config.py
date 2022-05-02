@@ -107,6 +107,7 @@ keys = [
                 desc="Switch windows with rofi",
             ),
             Key([], "s", lazy.spawn("rofi -show ssh"), desc="SSH with rofi"),
+            Key([], "d", lazy.spawn("rofi -show drun"), desc="drun with rofi"),
             Key(
                 [],
                 "e",
