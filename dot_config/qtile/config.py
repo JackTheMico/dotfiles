@@ -220,7 +220,7 @@ screens = [
             [
                 widget.BatteryIcon(),
                 widget.Battery(),
-                widget.BlueTooth(),
+                widget.Bluetooth(),
                 widget.Cmus(),
                 widget.Pomodoro(),
             ],
