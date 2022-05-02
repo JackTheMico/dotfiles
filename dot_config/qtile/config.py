@@ -71,10 +71,9 @@ def startup():
     start the applications when qtile startup
     :return: None
     """
-    # execute_once("alacritty")
-    # execute_once("fcitx5")  
-    # execute_once("/opt/clash-for-windows-chinese/cfw")
-    pass 
+    execute_once("alacritty")
+    execute_once("fcitx5") 
+    execute_once("/opt/clash-for-windows-chinese/cfw")
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -168,9 +167,9 @@ groups = init_groups()
 
 layouts = [
     layout.Max(),
-    # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     # Try more layouts by unleashing below layouts.
-    layout.Stack(num_stacks=2),
+    layout.Stack(num_stacks=3),
     layout.Bsp(),
     layout.Matrix(),
     layout.MonadTall(),
@@ -183,7 +182,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="sans",
+    font="FiraCode",
     fontsize=12,
     padding=3,
 )
