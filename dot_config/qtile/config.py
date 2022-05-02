@@ -64,7 +64,6 @@ MY_GROUPS = [
     "7H",
     "8M",
     "9D",
-    "0D",
 ]
 DEFAULT_SPAWNS = {
     "1T": "alacritty",
