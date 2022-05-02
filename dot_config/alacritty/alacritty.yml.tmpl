@@ -387,12 +387,12 @@ font:
   #   - (macOS) /bin/bash --login
   #   - (Linux/BSD) user login shell
   #   - (Windows) powershell
-  shell:
-    program: /usr/bin/zsh byobu
-    args:
-      - -l
-      - -c
-      - "tmux attach || tmux"
+shell:
+  program: /usr/bin/zsh byobu
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
   # Startup directory
   #
   # Directory the shell is started in. If this is unset, or `None`, the working
