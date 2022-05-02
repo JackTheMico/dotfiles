@@ -83,6 +83,7 @@ keys = [
     Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([MOD], "j", lazy.layout.down(), desc="Move focus down"),
     Key([MOD], "k", lazy.layout.up(), desc="Move focus up"),
+    Key([MOD, "shift"], "f", lazy.window.toggle_floating(), desc="toggle floating"),
     # Key([MOD1], "space", lazy.spawn("rofi -show run"), desc="Use rofi to run sth"),
     # Key([MOD1], "Return", lazy.spawn("rofi -show window"), desc="Switch windows with rofi"),
     # Key([MOD1], "s", lazy.spawn("rofi -show ssh"), desc="SSH with rofi"),
