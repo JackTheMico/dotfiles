@@ -27,8 +27,18 @@
 import re
 import socket
 import subprocess
-from libqtile import bar, layout, widget 
-from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen, ScratchPad, DropDown
+from libqtile import bar, layout, widget
+from libqtile.config import (
+    Click,
+    Drag,
+    Group,
+    Key,
+    KeyChord,
+    Match,
+    Screen,
+    ScratchPad,
+    DropDown,
+)
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
@@ -46,7 +56,7 @@ DEFAULT_SPAWNS = {
     "01": "alacritty",
     "02": "qutebrowser",
     "11": "fcitx5",
-    "12": "/opt/clash-for-windows-chinese/cfw"
+    "12": "/opt/clash-for-windows-chinese/cfw",
 }
 
 
@@ -58,11 +68,11 @@ def is_running(process):
     return False
 
 
-def spawn_group(name:str):
+def spawn_group(name: str):
     if name in DEFAULT_SPAWNS.keys():
         if not is_running(DEFAULT_SPAWNS[name]):
             return Group(name, spawn=DEFAULT_SPAWNS[name])
-    return None 
+    return None
 
 
 keys = [
@@ -77,24 +87,61 @@ keys = [
     # Key([MOD1], "Return", lazy.spawn("rofi -show window"), desc="Switch windows with rofi"),
     # Key([MOD1], "s", lazy.spawn("rofi -show ssh"), desc="SSH with rofi"),
     # Key([MOD1], "e", lazy.spawn("rofi -show emoji -modi emoji"), desc="emoji with rofi"),
-    Key([MOD1], "h", lazy.spawn("rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"), desc="rofi clipboard"),
-    KeyChord([MOD1], "space", [
-                Key([], "r", lazy.spawn("rofi -show run"), desc="Use rofi to run sth"),
-                Key([], "w", lazy.spawn("rofi -show window"), desc="Switch windows with rofi"),
-                Key([], "s", lazy.spawn("rofi -show ssh"), desc="SSH with rofi"),
-                Key([], "e", lazy.spawn("rofi -show emoji -modi emoji"), desc="emoji with rofi"),
-                Key([], "h", lazy.spawn("rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"), desc="rofi clipboard"),
-             ]),
+    Key(
+        [MOD1],
+        "h",
+        lazy.spawn(
+            "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
+        ),
+        desc="rofi clipboard",
+    ),
+    KeyChord(
+        [MOD1],
+        "space",
+        [
+            Key([], "r", lazy.spawn("rofi -show run"), desc="Use rofi to run sth"),
+            Key(
+                [],
+                "w",
+                lazy.spawn("rofi -show window"),
+                desc="Switch windows with rofi",
+            ),
+            Key([], "s", lazy.spawn("rofi -show ssh"), desc="SSH with rofi"),
+            Key(
+                [],
+                "e",
+                lazy.spawn("rofi -show emoji -modi emoji"),
+                desc="emoji with rofi",
+            ),
+            Key(
+                [],
+                "h",
+                lazy.spawn(
+                    "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
+                ),
+                desc="rofi clipboard",
+            ),
+        ],
+    ),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
-    Key([MOD, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([MOD, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key(
+        [MOD, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
+    ),
+    Key(
+        [MOD, "shift"],
+        "l",
+        lazy.layout.shuffle_right(),
+        desc="Move window to the right",
+    ),
     Key([MOD, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([MOD, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
     Key([MOD, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([MOD, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key(
+        [MOD, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"
+    ),
     Key([MOD, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([MOD, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([MOD], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
@@ -122,7 +169,7 @@ def init_groups():
     def _inner(key, name):
         keys.append(Key([MOD], key, lazy.group[name].toscreen()))
         keys.append(Key([MOD, "shift"], key, lazy.window.togroup(name)))
-        group = spawn_group(name) 
+        group = spawn_group(name)
         if not group:
             group = Group(name)
         return group
@@ -132,14 +179,13 @@ def init_groups():
     groups += [("0", "10"), ("minus", "11"), ("equal", "12")]
     res_groups = [_inner(*i) for i in groups]
     res_groups += [
-        ScratchPad("scratchpad",
-                   [DropDown("zsh", TERMINAL, height=0.5, opacity=0.6)])
+        ScratchPad("scratchpad", [DropDown("zsh", TERMINAL, height=0.5, opacity=0.6)])
     ]
-    keys.append(
-        Key([], 'Pause', lazy.group['scratchpad'].dropdown_toggle('zsh')))
+    keys.append(Key([], "Pause", lazy.group["scratchpad"].dropdown_toggle("zsh")))
     return res_groups
 
-groups = init_groups() 
+
+groups = init_groups()
 
 # for i in groups:
 #     keys.extend(
@@ -191,13 +237,15 @@ widgets_bottom = [
     widget.Cmus(),
     widget.Pomodoro(),
 ]
-HOSTNAME = socket.gethostname() 
-if HOSTNAME == 'jack-manjaro':
-    widgets_bottom.extend([
-                        widget.BatteryIcon(),
-                        widget.Battery(),
-                          ])
-screen_bottom =  bar.Bar(widgets_bottom, 20)
+HOSTNAME = socket.gethostname()
+if HOSTNAME == "jack-manjaro":
+    widgets_bottom.extend(
+        [
+            widget.BatteryIcon(),
+            widget.Battery(),
+        ]
+    )
+screen_bottom = bar.Bar(widgets_bottom, 20)
 
 screens = [
     Screen(
@@ -211,7 +259,7 @@ screens = [
                 widget.Wallpaper(
                     directory="/home/dlwxxxdlw/Pictures/wallpapers",
                     random_selection=True,
-                    wallpaper_command=['feh', '--bg-max']
+                    wallpaper_command=["feh", "--bg-max"],
                 ),
                 # widget.Chord(
                 #     chords_colors={
@@ -228,14 +276,21 @@ screens = [
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
-       bottom= screen_bottom,
+        bottom=screen_bottom,
     ),
 ]
 
 # Drag floating layouts.
 mouse = [
-    Drag([MOD], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([MOD], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Drag(
+        [MOD],
+        "Button1",
+        lazy.window.set_position_floating(),
+        start=lazy.window.get_position(),
+    ),
+    Drag(
+        [MOD], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
+    ),
     Click([MOD], "Button2", lazy.window.bring_to_front()),
 ]
 
@@ -259,7 +314,6 @@ floating_layout = layout.Floating(
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
-
 
 
 # If things like steam games want to auto-minimize themselves when losing
