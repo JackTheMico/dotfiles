@@ -202,30 +202,6 @@ def init_groups():
 
 groups = init_groups()
 
-# for i in groups:
-#     keys.extend(
-#         [
-#             # mod1 + letter of group = switch to group
-#             Key(
-#                 [MOD],
-#                 i.name,
-#                 lazy.group[i.name].toscreen(),
-#                 desc="Switch to group {}".format(i.name),
-#             ),
-#             # mod1 + shift + letter of group = switch to & move focused window to group
-#             Key(
-#                 [MOD, "shift"],
-#                 i.name,
-#                 lazy.window.togroup(i.name, switch_group=True),
-#                 desc="Switch to & move focused window to group {}".format(i.name),
-#             ),
-#             # Or, use below if you prefer not to switch to that group.
-#             # # mod1 + shift + letter of group = move focused window to group
-#             # Key([MOD, "shift"], i.name, lazy.window.togroup(i.name),
-#             #     desc="move focused window to group {}".format(i.name)),
-#         ]
-#     )
-
 LAYOUT_THEME = {
     "border_width": 2,
     "margin": 8,
@@ -272,15 +248,15 @@ widget_defaults = dict(font="Ubuntu Bold", fontsize=12, padding=2, background=CO
 extension_defaults = widget_defaults.copy()
 widgets_bottom = [
     widget.Cmus(
-        font="Ubuntu Mono",
-        fontsize=37,
+        font="Hack Nerd",
+        fontsize=12,
         padding=5,
         foreground=COLORS[1],
         background=COLORS[9],
     ),
     widget.Pomodoro(
-        font="Ubuntu Mono",
-        fontsize=37,
+        font="Hack Nerd Bold",
+        fontsize=12,
         padding=5,
         foreground=COLORS[1],
         background=COLORS[9],
