@@ -118,19 +118,7 @@ keys = [
         lazy.layout.section_up(),
         desc="Move up a section in treetab",
     ),
-    Key(
-        [MOD],
-        "p",
-        lazy.layout.move_left(),
-        desc="Move left in treetab",
-    ),
     Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key(
-        [MOD],
-        "n",
-        lazy.layout.move_right(),
-        desc="Move right in treetab",
-    ),
     Key(
         [MOD, "shift"],
         "n",
@@ -140,18 +128,6 @@ keys = [
     Key([MOD], "j", lazy.layout.down(), desc="Move focus down"),
     Key([MOD], "k", lazy.layout.up(), desc="Move focus up"),
     Key([MOD, "shift"], "f", lazy.window.toggle_floating(), desc="toggle floating"),
-    # Key([MOD1], "space", lazy.spawn("rofi -show run"), desc="Use rofi to run sth"),
-    # Key([MOD1], "Return", lazy.spawn("rofi -show window"), desc="Switch windows with rofi"),
-    # Key([MOD1], "s", lazy.spawn("rofi -show ssh"), desc="SSH with rofi"),
-    # Key([MOD1], "e", lazy.spawn("rofi -show emoji -modi emoji"), desc="emoji with rofi"),
-    Key(
-        [MOD1],
-        "h",
-        lazy.spawn(
-            "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
-        ),
-        desc="rofi clipboard",
-    ),
     KeyChord(
         [MOD1],
         "space",
@@ -165,6 +141,8 @@ keys = [
             ),
             Key([], "s", lazy.spawn("rofi -show ssh"), desc="SSH with rofi"),
             Key([], "d", lazy.spawn("rofi -show drun"), desc="drun with rofi"),
+            Key([], "b", lazy.spawn("rofi-bluetooth"), desc="bluetooth"),
+            Key([], "w", lazy.spawn("rofi-wifi-menu"), desc="wifi"),
             Key(
                 [],
                 "e",
@@ -219,7 +197,6 @@ keys = [
     Key([MOD], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([MOD, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([MOD, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([MOD], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
 
 
@@ -263,15 +240,15 @@ LAYOUT_THEME = {
 }
 layouts = [
     layout.Max(**LAYOUT_THEME),
-    # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     # Try more layouts by unleashing below layouts.
-    layout.Stack(num_stacks=3),
-    # layout.Bsp(),
-    # layout.Matrix(),
+    # layout.Stack(num_stacks=3),
+    layout.Bsp(**LAYOUT_THEME),
+    layout.Matrix(**LAYOUT_THEME),
     layout.MonadTall(**LAYOUT_THEME),
-    # layout.MonadWide(),
+    layout.MonadWide(**LAYOUT_THEME),
     layout.RatioTile(**LAYOUT_THEME),
-    # layout.Tile(),
+    layout.Tile(**LAYOUT_THEME),
     layout.TreeTab(
         font="Ubuntu",
         fontsize=12,
@@ -293,7 +270,7 @@ layouts = [
         panel_width=200,
     ),
     layout.Floating(**LAYOUT_THEME)
-    # layout.VerticalTile(),
+    layout.VerticalTile(**LAYOUT_THEME),
     # layout.Zoomy(),
 ]
 
