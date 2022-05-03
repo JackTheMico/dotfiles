@@ -100,10 +100,10 @@ def spawn_group(name: str, layout: str):
             if not is_running(DEFAULT_SPAWNS[name]):
                 return Group(name, spawn=DEFAULT_SPAWNS[name], layout=layout)
         elif isinstance(DEFAULT_SPAWNS[name], list):
-            prolist = []    
+            prolist = []
             for cmd in DEFAULT_SPAWNS[name]:
                 if not is_running(cmd):
-                   prolist.append(cmd) 
+                    prolist.append(cmd)
             return Group(name, spawn=prolist, layout=layout)
     return None
 
@@ -113,9 +113,19 @@ keys = [
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
     Key([MOD], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([MOD, "shift"], "p", lazy.layout.move_left(), desc="Move up a section in treetab"),
+    Key(
+        [MOD, "shift"],
+        "p",
+        lazy.layout.move_left(),
+        desc="Move up a section in treetab",
+    ),
     Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([MOD, "shift"], "n", lazy.layout.move_right(), desc="Move down a section in treetab"),
+    Key(
+        [MOD, "shift"],
+        "n",
+        lazy.layout.move_right(),
+        desc="Move down a section in treetab",
+    ),
     Key([MOD], "j", lazy.layout.down(), desc="Move focus down"),
     Key([MOD], "k", lazy.layout.up(), desc="Move focus up"),
     Key([MOD, "shift"], "f", lazy.window.toggle_floating(), desc="toggle floating"),
@@ -212,12 +222,21 @@ def init_groups():
         return group
 
     # groups = [("dead_grave", "00")]
-    groups = [(str(index), i[0], i[-1]) for index, i in zip(range(1, 10), MY_GROUPS.items())]
+    groups = [
+        (str(index), i[0], i[-1]) for index, i in zip(range(1, 10), MY_GROUPS.items())
+    ]
     # groups += [("0", "10"), ("minus", "11"), ("equal", "12")]
-    groups += [("0", "0D", "monadtall") , ("minus", "-", "floating"), ("equal", "+", "ratiotile")]
+    groups += [
+        ("0", "0D", "monadtall"),
+        ("minus", "-", "floating"),
+        ("equal", "+", "ratiotile"),
+    ]
     res_groups = [_inner(*i) for i in groups]
     res_groups += [
-        ScratchPad("scratchpad", [DropDown("zsh", TERMINAL, height=0.5, opacity=0.6)])
+        ScratchPad(
+            "scratchpad",
+            [DropDown("zsh", TERMINAL, height=0.5, width=1.0, opacity=0.6)],
+        )
     ]
     keys.append(Key([], "Pause", lazy.group["scratchpad"].dropdown_toggle("zsh")))
     return res_groups
@@ -277,7 +296,7 @@ widgets_bottom = [
         foreground=COLORS[1],
         background=COLORS[9],
         play_color=COLORS[1],
-        noplay_color=COLORS[4]
+        noplay_color=COLORS[4],
     ),
     widget.Pomodoro(
         font="Hack Nerd Bold",
