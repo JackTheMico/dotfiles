@@ -13,6 +13,9 @@ gui:
 git:
   commit:
     signOff: true
+  paging:
+    colorArg: always
+    useConfig: false
 update:
   method: prompt # can be: prompt | background | never
   days: 14 # how often an update is checked for
