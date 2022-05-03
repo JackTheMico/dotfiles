@@ -10,3 +10,6 @@ gui:
     selectedLineBgColor:
       - '#ae9053'
       # - reverse
+git:
+  commit:
+    signOff: true
