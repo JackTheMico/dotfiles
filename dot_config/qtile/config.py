@@ -269,7 +269,7 @@ layouts = [
         vspace=3,
         panel_width=200,
     ),
-    layout.Floating(**LAYOUT_THEME)
+    layout.Floating(**LAYOUT_THEME),
     layout.VerticalTile(**LAYOUT_THEME),
     # layout.Zoomy(),
 ]
