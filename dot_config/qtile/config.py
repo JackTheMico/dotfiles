@@ -287,43 +287,11 @@ layouts = [
 
 widget_defaults = dict(font="Ubuntu Bold", fontsize=12, padding=2, background=COLORS[2])
 extension_defaults = widget_defaults.copy()
-widgets_bottom = [
-    widget.Cmus(
-        font="Hack Nerd Bold",
-        fontsize=12,
-        padding=5,
-        foreground=COLORS[1],
-        background=COLORS[9],
-        play_color=COLORS[1],
-        noplay_color=COLORS[4],
-    ),
-    widget.Pomodoro(
-        font="Hack Nerd Bold",
-        fontsize=12,
-        padding=5,
-        foreground=COLORS[1],
-        background=COLORS[9],
-    ),
-]
 HOSTNAME = socket.gethostname()
 if HOSTNAME == "jack-manjaro":
-    widgets_bottom.extend(
-        [
-            widget.BatteryIcon(
-                padding=5,
-                foreground=COLORS[1],
-                background=COLORS[9],
-            ),
-            widget.Battery(
-                font="Ubuntu Mono",
-                fontsize=37,
-                padding=5,
-                foreground=COLORS[1],
-                background=COLORS[9],
-            ),
-        ]
-    )
-screen_bottom = bar.Bar(widgets_bottom, 20)
+    NET = "wlp1s0" 
+else:
+    NET = "enp2s0"
 
 screens = [
     Screen(
@@ -399,6 +367,13 @@ screens = [
                     format="{name}",
                 ),
                 widget.Systray(background=COLORS[0], padding=5),
+                widget.Pomodoro(
+                    font="Hack Nerd Bold",
+                    fontsize=12,
+                    padding=5,
+                    foreground=COLORS[1],
+                    background=COLORS[9],
+                ),
                 widget.Sep(
                     linewidth=0, padding=6, foreground=COLORS[0], background=COLORS[0]
                 ),
@@ -411,7 +386,7 @@ screens = [
                     fontsize=37,
                 ),
                 widget.Net(
-                    interface="enp2s0",
+                    interface=NET,
                     format="Net: {down} ↓↑ {up}",
                     foreground=COLORS[1],
                     background=COLORS[3],
@@ -512,7 +487,6 @@ screens = [
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
-        bottom=screen_bottom,
     ),
 ]
 
