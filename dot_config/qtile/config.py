@@ -115,15 +115,25 @@ keys = [
     Key(
         [MOD, "shift"],
         "p",
-        lazy.layout.move_left(),
         lazy.layout.section_down(),
         desc="Move up a section in treetab",
+    ),
+    Key(
+        [MOD, "shift"],
+        "h",
+        lazy.layout.move_left(),
+        desc="Move left in treetab",
     ),
     Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
     Key(
         [MOD, "shift"],
-        "n",
+        "l",
         lazy.layout.move_right(),
+        desc="Move right in treetab",
+    ),
+    Key(
+        [MOD, "shift"],
+        "n",
         lazy.layout.section_up(),
         desc="Move down a section in treetab",
     ),
