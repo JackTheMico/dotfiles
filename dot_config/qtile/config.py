@@ -69,7 +69,6 @@ DEFAULT_SPAWNS = {
     "1T": "alacritty",
     "2W": "qutebrowser",
     "6C": ["discord-canary", "slack"],
-    "7H": "alacritty -e htop",
     "+": "/opt/clash-for-windows-chinese/cfw",
 }
 COLORS = [
