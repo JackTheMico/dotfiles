@@ -389,10 +389,10 @@ font:
   #   - (Windows) powershell
 shell:
   program: /usr/bin/zsh
-  ## args:
-  ##   - -l
-  ##   - -c
-  ##   - "tmux attach || tmux"
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
   # Startup directory
   #
   # Directory the shell is started in. If this is unset, or `None`, the working
