@@ -145,7 +145,9 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 eval "$(pyenv init -)"
+export ATUIN_NOBIND="true"
 eval "$(atuin init zsh)"
+bindkey '^y' _atuin_search_widget
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
