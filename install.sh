@@ -20,4 +20,8 @@ else
   chezmoi=chezmoi
 fi
 
+if [[ "$CODESPACES" ]]; then
+  /bin/bash/ './codespaces/install.sh'
+fi
+
 exec "$chezmoi" init --apply JackTheMico -x encrypted
