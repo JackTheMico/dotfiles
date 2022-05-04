@@ -188,7 +188,7 @@ keys = [
         lazy.run_extension(
             CommandSet(
                 commands={
-                    "shutdown": 'ps aux|grep "picom"|grep -v grep|awk "{print $2}"|xargs kill -9',
+                    "shutdown": "ps aux|grep 'picom'|grep -v grep|awk '{print $2}'|xargs kill -9",
                     "90": "picom -bc --active-opacity 0.9",
                     "85": "picom -bc --active-opacity 0.85",
                     "80": "picom -bc --active-opacity 0.8",
