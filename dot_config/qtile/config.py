@@ -407,7 +407,8 @@ screens = [
                     padding=5,
                 ),
                 widget.TextBox(
-                    text="",
+                    text_closed="",
+                    text_open="▶",
                     font="Ubuntu Mono",
                     background=COLORS[3],
                     foreground=COLORS[4],
