@@ -1,5 +1,5 @@
 #!/bin/bash
 
-wget "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/install.sh" -O font_install.sh
-chmod +x font_install.sh
-./font_install.sh
+wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip"
+sudo unzip Hack.zip -d /usr/share/fonts
+sudo fc-cache -f -v
