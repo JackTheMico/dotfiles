@@ -26,6 +26,7 @@
 
 import os
 import re
+import time
 import socket
 import subprocess
 from libqtile import qtile
@@ -208,8 +209,8 @@ keys = [
         lazy.run_extension(
             CommandSet(
                 commands={
-                    "clip": "maim -s /home/dlwxxxdlw/Screenshots/test.png",
-                    "full": "maim /home/dlwxxxdlw/Screenshots/$(date +%s).png",
+                    "clip": "maim -s | xclip -selection clipboard -t image/png",
+                    "full": "maim /home/dlwxxxdlw/Screenshots/{}.png".format(time.strftime("%Y-%m-%d_%H:%M", time.localtime())),
                 }
             )
         ),
