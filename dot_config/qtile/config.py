@@ -203,6 +203,15 @@ keys = [
         ),
     ),
     Key(
+        [MOD],
+        "s",
+        lazy.run_extension(
+            CommandSet(
+                commands={"clip", "maim -s | xclip -selection clipboard -t image/png"}
+            )
+        ),
+    ),
+    Key(
         [MOD, "shift"],
         "n",
         lazy.layout.section_down(),
