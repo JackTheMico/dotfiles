@@ -389,6 +389,7 @@ screens = [
                     foreground=COLORS[3],
                     fontsize=25,
                     padding=0,
+                    text="",
                     widgets=[
                 widget.TextBox(
                     text="",
