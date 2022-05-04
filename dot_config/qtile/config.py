@@ -389,7 +389,8 @@ screens = [
                     foreground=COLORS[3],
                     fontsize=25,
                     padding=0,
-                    text="",
+                    text_closed="",
+                    text_open="▶",
                     widgets=[
                 widget.TextBox(
                     text="",
@@ -407,8 +408,7 @@ screens = [
                     padding=5,
                 ),
                 widget.TextBox(
-                    text_closed="",
-                    text_open="▶",
+                    text="",
                     font="Ubuntu Mono",
                     background=COLORS[3],
                     foreground=COLORS[4],
