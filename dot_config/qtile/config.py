@@ -295,7 +295,7 @@ def init_groups():
     res_groups += [
         ScratchPad(
             "scratchpad",
-            [DropDown("zsh", TERMINAL, x=0.0, height=0.5, width=1.0, opacity=0.6)],
+            [DropDown("zsh", TERMINAL, x=0.0, height=0.5, width=1.0, opacity=0.8)],
         )
     ]
     keys.append(Key([MOD], "F12", lazy.group["scratchpad"].dropdown_toggle("zsh")))
