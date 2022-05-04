@@ -381,8 +381,8 @@ screens = [
                     background=COLORS[1],
                     foreground=COLORS[3],
                     fontsize=37,
-                    padding=0,
-                    emoji=True
+                    emoji=True,
+                    format="Vol:{}"
                 ),
                 widget.WidgetBox(
                     font="Ubuntu Mono",
