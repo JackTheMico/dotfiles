@@ -203,7 +203,7 @@ keys = [
         ),
     ),
     Key(
-        [MOD1],
+        [MOD],
         "s",
         lazy.run_extension(
             CommandSet(
