@@ -380,12 +380,14 @@ screens = [
                     font="Ubuntu Mono",
                     background=COLORS[1],
                     foreground=COLORS[3],
+                    fontsize=25,
                     emoji=True,
                 ),
                 widget.WidgetBox(
                     font="Ubuntu Mono",
                     background=COLORS[1],
                     foreground=COLORS[3],
+                    fontsize=25,
                     padding=0,
                     widgets=[
                 widget.TextBox(
