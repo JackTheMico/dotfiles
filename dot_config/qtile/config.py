@@ -208,7 +208,7 @@ keys = [
         lazy.run_extension(
             CommandSet(
                 commands={
-                    "clip": "maim -s | xclip -selection clipboard",
+                    "clip": "maim -s ~/Screenshots/test.png",
                     "full": "maim ~/Screenshots/$(date +%s).png",
                 }
             )
