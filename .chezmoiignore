@@ -3,4 +3,6 @@ session*
 .ssh
 .ssh/**
 .wakatime.cfg
+.aws
+.aws/**
 {{ end }}
