@@ -159,7 +159,7 @@
     "javascript.suggest.paths": false,
     "typescript.suggest.paths": false,
     "window.zoomLevel": 1.5,
-    "http.proxy": "http://127.0.0.1:7890",
+    // "http.proxy": "http://127.0.0.1:7890",
     "git.confirmSync": false,
     "remote.SSH.defaultExtensions": [
         "gitpod.gitpod-remote-ssh"
