@@ -204,7 +204,7 @@ keys = [
     ),
     Key(
         [MOD],
-        "s",
+        "i",
         lazy.run_extension(
             CommandSet(
                 commands={"clip", "maim -s | xclip -selection clipboard -t image/png"}
