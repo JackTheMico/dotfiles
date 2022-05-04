@@ -110,6 +110,11 @@ def spawn_group(name: str, layout: str):
 
 
 rofi_keychord = [
+    KeyChord([], "t", [
+                 Key([], "b", lazy.spawn("rofi_trans brief"), desc="rofi translate brief"),
+                 Key([], "v", lazy.spawn("rofi_trans verbose"), desc="rofi translate verbose"),
+                 Key([], "d", lazy.spawn("rofi_trans delete"), desc="rofi translate delete"),
+             ]),
     Key([], "r", lazy.spawn("rofi -show run"), desc="Use rofi to run sth"),
     Key(
         [],
