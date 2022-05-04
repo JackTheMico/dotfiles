@@ -108,42 +108,39 @@ def spawn_group(name: str, layout: str):
 
 
 rofi_keychord = [
-            Key([], "r", lazy.spawn("rofi -show run"), desc="Use rofi to run sth"),
-            Key(
-                [],
-                "w",
-                lazy.spawn("rofi -show window"),
-                desc="Switch windows with rofi",
-            ),
-            Key([], "s", lazy.spawn("rofi -show ssh"), desc="SSH with rofi"),
-            Key([], "d", lazy.spawn("rofi -show drun"), desc="drun with rofi"),
-            Key([], "b", lazy.spawn("rofi-bluetooth"), desc="bluetooth"),
-            Key([], "w", lazy.spawn("rofi-wifi-menu"), desc="wifi"),
-            Key(
-                [],
-                "e",
-                lazy.spawn("rofi -show emoji -modi emoji"),
-                desc="emoji with rofi",
-            ),
-            Key(
-                [],
-                "h",
-                lazy.spawn(
-                    "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
-                ),
-                desc="rofi clipboard",
-            ),
-        ]
+    Key([], "r", lazy.spawn("rofi -show run"), desc="Use rofi to run sth"),
+    Key(
+        [],
+        "w",
+        lazy.spawn("rofi -show window"),
+        desc="Switch windows with rofi",
+    ),
+    Key([], "s", lazy.spawn("rofi -show ssh"), desc="SSH with rofi"),
+    Key([], "d", lazy.spawn("rofi -show drun"), desc="drun with rofi"),
+    Key([], "b", lazy.spawn("rofi-bluetooth"), desc="bluetooth"),
+    Key([], "w", lazy.spawn("rofi-wifi-menu"), desc="wifi"),
+    Key(
+        [],
+        "e",
+        lazy.spawn("rofi -show emoji -modi emoji"),
+        desc="emoji with rofi",
+    ),
+    Key(
+        [],
+        "h",
+        lazy.spawn(
+            "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
+        ),
+        desc="rofi clipboard",
+    ),
+]
 
 HOSTNAME = socket.gethostname()
 if HOSTNAME == "jack-manajro":
-    NET = "wlp1s0" 
-    rofi_keychord.append(Key(
-                             [],
-                             "l",
-                             lazy.spawn("rofi-backlight"),
-                             desc="rofi backlight"
-                         ))
+    NET = "wlp1s0"
+    rofi_keychord.append(
+        Key([], "l", lazy.spawn("rofi-backlight"), desc="rofi backlight")
+    )
 else:
     NET = "enp2s0"
 
@@ -159,6 +156,31 @@ keys = [
         desc="Move up a section in treetab",
     ),
     Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
+    Key(
+        [mod, "control"],
+        "m",
+        lazy.run_extension(
+            CommandSet(
+                commands={
+                    "play": "cmus-remote -p",
+                    "pause": "cmus-remote -u",
+                    "stop": "cmus-remote -s",
+                    "prev": "cmus-remote -r",
+                    "next": "cmus-remote -n",
+                    "repeat": "cmus-remote -R",
+                    "shuffle": "cmus-remote -S",
+                    "5up": "cmus-remote -v +5%",
+                    "5down": "cmus-remote -v -5%",
+                    "10down": "cmus-remote -v -10%",
+                    "10up": "cmus-remote -v +10%",
+                    "15up": "cmus-remote -v +15%",
+                    "15down": "cmus-remote -v -15%",
+                    "20down": "cmus-remote -v -20%",
+                    "20up": "cmus-remote -v +20%",
+                }
+            )
+        ),
+    ),
     Key(
         [MOD, "shift"],
         "n",
@@ -238,7 +260,7 @@ def init_groups():
     res_groups += [
         ScratchPad(
             "scratchpad",
-            [DropDown("zsh", TERMINAL, x=0.0 ,height=0.5, width=1.0, opacity=0.6)],
+            [DropDown("zsh", TERMINAL, x=0.0, height=0.5, width=1.0, opacity=0.6)],
         )
     ]
     keys.append(Key([], "Pause", lazy.group["scratchpad"].dropdown_toggle("zsh")))
@@ -391,75 +413,80 @@ screens = [
                     text_closed="",
                     text_open="▶",
                     widgets=[
-                widget.TextBox(
-                    text="",
-                    font="Ubuntu Mono",
-                    background=COLORS[0],
-                    foreground=COLORS[3],
-                    padding=0,
-                    fontsize=37,
+                        widget.TextBox(
+                            text="",
+                            font="Ubuntu Mono",
+                            background=COLORS[0],
+                            foreground=COLORS[3],
+                            padding=0,
+                            fontsize=37,
+                        ),
+                        widget.Net(
+                            interface=NET,
+                            format="Net: {down} ↓↑ {up}",
+                            foreground=COLORS[1],
+                            background=COLORS[3],
+                            padding=5,
+                        ),
+                        widget.TextBox(
+                            text="",
+                            font="Ubuntu Mono",
+                            background=COLORS[3],
+                            foreground=COLORS[4],
+                            padding=0,
+                            fontsize=37,
+                        ),
+                        widget.ThermalSensor(
+                            foreground=COLORS[1],
+                            background=COLORS[4],
+                            threshold=90,
+                            fmt="Temp: {}",
+                            padding=5,
+                        ),
+                        widget.TextBox(
+                            text="",
+                            font="Ubuntu Mono",
+                            background=COLORS[4],
+                            foreground=COLORS[5],
+                            padding=0,
+                            fontsize=37,
+                        ),
+                        widget.CheckUpdates(
+                            update_interval=1800,
+                            distro="Arch_checkupdates",
+                            display_format="Updates: {updates} ",
+                            foreground=COLORS[1],
+                            colour_have_updates=COLORS[1],
+                            colour_no_updates=COLORS[1],
+                            mouse_callbacks={
+                                "Button1": lambda: qtile.cmd_spawn(
+                                    TERMINAL + " -e sudo paru"
+                                )
+                            },
+                            padding=5,
+                            background=COLORS[5],
+                        ),
+                        widget.TextBox(
+                            text="",
+                            font="Ubuntu Mono",
+                            background=COLORS[5],
+                            foreground=COLORS[6],
+                            padding=0,
+                            fontsize=37,
+                        ),
+                        widget.Memory(
+                            foreground=COLORS[1],
+                            background=COLORS[6],
+                            mouse_callbacks={
+                                "Button1": lambda: qtile.cmd_spawn(
+                                    TERMINAL + " -e htop"
+                                )
+                            },
+                            fmt="Mem: {}",
+                            padding=5,
+                        ),
+                    ],
                 ),
-                widget.Net(
-                    interface=NET,
-                    format="Net: {down} ↓↑ {up}",
-                    foreground=COLORS[1],
-                    background=COLORS[3],
-                    padding=5,
-                ),
-                widget.TextBox(
-                    text="",
-                    font="Ubuntu Mono",
-                    background=COLORS[3],
-                    foreground=COLORS[4],
-                    padding=0,
-                    fontsize=37,
-                ),
-                widget.ThermalSensor(
-                    foreground=COLORS[1],
-                    background=COLORS[4],
-                    threshold=90,
-                    fmt="Temp: {}",
-                    padding=5,
-                ),
-                widget.TextBox(
-                    text="",
-                    font="Ubuntu Mono",
-                    background=COLORS[4],
-                    foreground=COLORS[5],
-                    padding=0,
-                    fontsize=37,
-                ),
-                widget.CheckUpdates(
-                    update_interval=1800,
-                    distro="Arch_checkupdates",
-                    display_format="Updates: {updates} ",
-                    foreground=COLORS[1],
-                    colour_have_updates=COLORS[1],
-                    colour_no_updates=COLORS[1],
-                    mouse_callbacks={
-                        "Button1": lambda: qtile.cmd_spawn(TERMINAL + " -e sudo paru")
-                    },
-                    padding=5,
-                    background=COLORS[5],
-                ),
-                widget.TextBox(
-                    text="",
-                    font="Ubuntu Mono",
-                    background=COLORS[5],
-                    foreground=COLORS[6],
-                    padding=0,
-                    fontsize=37,
-                ),
-                widget.Memory(
-                    foreground=COLORS[1],
-                    background=COLORS[6],
-                    mouse_callbacks={
-                        "Button1": lambda: qtile.cmd_spawn(TERMINAL + " -e htop")
-                    },
-                    fmt="Mem: {}",
-                    padding=5,
-                )
-                ]),
                 widget.TextBox(
                     text="",
                     font="Ubuntu Mono",
