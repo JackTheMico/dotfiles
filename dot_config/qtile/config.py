@@ -210,7 +210,7 @@ keys = [
         lazy.run_extension(
             CommandSet(
                 commands={
-                    "clip": 'bash ~/.config/qtile/clip.sh',
+                    "clip": "bash -c 'maim -s | xclip -selection clipboard'",
                     "full": "maim /home/dlwxxxdlw/Screenshots/{}.png".format(time.strftime("%Y-%m-%d_%H:%M", time.localtime())),
                 }
             )
