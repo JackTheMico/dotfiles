@@ -107,31 +107,7 @@ def spawn_group(name: str, layout: str):
     return None
 
 
-keys = [
-    # A list of available commands that can be bound to keys can be found
-    # at https://docs.qtile.org/en/latest/manual/config/lazy.html
-    # Switch between windows
-    Key([MOD], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key(
-        [MOD, "shift"],
-        "p",
-        lazy.layout.section_up(),
-        desc="Move up a section in treetab",
-    ),
-    Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key(
-        [MOD, "shift"],
-        "n",
-        lazy.layout.section_down(),
-        desc="Move down a section in treetab",
-    ),
-    Key([MOD], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([MOD], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([MOD, "shift"], "f", lazy.window.toggle_floating(), desc="toggle floating"),
-    KeyChord(
-        [MOD1],
-        "space",
-        [
+rofi_keychord = [
             Key([], "r", lazy.spawn("rofi -show run"), desc="Use rofi to run sth"),
             Key(
                 [],
@@ -157,7 +133,45 @@ keys = [
                 ),
                 desc="rofi clipboard",
             ),
-        ],
+        ]
+
+HOSTNAME = socket.gethostname()
+if HOSTNAME == "jack-manjaro":
+    NET = "wlp1s0" 
+    rofi_keychord.append(Key(
+                             [],
+                             "l",
+                             lazy.spawn("rofi-backlight"),
+                             desc="rofi backlight"
+                         ))
+else:
+    NET = "enp2s0"
+
+keys = [
+    # A list of available commands that can be bound to keys can be found
+    # at https://docs.qtile.org/en/latest/manual/config/lazy.html
+    # Switch between windows
+    Key([MOD], "h", lazy.layout.left(), desc="Move focus to left"),
+    Key(
+        [MOD, "shift"],
+        "p",
+        lazy.layout.section_up(),
+        desc="Move up a section in treetab",
+    ),
+    Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
+    Key(
+        [MOD, "shift"],
+        "n",
+        lazy.layout.section_down(),
+        desc="Move down a section in treetab",
+    ),
+    Key([MOD], "j", lazy.layout.down(), desc="Move focus down"),
+    Key([MOD], "k", lazy.layout.up(), desc="Move focus up"),
+    Key([MOD, "shift"], "f", lazy.window.toggle_floating(), desc="toggle floating"),
+    KeyChord(
+        [MOD1],
+        "space",
+        rofi_keychord,
     ),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
@@ -277,11 +291,6 @@ layouts = [
 
 widget_defaults = dict(font="Ubuntu Bold", fontsize=12, padding=2, background=COLORS[2])
 extension_defaults = widget_defaults.copy()
-HOSTNAME = socket.gethostname()
-if HOSTNAME == "jack-manjaro":
-    NET = "wlp1s0" 
-else:
-    NET = "enp2s0"
 
 screens = [
     Screen(
