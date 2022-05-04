@@ -380,8 +380,7 @@ screens = [
                     font="Ubuntu Mono",
                     background=COLORS[1],
                     foreground=COLORS[3],
-                    fontsize=25,
-                    format="Vol:{}" 
+                    fontsize=20,
                 ),
                 widget.WidgetBox(
                     font="Ubuntu Mono",
