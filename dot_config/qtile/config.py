@@ -208,8 +208,8 @@ keys = [
         lazy.run_extension(
             CommandSet(
                 commands={
-                    "clip": "maim -s ~/Screenshots/test.png",
-                    "full": "maim ~/Screenshots/$(date +%s).png",
+                    "clip": "maim -s /home/dlwxxxdlw/Screenshots/test.png",
+                    "full": "maim /home/dlwxxxdlw/Screenshots/$(date +%s).png",
                 }
             )
         ),
