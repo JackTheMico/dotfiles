@@ -376,6 +376,7 @@ screens = [
                 widget.Sep(
                     linewidth=0, padding=6, foreground=COLORS[0], background=COLORS[0]
                 ),
+                widget.WidgetBox(widgets=[
                 widget.TextBox(
                     text="",
                     font="Ubuntu Mono",
@@ -443,7 +444,7 @@ screens = [
                     },
                     fmt="Mem: {}",
                     padding=5,
-                ),
+                )]),
                 widget.TextBox(
                     text="",
                     font="Ubuntu Mono",
