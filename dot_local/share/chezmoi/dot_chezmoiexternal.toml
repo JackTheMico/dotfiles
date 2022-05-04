@@ -22,5 +22,5 @@
     refreshPeriod = "168h"
 [".rofi-translate"] 
     type = "git-repo"
-    url = "https://github.com/garyparrot/rofi-translate"
+    url = "https://github.com/JackTheMico/rofi-translate"
     refreshPeriod = "168h"
