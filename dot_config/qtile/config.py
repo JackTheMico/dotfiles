@@ -136,7 +136,7 @@ rofi_keychord = [
         ]
 
 HOSTNAME = socket.gethostname()
-if HOSTNAME == "jack-manjaro":
+if HOSTNAME == "jack-manajro":
     NET = "wlp1s0" 
     rofi_keychord.append(Key(
                              [],
