@@ -209,7 +209,7 @@ keys = [
         lazy.run_extension(
             CommandSet(
                 commands={
-                    "clip": "maim -s | xclip -selection clipboard",
+                    "clip": 'maim -s | xclip -selection clipboard',
                     "full": "maim /home/dlwxxxdlw/Screenshots/{}.png".format(time.strftime("%Y-%m-%d_%H:%M", time.localtime())),
                 }
             )
