@@ -1,5 +1,5 @@
 #!/bin/bash
 
-code --install-extension jacobdufault.fuzzy-search
-code --install-extension vscodevim.vim
-code --install-extension WakaTime.vscode-wakatime
+wget "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/install.sh" -O font_install.sh
+chmod +x ./font_install.sh
+sh ./font_install.sh
