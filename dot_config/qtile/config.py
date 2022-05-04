@@ -183,6 +183,26 @@ keys = [
         ),
     ),
     Key(
+        [MOD, "control"],
+        "o",
+        lazy.run_extension(
+            CommandSet(
+                commands={
+                    "shutdown": 'ps aux|grep "picom"|grep -v grep|awk "{print $2}"|xargs kill -9',
+                    "90": "picom -bc --active-opacity 0.9",
+                    "85": "picom -bc --active-opacity 0.85",
+                    "80": "picom -bc --active-opacity 0.8",
+                    "75": "picom -bc --active-opacity 0.75",
+                    "70": "picom -bc --active-opacity 0.7",
+                    "65": "picom -bc --active-opacity 0.65",
+                    "60": "picom -bc --active-opacity 0.6",
+                    "55": "picom -bc --active-opacity 0.55",
+                    "50": "picom -bc --active-opacity 0.5",
+                }
+            )
+        ),
+    ),
+    Key(
         [MOD, "shift"],
         "n",
         lazy.layout.section_down(),
