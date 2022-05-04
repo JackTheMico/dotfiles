@@ -42,6 +42,7 @@ from libqtile.config import (
     DropDown,
 )
 from libqtile.lazy import lazy
+from libqtile.extension.command_set import CommandSet
 from libqtile.utils import guess_terminal
 
 
@@ -157,7 +158,7 @@ keys = [
     ),
     Key([MOD], "l", lazy.layout.right(), desc="Move focus to right"),
     Key(
-        [mod, "control"],
+        [MOD, "control"],
         "m",
         lazy.run_extension(
             CommandSet(
