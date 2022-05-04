@@ -203,13 +203,13 @@ keys = [
         ),
     ),
     Key(
-        [MOD],
-        "i",
+        [MOD1],
+        "s",
         lazy.run_extension(
             CommandSet(
                 commands={
-                    "clip": "maim -s | xclip -selection clipboard -t image/png",
-                    "pick": "maim -st 0 | convert - -resize 1x1\\! -format '%[pixel:p{0,0}]' info:-",
+                    "clip": "maim -s | xclip -selection clipboard -t image\/png",
+                    "pick": "maim -st 0 | convert - -resize 1x1\\! -format '%[pixel:p{{0,0}}]' info:-",
                 }
             )
         ),
