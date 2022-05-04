@@ -188,6 +188,7 @@ keys = [
         "o",
         lazy.run_extension(
             CommandSet(
+                pre_commands=['killall picom'], 
                 commands={
                     "shutdown": "killall picom",
                     "90": "picom -bc --active-opacity 0.9",
