@@ -432,8 +432,8 @@ screens = [
                 widget.Pomodoro(
                     font="Hack Nerd Bold",
                     fontsize=12,
-                    foreground=COLORS[0],
-                    background=COLORS[6],
+                    foreground=COLORS[3],
+                    background=COLORS[3],
                     prefix_inactive="⛇",
                     prefix_active="🔥",
                     prefix_break="𝄩",
@@ -445,8 +445,8 @@ screens = [
                 ),
                 widget.Volume(
                     font="Hack Nerd Bold",
-                    background=COLORS[4],
                     foreground=COLORS[1],
+                    background=COLORS[3],
                     fontsize=14,
                 ),
                 widget.WidgetBox(
@@ -456,7 +456,7 @@ screens = [
                     fontsize=37,
                     padding=2,
                     text_closed="",
-                    text_open="⯈",
+                    text_open="⯮",
                     widgets=[
                         # widget.TextBox(
                         #     text="",
