@@ -451,10 +451,10 @@ screens = [
                 ),
                 widget.WidgetBox(
                     font="Hack Nerd Bold",
-                    background=COLORS[1],
-                    foreground=COLORS[3],
-                    fontsize=18,
-                    padding=0,
+                    foreground=COLORS[4],
+                    background=COLORS[7],
+                    fontsize=20,
+                    padding=2,
                     text_closed="◁",
                     text_open="▷",
                     widgets=[
