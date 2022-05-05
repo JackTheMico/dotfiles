@@ -442,8 +442,8 @@ screens = [
                 widget.Volume(
                     font="Hack Nerd Bold",
                     background=COLORS[1],
-                    foreground=COLORS[3],
-                    fontsize=20,
+                    foreground=COLORS[4],
+                    fontsize=14,
                 ),
                 widget.WidgetBox(
                     font="Hack Nerd Bold",
