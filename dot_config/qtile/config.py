@@ -453,7 +453,6 @@ screens = [
                     font="Hack Nerd Bold",
                     foreground=COLORS[1],
                     background=COLORS[3],
-                    fontsize=14,
                     padding=2,
                     text_closed="",
                     text_open="›",
