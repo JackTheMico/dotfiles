@@ -467,7 +467,7 @@ screens = [
                             format="Net: {down} ↓↑ {up}",
                             foreground=COLORS[1],
                             background=COLORS[3],
-                            padding=5,
+                            padding=0,
                         ),
                         widget.TextBox(
                             text="",
