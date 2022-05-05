@@ -454,8 +454,9 @@ screens = [
                     foreground=COLORS[1],
                     background=COLORS[3],
                     padding=2,
-                    text_closed="",
-                    text_open="›",
+                    fontsize="18",
+                    text_closed="⯬",
+                    text_open="⯮",
                     widgets=[
                         widget.Net(
                             interface=NET,
