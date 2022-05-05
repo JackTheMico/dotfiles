@@ -441,17 +441,18 @@ screens = [
                 ),
                 widget.Volume(
                     font="Hack Nerd Bold",
-                    background=COLORS[1],
-                    foreground=COLORS[4],
+                    background=COLORS[4],
+                    foreground=COLORS[1],
                     fontsize=14,
+                    padding=5, 
                 ),
                 widget.WidgetBox(
                     font="Hack Nerd Bold",
                     background=COLORS[1],
                     foreground=COLORS[3],
-                    fontsize=25,
+                    fontsize=37,
                     padding=0,
-                    text_closed="",
+                    text_closed="ᐸ",
                     text_open="▶",
                     widgets=[
                         widget.TextBox(
