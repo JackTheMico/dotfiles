@@ -456,16 +456,8 @@ screens = [
                     fontsize=37,
                     padding=2,
                     text_closed="",
-                    text_open="⯮",
+                    text_open="›",
                     widgets=[
-                        # widget.TextBox(
-                        #     text="",
-                        #     font="Hack Nerd Bold",
-                        #     background=COLORS[0],
-                        #     foreground=COLORS[3],
-                        #     padding=0,
-                        #     fontsize=37,
-                        # ),
                         widget.Net(
                             interface=NET,
                             format="Net: {down} ↓↑ {up}",
@@ -532,14 +524,6 @@ screens = [
                         ),
                     ],
                 ),
-                widget.TextBox(
-                    text="",
-                    font="Hack Nerd Bold",
-                    background=COLORS[7],
-                    foreground=COLORS[1],
-                    padding=0,
-                    fontsize=37,
-                ),
                 widget.Wallpaper(
                     directory="/home/dlwxxxdlw/Pictures/wallpapers",
                     random_selection=True,
@@ -548,14 +532,6 @@ screens = [
                     foreground=COLORS[1],
                     background=COLORS[7],
                     label="😻",
-                ),
-                widget.TextBox(
-                    text="",
-                    font="Hack Nerd Bold",
-                    foreground=COLORS[9],
-                    background=COLORS[1],
-                    padding=0,
-                    fontsize=37,
                 ),
                 widget.Clock(
                     foreground=COLORS[1],
