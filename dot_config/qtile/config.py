@@ -70,7 +70,8 @@ MY_GROUPS = {
 DEFAULT_SPAWNS = {
     "1T": "alacritty",
     "2W": "qutebrowser",
-    "6C": ["discord-canary", "slack"],
+    "6C": ["discord-canary"],
+    "7H": "bash -c 'alacritty -e htop'",
     "+": "/opt/clash-for-windows-chinese/cfw",
 }
 COLORS = [
