@@ -440,13 +440,13 @@ screens = [
                     linewidth=0, padding=6, foreground=COLORS[0], background=COLORS[0]
                 ),
                 widget.Volume(
-                    font="Ubuntu Mono",
+                    font="Hack Nerd Bold",
                     background=COLORS[1],
                     foreground=COLORS[3],
                     fontsize=20,
                 ),
                 widget.WidgetBox(
-                    font="Ubuntu Mono",
+                    font="Hack Nerd Bold",
                     background=COLORS[1],
                     foreground=COLORS[3],
                     fontsize=25,
@@ -456,7 +456,7 @@ screens = [
                     widgets=[
                         widget.TextBox(
                             text="",
-                            font="Ubuntu Mono",
+                            font="Hack Nerd Bold",
                             background=COLORS[0],
                             foreground=COLORS[3],
                             padding=0,
@@ -467,11 +467,11 @@ screens = [
                             format="Net: {down} ↓↑ {up}",
                             foreground=COLORS[1],
                             background=COLORS[3],
-                            padding=0,
+                            padding=5,
                         ),
                         widget.TextBox(
                             text="",
-                            font="Ubuntu Mono",
+                            font="Hack Nerd Bold",
                             background=COLORS[3],
                             foreground=COLORS[4],
                             padding=0,
@@ -486,7 +486,7 @@ screens = [
                         ),
                         widget.TextBox(
                             text="",
-                            font="Ubuntu Mono",
+                            font="Hack Nerd Bold",
                             background=COLORS[4],
                             foreground=COLORS[5],
                             padding=0,
@@ -509,7 +509,7 @@ screens = [
                         ),
                         widget.TextBox(
                             text="",
-                            font="Ubuntu Mono",
+                            font="Hack Nerd Bold",
                             background=COLORS[5],
                             foreground=COLORS[6],
                             padding=0,
@@ -530,7 +530,7 @@ screens = [
                 ),
                 widget.TextBox(
                     text="",
-                    font="Ubuntu Mono",
+                    font="Hack Nerd Bold",
                     background=COLORS[7],
                     foreground=COLORS[8],
                     padding=0,
@@ -547,7 +547,7 @@ screens = [
                 ),
                 widget.TextBox(
                     text="",
-                    font="Ubuntu Mono",
+                    font="Hack Nerd Bold",
                     background=COLORS[8],
                     foreground=COLORS[9],
                     padding=0,
