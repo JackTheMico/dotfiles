@@ -441,7 +441,7 @@ screens = [
                     prefix_paused="頓"
                 ),
                 widget.Sep(
-                    linewidth=0, padding=6, foreground=COLORS[0], background=COLORS[0]
+                    linewidth=0, padding=6, foreground=COLORS[3], background=COLORS[3]
                 ),
                 widget.Volume(
                     font="Hack Nerd Bold",
@@ -453,7 +453,7 @@ screens = [
                     font="Hack Nerd Bold",
                     background=COLORS[1],
                     foreground=COLORS[3],
-                    fontsize=25,
+                    fontsize=18,
                     padding=0,
                     text_closed="◁",
                     text_open="▷",
@@ -536,7 +536,7 @@ screens = [
                     text="",
                     font="Hack Nerd Bold",
                     background=COLORS[7],
-                    foreground=COLORS[8],
+                    foreground=COLORS[1],
                     padding=0,
                     fontsize=37,
                 ),
@@ -546,14 +546,14 @@ screens = [
                     wallpaper_command=["feh", "--bg-max"],
                     padding=5,
                     foreground=COLORS[1],
-                    background=COLORS[8],
+                    background=COLORS[7],
                     label="😻",
                 ),
                 widget.TextBox(
                     text="",
                     font="Hack Nerd Bold",
-                    background=COLORS[8],
                     foreground=COLORS[9],
+                    background=COLORS[1],
                     padding=0,
                     fontsize=37,
                 ),
@@ -565,9 +565,9 @@ screens = [
                 ),
                 widget.QuickExit(
                     default_text="🏃",
-                    background=COLORS[1],
-                    foreground=COLORS[9],
-                    padding=0,
+                    foreground=COLORS[1],
+                    background=COLORS[9],
+                    padding=2,
                 ),
             ],
             20,
