@@ -432,9 +432,13 @@ screens = [
                 widget.Pomodoro(
                     font="Hack Nerd Bold",
                     fontsize=12,
-                    padding=5,
-                    foreground=COLORS[1],
-                    background=COLORS[9],
+                    foreground=COLORS[0],
+                    background=COLORS[3],
+                    prefix_inactive="⛇",
+                    prefix_active="🔥",
+                    prefix_break="𝄩",
+                    prefix_long_break="㊡",
+                    prefix_paused="頓"
                 ),
                 widget.Sep(
                     linewidth=0, padding=6, foreground=COLORS[0], background=COLORS[0]
@@ -444,16 +448,15 @@ screens = [
                     background=COLORS[4],
                     foreground=COLORS[1],
                     fontsize=14,
-                    padding=5, 
                 ),
                 widget.WidgetBox(
                     font="Hack Nerd Bold",
                     background=COLORS[1],
                     foreground=COLORS[3],
-                    fontsize=37,
+                    fontsize=25,
                     padding=0,
-                    text_closed="ᐸ",
-                    text_open="▶",
+                    text_closed="◁",
+                    text_open="▷",
                     widgets=[
                         widget.TextBox(
                             text="",
