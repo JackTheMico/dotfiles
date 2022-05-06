@@ -75,16 +75,16 @@ DEFAULT_SPAWNS = {
     "+": "/opt/clash-for-windows-chinese/cfw",
 }
 COLORS = [
-    ["#282c34", "#282c34"],
-    ["#1c1f24", "#1c1f24"],
-    ["#dfdfdf", "#dfdfdf"],
-    ["#ff6c6b", "#ff6c6b"],
-    ["#98be65", "#98be65"],
-    ["#da8548", "#da8548"],
-    ["#51afef", "#51afef"],
-    ["#c678dd", "#c678dd"],
-    ["#46d9ff", "#46d9ff"],
-    ["#a9a1e1", "#a9a1e1"],
+    ["282c34", "282c34"],
+    ["1c1f24", "1c1f24"],
+    ["dfdfdf", "dfdfdf"],
+    ["ff6c6b", "ff6c6b"],
+    ["98be65", "98be65"],
+    ["da8548", "da8548"],
+    ["51afef", "51afef"],
+    ["c678dd", "c678dd"],
+    ["46d9ff", "46d9ff"],
+    ["a9a1e1", "a9a1e1"],
 ]
 
 
@@ -429,11 +429,11 @@ screens = [
                     format="{name}",
                 ),
                 widget.Notify(
-                    foreground_urgent=COLORS[3],
+                    # foreground_urgent=COLORS[3],
+                    # foreground_low=COLORS[7],
                     fontsize=14,
                     foreground=COLORS[1],
                     background=COLORS[6],
-                    foreground_low=COLORS[7],
                     audiofile="/home/dlwxxxdlw/Music/mixkit-bell.wav",
                 ),
                 widget.Systray(background=COLORS[0], padding=5),
