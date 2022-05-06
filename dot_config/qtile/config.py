@@ -430,8 +430,11 @@ screens = [
                 ),
                 widget.Notify(
                     foreground_urgent=COLORS[3],
+                    fontsize=14,
+                    foreground=COLORS[1],
+                    background=COLORS[6],
                     foreground_low=COLORS[7],
-                    audiofile="~/Music/mixkit-bell.wav",
+                    audiofile="/home/dlwxxxdlw/Music/mixkit-bell.wav",
                 ),
                 widget.Systray(background=COLORS[0], padding=5),
                 widget.Pomodoro(
