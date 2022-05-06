@@ -123,7 +123,7 @@ rofi_keychord = [
         lazy.spawn("rofi -show window"),
         desc="Switch windows with rofi",
     ),
-    Key([], "s", lazy.spawn("bash -c rofi-systemd"), desc="systemd"),
+    Key([], "s", lazy.spawn("alacritty -e 'rofi-systemd'"), desc="systemd"),
     Key([], "comma", lazy.spawn("rofi -show ssh"), desc="SSH with rofi"),
     Key([], "d", lazy.spawn("rofi -show drun"), desc="drun with rofi"),
     Key([], "b", lazy.spawn("rofi-bluetooth"), desc="bluetooth"),
