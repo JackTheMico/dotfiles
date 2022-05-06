@@ -144,7 +144,7 @@ rofi_keychord = [
     Key([], "d", lazy.spawn("rofi -show drun"), desc="drun with rofi"),
     Key([], "b", lazy.spawn("rofi-bluetooth"), desc="bluetooth"),
     Key([], "f", lazy.spawn("rofi-wifi-menu"), desc="wifi"),
-    Key([], "t", lazy.spawn("teiler"), desc="teiler screenshot and screencast"),
+    Key([], "r", lazy.spawn("teiler"), desc="teiler screenshot and screencast"),
     Key(
         [],
         "e",
