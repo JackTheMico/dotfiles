@@ -428,14 +428,6 @@ screens = [
                     fontsize=14,
                     format="{name}",
                 ),
-                widget.Notify(
-                    # foreground_urgent=COLORS[3],
-                    # foreground_low=COLORS[7],
-                    fontsize=14,
-                    foreground=COLORS[1],
-                    background=COLORS[6],
-                    audiofile="/home/dlwxxxdlw/Music/mixkit-bell.wav",
-                ),
                 widget.Systray(background=COLORS[0], padding=5),
                 widget.Pomodoro(
                     font="Hack Nerd Bold",
