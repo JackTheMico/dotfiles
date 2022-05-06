@@ -123,10 +123,12 @@ rofi_keychord = [
         lazy.spawn("rofi -show window"),
         desc="Switch windows with rofi",
     ),
-    Key([], "s", lazy.spawn("rofi -show ssh"), desc="SSH with rofi"),
+    Key([], "s", lazy.spawn("rofi-systemd"), desc="systemd"),
+    Key([], "comma", lazy.spawn("rofi -show ssh"), desc="SSH with rofi"),
     Key([], "d", lazy.spawn("rofi -show drun"), desc="drun with rofi"),
     Key([], "b", lazy.spawn("rofi-bluetooth"), desc="bluetooth"),
     Key([], "f", lazy.spawn("rofi-wifi-menu"), desc="wifi"),
+    Key([], "t", lazy.spawn("teiler"), desc="teiler screenshot and screencast"),
     Key(
         [],
         "e",
@@ -177,14 +179,14 @@ keys = [
                     "next": "cmus-remote -n",
                     "repeat": "cmus-remote -R",
                     "shuffle": "cmus-remote -S",
-                    "5up": "cmus-remote -v +5%",
-                    "5down": "cmus-remote -v -5%",
-                    "10down": "cmus-remote -v -10%",
-                    "10up": "cmus-remote -v +10%",
-                    "15up": "cmus-remote -v +15%",
-                    "15down": "cmus-remote -v -15%",
-                    "20down": "cmus-remote -v -20%",
-                    "20up": "cmus-remote -v +20%",
+                    "+5": "cmus-remote -v +5%",
+                    "-5": "cmus-remote -v -5%",
+                    "-10": "cmus-remote -v -10%",
+                    "+10": "cmus-remote -v +10%",
+                    "+15": "cmus-remote -v +15%",
+                    "-15": "cmus-remote -v -15%",
+                    "-20": "cmus-remote -v -20%",
+                    "+20": "cmus-remote -v +20%",
                 }
             )
         ),
@@ -197,6 +199,7 @@ keys = [
                 pre_commands=['killall picom'], 
                 commands={
                     "shutdown": "killall picom",
+                    "95": "picom -bc --active-opacity 0.95",
                     "90": "picom -bc --active-opacity 0.9",
                     "85": "picom -bc --active-opacity 0.85",
                     "80": "picom -bc --active-opacity 0.8",
@@ -218,6 +221,7 @@ keys = [
                 commands={
                     "clip": "bash -c 'maim -s | xclip -selection clipboard -t image/png'",
                     "full": "maim /home/dlwxxxdlw/Screenshots/{}.png".format(time.strftime("%Y-%m-%d_%H:%M", time.localtime())),
+                    "imgur": "bash -c 'maim -s /tmp/screentemp_{0}.png; imgurbash2 -l /tmp/screentemp_{0}.png'".format(time.strftime("%H_%M_%S", time.localtime())),
                 }
             )
         ),
