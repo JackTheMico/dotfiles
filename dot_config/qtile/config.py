@@ -111,11 +111,17 @@ def spawn_group(name: str, layout: str):
 
 
 rofi_keychord = [
-    KeyChord([], "t", [
-                 Key([], "b", lazy.spawn("rofi_trans brief"), desc="rofi translate brief"),
-                 Key([], "v", lazy.spawn("rofi_trans verbose"), desc="rofi translate verbose"),
-                 Key([], "d", lazy.spawn("rofi_trans delete"), desc="rofi translate delete"),
-             ]),
+    KeyChord(
+        [],
+        "t",
+        [
+            Key([], "b", lazy.spawn("rofi_trans brief"), desc="rofi translate brief"),
+            Key(
+                [], "v", lazy.spawn("rofi_trans verbose"), desc="rofi translate verbose"
+            ),
+            Key([], "d", lazy.spawn("rofi_trans delete"), desc="rofi translate delete"),
+        ],
+    ),
     Key([], "r", lazy.spawn("rofi -show run"), desc="Use rofi to run sth"),
     Key(
         [],
@@ -123,7 +129,17 @@ rofi_keychord = [
         lazy.spawn("rofi -show window"),
         desc="Switch windows with rofi",
     ),
-    Key([], "s", lazy.spawn("alacritty -e 'rofi-systemd'"), desc="systemd"),
+    Key(
+        [],
+        "s",
+        lazy.spawn("alacritty -e 'rofi-systemd'"),
+        desc="""Use rofi control systemd
+                enable='Alt+e'
+                disable='Alt+d'
+                stop='Alt+k'
+                restart='Alt+r'
+                tail='Alt+t'""",
+    ),
     Key([], "comma", lazy.spawn("rofi -show ssh"), desc="SSH with rofi"),
     Key([], "d", lazy.spawn("rofi -show drun"), desc="drun with rofi"),
     Key([], "b", lazy.spawn("rofi-bluetooth"), desc="bluetooth"),
@@ -196,7 +212,7 @@ keys = [
         "o",
         lazy.run_extension(
             CommandSet(
-                pre_commands=['killall picom'], 
+                pre_commands=["killall picom"],
                 commands={
                     "shutdown": "killall picom",
                     "95": "picom -bc --active-opacity 0.95",
@@ -209,7 +225,7 @@ keys = [
                     "60": "picom -bc --active-opacity 0.6",
                     "55": "picom -bc --active-opacity 0.55",
                     "50": "picom -bc --active-opacity 0.5",
-                }
+                },
             )
         ),
     ),
@@ -220,8 +236,12 @@ keys = [
             CommandSet(
                 commands={
                     "clip": "bash -c 'maim -s | xclip -selection clipboard -t image/png'",
-                    "full": "maim /home/dlwxxxdlw/Screenshots/{}.png".format(time.strftime("%Y-%m-%d_%H:%M", time.localtime())),
-                    "imgur": "bash -c 'maim -s /tmp/screentemp_{0}.png; imgurbash2 -l /tmp/screentemp_{0}.png'".format(time.strftime("%H_%M_%S", time.localtime())),
+                    "full": "maim /home/dlwxxxdlw/Screenshots/{}.png".format(
+                        time.strftime("%Y-%m-%d_%H:%M", time.localtime())
+                    ),
+                    "imgur": "bash -c 'maim -s /tmp/screentemp_{0}.png; imgurbash2 -l /tmp/screentemp_{0}.png'".format(
+                        time.strftime("%H_%M_%S", time.localtime())
+                    ),
                 }
             )
         ),
@@ -442,7 +462,7 @@ screens = [
                     prefix_active="🔥",
                     prefix_break="𝄩",
                     prefix_long_break="㊡",
-                    prefix_paused="頓"
+                    prefix_paused="頓",
                 ),
                 widget.Sep(
                     linewidth=0, padding=6, foreground=COLORS[3], background=COLORS[3]
