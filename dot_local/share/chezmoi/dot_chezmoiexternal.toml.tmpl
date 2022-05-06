@@ -16,6 +16,8 @@
     refreshPeriod = "168h"
     [".oh-my-zsh/custom/themes/powerlevel10k".clone]
       args = ["--depth=1"]
+{{ if env "CODESPACES" }}
+{{ else }}
 [".tmux"]      
     type = "git-repo"
     url = "https://github.com/gpakosz/.tmux.git"
@@ -24,3 +26,8 @@
     type = "git-repo"
     url = "https://github.com/JackTheMico/rofi-translate"
     refreshPeriod = "168h"
+[".rofi-systemd"] 
+    type = "git-repo"
+    url = "https://github.com/IvanMalison/rofi-systemd.git"
+    refreshPeriod = "168h"
+{{ end }}
