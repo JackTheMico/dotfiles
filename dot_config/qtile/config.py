@@ -430,7 +430,7 @@ screens = [
                 ),
                 widget.Notify(
                     foreground_urgent=COLORS[3],
-                    foreground_low=COLORS[1],
+                    foreground_low=COLORS[9],
                     audiofile="~/Music/mixkit-bell.wav",
                 ),
                 widget.Systray(background=COLORS[0], padding=5),
