@@ -1,0 +1,5 @@
+# Set to true to copy URLs of uploaded images to your clipboard
+COPY_URL_TO_CLIP=true
+
+# Enable/Disable information being logged within a log file
+DISABLE_LOGGING=true
