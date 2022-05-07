@@ -16,7 +16,7 @@ export EDITOR=vim
 export VISUAL=vim
 export XDG_CONFIG_HOME=$HOME/.config
 export LPASS_AGENT_TIMEOUT=43200
-export TERM=xterm-256color
+export TERM=tmux-256color
 
 # Path to your oh-my-zsh installation.
 ZSH=~/.oh-my-zsh
