@@ -70,9 +70,9 @@ MY_GROUPS = {
 DEFAULT_SPAWNS = {
     "乾": "alacritty",
     "坤": ["qutebrowser", "firefox"],
+    "震": "bash -c 'alacritty -e lvim'",
     "离": ["discord-canary"],
     "艮": "bash -c 'alacritty -e htop'",
-    "兑": "zsh -c 'neovide --multigrid -- -u \"$LUNARVIM_RUNTIME_DIR/lvim/init.lua\" \"$@\"'",
     "阳": "/opt/clash-for-windows-chinese/cfw",
 }
 COLORS = [
