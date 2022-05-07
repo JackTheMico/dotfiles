@@ -123,7 +123,7 @@ rofi_keychord = [
             Key([], "d", lazy.spawn("rofi_trans delete"), desc="rofi translate delete"),
         ],
     ),
-    Key([], "Enter", lazy.spawn("rofi -show run"), desc="Use rofi to run sth"),
+    Key([], "r", lazy.spawn("rofi -show run"), desc="Use rofi to run sth"),
     Key(
         [],
         "w",
@@ -145,7 +145,7 @@ rofi_keychord = [
     Key([], "d", lazy.spawn("rofi -show drun"), desc="drun with rofi"),
     Key([], "b", lazy.spawn("rofi-bluetooth"), desc="bluetooth"),
     Key([], "f", lazy.spawn("rofi-wifi-menu"), desc="wifi"),
-    Key([], "r", lazy.spawn("teiler"), desc="teiler screenshot and screencast"),
+    Key([], "i", lazy.spawn("teiler"), desc="teiler screenshot and screencast"),
     Key(
         [],
         "e",
