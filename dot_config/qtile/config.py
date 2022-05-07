@@ -68,12 +68,12 @@ MY_GROUPS = {
     "天": "monadtall",
 }
 DEFAULT_SPAWNS = {
-    "": "alacritty",
-    "2W": ["qutebrowser", "firefox"],
-    "6C": ["discord-canary"],
-    "7H": "bash -c 'alacritty -e htop'",
-    "9D": "bash -c 'nlvim'",
-    "+": "/opt/clash-for-windows-chinese/cfw",
+    "乾": "alacritty",
+    "坤": ["qutebrowser", "firefox"],
+    "离": ["discord-canary"],
+    "艮": "bash -c 'alacritty -e htop'",
+    "对": "bash -c 'nlvim'",
+    "阳": "/opt/clash-for-windows-chinese/cfw",
 }
 COLORS = [
     ["282c34", "282c34"],
