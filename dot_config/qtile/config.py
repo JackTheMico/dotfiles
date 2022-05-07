@@ -68,7 +68,7 @@ MY_GROUPS = {
     "天": "monadtall",
 }
 DEFAULT_SPAWNS = {
-    "1T": "alacritty",
+    "": "alacritty",
     "2W": ["qutebrowser", "firefox"],
     "6C": ["discord-canary"],
     "7H": "bash -c 'alacritty -e htop'",
