@@ -378,7 +378,7 @@ layouts = [
     # layout.Zoomy(),
 ]
 
-widget_defaults = dict(font="Ubuntu Bold", fontsize=12, padding=2, background=COLORS[2])
+widget_defaults = dict(font="Hack Nerd Bold", fontsize=14, padding=2, background=COLORS[2])
 extension_defaults = widget_defaults.copy()
 
 screens = [
@@ -398,7 +398,7 @@ screens = [
                 ),
                 widget.GroupBox(
                     font="Hack Nerd Bold",
-                    fontsize=12,
+                    fontsize=16,
                     margin_y=3,
                     margin_x=0,
                     padding_y=5,
