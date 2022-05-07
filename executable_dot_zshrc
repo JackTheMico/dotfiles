@@ -144,6 +144,7 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/mail.zsh
 
 eval "$(pyenv init -)"
 export ATUIN_NOBIND="true"
