@@ -57,15 +57,15 @@ MOD1 = "mod1"
 MOD = "mod4"
 TERMINAL = guess_terminal()
 MY_GROUPS = {
-    "1T": "max",
-    "2W": "treetab",
-    "3S": "max",
-    "4S": "max",
-    "5O": "max",
-    "6C": "treetab",
-    "7H": "max",
-    "8M": "max",
-    "9D": "monadtall",
+    "乾": "max",
+    "坤": "treetab",
+    "震": "max",
+    "巽": "max",
+    "坎": "max",
+    "离": "treetab",
+    "艮": "max",
+    "兑": "max",
+    "天": "monadtall",
 }
 DEFAULT_SPAWNS = {
     "1T": "alacritty",
@@ -304,7 +304,6 @@ keys = [
 
 
 def init_groups():
-    group_names = [_ for _ in "乾坤震巽坎离艮兑阴阳"]
 
     def _inner(key, name, layout):
         keys.append(Key([MOD], key, lazy.group[name].toscreen()))
@@ -316,13 +315,13 @@ def init_groups():
 
     # groups = [("dead_grave", "00")]
     groups = [
-        (index, i[0], i[-1]) for index, i in zip(group_names, MY_GROUPS.items())
+        (str(index), i[0], i[-1]) for index, i in zip(range(1, 10), MY_GROUPS.items())
     ]
     # groups += [("0", "10"), ("minus", "11"), ("equal", "12")]
     groups += [
-        # ("0", "0D", "monadtall"),
-        ("minus", "地", "floating"),
-        ("equal", "天", "ratiotile"),
+        ("0", "地", "monadtall"),
+        ("minus", "阴", "floating"),
+        ("equal", "阳", "ratiotile"),
     ]
     res_groups = [_inner(*i) for i in groups]
     res_groups += [
