@@ -123,7 +123,7 @@ rofi_keychord = [
             Key([], "d", lazy.spawn("rofi_trans delete"), desc="rofi translate delete"),
         ],
     ),
-    Key([], "enter", lazy.spawn("rofi -show run"), desc="Use rofi to run sth"),
+    Key([], "Enter", lazy.spawn("rofi -show run"), desc="Use rofi to run sth"),
     Key(
         [],
         "w",
