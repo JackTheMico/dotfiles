@@ -72,7 +72,7 @@ DEFAULT_SPAWNS = {
     "坤": ["qutebrowser", "firefox"],
     "离": ["discord-canary"],
     "艮": "bash -c 'alacritty -e htop'",
-    "兑": "bash -c 'nlvim'",
+    "兑": "zsh -c 'neovide --multigrid -- -u \"$LUNARVIM_RUNTIME_DIR/lvim/init.lua\" \"$@\"'",
     "阳": "/opt/clash-for-windows-chinese/cfw",
 }
 COLORS = [
