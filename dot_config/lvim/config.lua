@@ -11,7 +11,7 @@ an executable
 -- vim
 vim.opt.expandtab = true
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-vim.opt.guifont = "hacknerdfont:h14" -- the font used in graphical neovim applications
+vim.opt.guifont = "hack:h15" -- the font used in graphical neovim applications
 vim.opt.termguicolors = true -- set term gui colors (most terminals support this)
 vim.opt.tabstop = 4
 vim.opt.mouse = "a"
