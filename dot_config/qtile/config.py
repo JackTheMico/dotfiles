@@ -304,6 +304,8 @@ keys = [
 
 
 def init_groups():
+    group_names = [_ for _ in "乾坤震巽坎离艮兑阴阳"]
+
     def _inner(key, name, layout):
         keys.append(Key([MOD], key, lazy.group[name].toscreen()))
         keys.append(Key([MOD, "shift"], key, lazy.window.togroup(name)))
@@ -314,13 +316,13 @@ def init_groups():
 
     # groups = [("dead_grave", "00")]
     groups = [
-        (str(index), i[0], i[-1]) for index, i in zip(range(1, 10), MY_GROUPS.items())
+        (index, i[0], i[-1]) for index, i in zip(group_names, MY_GROUPS.items())
     ]
     # groups += [("0", "10"), ("minus", "11"), ("equal", "12")]
     groups += [
-        ("0", "0D", "monadtall"),
-        ("minus", "-", "floating"),
-        ("equal", "+", "ratiotile"),
+        # ("0", "0D", "monadtall"),
+        ("minus", "地", "floating"),
+        ("equal", "天", "ratiotile"),
     ]
     res_groups = [_inner(*i) for i in groups]
     res_groups += [
