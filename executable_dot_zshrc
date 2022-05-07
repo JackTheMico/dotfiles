@@ -147,7 +147,7 @@ fi
 source $ZSH/oh-my-zsh.sh
 source $HOME/mail.zsh
 
-eval "$(pyenv init -)"
+eval "$(pyenv init -path)"
 export ATUIN_NOBIND="true"
 eval "$(atuin init zsh)"
 bindkey '^y' _atuin_search_widget
