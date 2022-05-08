@@ -48,6 +48,11 @@ name = "Jack Deng"
 downloads-dir = "~/Downloads/himalaya/jack"
 email = "jack@localhost"
 
+smtp-host = "posteo.de"
+smtp-port = 465
+smtp-login = "paul.durant@posteo.com"
+smtp-passwd-cmd = "security find-internet-password -gs posteo -w"
+
 maildir-dir = "{{ .chezmoi.homeDir }}/Maildir"
 
 [jack-local.mailboxes]
