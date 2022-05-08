@@ -9,7 +9,6 @@ notify-cmd = "{{ .chezmoi.homeDir }}/himalaya-notify.sh"
 watch-cmds = ["himalaya -a firework --output json search UNSEEN | jq -r '.response|length' >> /tmp/himalaya-counter"]
 
 [firework]
-maildir-dir = "{{ .chezmoi.homeDir }}/firework_email/"
 inbox = "{{ .chezmoi.homeDir }}/firework_email/"
 sent = "{{ .chezmoi.homeDir }}/firework_email/sent"
 default = true
@@ -26,7 +25,7 @@ smtp-login = "{{ .gmailwork }}"
 smtp-passwd-cmd = "lpass show himalaya-jack --password"
 
 [firework.mailboxes]
-sent = "[Gmail]/Drafts"
+sent = "[Gmail]/Sent Mail"
 draft = "[Gmail]/Drafts"
 
 [jokerdfunny]
@@ -44,3 +43,13 @@ smtp-host = "smtp.gmail.com"
 smtp-port = 465
 smtp-login = "{{ .gmailpersonal }}"
 smtp-passwd-cmd = "lpass show himalaya-Joker --password"
+
+[jack-local]
+name = "Jack Deng"
+downloads-dir = "~/Downloads/himalaya/jack"
+email = "jack@localhost"
+
+maildir-dir = "{{ .chezmoi.homeDir }}/Maildir"
+
+[jack-local.mailboxes]
+sent = "Sent"
