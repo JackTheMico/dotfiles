@@ -397,7 +397,7 @@ screens = [
                     linewidth=0, padding=6, foreground=COLORS[2], background=COLORS[0]
                 ),
                 widget.GroupBox(
-                    font="Hack Nerd Bold",
+                    font="Hack Nerd",
                     fontsize=16,
                     margin_y=3,
                     margin_x=0,
