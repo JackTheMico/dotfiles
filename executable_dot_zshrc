@@ -15,7 +15,6 @@ export WORKON_HOME=$HOME/.pyenv/versions
 export EDITOR=vim
 export VISUAL=vim
 export XDG_CONFIG_HOME=$HOME/.config
-export LPASS_AGENT_TIMEOUT=0
 export TERM=tmux-256color
 export DISPLAY=:0
 
