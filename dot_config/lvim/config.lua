@@ -627,12 +627,14 @@ local function to_init_assign(args)
 end
 
 -- create the actual snippet
-s("pyinit", fmt(
-  [[def __init__(self{}):{}]],
-  {
-    d(1, py_init),
-    d(2, to_init_assign, {1})
-  }))
+ls.add_snippet("python", {
+  s("pyinit", fmt(
+    [[def __init__(self{}):{}]],
+    {
+      d(1, py_init),
+      d(2, to_init_assign, {1})
+    }))
+})
 
 -- dapui
 -- local dap, dapui = require("dap"), require("dapui")
