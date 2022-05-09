@@ -576,7 +576,6 @@ orgmode.setup({
 })
 
 --luasnip
-require("luasnip.loaders.from_vscode").lazy_load({ path = {"~/.config/lvim/snippets" } })
 local ls        = require("luasnip")
 local s         = ls.snippet
 local sn        = ls.snippet_node
@@ -635,8 +634,10 @@ ls.add_snippet("python", {
       d(2, to_init_assign, {1})
     }))
 }, {
-    key = "python"
+    key = "pyinit", type = "snippets"
   })
+
+require("luasnip.loaders.from_vscode").lazy_load({ path = {"~/.config/lvim/snippets" } })
 
 -- dapui
 -- local dap, dapui = require("dap"), require("dapui")
