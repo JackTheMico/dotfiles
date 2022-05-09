@@ -626,16 +626,13 @@ local function to_init_assign(args)
 end
 
 -- create the actual snippet
-ls.add_snippets("python", {
-  s("pyinit", fmt(
-    [[def __init__(self{}):{}]],
-    {
-      d(1, py_init),
-      d(2, to_init_assign, {1})
-    }))
-}, {
-    key = "python"
-  })
+s("pyinit", fmt(
+  [[def __init__(self{}):{}]],
+  {
+    d(1, py_init),
+    d(2, to_init_assign, {1})
+  }))
+
 
 require("luasnip.loaders.from_vscode").lazy_load({ path = {"~/.config/lvim/snippets" } })
 
