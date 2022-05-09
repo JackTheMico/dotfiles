@@ -8,5 +8,5 @@ systemctl --user start syncthing.service
 touch /tmp/himalaya-counter
 picom -bc --active-opacity 0.9
 nutstore &
-fcitx5 &
+# fcitx5 &
 bluetoothctl power on
