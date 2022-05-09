@@ -576,7 +576,7 @@ orgmode.setup({
 })
 
 --luasnip
-require("luasnip/loader/from_vscode").load {path=~/.config/lvim/snippets} }
+require("luasnip/loader/from_vscode").lazy_load({path={~/.config/lvim/snippets}})
 
 -- dapui
 -- local dap, dapui = require("dap"), require("dapui")
