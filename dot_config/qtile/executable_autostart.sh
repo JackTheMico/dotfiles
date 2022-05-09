@@ -7,6 +7,6 @@ systemctl --user start dunst.service
 systemctl --user start syncthing.service
 touch /tmp/himalaya-counter
 picom -bc --active-opacity 0.9
-nutstore &
+# nutstore &
 # fcitx5 &
 bluetoothctl power on
