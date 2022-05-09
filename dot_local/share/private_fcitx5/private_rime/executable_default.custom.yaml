@@ -1,0 +1,15 @@
+patch:
+  schema_list:
+    - schema: flypy
+    - schema: xhup
+    - schema: xhup_express
+    - schema: xhup_fluency
+  switcher:
+    caption: "切换输入法"
+    hotkeys:
+      - Control+grave
+    save_options:
+      - full_shape
+      - ascii_punct
+      - simplification
+      - extended_charset
