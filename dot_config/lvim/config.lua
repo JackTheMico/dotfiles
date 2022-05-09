@@ -533,6 +533,7 @@ lvim.plugins = {
       vim.g.rnvimr_bw_enable = 1
     end,
   },
+  { 'KabbAmine/zeavim.vim' },
 }
 
 -- org setup
