@@ -627,7 +627,7 @@ local function to_init_assign(args)
 end
 
 -- create the actual snippet
-ls.add_snippet("python", {
+ls.add_snippet("all", {
   s("pyinit", fmt(
     [[def __init__(self{}):{}]],
     {
