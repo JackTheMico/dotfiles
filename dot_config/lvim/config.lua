@@ -627,14 +627,16 @@ local function to_init_assign(args)
 end
 
 -- create the actual snippet
-ls.add_snippet("all", {
+ls.add_snippet("python", {
   s("pyinit", fmt(
     [[def __init__(self{}):{}]],
     {
       d(1, py_init),
       d(2, to_init_assign, {1})
     }))
-})
+}, {
+    key = "python"
+  })
 
 -- dapui
 -- local dap, dapui = require("dap"), require("dapui")
