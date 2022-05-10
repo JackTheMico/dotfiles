@@ -239,7 +239,7 @@ keys = [
                 commands={
                     "clip": "bash -c 'maim -s | xclip -selection clipboard -t image/png'",
                     "full": "maim /home/dlwxxxdlw/Screenshots/{}.png".format(
-                        time.strftime("%Y-%m-%d_%H:%M", time.localtime())
+                        time.strftime("%Y-%m-%d_%H:%M:%S", time.localtime())
                     ),
                     "imgur": "bash -c 'maim -s /tmp/screentemp_{0}.png; imgurbash2 -l /tmp/screentemp_{0}.png'".format(
                         time.strftime("%H_%M_%S", time.localtime())
