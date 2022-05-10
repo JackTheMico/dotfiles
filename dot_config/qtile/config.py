@@ -71,8 +71,9 @@ DEFAULT_SPAWNS = {
     "乾": "alacritty",
     "坤": ["qutebrowser", "firefox"],
     "震": "bash -c 'alacritty -e lvim'",
-    "离": ["discord-canary"],
-    "艮": "bash -c 'alacritty -e htop'",
+    "巽": "zeal %u",
+    "坎": "bash -c 'alacritty -e bpytop'",
+    "离": ["discord-canary", "bash -c 'alacritty -e weechat'"],
     "阳": "/opt/clash-for-windows-chinese/cfw",
 }
 COLORS = [
