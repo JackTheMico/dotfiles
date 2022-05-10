@@ -1,0 +1,16 @@
+{
+  "name": "Jack Deng's snippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "python"
+        ],
+        "path": "./python/newf.json"
+      }
+    ]
+  }
+}

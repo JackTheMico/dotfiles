@@ -1,0 +1,26 @@
+{
+  "newf": {
+    "prefix": "newf",
+    "body": [
+      "# -*- coding:utf-8 -*-",
+      "\"\"\"",
+      "-------------------------------------------------",
+      "\t",
+          "File Name:        $1",
+      "\t",
+          "Description:      $2",
+      "\t",
+          "Author:           jack@fireworkhq.com",
+      "\t",
+          "Date:             ${3:$(format-time-string \"%Y-%m-%d-%H:%M:%S\")}",
+      "\t",
+          "Version:          v1.0",
+      "\t",
+          "Lastmodified:     ${4:$3} by Jack Deng",
+      "\t",
+      "-------",
+      "\"\"\""
+    ],
+    "description": "A python new file header"
+  }
+}
