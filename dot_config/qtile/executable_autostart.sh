@@ -10,4 +10,4 @@ picom -bc --active-opacity 0.9
 # nutstore &
 # fcitx5 &
 bluetoothctl power on
-echo `pass show dlwxxxdlw` | lpass login dlwxxxdlw@163.com
+echo "`pass show dlwxxxdlw`" | lpass login dlwxxxdlw@163.com
