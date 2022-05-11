@@ -1,4 +1,4 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
 
 systemctl --user start greenclip.service
 systemctl --user start himalaya-watcher
@@ -10,3 +10,4 @@ picom -bc --active-opacity 0.9
 # nutstore &
 # fcitx5 &
 bluetoothctl power on
+echo `pass show dlwxxxdlw` | lpass login dlwxxxdlw@163.com
