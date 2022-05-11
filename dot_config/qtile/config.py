@@ -46,7 +46,6 @@ from libqtile.lazy import lazy
 from libqtile.extension.command_set import CommandSet
 from libqtile.utils import guess_terminal
 
-
 GREY = "#444444"
 DARK_GREY = "#333333"
 BLUE = "#007fcf"
@@ -79,7 +78,7 @@ DEFAULT_SPAWNS = {
 COLORS = [
     ["282c34", "282c34"],
     ["1c1f24", "1c1f24"],
-    ["dfdfdf", "dfdfdf"],
+    ["#dfdfdf", "#dfdfdf"],
     ["ff6c6b", "ff6c6b"],
     ["98be65", "98be65"],
     ["da8548", "da8548"],
@@ -89,14 +88,12 @@ COLORS = [
     ["a9a1e1", "a9a1e1"],
 ]
 
-
 def is_running(process):
     s = subprocess.Popen(["ps", "axuw"], stdout=subprocess.PIPE)
     for x in s.stdout:
         if re.search(process, x.decode()):
             return True
     return False
-
 
 def spawn_group(name: str, layout: str):
     if name in DEFAULT_SPAWNS.keys():
@@ -110,7 +107,6 @@ def spawn_group(name: str, layout: str):
                     prolist.append(cmd)
             return Group(name, spawn=prolist, layout=layout)
     return None
-
 
 rofi_keychord = [
     KeyChord(
@@ -303,7 +299,6 @@ keys = [
     Key([MOD, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 ]
 
-
 def init_groups():
 
     def _inner(key, name, layout):
@@ -334,7 +329,6 @@ def init_groups():
     keys.append(Key([MOD], "F12", lazy.group["scratchpad"].dropdown_toggle("zsh")))
     return res_groups
 
-
 groups = init_groups()
 
 LAYOUT_THEME = {
@@ -355,9 +349,9 @@ layouts = [
     layout.RatioTile(**LAYOUT_THEME),
     layout.Tile(**LAYOUT_THEME),
     layout.TreeTab(
-        font="Ubuntu",
+        font="Hack Nerd Bold",
         fontsize=12,
-        sections=["FIRST", "SECOND", "THIRD", "FOURTH"],
+        sections=["WORK", "PRIVATE", "FUNNY", "OTHER"],
         section_fontsize=12,
         border_width=2,
         bg_color="1c1f24",
@@ -616,17 +610,14 @@ auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
 
-
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
 auto_minimize = True
-
 
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser("~")
     subprocess.call([home + "/.config/qtile/autostart.sh"])
-
 
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
