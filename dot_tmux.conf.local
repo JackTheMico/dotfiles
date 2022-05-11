@@ -4,7 +4,6 @@
 #         without any warranty.
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
-
 # -- navigation ----------------------------------------------------------------
 
 # if you're running tmux within iTerm2
@@ -13,7 +12,6 @@
 #   - and iTerm2 is configured to send [1;9A -> [1;9D for option + arrow keys
 # then uncomment the following line to make Meta + arrow keys mapping work
 #set -ga terminal-overrides "*:kUP3=\e[1;9A,*:kDN3=\e[1;9B,*:kRIT3=\e[1;9C,*:kLFT3=\e[1;9D"
-
 
 # -- windows & pane creation ---------------------------------------------------
 
@@ -36,7 +34,6 @@ tmux_conf_new_pane_reconnect_ssh=false
 #   - true
 #   - false (default)
 tmux_conf_new_session_prompt=false
-
 
 # -- display -------------------------------------------------------------------
 
@@ -312,7 +309,6 @@ tmux_conf_battery_status_discharging="↓"    # U+2193
 tmux_conf_theme_clock_colour="$tmux_conf_theme_colour_4"
 tmux_conf_theme_clock_style="24"
 
-
 # -- clipboard -----------------------------------------------------------------
 
 # in copy mode, copying selection also copies to the OS clipboard
@@ -321,7 +317,6 @@ tmux_conf_theme_clock_style="24"
 # on macOS, this requires installing reattach-to-user-namespace, see README.md
 # on Linux, this requires xsel or xclip
 tmux_conf_copy_to_os_clipboard=true
-
 
 # -- user customizations -------------------------------------------------------
 # this is the place to override or undo settings
@@ -346,7 +341,6 @@ bind C-a send-prefix
 
 # move status line to top
 #set -g status-position top
-
 
 # -- tpm -----------------------------------------------------------------------
 
@@ -387,8 +381,8 @@ tmux_conf_uninstall_plugins_on_reload=true
 #set -g @plugin 'tmux-plugins/tmux-cpu'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @resurrect-processes 'cmus'
 set -g @continuum-restore 'on'
-
 
 # -- custom variables ----------------------------------------------------------
 
