@@ -100,7 +100,6 @@ plugins=(
   archlinux
 )
 
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -144,6 +143,7 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/mail.zsh
+source $HOME/.zprofile
 
 export ATUIN_NOBIND="true"
 eval "$(atuin init zsh)"
