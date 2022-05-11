@@ -130,7 +130,6 @@ lvim.builtin.which_key.mappings["O"] = {
   }
 }
 
-
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
@@ -173,7 +172,7 @@ lvim.lsp.automatic_servers_installation = true
 -- ---@usage Select which servers should be configured manually. Requires `:LvimCacheRest` to take effect.
 -- See the full default list `:lua print(vim.inspect(lvim.lsp.override))`
 -- TODO: custom pyright for virtualenv
--- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pylsp" })
 
 -- ---@usage setup a server -- see: https://www.lunarvim.org/languages/#overriding-the-default-configuration
 -- local opts = {
@@ -185,7 +184,7 @@ lvim.lsp.automatic_servers_installation = true
 --   }
 -- }
 -- } -- check the lspconfig documentation for a list of all possible options
--- require("lvim.lsp.manager").setup("pyright", opts)
+-- require("lvim.lsp.manager").setup("pylsp", opts)
 
 -- you can set a custom on_attach function that will be used for all the language servers
 -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
@@ -214,7 +213,7 @@ lvim.lsp.automatic_servers_installation = true
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { exe = "black", filetypes = { "python" } },
--- { exe = "isort", filetypes = { "python" } },
+  { exe = "isort", filetypes = { "python" } },
 -- {
 --   exe = "prettier",
 --   ---@usage arguments to pass to the formatter
@@ -226,25 +225,26 @@ formatters.setup {
 }
 
 -- -- set additional linters
--- local linters = require "lvim.lsp.null-ls.linters"
--- linters.setup {
--- { exe = "flake8", filetypes = { "python" } },
---   {
---     exe = "shellcheck",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     args = { "--severity", "warning" },
---   },
--- {
--- exe = "codespell",
----@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
--- filetypes = { "python" },
--- },
--- }
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+{ exe = "pylint", filetypes = { "python" } },
+  {
+    exe = "shellcheck",
+    ---@usage arguments to pass to the formatter
+    -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+    args = { "--severity", "warning" },
+  },
+  {
+    exe = "codespell",
+  ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+    filetypes = { "python" },
+  },
+}
 
 -- Additional Plugins
 lvim.plugins = {
   { "folke/tokyonight.nvim" },
+  { "cappyzawa/trim.nvim" },
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
@@ -574,6 +574,20 @@ orgmode.setup({
     j = { description = 'Journal', template = '\n*** %<%Y-%m-%d> %<%A>\n**** %U\n\n%?', target = '~/Nutstore Files/org/journal.org' },
     n = { description = 'Note', template = '* %?\n %U\n %F', target = '~/Nutstore Files/org/notes.org' },
   }
+})
+
+-- trim
+require('trim').setup({
+  -- if you want to ignore markdown file.
+  -- you can specify filetypes.
+  disable = {"markdown"},
+
+  -- if you want to ignore space of top
+  patterns = {
+    [[%s/\s\+$//e]],
+    [[%s/\($\n\s*\)\+\%$//]],
+    [[%s/\(\n\n\)\n\+/\1/]],
+  },
 })
 
 --luasnip
