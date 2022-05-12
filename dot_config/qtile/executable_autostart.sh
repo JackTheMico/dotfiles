@@ -11,4 +11,3 @@ picom -bc --active-opacity 0.9
 fcitx5 &
 bluetoothctl power on
 xmodmap ~/.Xmodmap
-echo "`pass show dlwxxxdlw`" | lpass login dlwxxxdlw@163.com
