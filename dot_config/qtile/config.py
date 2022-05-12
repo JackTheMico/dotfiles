@@ -26,24 +26,15 @@
 
 import os
 import re
-import time
 import socket
 import subprocess
-from libqtile import qtile
-from libqtile import bar, layout, widget, hook
-from libqtile.config import (
-    Click,
-    Drag,
-    Group,
-    Key,
-    KeyChord,
-    Match,
-    Screen,
-    ScratchPad,
-    DropDown,
-)
-from libqtile.lazy import lazy
+import time
+
+from libqtile import bar, hook, layout, qtile, widget
+from libqtile.config import (Click, Drag, DropDown, Group, Key, KeyChord,
+                             Match, ScratchPad, Screen)
 from libqtile.extension.command_set import CommandSet
+from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 GREY = "#444444"
@@ -234,12 +225,8 @@ keys = [
             CommandSet(
                 commands={
                     "clip": "bash -c 'maim -s | xclip -selection clipboard -t image/png'",
-                    "full": "maim /home/dlwxxxdlw/Screenshots/{}.png".format(
-                        time.strftime("%Y-%m-%d_%H:%M:%S", time.localtime())
-                    ),
-                    "imgur": "bash -c 'maim -s /tmp/screentemp_{0}.png; imgurbash2 -l /tmp/screentemp_{0}.png'".format(
-                        time.strftime("%H_%M_%S", time.localtime())
-                    ),
+                    "full": "bash -c 'maim /home/dlwxxxdlw/Screenshots/$(date +%s).png'",
+                    "imgur": "bash -c 'maim -s /tmp/screentemp.png; imgurbash2 -l /tmp/screentemp.png'",
                 }
             )
         ),
@@ -300,7 +287,6 @@ keys = [
 ]
 
 def init_groups():
-
     def _inner(key, name, layout):
         keys.append(Key([MOD], key, lazy.group[name].toscreen()))
         keys.append(Key([MOD, "shift"], key, lazy.window.togroup(name)))
@@ -373,7 +359,9 @@ layouts = [
     # layout.Zoomy(),
 ]
 
-widget_defaults = dict(font="Hack Nerd Bold", fontsize=14, padding=2, background=COLORS[2])
+widget_defaults = dict(
+    font="Hack Nerd Bold", fontsize=14, padding=2, background=COLORS[2]
+)
 extension_defaults = widget_defaults.copy()
 
 screens = [
