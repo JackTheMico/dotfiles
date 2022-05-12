@@ -224,7 +224,8 @@ keys = [
         lazy.run_extension(
             CommandSet(
                 commands={
-                    "clip": "bash -c 'maim -s | xclip -selection clipboard -t image/png'",
+                    "clips": "bash -c 'maim -s | xclip -selection clipboard -t image/png'",
+                    "files": "bash -c 'maim -s /home/dlwxxxdlw/Screenshots/$(date +%s).png'",
                     "full": "bash -c 'maim /home/dlwxxxdlw/Screenshots/$(date +%s).png'",
                     "imgur": "bash -c 'maim -s /tmp/screentemp.png; imgurbash2 -l /tmp/screentemp.png'",
                 }
