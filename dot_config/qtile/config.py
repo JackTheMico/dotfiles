@@ -252,6 +252,7 @@ keys = [
     ),
     Key([MOD], "j", lazy.layout.down(), desc="Move focus down"),
     Key([MOD], "k", lazy.layout.up(), desc="Move focus up"),
+    Key([MOD], "f", lazy.window.toggle_fullscreen(), desc="Toggle floating window"),
     Key([MOD, "shift"], "f", lazy.window.toggle_floating(), desc="toggle floating"),
     KeyChord(
         [MOD1],
