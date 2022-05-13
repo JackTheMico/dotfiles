@@ -286,8 +286,8 @@ keys = [
     ### Switch focus of monitors
     Key([MOD], "period", lazy.next_screen(), desc="Move focus to next monitor"),
     Key([MOD], "comma", lazy.prev_screen(), desc="Move focus to prev monitor"),
-    Key([mod, "shift"], "comma", lazy.function(window_to_next_screen)),
-    Key([mod, "shift"], "period", lazy.function(window_to_previous_screen)),
+    Key([MOD, "shift"], "comma", lazy.function(window_to_next_screen)),
+    Key([MOD, "shift"], "period", lazy.function(window_to_previous_screen)),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
@@ -332,7 +332,7 @@ def init_groups():
             [DropDown("zsh", TERMINAL, x=0.0, height=0.5, width=1.0, opacity=0.8)],
         )
     ]
-    keys.append(Key([MOD], "F12", lazy.group["scratchpad"].dropdown_toggle("zsh")))
+    keys.append(Key([MOD1], "d", lazy.group["scratchpad"].dropdown_toggle("zsh")))
     return res_groups
 
 groups = init_groups()
