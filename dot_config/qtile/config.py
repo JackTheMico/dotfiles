@@ -48,22 +48,22 @@ MOD = "mod4"
 TERMINAL = guess_terminal()
 MY_GROUPS = {
     "乾": "max",
-    "坤": "treetab",
+    "兑": "max",
+    "离": "treetab",
     "震": "max",
     "巽": "max",
     "坎": "max",
-    "离": "treetab",
     "艮": "max",
-    "兑": "max",
+    "坤": "treetab",
     "天": "monadtall",
 }
 DEFAULT_SPAWNS = {
     "乾": "alacritty",
-    "坤": ["qutebrowser", "firefox"],
-    "震": "bash -c 'alacritty -e lvim'",
-    "巽": "zeal %u",
-    "坎": "bash -c 'alacritty -e bpytop'",
-    "离": ["discord-canary", "bash -c 'alacritty -e weechat'"],
+    "兑": ["qutebrowser", "firefox"],
+    "离": "bash -c 'alacritty -e lvim'",
+    "震": "zeal %u",
+    "巽": "bash -c 'alacritty -e bpytop'",
+    "坎": ["discord-canary", "bash -c 'alacritty -e weechat'"],
     "阳": "/opt/clash-for-windows-chinese/cfw",
 }
 COLORS = [
