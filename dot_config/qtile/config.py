@@ -566,9 +566,18 @@ def init_widgets_list():
     ]
     return widgets
 
+def init_widgets_screen1():
+    widgets_screen1 = init_widgets_list()
+    return widgets_screen1
+
+def init_widgets_screen2():
+    widgets_screen2 = init_widgets_list()
+    del widgets_screen2[9:10]
+    return widgets_screen2
+
 screens = [
-    Screen(top=bar.Bar(widgets=init_widgets_list(), size=26)),
-    Screen(top=bar.Bar(widgets=init_widgets_list(), size=26)),
+    Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=26)),
+    Screen(top=bar.Bar(widgets=init_widgets_screen2(), size=26)),
 ]
 
 # Drag floating layouts.
