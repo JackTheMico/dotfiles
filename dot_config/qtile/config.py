@@ -48,14 +48,14 @@ MOD = "mod4"
 TERMINAL = guess_terminal()
 MY_GROUPS = {
     "乾": "max",
-    "兑": "max",
-    "离": "treetab",
+    "兑": "treetab",
+    "离": "max",
     "震": "max",
     "巽": "max",
-    "坎": "max",
+    "坎": "treetab",
     "艮": "max",
-    "坤": "treetab",
-    "天": "monadtall",
+    "坤": "max",
+    "阳": "monadtall",
 }
 DEFAULT_SPAWNS = {
     "乾": "alacritty",
