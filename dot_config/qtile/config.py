@@ -55,7 +55,7 @@ MY_GROUPS = {
     "坎": "treetab",
     "艮": "max",
     "坤": "max",
-    "阳": "monadtall",
+    "天": "monadtall",
 }
 DEFAULT_SPAWNS = {
     "乾": "alacritty",
