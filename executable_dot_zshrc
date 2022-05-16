@@ -127,7 +127,8 @@ plugins=(
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ezsh="chezmoi edit ~/.zshrc"
 alias rezsh="source ~/.zshrc"
-alias nlvim='neovide --multigrid -- -u "$LUNARVIM_RUNTIME_DIR/lvim/init.lua" "$@"'
+alias nlvim='neovide -- -u "$LUNARVIM_RUNTIME_DIR/lvim/init.lua" "$@"'
+alias nmlvim='neovide --multigrid -- -u "$LUNARVIM_RUNTIME_DIR/lvim/init.lua" "$@"'
 alias enproxy='export HTTP_PROXY=http://127.0.0.1:7890;export HTTPS_PROXY=http://127.0.0.1:7890;export ALL_PROXY=http://127.0.0.1:7890'
 alias unproxy='unset HTTP_PROXY;unset HTTPS_PROXY;unset ALL_PROXY'
 alias lg=lazygit
