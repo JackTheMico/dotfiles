@@ -647,33 +647,34 @@ require("nvim-treesitter.configs").setup {
   }
 }
 
+-- FIX: These will create defunct tail processes.
 -- himalaya
-local email_num = 0
-local function himalayacounter()
-    local handle = io.popen("tail -n 1 /tmp/himalaya-counter")
-    if handle then
-      local result = handle:read("*a")
-      return result
-    end
-end
-local function himalaya_status()
-  local res = ""
-  email_num = himalayacounter()
-  res = string.format('📫 %d', email_num)
-  return res
-end
+-- local email_num = 0
+-- local function himalayacounter()
+--     local handle = io.popen("tail -n 1 /tmp/himalaya-counter")
+--     if handle then
+--       local result = handle:read("*a")
+--       return result
+--     end
+-- end
+-- local function himalaya_status()
+--   local res = ""
+--   email_num = himalayacounter()
+--   res = string.format('📫 %d', email_num)
+--   return res
+-- end
 
-local components = require("lvim.core.lualine.components")
-lvim.builtin.lualine.sections.lualine_c = {
-  himalaya_status
-}
+-- local components = require("lvim.core.lualine.components")
+-- lvim.builtin.lualine.sections.lualine_c = {
+--   himalaya_status
+-- }
 
-local fwatch = require('fwatch')
-fwatch.watch("/tmp/himalaya-counter", {
-  on_event = function()
-    email_num = himalayacounter()
-  end
-})
+-- local fwatch = require('fwatch')
+-- fwatch.watch("/tmp/himalaya-counter", {
+--   on_event = function()
+--     email_num = himalayacounter()
+--   end
+-- })
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 lvim.autocommands.custom_groups = {
