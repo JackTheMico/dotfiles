@@ -229,20 +229,29 @@ formatters.setup {
 -- -- set additional linters
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-{ exe = "pylint", filetypes = { "python" } },
+{ command = "pylint", filetypes = { "python" } },
   {
-    exe = "shellcheck",
+    command = "shellcheck",
     ---@usage arguments to pass to the formatter
     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
     args = { "--severity", "warning" },
+    filetypes = {"sh"}
   },
   {
-    exe = "codespell",
+    command = "codespell",
   ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
     filetypes = { "python" },
   },
 }
 
+local code_actions = require "lvim.lsp.null-ls.code_actions"
+code_actions.setup {
+  {
+    command = "proselint",
+    args = { "--json" },
+    filetypes = { "markdown", "tex" },
+  },
+}
 -- Additional Plugins
 lvim.plugins = {
   { "folke/tokyonight.nvim" },
@@ -551,7 +560,7 @@ require("lspconfig").grammar_guard.setup({
     cmd = {'ltex-ls'},
 	settings = {
 		ltex = {
-			enabled = { "latex", "tex", "bib", "markdown" },
+			enabled = { "latex", "tex", "bib", "markdown"},
 			language = "en",
 			diagnosticSeverity = "information",
 			setenceCacheSize = 2000,
@@ -566,6 +575,7 @@ require("lspconfig").grammar_guard.setup({
 		},
 	},
 })
+
 -- org setup
 -- local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 -- Load custom tree-sitter grammar for org filetype
