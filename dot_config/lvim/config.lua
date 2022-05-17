@@ -24,7 +24,7 @@ vim.g.neovide_cursor_vfx_mode = "railgun"
 vim.g.neovide_transparency = 1.0
 vim.g.neovide_fullscreen = false
 vim.g.neovide_input_use_logo = true
-vim.g.mkdp_auto_start = 1
+vim.g.mkdp_auto_start = 0
 vim.g.mkdp_browser = '/sbin/qutebrowser'
 -- lua project.nvim
 vim.g.nvim_tree_respect_buf_cwd = 1
