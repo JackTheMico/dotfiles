@@ -24,6 +24,8 @@ vim.g.neovide_cursor_vfx_mode = "railgun"
 vim.g.neovide_transparency = 1.0
 vim.g.neovide_fullscreen = false
 vim.g.neovide_input_use_logo = true
+vim.g.mkdp_auto_start = 1
+vim.g.mkdp_browser = '/sbin/qutebrowser'
 -- lua project.nvim
 vim.g.nvim_tree_respect_buf_cwd = 1
 vim.g.translator_default_engines = { "youdao", "bing", "haici" }
@@ -244,6 +246,13 @@ linters.setup {
 -- Additional Plugins
 lvim.plugins = {
   { "folke/tokyonight.nvim" },
+  {
+      "brymer-meneses/grammar-guard.nvim",
+      requires = {
+          "neovim/nvim-lspconfig",
+          "williamboman/nvim-lsp-installer"
+      }
+  },
   { "cappyzawa/trim.nvim" },
   {
     "folke/trouble.nvim",
@@ -254,8 +263,6 @@ lvim.plugins = {
     run = "cd app && npm install",
     ft = "markdown",
     config = function()
-      vim.g.mkdp_auto_start = 1
-      vim.g.mkdp_browser = 'qutebrowser'
     end,
   },
   { 'michaelb/sniprun', run = 'bash ./install.sh' },
@@ -537,6 +544,28 @@ lvim.plugins = {
   { 'KabbAmine/zeavim.vim' },
 }
 
+-- Grammar Guard
+local gg = require("grammar-guard")
+gg.init()
+require("lspconfig").grammar_guard.setup({
+    cmd = {'ltex-ls'},
+	settings = {
+		ltex = {
+			enabled = { "latex", "tex", "bib", "markdown" },
+			language = "en",
+			diagnosticSeverity = "information",
+			setenceCacheSize = 2000,
+			additionalRules = {
+				enablePickyRules = true,
+				motherTongue = "en",
+			},
+			trace = { server = "verbose" },
+			dictionary = {},
+			disabledRules = {},
+			hiddenFalsePositives = {},
+		},
+	},
+})
 -- org setup
 -- local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 -- Load custom tree-sitter grammar for org filetype
