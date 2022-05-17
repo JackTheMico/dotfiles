@@ -255,6 +255,7 @@ lvim.plugins = {
     ft = "markdown",
     config = function()
       vim.g.mkdp_auto_start = 1
+      vim.g.mkdp_browser = 'qutebrowser'
     end,
   },
   { 'michaelb/sniprun', run = 'bash ./install.sh' },
