@@ -456,6 +456,7 @@ def init_widgets_list():
         widget.Pomodoro(
             font="Hack Nerd Bold",
             fontsize=12,
+            num_pomodori=3,
             foreground=COLORS[3],
             background=COLORS[3],
             prefix_inactive="⛇",
