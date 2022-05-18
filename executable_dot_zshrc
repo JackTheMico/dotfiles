@@ -149,6 +149,7 @@ source $HOME/.zprofile
 
 export ATUIN_NOBIND="true"
 eval "$(atuin init zsh)"
+eval "$(zoxide init zsh)"
 bindkey '^y' _atuin_search_widget
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
