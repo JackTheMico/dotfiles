@@ -90,7 +90,6 @@ plugins=(
   git
   extract
   sudo
-  z
   zsh-autosuggestions
   zsh-syntax-highlighting
   fzf
