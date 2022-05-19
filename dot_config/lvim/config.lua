@@ -58,6 +58,7 @@ lvim.keys.normal_mode["<C-q>"] = "<cmd>BufferKill<cr>"
 lvim.keys.normal_mode["<C-s>"] = ":lua require('rest-nvim').run()<cr>"
 lvim.keys.normal_mode["<M-o>"] = "<cmd>RnvimrToggle<cr>"
 lvim.keys.normal_mode["<M-i>"] = "<cmd>RnvimrToggle<cr>"
+lvim.keys.normal_mode["<M-h>"] = ":lua require('neogen').generate()<cr>"
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
@@ -89,6 +90,7 @@ lvim.builtin.which_key.mappings["t"] = {
   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
   v = { "<cmd>ToggleTerm size=40 direction=vertical<cr>", "Term vertical" },
   t = { "<cmd>ToggleTerm direction=float<cr>", "Term float" },
+  n = { "<cmd>ToggleTerm direction=tab<cr>", "Term tab" },
   s = { "<cmd>TranslateW<cr>", "Translate" },
   x = { "<cmd>TranslateH<cr>", "Export Translate History" },
   S = { "<cmd>SymbolsOutline<cr>", "SymbolsOutline" },
@@ -255,6 +257,7 @@ code_actions.setup {
 -- Additional Plugins
 lvim.plugins = {
   { "folke/tokyonight.nvim" },
+  {"jvgrootveld/telescope-zoxide"},
   {
       "brymer-meneses/grammar-guard.nvim",
       requires = {
@@ -551,8 +554,21 @@ lvim.plugins = {
     end,
   },
   { 'KabbAmine/zeavim.vim' },
+  {
+      "danymat/neogen",
+      config = function()
+          require('neogen').setup {
+            snippet_engine = "luasnip"
+      }
+      end,
+      requires = "nvim-treesitter/nvim-treesitter",
+      -- Uncomment next line if you want to follow only stable versions
+      -- tag = "*"
+  },
 }
 
+-- zoxide
+require'telescope'.load_extension('zoxide')
 -- Grammar Guard
 local gg = require("grammar-guard")
 gg.init()
