@@ -424,7 +424,7 @@ style:
   horizontal: true
 switches:
   - name: ascii_mode
-    reset: 0
+    reset: 1
   - name: full_shape
   - name: simplification
     reset: 0
