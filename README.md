@@ -34,3 +34,9 @@ Little script for screenshots and screencasts utilizing rofi, maim, ffmpeg.
 
 ## [himalaya](https://github.com/soywod/himalaya)
 Command-line interface for email management.
+- [mail.zsh](./mail.zsh): A TUI from [here](https://github.com/soywod/himalaya/issues/24)
+
+## [ytfzf](https://github.com/pystardust/ytfzf)
+A posix script to find and watch YouTube videos from the terminal. (Without API).
+
+Can use this to just play audio.
