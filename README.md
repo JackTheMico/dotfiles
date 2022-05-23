@@ -40,3 +40,10 @@ Command-line interface for email management.
 A posix script to find and watch YouTube videos from the terminal. (Without API).
 
 Can use this to just play audio.
+
+## [LunarVim](https://www.lunarvim.org/)
+
+My favorite editor with lots of cool features and can work perfectly with lazygit.
+
+## [Lazygit](https://github.com/jesseduffield/lazygit)
+Simple terminal UI for git commands. Make life with git happier.
