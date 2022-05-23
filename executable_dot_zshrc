@@ -147,6 +147,7 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/mail.zsh
 source $HOME/.zprofile
 source $FZF_BASE/completion.zsh
+source $HOME/.forgit/forgit.plugin.zsh
 
 export ATUIN_NOBIND="true"
 eval "$(atuin init zsh)"
