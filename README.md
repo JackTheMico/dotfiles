@@ -47,3 +47,11 @@ My favorite editor with lots of cool features and can work perfectly with lazygi
 
 ## [Lazygit](https://github.com/jesseduffield/lazygit)
 Simple terminal UI for git commands. Make life with git happier.
+
+## [bpytop](https://github.com/aristocratos/bpytop)
+
+I think it's a better alternative than Htop.
+
+## [qutebrowser](https://github.com/qutebrowser/qutebrowser)
+qutebrowser is a keyboard-focused browser with a minimal GUI. 
+It’s based on Python and Qt and free software, licensed under the GPL.
