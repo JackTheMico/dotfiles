@@ -55,3 +55,8 @@ I think it's a better alternative than Htop.
 ## [qutebrowser](https://github.com/qutebrowser/qutebrowser)
 qutebrowser is a keyboard-focused browser with a minimal GUI. 
 It’s based on Python and Qt and free software, licensed under the GPL.
+
+## [rclone](https://github.com/rclone/rclone)
+"rsync for cloud storage"
+
+Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Yandex Files.

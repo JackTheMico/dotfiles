@@ -59,7 +59,7 @@ MY_GROUPS = {
 }
 DEFAULT_SPAWNS = {
     "乾": "alacritty",
-    "兑": ["qutebrowser", "firefox"],
+    "兑": "qutebrowser",
     "离": "bash -c 'alacritty -e lvim'",
     "震": "zeal %u",
     "巽": "bash -c 'alacritty -e bpytop'",
