@@ -154,7 +154,6 @@ source $HOME/.forgit/forgit.plugin.zsh
 export ATUIN_NOBIND="true"
 eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"
-eval "$(jenv init -)"
 bindkey '^y' _atuin_search_widget
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
