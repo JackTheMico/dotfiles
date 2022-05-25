@@ -18,7 +18,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export TERM=tmux-256color
 export PAGER=bat
 export DISPLAY=:0
-export JAVA_HOME=/usr/lib/jvm/java-18-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 
 # Path to your oh-my-zsh installation.
 ZSH=~/.oh-my-zsh
