@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/go/bin:$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/go/bin:$HOME/.jenv/shims:$PATH
 export FZF_BASE=/usr/share/fzf
 export LUNARVIM_CONFIG_DIR="${LUNARVIM_CONFIG_DIR:-$HOME/.config/lvim}"
 export LUNARVIM_RUNTIME_DIR="${LUNARVIM_RUNTIME_DIR:-$HOME/.local/share/lunarvim}"
@@ -160,3 +160,8 @@ bindkey '^y' _atuin_search_widget
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -s "/home/dlwxxxdlw/.jabba/jabba.sh" ] && source "/home/dlwxxxdlw/.jabba/jabba.sh"
+
+# OCTAVIA CLI 0.39.2-alpha
+OCTAVIA_ENV_FILE=/home/dlwxxxdlw/.octavia
+export OCTAVIA_ENABLE_TELEMETRY=True
+alias octavia="docker run -i --rm -v \$(pwd):/home/octavia-project --network host --env-file \${OCTAVIA_ENV_FILE} --user \$(id -u):\$(id -g) airbyte/octavia-cli:0.39.2-alpha"
