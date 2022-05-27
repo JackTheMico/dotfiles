@@ -209,7 +209,7 @@ keys = [
                     "20-": "cmus-remote -v -20%",
                     "20+": "cmus-remote -v +20%",
                 },
-                dmenu_command="rofi -show dmenu"
+                dmenu_command="rofi -dmenu"
             )
         ),
     ),
