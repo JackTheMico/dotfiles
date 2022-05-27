@@ -149,12 +149,7 @@ rofi_keychord = [
     Key([], "b", lazy.spawn("rofi-bluetooth"), desc="bluetooth"),
     Key([], "f", lazy.spawn("rofi-wifi-menu"), desc="wifi"),
     Key([], "i", lazy.spawn("teiler"), desc="teiler screenshot and screencast"),
-    Key([], "k", lazy.run_extension(
-            CommandSet(commands={
-                           "tabbed": "ph --config ~/.config/passhole/passhole.ini type --prog 'rofi -dmenu' --tabbed",
-
-                       }, dmenu_command="rofi -dmenu")
-        ), desc="rofi menu for keepass"),
+    Key([], "k", lazy.run_extension(CommandSet(commands={"tabbed": "ph --config ~/.config/passhole/passhole.ini type --prog 'rofi -dmenu' --tabbed"}, dmenu_command="rofi -dmenu")), desc="rofi menu for keepass"),
     Key(
         [],
         "e",
@@ -251,7 +246,7 @@ keys = [
                     "files": "bash -c 'maim -s /home/dlwxxxdlw/Screenshots/$(date +%s).png'",
                     "full": "bash -c 'maim /home/dlwxxxdlw/Screenshots/$(date +%s).png'",
                     "imgur": "bash -c 'maim -s /tmp/screentemp.png; imgurbash2 -l /tmp/screentemp.png'",
-                }
+                },
                 dmenu_command="rofi -dmenu"
             )
         ),
