@@ -149,7 +149,20 @@ rofi_keychord = [
     Key([], "b", lazy.spawn("rofi-bluetooth"), desc="bluetooth"),
     Key([], "f", lazy.spawn("rofi-wifi-menu"), desc="wifi"),
     Key([], "i", lazy.spawn("teiler"), desc="teiler screenshot and screencast"),
-    Key([], "k", lazy.run_extension(CommandSet(commands={"tabbed": "ph --config ~/.config/passhole/passhole.ini type --prog 'rofi -dmenu' --tabbed"}, dmenu_command="rofi -dmenu")), desc="rofi menu for keepass"),
+    Key(
+        [],
+        "k",
+        lazy.run_extension(
+            CommandSet(
+                commands={
+                    "tabbed": "ph --config ~/.config/passhole/passhole.ini type --prog 'rofi -dmenu' --tabbed",
+                    "totp": "ph --config ~/.config/passhole/passhole.ini type --prog 'rofi -dmenu' --totp",
+                },
+                dmenu_command="rofi -dmenu",
+            )
+        ),
+        desc="rofi menu for keepass",
+    ),
     Key(
         [],
         "e",
@@ -209,7 +222,7 @@ keys = [
                     "20-": "cmus-remote -v -20%",
                     "20+": "cmus-remote -v +20%",
                 },
-                dmenu_command="rofi -dmenu"
+                dmenu_command="rofi -dmenu",
             )
         ),
     ),
@@ -232,7 +245,7 @@ keys = [
                     "55": "picom -bc --active-opacity 0.55",
                     "50": "picom -bc --active-opacity 0.5",
                 },
-                dmenu_command="rofi -dmenu"
+                dmenu_command="rofi -dmenu",
             )
         ),
     ),
@@ -247,7 +260,7 @@ keys = [
                     "full": "bash -c 'maim /home/dlwxxxdlw/Screenshots/$(date +%s).png'",
                     "imgur": "bash -c 'maim -s /tmp/screentemp.png; imgurbash2 -l /tmp/screentemp.png'",
                 },
-                dmenu_command="rofi -dmenu"
+                dmenu_command="rofi -dmenu",
             )
         ),
     ),
