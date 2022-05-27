@@ -232,6 +232,7 @@ keys = [
                     "55": "picom -bc --active-opacity 0.55",
                     "50": "picom -bc --active-opacity 0.5",
                 },
+                dmenu_command="rofi -dmenu"
             )
         ),
     ),
@@ -246,6 +247,7 @@ keys = [
                     "full": "bash -c 'maim /home/dlwxxxdlw/Screenshots/$(date +%s).png'",
                     "imgur": "bash -c 'maim -s /tmp/screentemp.png; imgurbash2 -l /tmp/screentemp.png'",
                 }
+                dmenu_command="rofi -dmenu"
             )
         ),
     ),
