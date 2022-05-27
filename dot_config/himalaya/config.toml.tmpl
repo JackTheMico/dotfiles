@@ -37,12 +37,12 @@ email = "{{ .gmailpersonal }}"
 imap-host = "imap.gmail.com"
 imap-port = 993
 imap-login = "{{ .gmailpersonal }}"
-imap-passwd-cmd = "lpass show himalaya-Joker --password"
+imap-passwd-cmd = "ph --config ~/.config/passhole/passhole.ini show himalaya-Joker --field password"
 
 smtp-host = "smtp.gmail.com"
 smtp-port = 465
 smtp-login = "{{ .gmailpersonal }}"
-smtp-passwd-cmd = "lpass show himalaya-Joker --password"
+smtp-passwd-cmd = "ph --config ~/.config/passhole/passhole.ini show himalaya-Joker --field password"
 
 [jack-local]
 name = "Jack Deng"
