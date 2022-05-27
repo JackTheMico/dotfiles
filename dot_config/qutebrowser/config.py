@@ -13,6 +13,10 @@
 # Change the argument to True to still load settings configured via autoconfig.yml
 config.load_autoconfig(False)
 
+# Load a restored tab as soon as it takes focus.
+# Type: Bool
+c.session.lazy_restore = True
+
 # Always restore open sites when qutebrowser is reopened. Without this
 # option set, `:wq` (`:quit --save`) needs to be used to save open tabs
 # (and restore them), while quitting qutebrowser in any other way will
@@ -292,8 +296,8 @@ c.fonts.default_size = '13pt'
 
 # Bindings for normal mode
 config.bind(',M', 'spawn mpv {url}')
-config.bind(',l', 'spawn --userscript qute-keypass')
-config.bind(',m', 'hint links spawn mpv {hintyu-url}')
+config.bind(',l', 'spawn --userscript qute-lastpass')
+config.bind(',m', 'hint links spawn mpv {hint-url}')
 config.bind(',o', 'hint links spawn mpv --http-proxy=http://127.0.0.1:7890 {hint-url}')
 config.bind(',p', 'config-cycle content.proxy http://localhost:8080 system --print')
 config.bind(',s', 'config-cycle content.proxy http://localhost:7890 system --print')
