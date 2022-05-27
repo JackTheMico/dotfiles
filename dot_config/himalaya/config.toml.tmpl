@@ -18,12 +18,12 @@ email = "{{ .gmailwork }}"
 imap-host = "imap.gmail.com"
 imap-port = 993
 imap-login = "{{ .gmailwork }}"
-imap-passwd-cmd = "ph --database /home/dlwxxxdlw/Jack.kdbx --keyfile /home/dlwxxxdlw/.ssh/id_rsa show himalaya-jack --field password"
+imap-passwd-cmd = "ph --config ~/.config/passhole/passhole.ini show himalaya-jack --field password"
 
 smtp-host = "smtp.gmail.com"
 smtp-port = 465
 smtp-login = "{{ .gmailwork }}"
-smtp-passwd-cmd = "ph --database /home/dlwxxxdlw/Jack.kdbx --keyfile /home/dlwxxxdlw/.ssh/id_rsa show himalaya-jack --field password"
+smtp-passwd-cmd = "ph --config ~/.config/passhole/passhole.ini show himalaya-jack --field password"
 
 [firework.mailboxes]
 sent = "[Gmail]/Sent Mail"
