@@ -89,7 +89,7 @@ argument_parser.add_argument('--path', '-p', default=os.getenv('KEYPASS_DEFAULT_
                              help='Path to the keepass db.')
 argument_parser.add_argument('--keyfile-path', '-k', default=os.getenv('KEYPASS_DEFAULT_KEYFILE'),
                              help='Path to a keepass keyfile')
-argument_parser.add_argument('--password-cmd', '-pc', default=os.getenv('QUTE_PASSWORD_CMD')
+argument_parser.add_argument('--password-cmd', '-pc', default=os.getenv('QUTE_PASSWORD_CMD'),
                              help='cmd to get user password')
 argument_parser.add_argument(
     '--no-password', action='store_true',
