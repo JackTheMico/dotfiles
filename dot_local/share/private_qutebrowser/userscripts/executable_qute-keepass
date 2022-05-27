@@ -89,6 +89,8 @@ argument_parser.add_argument('--path', '-p', default=os.getenv('KEYPASS_DEFAULT_
                              help='Path to the keepass db.')
 argument_parser.add_argument('--keyfile-path', '-k', default=os.getenv('KEYPASS_DEFAULT_KEYFILE'),
                              help='Path to a keepass keyfile')
+argument_parser.add_argument('--password-cmd', '-pc', default=os.getenv('QUTE_PASSWORD_CMD')
+                             help='cmd to get user password')
 argument_parser.add_argument(
     '--no-password', action='store_true',
     help='Supply if no password is required to unlock this database. '
@@ -154,6 +156,12 @@ def get_password():
         sys.exit(ExitCodes.USER_QUIT)
     return text
 
+def get_password_from_cmd(cmd, encoding):
+    command = cmd.split(' ')
+    process = subprocess.run(command,
+                             stdout=subprocess.PIPE)
+    return process.stdout.decode(encoding).strip()
+
 def find_candidates(args, host):
     """Finds candidates that match host"""
     file_path = os.path.expanduser(args.path)
@@ -163,7 +171,9 @@ def find_candidates(args, host):
 
     pw = None
     if not args.no_password:
-        pw = get_password()
+        if not args.password_cmd:
+            pw = get_password()
+        pw = get_password_from_cmd(args.password_cmd, args.io_encoding)
 
     kf = args.keyfile_path
     if kf:
