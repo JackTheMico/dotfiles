@@ -138,7 +138,6 @@ alias le="exa --long --icons"
 alias czia="chezmoi apply"
 alias czie="chezmoi edit"
 alias cziu="chezmoi update"
-alias lpasslogin='echo "`pass show dlwxxxdlw`" | lpass login dlwxxxdlw@163.com'
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
