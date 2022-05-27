@@ -4,7 +4,7 @@ signature = """
 Firework
 Jack | Data Team
 """
-default-page-size = 25
+default-page-size = 50
 notify-cmd = "{{ .chezmoi.homeDir }}/himalaya-notify.sh"
 watch-cmds = ["himalaya -a firework --output json search UNSEEN | jq -r '.response|length' >> /tmp/himalaya-counter", "mbsync -a"]
 notify-query = "UNSEEN"
