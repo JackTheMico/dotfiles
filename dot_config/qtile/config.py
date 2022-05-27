@@ -209,7 +209,7 @@ keys = [
                     "20-": "cmus-remote -v -20%",
                     "20+": "cmus-remote -v +20%",
                 },
-                dmenu_font=("Hack Nerd Bold", 14)
+                dmenu_font="Hack Nerd Bold 14"
             )
         ),
     ),
