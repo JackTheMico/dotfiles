@@ -60,8 +60,8 @@ MY_GROUPS = {
 DEFAULT_SPAWNS = {
     "乾": "alacritty",
     "兑": [
-        "qutebwrapper -C ~/.config/qutebrowser/config.py -r work",
-        "qutebwrapper -C ~/.config/qutebrowser/config.py -r private",
+        "qutebwrapper -C /home/dlwxxxdlw/.config/qutebrowser/config.py -r work",
+        "qutebwrapper -C /home/dlwxxxdlw/.config/qutebrowser/config.py -r private",
     ],
     "离": "bash -c 'alacritty -e lvim'",
     "震": "zeal %u",
