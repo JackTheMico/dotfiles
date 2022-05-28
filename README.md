@@ -59,4 +59,6 @@ It’s based on Python and Qt and free software, licensed under the GPL.
 ## [rclone](https://github.com/rclone/rclone)
 "rsync for cloud storage"
 
-Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Yandex Files.
+With rclone you can synchronize files from cloud storage like:
+Google Drive, S3, Dropbox, Backblaze B2, One Drive, Swift, Hubic, Wasabi, Google Cloud Storage, Yandex Files
+to local disk storage. 
