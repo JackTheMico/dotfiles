@@ -126,7 +126,7 @@ rofi_keychord = [
             Key([], "d", lazy.spawn("rofi_trans delete"), desc="rofi translate delete"),
         ],
     ),
-    Key([], "r", lazy.spawn("rofi -show run"), desc="Use rofi to run sth"),
+    Key([], "r", lazy.spawn("zsh -c 'rofi -show run'"), desc="Use rofi to run sth"),
     Key(
         [],
         "w",
