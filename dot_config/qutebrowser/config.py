@@ -248,7 +248,7 @@ config.set('content.register_protocol_handler', True, 'https://mail.google.com?e
 #   - bottom
 #   - left
 #   - right
-c.tabs.position = 'bottom'
+c.tabs.position = 'top'
 
 # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 # for a blank page.
