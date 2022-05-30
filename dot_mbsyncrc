@@ -8,9 +8,8 @@ IMAPAccount jack
 Host imap.gmail.com
 Port 993
 User jack@fireworkhq.com
-PassCmd "lpass show himalaya-jack --password"
+PassCmd "ph --config ~/.config/passhole/passhole.ini show himalaya-jack --field password"
 SSLType IMAPS
-
 
 IMAPStore jack-remote
 Account jack
@@ -43,8 +42,6 @@ SyncState *
 # Fetch password from pwmd (http://pwmd.sourceforge.net/):
 #PassCmd "echo -ne 'GET myIsp\\tpassword' | pwmc datafile"
 
-
-
 # IMAPStore personal
 # Host host.play.com
 # Port 6789
@@ -64,10 +61,8 @@ SyncState *
 # Far :remote:
 # Near :local:remote
 
-
 # Group boxes
 # Channels work personal remote
-
 
 # IMAPStore st1
 # Host st1.domain.com
@@ -83,7 +78,6 @@ SyncState *
 # Channel rst
 # Far :st1:somebox
 # Near :st2:
-
 
 # IMAPAccount server
 # Host imaps:foo.bar.com
