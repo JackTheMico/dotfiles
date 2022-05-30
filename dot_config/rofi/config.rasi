@@ -9,7 +9,7 @@ show-icons: true;
 terminal: "alacritty";
 ssh-client: "ssh";
 ssh-command: "{terminal} --hold -e {ssh-client} {host} [-p {port}]";
-run-command: "zsh -c {cmd}";
+/* run-command: "zsh -c {cmd}"; */
 /*	run-list-command: "";*/
 /*	run-shell-command: "{terminal} -e {cmd}";*/
 /*	window-command: "wmctrl -i -R {window}";*/
