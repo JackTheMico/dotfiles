@@ -9,3 +9,5 @@
 [merge]
     command = "lvim"
     args = ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
+[passhole]
+    args = []
