@@ -6,7 +6,7 @@ ignore        = """
     PULLREQ_EDITMSG$
     MERGE_MSG$
     TAG_EDITMSG$"""
-api_key       = {{ (passhole show "jackthemicowakatimeapi" --).password }}
+api_key       = {{ secret "--config" "/home/dlwxxxdlw/.config/passhole/passhole.ini" "show" "--field" "password" "jackthemicowakatimeapi" }}
 
 [internal]
 backoff_at      =
