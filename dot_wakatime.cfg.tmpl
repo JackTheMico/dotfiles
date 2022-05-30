@@ -6,9 +6,8 @@ ignore        = """
     PULLREQ_EDITMSG$
     MERGE_MSG$
     TAG_EDITMSG$"""
-api_key       = {{ (index (lastpass "jackthemicowakatimeapi") 0).password }}
+api_key       = {{ (passhole show "jackthemicowakatimeapi" --).password }}
 
 [internal]
-backoff_at      = 
+backoff_at      =
 backoff_retries = 0
-
