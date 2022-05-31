@@ -155,8 +155,8 @@ rofi_keychord = [
         lazy.run_extension(
             CommandSet(
                 commands={
-                    "tabbed": "ph --config ~/.config/passhole/passhole.ini type --prog 'rofi -dmenu' --tabbed",
-                    "totp": "ph --config ~/.config/passhole/passhole.ini type --prog 'rofi -dmenu' --totp",
+                    "tabbed": "ph type --prog 'rofi -dmenu' --tabbed",
+                    "totp": "ph type --prog 'rofi -dmenu' --totp",
                 },
                 dmenu_command="rofi -dmenu",
             )
