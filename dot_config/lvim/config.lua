@@ -218,30 +218,30 @@ local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { exe = "black", filetypes = { "python" } },
   { exe = "isort", filetypes = { "python" } },
--- {
---   exe = "prettier",
---   ---@usage arguments to pass to the formatter
---   -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---   args = { "--print-with", "100" },
---   ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---   filetypes = { "typescript", "typescriptreact" },
--- },
+  -- {
+  --   exe = "prettier",
+  --   ---@usage arguments to pass to the formatter
+  --   -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+  --   args = { "--print-with", "100" },
+  --   ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+  --   filetypes = { "typescript", "typescriptreact" },
+  -- },
 }
 
 -- -- set additional linters
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-{ command = "pylint", filetypes = { "python" } },
+  { command = "pylint", filetypes = { "python" } },
   {
     command = "shellcheck",
     ---@usage arguments to pass to the formatter
     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
     args = { "--severity", "warning" },
-    filetypes = {"sh"}
+    filetypes = { "sh" }
   },
   {
     command = "codespell",
-  ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+    ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
     filetypes = { "python" },
   },
 }
@@ -257,13 +257,13 @@ code_actions.setup {
 -- Additional Plugins
 lvim.plugins = {
   { "folke/tokyonight.nvim" },
-  {"jvgrootveld/telescope-zoxide"},
+  { "jvgrootveld/telescope-zoxide" },
   {
-      "brymer-meneses/grammar-guard.nvim",
-      requires = {
-          "neovim/nvim-lspconfig",
-          "williamboman/nvim-lsp-installer"
-      }
+    "brymer-meneses/grammar-guard.nvim",
+    requires = {
+      "neovim/nvim-lspconfig",
+      "williamboman/nvim-lsp-installer"
+    }
   },
   { "cappyzawa/trim.nvim" },
   {
@@ -555,41 +555,41 @@ lvim.plugins = {
   },
   { 'KabbAmine/zeavim.vim' },
   {
-      "danymat/neogen",
-      config = function()
-          require('neogen').setup {
-            snippet_engine = "luasnip"
+    "danymat/neogen",
+    config = function()
+      require('neogen').setup {
+        snippet_engine = "luasnip"
       }
-      end,
-      requires = "nvim-treesitter/nvim-treesitter",
-      -- Uncomment next line if you want to follow only stable versions
-      -- tag = "*"
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
+    -- Uncomment next line if you want to follow only stable versions
+    -- tag = "*"
   },
 }
 
 -- zoxide
-require'telescope'.load_extension('zoxide')
+require 'telescope'.load_extension('zoxide')
 -- Grammar Guard
 local gg = require("grammar-guard")
 gg.init()
 require("lspconfig").grammar_guard.setup({
-    cmd = {'ltex-ls'},
-	settings = {
-		ltex = {
-			enabled = { "latex", "tex", "bib", "markdown"},
-			language = "en",
-			diagnosticSeverity = "information",
-			setenceCacheSize = 2000,
-			additionalRules = {
-				enablePickyRules = true,
-				motherTongue = "en",
-			},
-			trace = { server = "verbose" },
-			dictionary = {},
-			disabledRules = {},
-			hiddenFalsePositives = {},
-		},
-	},
+  cmd = { 'ltex-ls' },
+  settings = {
+    ltex = {
+      enabled = { "latex", "tex", "bib", "markdown", "org" },
+      language = "en",
+      diagnosticSeverity = "information",
+      setenceCacheSize = 2000,
+      additionalRules = {
+        enablePickyRules = true,
+        motherTongue = "en",
+      },
+      trace = { server = "verbose" },
+      dictionary = {},
+      disabledRules = {},
+      hiddenFalsePositives = {},
+    },
+  },
 })
 
 -- org setup
@@ -629,14 +629,54 @@ orgmode.setup({
     d = { description = 'Todo', template = '* TODO [#C] %?\n %U\n %F', target = '~/Nutstore Files/org/todo.org' },
     j = { description = 'Journal', template = '\n*** %<%Y-%m-%d> %<%A>\n**** %U\n\n%?', target = '~/Nutstore Files/org/journal.org' },
     n = { description = 'Note', template = '* %?\n %U\n %F', target = '~/Nutstore Files/org/notes.org' },
-  }
+  },
+  notifications = {
+    enabled = false,
+    cron_enabled = true,
+    repeater_reminder_time = false,
+    deadline_warning_reminder_time = false,
+    reminder_time = 10,
+    deadline_reminder = true,
+    scheduled_reminder = true,
+    notifier = function(tasks)
+      local result = {}
+      for _, task in ipairs(tasks) do
+        require('orgmode.utils').concat(result, {
+          string.format('# %s (%s)', task.category, task.humanized_duration),
+          string.format('%s %s %s', string.rep('*', task.level), task.todo, task.title),
+          string.format('%s: <%s>', task.type, task.time:to_string())
+        })
+      end
+
+      if not vim.tbl_isempty(result) then
+        require('orgmode.notifications.notification_popup'):new({ content = result })
+      end
+    end,
+    cron_notifier = function(tasks)
+      for _, task in ipairs(tasks) do
+        local title = string.format('%s (%s)', task.category, task.humanized_duration)
+        local subtitle = string.format('%s %s %s', string.rep('*', task.level), task.todo, task.title)
+        local date = string.format('%s: %s', task.type, task.time:to_string())
+
+        -- Linux
+        if vim.fn.executable('notify-send') == 1 then
+          vim.loop.spawn('notify-send', { args = { string.format('%s\n%s\n%s', title, subtitle, date) } })
+        end
+
+        -- MacOS
+        -- if vim.fn.executable('terminal-notifier') == 1 then
+        --   vim.loop.spawn('terminal-notifier', { args = { '-title', title, '-subtitle', subtitle, '-message', date } })
+        -- end
+      end
+    end
+  },
 })
 
 -- trim
 require('trim').setup({
   -- if you want to ignore markdown file.
   -- you can specify filetypes.
-  disable = {"markdown"},
+  disable = { "markdown" },
 
   -- if you want to ignore space of top
   patterns = {
@@ -655,15 +695,15 @@ local sn = ls.snippet_node
 -- local fmt = require("luasnip.extras.fmt").fmt
 local d = ls.dynamic_node
 local date_input = function(args, snip, old_state, fmt)
-	local fmt = fmt or "%Y-%m-%d"
-	return sn(nil, i(1, os.date(fmt)))
+  local fmt = fmt or "%Y-%m-%d"
+  return sn(nil, i(1, os.date(fmt)))
 end
 ls.add_snippets("all", {
-	s("time", {
-		d(1, date_input, {}, { user_args = { "%A, %B %d of %Y" } }),
-	}),
+  s("time", {
+    d(1, date_input, {}, { user_args = { "%A, %B %d of %Y" } }),
+  }),
 })
-require("luasnip.loaders.from_vscode").lazy_load({ path = {"~/.config/lvim/snippets" } })
+require("luasnip.loaders.from_vscode").lazy_load({ path = { "~/.config/lvim/snippets" } })
 
 -- dapui
 -- local dap, dapui = require("dap"), require("dapui")
@@ -737,4 +777,4 @@ lvim.autocommands.custom_groups = {
   -- { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
   -- On entering insert mode in any file, scroll the window so the cursor line is centered
   { "InsertEnter", "*", ":normal zz" },
- }
+}
