@@ -554,6 +554,7 @@ lvim.plugins = {
     end,
   },
   { 'KabbAmine/zeavim.vim' },
+  { 'github/copilot.vim' },
   {
     "danymat/neogen",
     config = function()
