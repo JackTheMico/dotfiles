@@ -711,17 +711,34 @@ ls.add_snippets("all", {
 require("luasnip.loaders.from_vscode").lazy_load({ path = { "~/.config/lvim/snippets" } })
 
 -- dapui
--- local dap, dapui = require("dap"), require("dapui")
--- dapui.setup()
--- dap.listeners.after.event_initialized["dapui_config"] = function()
---   dapui.open()
--- end
--- dap.listeners.before.event_terminated["dapui_config"] = function()
---   dapui.close()
--- end
--- dap.listeners.before.event_exited["dapui_config"] = function()
---   dapui.close()
--- end
+local dap, dapui = require("dap"), require("dapui")
+dapui.setup()
+dap.listeners.after.event_initialized["dapui_config"] = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+  dapui.close()
+end
+local dap = require('dap')
+dap.adapters.python = {
+  type = 'executable';
+  command ='/home/dlwxxxdlw/.pyenv/shims/python';
+  args = { '-m', 'debugpy.adapter'};
+}
+dap.configurations.python = {
+  {
+    type = 'python';
+    request = 'launch';
+    name = "Launch file";
+    program = "${file}";
+    pythonPath = function()
+      return '/home/dlwxxxdlw/.pyenv/shims/python'
+    end;
+  },
+}
 
 -- rainbow
 require("nvim-treesitter.configs").setup {
