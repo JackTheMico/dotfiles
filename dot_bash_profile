@@ -4,3 +4,5 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 _byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
+
+[ -s "/home/dlwxxxdlw/.jabba/jabba.sh" ] && source "/home/dlwxxxdlw/.jabba/jabba.sh"
