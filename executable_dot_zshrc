@@ -153,6 +153,8 @@ source $HOME/.forgit/forgit.plugin.zsh
 source $HOME/.credentials
 
 export ATUIN_NOBIND="true"
+# zsh
+eval "$(navi widget zsh)"
 eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"
 bindkey '^y' _atuin_search_widget
