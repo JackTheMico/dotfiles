@@ -38,4 +38,10 @@
     type = "git-repo"
     url = "https://github.com/wfxr/forgit.git"
     refreshPeriod = "168h"
+{{ $kubectlVersion := "1.22.6" -}}
+{{ $kubectlDate := "2022-03-09" -}}
+[".local/bin/kubectl"]
+    type = "file"
+    url = "https://s3.us-west-2.amazonaws.com/amazon-eks/{{ $kubectlVersion }}/{{ $kubectlDate }}/bin/linux/amd64/kubectl"
+    refreshPeriod = "168h"
 {{ end }}
