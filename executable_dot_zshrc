@@ -168,3 +168,4 @@ bindkey '^y' _atuin_search_widget
 OCTAVIA_ENV_FILE=/home/dlwxxxdlw/.octavia
 export OCTAVIA_ENABLE_TELEMETRY=True
 alias octavia="docker run -i --rm -v \$(pwd):/home/octavia-project --network host --env-file \${OCTAVIA_ENV_FILE} --user \$(id -u):\$(id -g) airbyte/octavia-cli:0.39.2-alpha"
+fpath=(/usr/share/zsh/site-functions/ $fpath)
