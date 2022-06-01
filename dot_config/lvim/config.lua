@@ -32,7 +32,11 @@ vim.g.translator_default_engines = { "youdao", "bing", "haici" }
 vim.g.translator_history_enable = true
 vim.g.himalaya_mailbox_picker = 'telescope'
 vim.g.himalaya_telescope_preview_enabled = 0
+vim.g.copilot_no_tab_map = true
 vim.o.runtimepath = vim.o.runtimepath .. ',~/.local/share/lunarvim/site/pack/packer/start/himalaya/vim'
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true
+vim.g.copilot_tab_fallback = ""
 
 require("nvim-tree").setup({
   update_cwd = true,
@@ -772,6 +776,18 @@ require("nvim-treesitter.configs").setup {
 --     email_num = himalayacounter()
 --   end
 -- })
+
+-- copilot
+local cmp = require "cmp"
+lvim.builtin.cmp.mapping["<C-e>"] = function(fallback)
+  cmp.mapping.abort()
+  local copilot_keys = vim.fn["copilot#Accept"]()
+  if copilot_keys ~= "" then
+    vim.api.nvim_feedkeys(copilot_keys, "i", true)
+  else
+    fallback()
+  end
+end
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 lvim.autocommands.custom_groups = {
