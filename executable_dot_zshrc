@@ -20,7 +20,7 @@ export PAGER=bat
 export DISPLAY=:0
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 export N_PREFIX=/home/dlwxxxdlw/.noden
-
+export KUBECONFIG=$HOME/.kube/config:$HOME/.kube/config-staging:$HOME/.kube/config-prod
 # Path to your oh-my-zsh installation.
 ZSH=~/.oh-my-zsh
 
