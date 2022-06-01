@@ -37,4 +37,8 @@
     type = "git-repo"
     url = "https://github.com/wfxr/forgit.git"
     refreshPeriod = "168h"
+[".local/bin/kubectl"]
+    type = "file"
+    url = "https://s3.us-west-2.amazonaws.com/amazon-eks/1.22.6/2022-03-09/bin/linux/amd64/kubectl"
+    refreshPeriod = "168h"
 
