@@ -95,14 +95,14 @@ plugins=(
   git
   extract
   sudo
-  fzf
-  fzf-tab
   zsh-autosuggestions
   zsh-syntax-highlighting
   pip
   pyenv
   pipenv
   archlinux
+  fzf
+  fzf-tab
 )
 
 autoload -Uz compinit; compinit
