@@ -10,6 +10,10 @@
     type = "git-repo"
     url = "https://github.com/zsh-users/zsh-autosuggestions.git"
     refreshPeriod = "168h"
+[".oh-my-zsh/custom/plugins/fzf-tab"]
+    type = "git-repo"
+    url = "https://github.com/Aloxaf/fzf-tab"
+    refreshPeriod = "168h"
 [".oh-my-zsh/custom/themes/powerlevel10k"]
     type = "git-repo"
     url = "https://github.com/romkatv/powerlevel10k.git"

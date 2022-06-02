@@ -96,6 +96,7 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   fzf
+  fzf-tab
   pip
   pyenv
   pipenv
