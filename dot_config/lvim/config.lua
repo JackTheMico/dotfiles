@@ -559,6 +559,8 @@ lvim.plugins = {
   },
   { 'KabbAmine/zeavim.vim' },
   { 'github/copilot.vim' },
+  { 'RishabhRD/nvim-cheat.sh' },
+  { 'RishabhRD/popfix' },
   {
     "danymat/neogen",
     config = function()
