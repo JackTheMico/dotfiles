@@ -95,7 +95,7 @@ plugins=(
   git
   extract
   sudo
-  zsh-autosuggestions
+  # zsh-autosuggestions
   zsh-syntax-highlighting
   fzf
   fzf-tab
