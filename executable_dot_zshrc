@@ -95,17 +95,15 @@ plugins=(
   git
   extract
   sudo
-  zsh-autosuggestions
-  zsh-syntax-highlighting
   pip
   pyenv
   pipenv
   archlinux
   fzf
   fzf-tab
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
-
-autoload -Uz compinit; compinit
 
 # User configuration
 
@@ -151,10 +149,11 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
 
+autoload -Uz compinit; compinit
+source $FZF_BASE/completion.zsh
 source $ZSH/oh-my-zsh.sh
 source $HOME/mail.zsh
 source $HOME/.zprofile
-source $FZF_BASE/completion.zsh
 source $HOME/.forgit/forgit.plugin.zsh
 source $HOME/.credentials
 
