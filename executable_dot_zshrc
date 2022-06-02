@@ -89,6 +89,8 @@ DISABLE_AUTO_UPDATE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  aws
+  kubectl
   fd
   git
   extract
@@ -96,6 +98,7 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   fzf
+  fzf-tab
   pip
   pyenv
   pipenv
@@ -139,6 +142,7 @@ alias le="exa --long --icons"
 alias czia="chezmoi apply"
 alias czie="chezmoi edit"
 alias cziu="chezmoi update"
+alias lzd="lazydocker"
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
