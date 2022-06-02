@@ -9,7 +9,6 @@ an executable
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
 -- vim
-set clipboard+= unamedplus
 vim.opt.expandtab = true
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.guifont = "hack:h15" -- the font used in graphical neovim applications
@@ -728,8 +727,8 @@ end
 local dap = require('dap')
 dap.adapters.python = {
   type = 'executable';
-  command ='/home/dlwxxxdlw/.pyenv/shims/python';
-  args = { '-m', 'debugpy.adapter'};
+  command = '/home/dlwxxxdlw/.pyenv/shims/python';
+  args = { '-m', 'debugpy.adapter' };
 }
 dap.configurations.python = {
   {
