@@ -9,6 +9,7 @@ an executable
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
 -- vim
+set clipboard+= unamedplus
 vim.opt.expandtab = true
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.guifont = "hack:h15" -- the font used in graphical neovim applications
