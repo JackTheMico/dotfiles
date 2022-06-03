@@ -21,7 +21,7 @@ export DISPLAY=:0
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 export N_PREFIX=/home/dlwxxxdlw/.noden
 export KUBECONFIG=$HOME/.kube/config:$HOME/.kube/config-staging:$HOME/.kube/config-prod
-export BROWSER=qutebwrapper
+export BROWSER="qutebwrapper -C ~/.config/qutebrowser/config.py -r private --target tab"
 # Path to your oh-my-zsh installation.
 ZSH=~/.oh-my-zsh
 
