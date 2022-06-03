@@ -157,6 +157,7 @@ source $HOME/mail.zsh
 source $HOME/.zprofile
 source $HOME/.forgit/forgit.plugin.zsh
 source $HOME/.credentials
+source $HOME/.googler_at
 source /usr/share/zsh/site-functions/_googler
 
 export ATUIN_NOBIND="true"

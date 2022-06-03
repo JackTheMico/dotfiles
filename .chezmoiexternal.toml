@@ -45,4 +45,8 @@
     type = "file"
     url = "https://s3.us-west-2.amazonaws.com/amazon-eks/1.22.6/2022-03-09/bin/linux/amd64/kubectl"
     refreshPeriod = "168h"
+[".googler_at"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/jarun/googler/main/auto-completion/googler_at/googler_at"
+    refreshPeriod = "168h"
 
