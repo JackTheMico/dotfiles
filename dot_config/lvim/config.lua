@@ -562,6 +562,10 @@ lvim.plugins = {
   { 'RishabhRD/nvim-cheat.sh' },
   { 'RishabhRD/popfix' },
   {
+      'ruifm/gitlinker.nvim',
+      requires = 'nvim-lua/plenary.nvim',
+  },
+  {
     "danymat/neogen",
     config = function()
       require('neogen').setup {
@@ -808,9 +812,13 @@ lvim.builtin.cmp.mapping["<C-e>"] = function(fallback)
   end
 end
 
+-- gitlinker
+require('gitlinker').setup()
+
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 lvim.autocommands.custom_groups = {
   -- { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
   -- On entering insert mode in any file, scroll the window so the cursor line is centered
   { "InsertEnter", "*", ":normal zz" },
+  { "BufWinEnter", "*.go", "setlocal ts=4 sw=4" },
 }
