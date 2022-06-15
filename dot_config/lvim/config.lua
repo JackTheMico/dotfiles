@@ -821,4 +821,5 @@ lvim.autocommands.custom_groups = {
   -- On entering insert mode in any file, scroll the window so the cursor line is centered
   { "InsertEnter", "*", ":normal zz" },
   { "BufWinEnter", "*.go", "setlocal ts=4 sw=4" },
+  { "BufWinEnter", "*.json", "setlocal ts=4 sw=4" },
 }
