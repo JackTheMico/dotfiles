@@ -27,7 +27,7 @@ vim.g.neovide_input_use_logo = true
 vim.g.mkdp_auto_start = 0
 vim.g.mkdp_browser = '/sbin/qutebrowser'
 -- lua project.nvim
-vim.g.nvim_tree_respect_buf_cwd = 1
+-- vim.g.nvim_tree_respect_buf_cwd = 1
 vim.g.translator_default_engines = { "youdao", "bing", "haici" }
 vim.g.translator_history_enable = true
 vim.g.himalaya_mailbox_picker = 'telescope'
@@ -38,13 +38,13 @@ vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
 vim.g.copilot_tab_fallback = ""
 
-require("nvim-tree").setup({
-  update_cwd = true,
-  update_focused_file = {
-    enable = true,
-    update_cwd = true
-  },
-})
+-- require("nvim-tree").setup({
+--   update_cwd = true,
+--   update_focused_file = {
+--     enable = true,
+--     update_cwd = true
+--   },
+-- })
 
 -- general
 lvim.log.level = "warn"
@@ -144,7 +144,6 @@ lvim.builtin.alpha.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.terminal.persist_size = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 1
 lvim.builtin.lualine.active = true
 lvim.builtin.dap.active = true
 lvim.builtin.notify.active = true
