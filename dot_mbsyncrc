@@ -8,7 +8,7 @@ IMAPAccount jack
 Host imap.gmail.com
 Port 993
 User jack@fireworkhq.com
-PassCmd "ph --config ~/.config/passhole/passhole.ini show himalaya-jack --field password"
+PassCmd "ph show himalaya-jack --field password"
 SSLType IMAPS
 
 IMAPStore jack-remote
