@@ -53,9 +53,9 @@ MY_GROUPS = {
     "震": "max",
     "巽": "max",
     "坎": "treetab",
-    "艮": "max",
+    "艮": "treetab",
     "坤": "max",
-    "天": "monadtall",
+    "天": "max",
 }
 DEFAULT_SPAWNS = {
     "乾": "alacritty",
@@ -63,10 +63,10 @@ DEFAULT_SPAWNS = {
         "qutebwrapper -C /home/dlwxxxdlw/.config/qutebrowser/config.py -r work",
         "qutebwrapper -C /home/dlwxxxdlw/.config/qutebrowser/config.py -r private",
     ],
-    "离": "bash -c 'alacritty -e lvim'",
-    "震": "zeal %u",
+    # "离": "bash -c 'alacritty -e lvim'",
+    # "震": "zeal %u",
     "巽": "bash -c 'alacritty -e bpytop'",
-    "坎": ["discord-canary", "bash -c 'alacritty -e weechat'"],
+    "坎": "slack",
     "阳": "/opt/clash-for-windows-chinese/cfw",
 }
 COLORS = [
