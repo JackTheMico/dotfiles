@@ -814,11 +814,30 @@ end
 -- gitlinker
 require('gitlinker').setup()
 
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
-lvim.autocommands.custom_groups = {
-  -- { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
-  -- On entering insert mode in any file, scroll the window so the cursor line is centered
-  { "InsertEnter", "*", ":normal zz" },
-  { "BufWinEnter", "*.go", "setlocal ts=4 sw=4" },
-  { "BufWinEnter", "*.json", "setlocal ts=4 sw=4" },
+-- Autocommands
+lvim.autocommands = {
+  { -- first entry
+    "BufWinEnter",
+    { -- this is passed directly as opts to `nvim_create_autocmd()`
+      pattern = { "*.json", "*.jsonc", "*.py", "*.go" },
+      -- enable wrap mode for json files only
+      command = "setlocal wrap ts=4 sw=4",
+    },
+  },
+  {
+    "InsertEnter",
+    {
+      pattern = {"*"},
+      command = ":normal zz"
+    }
+  }
 }
+
+-- Autocommands (https://neovim.io/doc/user/autocmd.html)
+-- lvim.autocommands.custom_groups = {
+--   -- { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
+--   -- On entering insert mode in any file, scroll the window so the cursor line is centered
+--   { "InsertEnter", "*", ":normal zz" },
+--   { "BufWinEnter", "*.go", "setlocal ts=4 sw=4" },
+--   { "BufWinEnter", "*.json", "setlocal ts=4 sw=4" },
+-- }
