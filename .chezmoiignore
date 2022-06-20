@@ -1,4 +1,5 @@
 session*
+.local/bin/kubectl
 {{ if env "CODESPACES" }}
 .ssh
 .ssh/**
