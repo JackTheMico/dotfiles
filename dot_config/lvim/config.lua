@@ -582,25 +582,25 @@ require 'telescope'.load_extension('zoxide')
 -- Grammar Guard
 local gg = require("grammar-guard")
 gg.init()
-require("lspconfig").grammar_guard.setup({
-  cmd = { 'ltex-ls' },
-  settings = {
-    ltex = {
-      enabled = { "latex", "tex", "bib", "markdown", "org" },
-      language = "en",
-      diagnosticSeverity = "information",
-      setenceCacheSize = 2000,
-      additionalRules = {
-        enablePickyRules = true,
-        motherTongue = "en",
-      },
-      trace = { server = "verbose" },
-      dictionary = {},
-      disabledRules = {},
-      hiddenFalsePositives = {},
-    },
-  },
-})
+-- require("lspconfig").grammar_guard.setup({
+--   cmd = { 'ltex-ls' },
+--   settings = {
+--     ltex = {
+--       enabled = { "latex", "tex", "bib", "markdown", "org" },
+--       language = "en",
+--       diagnosticSeverity = "information",
+--       setenceCacheSize = 2000,
+--       additionalRules = {
+--         enablePickyRules = true,
+--         motherTongue = "en",
+--       },
+--       trace = { server = "verbose" },
+--       dictionary = {},
+--       disabledRules = {},
+--       hiddenFalsePositives = {},
+--     },
+--   },
+-- })
 
 -- org setup
 -- local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
