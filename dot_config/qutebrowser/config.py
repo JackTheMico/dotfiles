@@ -161,6 +161,22 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
+# Allow websites to record audio.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.media.audio_capture', True, 'https://meet.google.com')
+
+# Allow websites to record video.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.media.video_capture', True, 'https://meet.google.com')
+
 # Allow websites to show notifications.
 # Type: BoolAsk
 # Valid values:
@@ -217,6 +233,14 @@ config.set('content.notifications.enabled', True, 'https://tryhackme.com')
 #   - ask
 config.set('content.notifications.enabled', True, 'https://app.slack.com')
 
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.notifications.enabled', True, 'https://meet.google.com')
+
 # Enable plugins in Web pages.
 # Type: Bool
 c.content.plugins = True
@@ -257,7 +281,7 @@ c.url.default_page = 'https://www.google.com'
 
 # Default zoom level.
 # Type: Perc
-c.zoom.default = '125%'
+c.zoom.default = '145%'
 
 # Render all web contents using a dark theme. Example configurations
 # from Chromium's `chrome://flags`:  - "With simple HSL/CIELAB/RGB-based
@@ -293,6 +317,10 @@ c.fonts.default_family = 'FiraCode'
 # "px" suffix.
 # Type: String
 c.fonts.default_size = '13pt'
+
+# Default font size (in pixels) for regular text.
+# Type: Int
+c.fonts.web.size.default = 18
 
 # Bindings for normal mode
 config.bind(',M', 'spawn mpv {url}')
