@@ -32,24 +32,17 @@ vim.g.translator_default_engines = { "youdao", "bing", "haici" }
 vim.g.translator_history_enable = true
 vim.g.himalaya_mailbox_picker = 'telescope'
 vim.g.himalaya_telescope_preview_enabled = 0
-vim.g.copilot_no_tab_map = true
+-- vim.g.copilot_no_tab_map = true
 vim.o.runtimepath = vim.o.runtimepath .. ',~/.local/share/lunarvim/site/pack/packer/start/himalaya/vim'
-vim.g.copilot_no_tab_map = true
-vim.g.copilot_assume_mapped = true
-vim.g.copilot_tab_fallback = ""
-
--- require("nvim-tree").setup({
---   update_cwd = true,
---   update_focused_file = {
---     enable = true,
---     update_cwd = true
---   },
--- })
+-- vim.g.copilot_no_tab_map = true
+-- vim.g.copilot_assume_mapped = true
+-- vim.g.copilot_tab_fallback = ""
 
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.colorscheme = "tokyonight"
+lvim.lsp.null_ls.setup.default_timeout = 200000
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -109,7 +102,7 @@ lvim.builtin.which_key.mappings["S"] = {
   d = { "<cmd>lua require('dapui').toggle()<cr>", "Toggle Dapui" },
   c = { "<cmd>lua require('persistence').load()<cr>", "Restore last session for current dir" },
   l = { "<cmd>lua require('persistence').load({ last = true })<cr>", "Restore last session" },
-  Q = { "<cmd>lua require('persistence').stop()<cr>", "Quit without saving session" },
+  Q = { "<cmd>lua require('persistence').stop()<cr>", "Quit without saving session" }
 }
 lvim.builtin.which_key.mappings["c"] = {
   name = "+Cmus",
@@ -219,8 +212,8 @@ lvim.lsp.automatic_servers_installation = true
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { exe = "black", filetypes = { "python" } },
-  { exe = "isort", filetypes = { "python" } },
+  { command = "black", filetypes = { "python" } },
+  { command = "isort", filetypes = { "python" } },
   -- {
   --   exe = "prettier",
   --   ---@usage arguments to pass to the formatter
@@ -245,7 +238,7 @@ linters.setup {
   {
     command = "codespell",
     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-    filetypes = { "python" },
+    filetypes = { "python", "javascript" },
   },
 }
 
@@ -557,12 +550,11 @@ lvim.plugins = {
     end,
   },
   { 'KabbAmine/zeavim.vim' },
-  { 'github/copilot.vim' },
+  -- { 'github/copilot.vim' },
   { 'RishabhRD/nvim-cheat.sh' },
   { 'RishabhRD/popfix' },
   {
-      'ruifm/gitlinker.nvim',
-      requires = 'nvim-lua/plenary.nvim',
+    'ruifm/gitlinker.nvim'
   },
   {
     "danymat/neogen",
@@ -582,25 +574,25 @@ require 'telescope'.load_extension('zoxide')
 -- Grammar Guard
 local gg = require("grammar-guard")
 gg.init()
--- require("lspconfig").grammar_guard.setup({
---   cmd = { 'ltex-ls' },
---   settings = {
---     ltex = {
---       enabled = { "latex", "tex", "bib", "markdown", "org" },
---       language = "en",
---       diagnosticSeverity = "information",
---       setenceCacheSize = 2000,
---       additionalRules = {
---         enablePickyRules = true,
---         motherTongue = "en",
---       },
---       trace = { server = "verbose" },
---       dictionary = {},
---       disabledRules = {},
---       hiddenFalsePositives = {},
---     },
---   },
--- })
+require("lspconfig").grammar_guard.setup({
+  cmd = { 'ltex-ls' },
+  settings = {
+    ltex = {
+      enabled = { "latex", "tex", "bib", "markdown", "org" },
+      language = "en",
+      diagnosticSeverity = "information",
+      setenceCacheSize = 2000,
+      additionalRules = {
+        enablePickyRules = true,
+        motherTongue = "en",
+      },
+      trace = { server = "verbose" },
+      dictionary = {},
+      disabledRules = {},
+      hiddenFalsePositives = {},
+    },
+  },
+})
 
 -- org setup
 -- local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
@@ -637,7 +629,8 @@ orgmode.setup({
   org_agenda_templates = {
     t = { description = 'Task', template = '* TODO [#B] %?\n %U\n %a', target = '~/Nutstore Files/org/todo.org' },
     d = { description = 'Todo', template = '* TODO [#C] %?\n %U\n %F', target = '~/Nutstore Files/org/todo.org' },
-    j = { description = 'Journal', template = '\n*** %<%Y-%m-%d> %<%A>\n**** %U\n\n%?', target = '~/Nutstore Files/org/journal.org' },
+    j = { description = 'Journal', template = '\n*** %<%Y-%m-%d> %<%A>\n**** %U\n\n%?',
+      target = '~/Nutstore Files/org/journal.org' },
     n = { description = 'Note', template = '* %?\n %U\n %F', target = '~/Nutstore Files/org/notes.org' },
   },
   notifications = {
@@ -800,19 +793,16 @@ require("nvim-treesitter.configs").setup {
 -- })
 
 -- copilot
-local cmp = require "cmp"
-lvim.builtin.cmp.mapping["<C-e>"] = function(fallback)
-  cmp.mapping.abort()
-  local copilot_keys = vim.fn["copilot#Accept"]()
-  if copilot_keys ~= "" then
-    vim.api.nvim_feedkeys(copilot_keys, "i", true)
-  else
-    fallback()
-  end
-end
-
--- gitlinker
-require('gitlinker').setup()
+-- local cmp = require "cmp"
+-- lvim.builtin.cmp.mapping["<C-e>"] = function(fallback)
+--   cmp.mapping.abort()
+--   local copilot_keys = vim.fn["copilot#Accept"]()
+--   if copilot_keys ~= "" then
+--     vim.api.nvim_feedkeys(copilot_keys, "i", true)
+--   else
+--     fallback()
+--   end
+-- end
 
 -- Autocommands
 lvim.autocommands = {
@@ -824,10 +814,26 @@ lvim.autocommands = {
       command = "setlocal wrap ts=4 sw=4",
     },
   },
+  { -- first entry
+    "BufWritePre",
+    { -- this is passed directly as opts to `nvim_create_autocmd()`
+      pattern = { "*.json", "*.jsonc", "*.py", "*.go" },
+      -- enable wrap mode for json files only
+      command = "lua vim.lsp.buf.formatting_sync(nil, 20000)",
+    },
+  },
+  { -- first entry
+    "VimEnter",
+    { -- this is passed directly as opts to `nvim_create_autocmd()`
+      pattern = { "*" },
+      -- enable wrap mode for json files only
+      command = "lua require'gitlinker'.setup()",
+    },
+  },
   {
     "InsertEnter",
     {
-      pattern = {"*"},
+      pattern = { "*" },
       command = ":normal zz"
     }
   }
