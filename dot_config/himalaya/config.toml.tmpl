@@ -18,12 +18,12 @@ email = "{{ .gmailwork }}"
 imap-host = "imap.gmail.com"
 imap-port = 993
 imap-login = "{{ .gmailwork }}"
-imap-passwd-cmd = "ph show himalaya-jack --field password"
+imap-passwd-cmd = "pass show himalaya-jack"
 
 smtp-host = "smtp.gmail.com"
 smtp-port = 465
 smtp-login = "{{ .gmailwork }}"
-smtp-passwd-cmd = "ph show himalaya-jack --field password"
+smtp-passwd-cmd = "pass show himalaya-jack"
 
 [firework.mailboxes]
 sent = "[Gmail]/Sent Mail"
@@ -37,12 +37,12 @@ email = "{{ .gmailpersonal }}"
 imap-host = "imap.gmail.com"
 imap-port = 993
 imap-login = "{{ .gmailpersonal }}"
-imap-passwd-cmd = "ph show himalaya-Joker --field password"
+imap-passwd-cmd = "pass show himalaya-Joker"
 
 smtp-host = "smtp.gmail.com"
 smtp-port = 465
 smtp-login = "{{ .gmailpersonal }}"
-smtp-passwd-cmd = "ph show himalaya-Joker --field password"
+smtp-passwd-cmd = "pass show himalaya-Joker"
 
 [jack-local]
 name = "Jack Deng"
