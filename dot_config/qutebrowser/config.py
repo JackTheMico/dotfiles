@@ -48,7 +48,7 @@ c.auto_save.session = True
 #   - no-3rdparty: Accept cookies from the same origin only. This is known to break some sites, such as GMail.
 #   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain. On QtWebEngine, this is the same as no-3rdparty.
 #   - never: Don't accept cookies at all.
-config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
+config.set("content.cookies.accept", "all", "chrome-devtools://*")
 
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
@@ -72,12 +72,12 @@ config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
 #   - no-3rdparty: Accept cookies from the same origin only. This is known to break some sites, such as GMail.
 #   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain. On QtWebEngine, this is the same as no-3rdparty.
 #   - never: Don't accept cookies at all.
-config.set('content.cookies.accept', 'all', 'devtools://*')
+config.set("content.cookies.accept", "all", "devtools://*")
 
 # Value to send in the `Accept-Language` header. Note that the value
 # read from JavaScript is always the global value.
 # Type: String
-config.set('content.headers.accept_language', '', 'https://matchmaker.krunker.io/*')
+config.set("content.headers.accept_language", "", "https://matchmaker.krunker.io/*")
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -93,7 +93,11 @@ config.set('content.headers.accept_language', '', 'https://matchmaker.krunker.io
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}', 'https://web.whatsapp.com/')
+config.set(
+    "content.headers.user_agent",
+    "Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}",
+    "https://web.whatsapp.com/",
+)
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -109,7 +113,11 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{w
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:90.0) Gecko/20100101 Firefox/90.0', 'https://accounts.google.com/*')
+config.set(
+    "content.headers.user_agent",
+    "Mozilla/5.0 ({os_info}; rv:90.0) Gecko/20100101 Firefox/90.0",
+    "https://accounts.google.com/*",
+)
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -125,15 +133,19 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:90.0) Gecko
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99 Safari/537.36', 'https://*.slack.com/*')
+config.set(
+    "content.headers.user_agent",
+    "Mozilla/5.0 ({os_info}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99 Safari/537.36",
+    "https://*.slack.com/*",
+)
 
 # Load images automatically in web pages.
 # Type: Bool
-config.set('content.images', True, 'chrome-devtools://*')
+config.set("content.images", True, "chrome-devtools://*")
 
 # Load images automatically in web pages.
 # Type: Bool
-config.set('content.images', True, 'devtools://*')
+config.set("content.images", True, "devtools://*")
 
 # Allow JavaScript to read from or write to the clipboard. With
 # QtWebEngine, writing the clipboard as response to a user interaction
@@ -143,23 +155,23 @@ c.content.javascript.can_access_clipboard = True
 
 # Enable JavaScript.
 # Type: Bool
-config.set('content.javascript.enabled', True, '*://www.bilibili.com/*')
+config.set("content.javascript.enabled", True, "*://www.bilibili.com/*")
 
 # Enable JavaScript.
 # Type: Bool
-config.set('content.javascript.enabled', True, 'chrome-devtools://*')
+config.set("content.javascript.enabled", True, "chrome-devtools://*")
 
 # Enable JavaScript.
 # Type: Bool
-config.set('content.javascript.enabled', True, 'devtools://*')
+config.set("content.javascript.enabled", True, "devtools://*")
 
 # Enable JavaScript.
 # Type: Bool
-config.set('content.javascript.enabled', True, 'chrome://*/*')
+config.set("content.javascript.enabled", True, "chrome://*/*")
 
 # Enable JavaScript.
 # Type: Bool
-config.set('content.javascript.enabled', True, 'qute://*/*')
+config.set("content.javascript.enabled", True, "qute://*/*")
 
 # Allow websites to record audio.
 # Type: BoolAsk
@@ -167,7 +179,7 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 #   - true
 #   - false
 #   - ask
-config.set('content.media.audio_capture', True, 'https://meet.google.com')
+config.set("content.media.audio_capture", True, "https://meet.google.com")
 
 # Allow websites to record video.
 # Type: BoolAsk
@@ -175,7 +187,7 @@ config.set('content.media.audio_capture', True, 'https://meet.google.com')
 #   - true
 #   - false
 #   - ask
-config.set('content.media.video_capture', True, 'https://meet.google.com')
+config.set("content.media.video_capture", True, "https://meet.google.com")
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -183,7 +195,7 @@ config.set('content.media.video_capture', True, 'https://meet.google.com')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications.enabled', True, 'https://mail.google.com')
+config.set("content.notifications.enabled", True, "https://mail.google.com")
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -191,7 +203,7 @@ config.set('content.notifications.enabled', True, 'https://mail.google.com')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications.enabled', False, 'https://weibo.com')
+config.set("content.notifications.enabled", False, "https://weibo.com")
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -199,7 +211,7 @@ config.set('content.notifications.enabled', False, 'https://weibo.com')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications.enabled', False, 'https://download.csdn.net')
+config.set("content.notifications.enabled", False, "https://download.csdn.net")
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -207,7 +219,7 @@ config.set('content.notifications.enabled', False, 'https://download.csdn.net')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications.enabled', False, 'https://blog.csdn.net')
+config.set("content.notifications.enabled", False, "https://blog.csdn.net")
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -215,7 +227,7 @@ config.set('content.notifications.enabled', False, 'https://blog.csdn.net')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications.enabled', True, 'https://www.reddit.com')
+config.set("content.notifications.enabled", True, "https://www.reddit.com")
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -223,7 +235,7 @@ config.set('content.notifications.enabled', True, 'https://www.reddit.com')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications.enabled', True, 'https://tryhackme.com')
+config.set("content.notifications.enabled", True, "https://tryhackme.com")
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -231,7 +243,7 @@ config.set('content.notifications.enabled', True, 'https://tryhackme.com')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications.enabled', True, 'https://app.slack.com')
+config.set("content.notifications.enabled", True, "https://app.slack.com")
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -239,7 +251,7 @@ config.set('content.notifications.enabled', True, 'https://app.slack.com')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications.enabled', True, 'https://meet.google.com')
+config.set("content.notifications.enabled", True, "https://meet.google.com")
 
 # Enable plugins in Web pages.
 # Type: Bool
@@ -254,7 +266,7 @@ c.content.plugins = True
 # Valid values:
 #   - system: Use the system wide proxy.
 #   - none: Don't use any proxy
-c.content.proxy = 'http://localhost:7890'
+c.content.proxy = "http://localhost:7890"
 
 # Allow websites to register protocol handlers via
 # `navigator.registerProtocolHandler`.
@@ -263,7 +275,11 @@ c.content.proxy = 'http://localhost:7890'
 #   - true
 #   - false
 #   - ask
-config.set('content.register_protocol_handler', True, 'https://mail.google.com?extsrc=mailto&url=%25s')
+config.set(
+    "content.register_protocol_handler",
+    True,
+    "https://mail.google.com?extsrc=mailto&url=%25s",
+)
 
 # Position of the tab bar.
 # Type: Position
@@ -272,16 +288,16 @@ config.set('content.register_protocol_handler', True, 'https://mail.google.com?e
 #   - bottom
 #   - left
 #   - right
-c.tabs.position = 'top'
+c.tabs.position = "top"
 
 # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 # for a blank page.
 # Type: FuzzyUrl
-c.url.default_page = 'https://www.google.com'
+c.url.default_page = "https://www.google.com"
 
 # Default zoom level.
 # Type: Perc
-c.zoom.default = '145%'
+c.zoom.default = "145%"
 
 # Render all web contents using a dark theme. Example configurations
 # from Chromium's `chrome://flags`:  - "With simple HSL/CIELAB/RGB-based
@@ -303,31 +319,37 @@ c.colors.webpage.darkmode.enabled = True
 #   - lightness-cielab: Modify colors by converting them to CIELAB color space and inverting the L value. Not available with Qt < 5.14.
 #   - lightness-hsl: Modify colors by converting them to the HSL color space and inverting the lightness (i.e. the "L" in HSL).
 #   - brightness-rgb: Modify colors by subtracting each of r, g, and b from their maximum value.
-c.colors.webpage.darkmode.algorithm = 'brightness-rgb'
+c.colors.webpage.darkmode.algorithm = "brightness-rgb"
 
 # Default font families to use. Whenever "default_family" is used in a
 # font setting, it's replaced with the fonts listed here. If set to an
 # empty value, a system-specific monospace default is used.
 # Type: List of Font, or Font
-c.fonts.default_family = 'FiraCode'
+c.fonts.default_family = "FiraCode"
 
 # Default font size to use. Whenever "default_size" is used in a font
 # setting, it's replaced with the size listed here. Valid values are
 # either a float value with a "pt" suffix, or an integer value with a
 # "px" suffix.
 # Type: String
-c.fonts.default_size = '13pt'
+c.fonts.default_size = "13pt"
 
 # Default font size (in pixels) for regular text.
 # Type: Int
 c.fonts.web.size.default = 18
 
+c.qt.environ = {
+    "KEYPASS_DEFAULT_BASE": "/home/dlwxxxdlw/Nutstore Files/keepass/Jack.kdbx",
+    "KEYPASS_DEFAULT_KEYFILE": "/home/dlwxxxdlw/.ssh/id_rsa",
+    "QUTE_PASSWORD_CMD": "pass show dlwxxxdlw",
+}
+
 # Bindings for normal mode
-config.bind(',M', 'spawn mpv {url}')
-config.bind(',l', 'spawn --userscript qute-keepass')
-config.bind(',m', 'hint links spawn mpv {hint-url}')
-config.bind(',o', 'hint links spawn mpv --http-proxy=http://127.0.0.1:7890 {hint-url}')
-config.bind(',p', 'config-cycle content.proxy http://localhost:8080 system --print')
-config.bind(',s', 'config-cycle content.proxy http://localhost:7890 system --print')
-config.bind('d', 'scroll-page 0 0.8')
-config.bind('xx', 'tab-close')
+config.bind(",M", "spawn mpv {url}")
+config.bind(",l", "spawn --userscript qute-keepass")
+config.bind(",m", "hint links spawn mpv {hint-url}")
+config.bind(",o", "hint links spawn mpv --http-proxy=http://127.0.0.1:7890 {hint-url}")
+config.bind(",p", "config-cycle content.proxy http://localhost:8080 system --print")
+config.bind(",s", "config-cycle content.proxy http://localhost:7890 system --print")
+config.bind("d", "scroll-page 0 0.8")
+config.bind("xx", "tab-close")
