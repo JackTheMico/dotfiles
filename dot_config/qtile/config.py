@@ -82,12 +82,14 @@ COLORS = [
     ["a9a1e1", "a9a1e1"],
 ]
 
+
 def is_running(process):
     s = subprocess.Popen(["ps", "axuw"], stdout=subprocess.PIPE)
     for x in s.stdout:
         if re.search(process, x.decode()):
             return True
     return False
+
 
 def spawn_group(name: str, layout: str):
     if name in DEFAULT_SPAWNS.keys():
@@ -102,17 +104,20 @@ def spawn_group(name: str, layout: str):
             return Group(name, spawn=prolist, layout=layout)
     return None
 
+
 def window_to_previous_screen(qtile):
     i = qtile.screens.index(qtile.current_screen)
     if i != 0:
         group = qtile.screens[i - 1].group.name
         qtile.current_window.togroup(group)
 
+
 def window_to_next_screen(qtile):
     i = qtile.screens.index(qtile.current_screen)
     if i + 1 != len(qtile.screens):
         group = qtile.screens[i + 1].group.name
         qtile.current_window.togroup(group)
+
 
 rofi_keychord = [
     KeyChord(
@@ -149,6 +154,7 @@ rofi_keychord = [
     Key([], "b", lazy.spawn("rofi-bluetooth"), desc="bluetooth"),
     Key([], "f", lazy.spawn("rofi-wifi-menu"), desc="wifi"),
     Key([], "i", lazy.spawn("teiler"), desc="teiler screenshot and screencast"),
+    Key([], "g", lazy.spawn("slip"), desc="gif and video recording and uploading"),
     Key(
         [],
         "k",
@@ -327,6 +333,7 @@ keys = [
     Key([MOD, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 ]
 
+
 def init_groups():
     def _inner(key, name, layout):
         keys.append(Key([MOD], key, lazy.group[name].toscreen()))
@@ -355,6 +362,7 @@ def init_groups():
     ]
     keys.append(Key([MOD1], "d", lazy.group["scratchpad"].dropdown_toggle("zsh")))
     return res_groups
+
 
 groups = init_groups()
 
@@ -404,6 +412,7 @@ widget_defaults = dict(
     font="Hack Nerd Bold", fontsize=14, padding=2, background=COLORS[2]
 )
 extension_defaults = widget_defaults.copy()
+
 
 def init_widgets_list():
     widgets = [
@@ -587,14 +596,17 @@ def init_widgets_list():
     ]
     return widgets
 
+
 def init_widgets_screen1():
     widgets_screen1 = init_widgets_list()
     return widgets_screen1
+
 
 def init_widgets_screen2():
     widgets_screen2 = init_widgets_list()
     del widgets_screen2[9:10]
     return widgets_screen2
+
 
 screens = [
     Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=26)),
@@ -641,10 +653,12 @@ reconfigure_screens = True
 # focus, should we respect this or not?
 auto_minimize = True
 
+
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser("~")
     subprocess.call([home + "/.config/qtile/autostart.sh"])
+
 
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
