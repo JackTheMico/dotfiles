@@ -66,9 +66,8 @@ DEFAULT_SPAWNS = {
     # "离": "bash -c 'alacritty -e lvim'",
     # "震": "zeal %u",
     "艮": [
-        "bash -c 'sc-controller'",
-        "bash -c 'watt-toolkit'",
-        "bash -c 'steam'",
+        "sc-controller",
+        "watt-toolkit",
     ],
     "巽": "bash -c 'alacritty -e bpytop'",
     "坎": "slack",
