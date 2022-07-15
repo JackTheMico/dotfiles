@@ -7,11 +7,26 @@ a global executable or a path to
 an executable
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
+local function hostname()
+    local f = io.popen("/usr/bin/hostname")
+    local hostname = f:read("*a") or ""
+    f:close()
+    hostname =string.gsub(hostname, "\n$", "")
+    return hostname
+end
+
+local hname = hostname()
 
 -- vim
 vim.opt.expandtab = true
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-vim.opt.guifont = "hack:h15" -- the font used in graphical neovim applications
+if (hname == 'manjaro-jack') then
+-- vim.opt.guifont = "Hack Nerd:h25" -- the font used in graphical neovim applications
+  vim.opt.guifont = { "", ":h16" } -- the font used in graphical neovim applications
+else
+  -- vim.opt.guifont = { "Hack Nerd", ":h20" } -- the font used in graphical neovim applications
+  vim.opt.guifont = "hack:h13" -- the font used in graphical neovim applications
+end
 vim.opt.termguicolors = true -- set term gui colors (most terminals support this)
 vim.opt.tabstop = 4
 vim.opt.mouse = "a"
@@ -26,6 +41,8 @@ vim.g.neovide_fullscreen = false
 vim.g.neovide_input_use_logo = true
 vim.g.mkdp_auto_start = 0
 vim.g.mkdp_browser = '/sbin/qutebrowser'
+vim.opt.undodir = vim.fn.stdpath "cache" .. "/undo"
+vim.opt.undofile = true -- enable persistent undo
 -- lua project.nvim
 -- vim.g.nvim_tree_respect_buf_cwd = 1
 vim.g.translator_default_engines = { "youdao", "bing", "haici" }
@@ -574,25 +591,25 @@ require 'telescope'.load_extension('zoxide')
 -- Grammar Guard
 local gg = require("grammar-guard")
 gg.init()
-require("lspconfig").grammar_guard.setup({
-  cmd = { 'ltex-ls' },
-  settings = {
-    ltex = {
-      enabled = { "latex", "tex", "bib", "markdown", "org" },
-      language = "en",
-      diagnosticSeverity = "information",
-      setenceCacheSize = 2000,
-      additionalRules = {
-        enablePickyRules = true,
-        motherTongue = "en",
-      },
-      trace = { server = "verbose" },
-      dictionary = {},
-      disabledRules = {},
-      hiddenFalsePositives = {},
-    },
-  },
-})
+-- require("lspconfig").grammar_guard.setup({
+--   cmd = { 'ltex-ls' },
+--   settings = {
+--     ltex = {
+--       enabled = { "latex", "tex", "bib", "markdown", "org" },
+--       language = "en",
+--       diagnosticSeverity = "information",
+--       setenceCacheSize = 2000,
+--       additionalRules = {
+--         enablePickyRules = true,
+--         motherTongue = "en",
+--       },
+--       trace = { server = "verbose" },
+--       dictionary = {},
+--       disabledRules = {},
+--       hiddenFalsePositives = {},
+--     },
+--   },
+-- })
 
 -- org setup
 -- local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
