@@ -155,7 +155,7 @@
     "yassnippet.mapping": {
         "python": "python-mode"
     },
-    "editor.fontSize": 13,
+    "editor.fontSize": 15,
     "javascript.suggest.paths": false,
     "typescript.suggest.paths": false,
     "window.zoomLevel": 1.5,

@@ -137,3 +137,7 @@ ex ()
 }
 
 [ -s "/home/dlwxxxdlw/.jabba/jabba.sh" ] && source "/home/dlwxxxdlw/.jabba/jabba.sh"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/home/dlwxxxdlw/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
