@@ -53,3 +53,4 @@
     type = "file"
     url = "https://raw.githubusercontent.com/AssrtOSS/mpv-assrt/master/script-opts/assrt.conf.example"
     refreshPeriod = "168h"
+
