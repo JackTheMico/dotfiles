@@ -49,4 +49,7 @@
     type = "file"
     url = "https://raw.githubusercontent.com/jarun/googler/main/auto-completion/googler_at/googler_at"
     refreshPeriod = "168h"
-
+[".config/mpv/script-opts/assrt.conf.example"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/AssrtOSS/mpv-assrt/master/script-opts/assrt.conf.example"
+    refreshPeriod = "168h"
