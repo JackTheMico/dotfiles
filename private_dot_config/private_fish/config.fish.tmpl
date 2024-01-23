@@ -1,0 +1,20 @@
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
+alias refish="source ~/.config/fish/config.fish"
+alias efish="vim ~/.config/fish/config.fish"
+abbr ls eza -a
+abbr ll eza -lha
+abbr md mkdir
+abbr lg lazygit
+abbr cht cheat
+abbr czi chezmoi
+abbr tree eza -T
+
+export GPG_TTY=$(tty)
+export EDITOR=lvim
+export TERM="tmux-256color"
+
+starship init fish | source
+pyenv init - | source
+thefuck --alias | source
