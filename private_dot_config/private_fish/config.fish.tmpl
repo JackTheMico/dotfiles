@@ -21,9 +21,15 @@ abbr czi chezmoi
 abbr tree eza -T
 abbr k kubectl
 
+
 export GPG_TTY=$(tty)
 export EDITOR=lvim
 export TERM="tmux-256color"
+{{ if eq .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+export hostip $(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
+{{   end }}
+{{ end }}
 
 starship init fish | source
 pyenv init - | source
