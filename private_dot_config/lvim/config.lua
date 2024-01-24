@@ -247,7 +247,7 @@ lvim.builtin.which_key.mappings["P"] = {
 }
 lvim.keys.normal_mode["<S-h>"] = "<cmd>BufferLineCyclePrev<cr>"
 lvim.keys.normal_mode["<S-l>"] = "<cmd>BufferLineCycleNext<cr>"
-lvim.keys.insert_mode["<jk>"] = "<cmd>Esc<cr>"
+lvim.keys.insert_mode["jk"] = "<cmd>Esc<cr>"
 lvim.builtin.which_key.mappings["w"] = {
   name = "Window",
   w = { "<cmd>w<cr>", "Save" },
