@@ -1,6 +1,15 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
+{{- if eq .chezmoi.os "darwin" }}
+export LIBRARY_PATH=/usr/local/opt/openssl/lib/
+export XDG_CONFIG_HOME=/Users/dlwxxxdlw/.config/
+export KUBECONFIG=$HOME/.kube/config-staging:$HOME/.kube/config-prod
+export WORKON_HOME=/.pyhttps_proxyenv/
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export PIPENV_INSTALL_TIMEOUT=9000
+{{- end }}
 alias refish="source ~/.config/fish/config.fish"
 alias efish="vim ~/.config/fish/config.fish"
 abbr ls eza -a
@@ -10,6 +19,7 @@ abbr lg lazygit
 abbr cht cheat
 abbr czi chezmoi
 abbr tree eza -T
+abbr k kubectl
 
 export GPG_TTY=$(tty)
 export EDITOR=lvim
