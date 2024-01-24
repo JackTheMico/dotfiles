@@ -208,6 +208,13 @@ lvim.plugins = {
 
 -- Setup dap-python
 local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
+-- Setup Telescope extensions
+lvim.builtin.telescope.on_config_done = function(telescope)
+  pcall(telescope.load_extension, "frecency")
+  pcall(telescope.load_extension, "neoclip")
+  pcall(telescope.load_extension, "media_files")
+  -- any other extensions loading
+end
 -- pcall(function()
 --   require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
 -- end)
