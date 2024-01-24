@@ -27,7 +27,7 @@ export EDITOR=lvim
 export TERM="tmux-256color"
 {{ if eq .chezmoi.os "linux" }}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-export hostip $(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
+export hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
 {{   end }}
 {{ end }}
 
