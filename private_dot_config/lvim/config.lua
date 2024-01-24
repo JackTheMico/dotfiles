@@ -7,6 +7,11 @@ vim.opt.relativenumber = true
 lvim.format_on_save = true
 
 lvim.plugins = {
+  { "AckslD/nvim-neoclip.lua" },
+  { "nvim-telescope/telescope-media-files.nvim" },
+  { "nvim-telescope/telescope-frecency.nvim" },
+  { "debugloop/telescope-undo.nvim" },
+  { "benfowler/telescope-luasnip.nvim" },
   {
     "rmagatti/goto-preview",
     config = function()
@@ -213,6 +218,8 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "frecency")
   pcall(telescope.load_extension, "neoclip")
   pcall(telescope.load_extension, "media_files")
+  pcall(telescope.load_extension, "undo")
+  pcall(telescope.load_extension, "luasnip")
   -- any other extensions loading
 end
 -- pcall(function()
