@@ -275,6 +275,12 @@ lvim.builtin.which_key.mappings["P"] = {
   i = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Pick Env" },
   d = { "<cmd>lua require('swenv.api').get_current_venv()<cr>", "Show Env" },
 }
+lvim.builtin.which_key.mappings["S"] = {
+  name = "Session",
+  c = { "<cmd>lua require('persistence').load()<cr>", "Restore last session for current dir" },
+  l = { "<cmd>lua require('persistence').load({ last = true })<cr>", "Restore last session" },
+  q = { "<cmd>lua require('persistence').stop()<cr>", "Quit without saving session" },
+}
 lvim.keys.normal_mode["<S-h>"] = "<cmd>BufferLineCyclePrev<cr>"
 lvim.keys.normal_mode["<S-l>"] = "<cmd>BufferLineCycleNext<cr>"
 lvim.keys.insert_mode["jk"] = "<Esc>"
