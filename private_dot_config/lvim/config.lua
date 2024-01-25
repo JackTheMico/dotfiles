@@ -20,9 +20,24 @@ lvim.plugins = {
   },
   {
     'Exafunction/codeium.vim',
-    event = 'BufEnter'
+    event = 'BufEnter',
+    config = function()
+      -- Change '<C-g>' here to any keycode you like.
+      vim.keymap.set('i', '<C-g>', function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
+      vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end,
+        { expr = true, silent = true })
+      vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end,
+        { expr = true, silent = true })
+      vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
+    end
   },
-  { "AckslD/nvim-neoclip.lua" },
+  {
+    "AckslD/nvim-neoclip.lua",
+    after = "telescope",
+    config = function()
+      require("neoclip").setup {}
+    end,
+  },
   { "nvim-telescope/telescope-media-files.nvim" },
   { "nvim-telescope/telescope-frecency.nvim" },
   { "debugloop/telescope-undo.nvim" },
@@ -263,10 +278,6 @@ local linters = require("lvim.lsp.null-ls.linters")
 linters.setup {
   { command = "codespell", filetypes = { "lua", "python" } }
 }
--- local code_actions = require("lvim.lsp.null-ls.code_actions")
--- code_actions.setup {
---   { command = "ruff" }
--- }
 
 
 -- Key Mappings
@@ -274,6 +285,19 @@ lvim.builtin.which_key.mappings["P"] = {
   name = "Python",
   i = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Pick Env" },
   d = { "<cmd>lua require('swenv.api').get_current_venv()<cr>", "Show Env" },
+}
+lvim.builtin.which_key.mappings["<space>"] = {
+  name = "Term",
+  f = { "<cmd>ToggleTerm<cr>", "FloatTerm" },
+  h = { "<cmd>ToggleTerm direction=horizontal<cr>", "Horizontal Term" },
+  v = { "<cmd>ToggleTerm direction=vertical<cr>", "Vertical Term" },
+  t = { "<cmd>ToggleTerm direction=tab<cr>", "Tab Term" },
+}
+lvim.builtin.which_key.mappings["t"] = {
+  name = "Telescope",
+  c = { "<cmd>Telescope neoclip<cr>", "Neoclip" },
+  l = { "<cmd>Telescope luasnip<cr>", "Luasnip" },
+  u = { "<cmd>Telescope undo<cr>", "Undo" },
 }
 lvim.builtin.which_key.mappings["S"] = {
   name = "Session",
