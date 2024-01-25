@@ -7,6 +7,10 @@ vim.opt.relativenumber = true
 lvim.format_on_save = true
 
 lvim.plugins = {
+  {
+    'Exafunction/codeium.vim',
+    event = 'BufEnter'
+  },
   { "AckslD/nvim-neoclip.lua" },
   { "nvim-telescope/telescope-media-files.nvim" },
   { "nvim-telescope/telescope-frecency.nvim" },
@@ -20,7 +24,7 @@ lvim.plugins = {
         height = 25,             -- Height of the floating window
         default_mappings = true, -- Bind default mappings
         debug = false,           -- Print debug information
-        opacity = 80,            -- 0-100 opacity level of the floating window where 100 is fully transparent.
+        opacity = 10,            -- 0-100 opacity level of the floating window where 100 is fully transparent.
         post_open_hook = nil,    -- A function taking two arguments, a buffer and a window to be ran as a hook.
         -- You can use "default_mappings = true" setup option
         -- Or explicitly set keybindings
