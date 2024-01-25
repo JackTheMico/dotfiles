@@ -8,7 +8,6 @@ lvim.format_on_save = true
 
 lvim.plugins = {
   { "AckslD/nvim-neoclip.lua" },
-  { "dbinagi/nomodoro" },
   { "nvim-telescope/telescope-media-files.nvim" },
   { "nvim-telescope/telescope-frecency.nvim" },
   { "debugloop/telescope-undo.nvim" },
@@ -213,15 +212,6 @@ lvim.plugins = {
 }
 
 
--- nomodoro
-local lualine = require 'lualine'
-lualine.setup({
-  sections = {
-    lualine_x = {
-      require('nomodoro').status,
-    }
-  }
-})
 -- Setup dap-python
 local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
 -- Setup Telescope extensions
