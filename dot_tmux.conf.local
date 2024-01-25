@@ -418,11 +418,12 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @continuum-restore 'on'
 set -g @resurrect-capture-pane-contents 'on'
-
-
-# -- custom variables ----------------------------------------------------------
-
-# to define a custom #{foo} variable, define a POSIX shell function between the
+set -g @resurrect-processes 'ssh vim lvim' 
+  
+  
+  # -- custom variables ----------------------------------------------------------
+  
+  # to define a custom #{foo} variable, define a POSIX shell function between the
 # '# EOF' and the '# "$@"' lines. Please note that the opening brace { character
 # must be on the same line as the function name otherwise the parse won't detect
 # it.
