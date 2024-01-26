@@ -26,7 +26,7 @@ abbr pc pre-commit
 export GPG_TTY=$(tty)
 export EDITOR=lvim
 export TERM="tmux-256color"
-export DISPLAY=$hostip:200.0
+export DISPLAY=$hostip:0.0
 {{ if eq .chezmoi.os "linux" }}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 export hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
