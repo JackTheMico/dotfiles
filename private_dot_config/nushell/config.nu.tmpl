@@ -1,1 +1,41 @@
 {{- template "nu-common-config" . -}}
+
+def enproxy [] {
+  $env.https_proxy = "http://$env.hostip:7890"
+  $env.http_proxy = "http://$env.hostip:7890"
+  $env.ftp_proxy = "http://$env.hostip:7890"
+  $env.rsync_proxy = "http://$env.hostip:7890"
+  git config --global http.proxy $env.hostip:7890
+  git config --global https.proxy $env.hostip:7890
+}
+def enproxy [] {
+  env -u https_proxy
+  env -u http_proxy
+  env -u ftp_proxy
+  env -u rsync_proxy
+  git config --global --unset http.proxy
+  git config --global --unset https.proxy
+}
+
+def gitjackinit [] {
+  git config user.name "jackwenyoung"
+  git config user.email "dlwxxxdlw@gmail.com"
+  git config user.signingKey A30DF874D95E6029
+  git config commit.gpgSign true
+}
+
+def gitfireworkinit [] {
+  git config user.name "Jack Deng"
+  git config user.email "jack@fireworkhq.com"
+  git config user.signingKey 944C9860A454A4CA
+  git config commit.gpgSign true
+}
+
+def transe [word: string] {
+  trans -x $"($env.hostip):7890" en:zh $word
+}
+def transz [word: string] {
+  trans -x $"($env.hostip):7890" zh:en $word
+}
+
+alias cht = cht.sh
