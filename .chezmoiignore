@@ -1,0 +1,3 @@
+{{- if eq .chezmoi.os "Windows" }}
+~/wslcodes/jackwenyoung/winlot/.env.prod
+{{- end }}
