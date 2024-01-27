@@ -1,3 +1,9 @@
-{{- if eq .chezmoi.os "Windows" }}
-~/wslcodes/jackwenyoung/winlot/.env.prod
-{{- end }}
+{{ if ne .chezmoi.os "linux" }}
+wslcodes
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+AppData
+{{   end }}
+{{ end }}
