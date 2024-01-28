@@ -4,7 +4,7 @@
 -- Discord: https://discord.com/invite/Xb9B4Ny
 vim.opt.relativenumber = true
 
-lvim.format_on_save = true
+lvim.format_on_save = false
 
 lvim.plugins = {
   { "alker0/chezmoi.vim" },
