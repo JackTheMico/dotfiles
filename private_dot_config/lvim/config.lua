@@ -9,10 +9,9 @@ lvim.format_on_save = true
 lvim.plugins = {
   { "alker0/chezmoi.vim" },
   {
-    "LhKipp/nvim-nu",
+    "JackTheMico/nvim-nu",
     config = function()
       require("nu").setup {
-        filetypes = { "nu", "tmpl" },
       }
     end,
   },
