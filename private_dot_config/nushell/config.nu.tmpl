@@ -28,7 +28,7 @@ let external_completers = {|spans|
     } | do $in $spans
 }
 $env.config.completions = {
-    external: { enable: true, completer: external_completers }
+    external: { enable: true, completer: $external_completers }
 }
 
 def enproxy [] {
