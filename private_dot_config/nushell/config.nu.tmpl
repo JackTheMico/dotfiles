@@ -8,7 +8,8 @@ def enproxy [] {
   git config --global http.proxy $env.hostip:7890
   git config --global https.proxy $env.hostip:7890
 }
-def enproxy [] {
+
+def deproxy [] {
   env -u https_proxy
   env -u http_proxy
   env -u ftp_proxy
