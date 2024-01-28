@@ -7,6 +7,7 @@ vim.opt.relativenumber = true
 lvim.format_on_save = true
 
 lvim.plugins = {
+  { "alker0/chezmoi.vim" },
   {
     "LhKipp/nvim-nu",
     config = function()
