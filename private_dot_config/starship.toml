@@ -28,7 +28,7 @@ $docker_context\
 [](fg:#06969A bg:#33658A)\
 $time\
 [ ](fg:#33658A)\
-\n$character
+$character
 """
 
 right_format = """$all"""
