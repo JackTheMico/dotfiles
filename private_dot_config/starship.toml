@@ -1,6 +1,3 @@
-# 根据 schema 提供自动补全
-"$schema" = 'https://starship.rs/config-schema.json'
-
 format = """
 [](#9A348E)\
 $os\
@@ -28,13 +25,10 @@ $docker_context\
 [](fg:#06969A bg:#33658A)\
 $time\
 [ ](fg:#33658A)\
-$character
 """
 
-right_format = """$all"""
-
 # Disable the blank line at the start of the prompt
-add_newline = false
+# add_newline = false
 
 # You can also replace your username with a neat symbol like   or disable this
 # and use the os module below
