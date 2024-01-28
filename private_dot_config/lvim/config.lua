@@ -8,6 +8,12 @@ lvim.format_on_save = true
 
 lvim.plugins = {
   {
+    "LhKipp/nvim-nu",
+    config = function()
+      require("nu").setup()
+    end,
+  },
+  {
     "folke/persistence.nvim",
     event = "BufReadPre", -- this will only start session saving when an actual file was opened
     module = "persistence",
