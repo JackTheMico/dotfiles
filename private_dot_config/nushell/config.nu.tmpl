@@ -1,4 +1,4 @@
-{{- template "nu-common-config" . -}}
+{{- template "nu-common-config.nu" . -}}
 
 def enproxy [] {
   $env.https_proxy = "http://$env.hostip:7890"

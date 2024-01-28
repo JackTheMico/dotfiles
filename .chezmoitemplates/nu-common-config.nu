@@ -320,7 +320,16 @@ $env.config = {
             modifier: control
             keycode: char_r
             mode: [emacs, vi_insert, vi_normal]
-            event: { send: menu name: history_menu }
+            event: { send: ExecuteHostCommand cmd: "commandline (
+            history
+              | each { |it| $it.command }
+              | uniq
+              | reverse
+              | str join (char -i 0)
+              | fzf --read0 --layout=reverse --height=40% -q (commandline)
+              | decode utf-8
+              | str trim
+          )"}
         }
         {
             name: help_menu
