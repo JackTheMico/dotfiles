@@ -11,7 +11,9 @@ lvim.plugins = {
   {
     "LhKipp/nvim-nu",
     config = function()
-      require("nu").setup()
+      require("nu").setup {
+        filetypes = { "nu", "tmpl" },
+      }
     end,
   },
   {
