@@ -1,5 +1,6 @@
 {{ if ne .chezmoi.os "linux" }}
 wslcodes
+run_once_cheat_install.sh
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
