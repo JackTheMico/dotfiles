@@ -1,6 +1,6 @@
 
 {{ if ne .chezmoi.os "windows" }}
-mkdir -p "~/.local/bin"
-curl https://cht.sh/:cht.sh > "~/.local/bin/cht.sh"
-chmod +x "~/.local/bin/cht.sh"
+#!/bin/bash
+curl https://cht.sh/:cht.sh > "~/.local/bin/cht.sh" 
+# chmod +x "~/.local/bin/cht.sh"
 {{ end }}
