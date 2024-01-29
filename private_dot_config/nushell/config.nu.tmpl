@@ -70,5 +70,8 @@ def transz [word: string] {
   trans -x $"($env.hostip):7890" zh:en $word
 }
 
+fzf_configure_bindings --directory=\cf --git_log=\cl --processes=\cp --git_status=\cs
 alias cht = cht.sh
 source ~/.zoxide.nu
+pyenv init - | source
+thefuck --alias | source
