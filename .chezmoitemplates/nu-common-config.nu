@@ -773,3 +773,4 @@ alias czi = chezmoi
 alias lg = lazygit
 alias tree = eza -T
 alias pc = pre-commit
+use ~/.cache/starship/init.nu

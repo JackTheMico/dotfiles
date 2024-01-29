@@ -99,4 +99,13 @@ $env.NU_PLUGIN_DIRS = [
 
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
+
+{{- if eq .chezmoi.os "linux" }}
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
+{{- end }}
+
+{{- if eq .chezmoi.os "windows" }}
+$env.Path = ($env.Path | split row (char esep) | prepend '~/.local/bin')
+{{- end }}
+
+starship init nu | save -f ~/.cache/starship/init.nu
