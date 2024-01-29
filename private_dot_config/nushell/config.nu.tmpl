@@ -69,17 +69,6 @@ def transe [word: string] {
 def transz [word: string] {
   trans -x $"($env.hostip):7890" zh:en $word
 }
-def --env pyenv [command, ...args] {
-    let new_env = if $command in ["activate", "deactivate", "rehash", "shell"] {
-        if $command == "shell" {
-            { PYENV_VERSION_OLD: $env.PYENV_VERSION PYENV_VERSION: $args.0 }
-        }
-    } else {
-        ^pyenv $command ...$args
-        {}
-    }
-    load-env $new_env
-}
 
 alias cht = cht.sh
 source ~/.zoxide.nu
