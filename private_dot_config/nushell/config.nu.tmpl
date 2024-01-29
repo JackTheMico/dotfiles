@@ -81,6 +81,6 @@ def --env pyenv [command, ...args] {
     load-env $new_env
 }
 
-fzf_configure_bindings --directory=\cf --git_log=\cl --processes=\cp --git_status=\cs
+fish -c "fzf_configure_bindings --directory=\cf --git_log=\cl --processes=\cp --git_status=\cs"
 alias cht = cht.sh
 source ~/.zoxide.nu

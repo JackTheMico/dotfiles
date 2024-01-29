@@ -34,6 +34,3 @@ export hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
 {{ end }}
 
 fzf_configure_bindings --directory=\cf --git_log=\cl --processes=\cp --git_status=\cs
-starship init fish | source
-pyenv init - | source
-thefuck --alias | source
