@@ -20,7 +20,11 @@ config.font = wezterm.font 'Fira Code Bold'
 config.font_size = 13.0
 
 -- default shell
+{{- if eq .chezmoi.os "windows" }}
 config.default_prog = {'C:/Program Files/nu/bin/nu.exe'}
+{{- else }}
+config.default_prog = {'/usr/bin/nu'}
+{{- end }}
 
 -- key mappings
 config.leader = { key = 'z', mods = 'CTRL', timeout_milliseconds = 1000}
