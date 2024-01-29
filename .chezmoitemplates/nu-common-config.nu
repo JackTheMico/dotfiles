@@ -773,15 +773,4 @@ alias czi = chezmoi
 alias lg = lazygit
 alias tree = eza -T
 alias pc = pre-commit
-{{- if eq .chezmoi.os "windows" }}
-def renu [] {
-  source ~/AppData/Roaming/nushell/config.nu
-  source ~/AppData/Roaming/nushell/env.nu
-}
-{{- else }}
-def renu [] {
-  source ~/.config/nushell/config.nu
-  source ~/.config/nushell/env.nu
-}
-{{- end }}
 use ~/.cache/starship/init.nu
