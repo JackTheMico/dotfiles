@@ -69,9 +69,18 @@ def transe [word: string] {
 def transz [word: string] {
   trans -x $"($env.hostip):7890" zh:en $word
 }
+def --env pyenv [command, ...args] {
+    let new-env = if $command in ["activate", "deactivate", "rehash", "shell"] {
+        if $command == "shell" {
+            { PYENV_VERSION_OLD: $env.PYENV_VERSION PYENV_VERSION: $args.0 }
+        }
+    } else {
+        ^pyenv $command $args
+        {}
+    }
+    load-env $new-env
+}
 
 fzf_configure_bindings --directory=\cf --git_log=\cl --processes=\cp --git_status=\cs
 alias cht = cht.sh
 source ~/.zoxide.nu
-pyenv init - | source
-thefuck --alias | source
