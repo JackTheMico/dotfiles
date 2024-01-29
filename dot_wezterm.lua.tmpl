@@ -1,0 +1,65 @@
+-- Pull in the wezterm API
+local wezterm = require 'wezterm'
+local act = wezterm.action
+local mux = wezterm.mux
+
+-- This table will hold the configuration.
+local config = {}
+
+-- In newer versions of wezterm, use the config_builder which will
+-- help provide clearer error messages
+if wezterm.config_builder then
+  config = wezterm.config_builder()
+end
+
+-- This is where you actually apply your config choices
+
+-- For example, changing the color scheme:
+config.color_scheme = 'Dracula+'
+config.font = wezterm.font 'Fira Code Bold'
+config.font_size = 13.0
+
+-- default shell
+config.default_prog = {'C:/Program Files/nu/bin/nu.exe'}
+
+-- key mappings
+config.leader = { key = 'z', mods = 'CTRL', timeout_milliseconds = 1000}
+config.launch_menu = {}
+config.keys = {
+  {
+    key = 'h',
+    mods = 'LEADER',
+    action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+  {
+    key = 'v',
+    mods = 'LEADER',
+    action = act.SplitVertical { domain = 'CurrentPaneDomain' },
+  },
+  {
+    key = 'w',
+    mods = 'LEADER',
+    action = act.CloseCurrentPane { confirm = true },
+  },
+  -- {
+  --   key = 'c',
+  --   mods = 'LEADER',
+  --   action = act.SpawnCommandInNewTab {},
+  -- },
+  {
+    key = 'l',
+    mods = 'LEADER',
+    action = act.ShowLauncher,
+  },
+}
+
+-- Show which key table is active in the status area
+wezterm.on('update-right-status', function(window, pane)
+  local name = window:active_key_table()
+  if name then
+    name = 'TABLE: ' .. name
+  end
+  window:set_right_status(name or '')
+end)
+-- and finally, return the configuration to wezterm
+return config
