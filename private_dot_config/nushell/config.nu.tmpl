@@ -75,7 +75,7 @@ def --env pyenv [command, ...args] {
             { PYENV_VERSION_OLD: $env.PYENV_VERSION PYENV_VERSION: $args.0 }
         }
     } else {
-        ^pyenv $command $args
+        ^pyenv $command ...$args
         {}
     }
     load-env $new_env
