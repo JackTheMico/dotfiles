@@ -36,8 +36,8 @@ def enproxy [] {
   $env.http_proxy = "http://$env.hostip:7890"
   $env.ftp_proxy = "http://$env.hostip:7890"
   $env.rsync_proxy = "http://$env.hostip:7890"
-  git config --global http.proxy $env.hostip:7890
-  git config --global https.proxy $env.hostip:7890
+  git config --global http.proxy $"($env.hostip):7890"
+  git config --global https.proxy $"($env.hostip):7890"
 }
 
 def deproxy [] {

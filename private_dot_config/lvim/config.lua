@@ -324,3 +324,15 @@ lvim.builtin.which_key.mappings["w"] = {
   s = { "<cmd>SymbolsOutline<cr>", "SymbolsOutline" },
   d = { "<cmd>q<cr>", "Close" },
 }
+
+-- Auto Commands
+
+lvim.autocommands = {
+  {
+    "BufEnter",
+    {
+      pattern = { "*.tmpl", "*.py", "*.toml" },
+      command = "setlocal shiftwidth=4 tabstop=4 softtabstop=4",
+    }
+  }
+}
