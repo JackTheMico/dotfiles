@@ -110,4 +110,3 @@ $env.Path = ($env.Path | split row (char esep) | prepend '~/.local/bin')
 $env.PYTHON_BUILD_MIRROR_URL = "https://jedore.vercel.app/tools/python-mirrors/"
 
 starship init nu | save -f ~/.cache/starship/init.nu
-$env.XDG_CONFIG_HOME = "~/.config"
