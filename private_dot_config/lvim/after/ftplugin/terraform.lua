@@ -1,1 +1,1 @@
-require("lvim.lsp.manager").setup("terraform-ls")
+require("lvim.lsp.manager").setup("terraformls")
