@@ -7,6 +7,14 @@ vim.opt.relativenumber = true
 lvim.format_on_save = false
 
 lvim.plugins = {
+  {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && npm install",
+    ft = "markdown",
+    config = function()
+      vim.g.mkdp_auto_start = 1
+    end,
+  },
   { "alker0/chezmoi.vim" },
   {
     "JackTheMico/nvim-nu",
