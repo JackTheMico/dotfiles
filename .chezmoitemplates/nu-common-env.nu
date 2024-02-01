@@ -107,6 +107,10 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
 {{- if eq .chezmoi.os "windows" }}
 $env.Path = ($env.Path | split row (char esep) | prepend '~/.local/bin')
 {{- end }}
+{{- if eq .chezmoi.os "darwin" }}
+$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/bin')
+{{- end }}
 $env.PYTHON_BUILD_MIRROR_URL = "https://jedore.vercel.app/tools/python-mirrors/"
 
 starship init nu | save -f ~/.cache/starship/init.nu

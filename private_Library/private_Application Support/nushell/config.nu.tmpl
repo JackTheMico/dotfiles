@@ -1,0 +1,56 @@
+{{- template "nu-common-config.nu" . -}}
+
+let fish_completer = {|spans|
+    fish --command $'complete "--do-complete=($spans | str join " ")"'
+    | $"value(char tab)description(char newline)" + $in
+    | from tsv --flexible --no-infer
+}
+let zoxide_completer = {|spans|
+    $spans | skip 1 | zoxide query -l $in | lines | where {|x| $x != $env.PWD}
+}
+let external_completers = {|spans|
+    # if the current command is an alias, get it's expansion
+    let expanded_alias = (scope aliases | where name == $spans.0 | get -i 0 | get -i expansion)
+    
+    # overwrite
+    let spans = (if $expanded_alias != null  {
+        # put the first word of the expanded alias first in the span
+        $spans | skip 1 | prepend ($expanded_alias | split row " " | take 1)
+    } else { $spans })
+
+    match $spans.0 {
+        _ => $fish_completer
+        z => $zoxide_completer
+        zi => $zoxide_completer
+        zoxide => $zoxide_completer
+        __zoxide_z => $zoxide_completer
+        __zoxide_zi => $zoxide_completer
+    } | do $in $spans
+}
+$env.config.completions = {
+    external: { enable: true, completer: $external_completers }
+}
+
+def gitjackinit [] {
+  git config user.name "jackwenyoung"
+  git config user.email "dlwxxxdlw@gmail.com"
+  git config user.signingKey A30DF874D95E6029
+  git config commit.gpgSign true
+}
+
+def gitfireworkinit [] {
+  git config user.name "Jack Deng"
+  git config user.email "jack@fireworkhq.com"
+  git config user.signingKey 944C9860A454A4CA
+  git config commit.gpgSign true
+}
+
+def transe [word: string] {
+  trans -x $"($env.hostip):7890" en:zh $word
+}
+def transz [word: string] {
+  trans -x $"($env.hostip):7890" zh:en $word
+}
+
+alias cht = cht.sh
+source ~/.zoxide.nu

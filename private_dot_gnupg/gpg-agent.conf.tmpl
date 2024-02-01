@@ -1,0 +1,4 @@
+default-cache-ttl 86400
+{{ if eq .chezmoi.os "darwin"}}
+pinentry-program /opt/homebrew/bin/pinentry-mac
+{{ end }}

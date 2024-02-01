@@ -1,10 +1,17 @@
-{{ if ne .chezmoi.os "linux" }}
+{{ if eq .chezmoi.os "windows" }}
 wslcodes
 *.sh
+Library
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 AppData
+Library
 {{   end }}
+{{ end }}
+
+{{ if eq .chezmoi.os "darwin" }}
+wslcodes
+AppData
 {{ end }}

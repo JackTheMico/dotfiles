@@ -16,13 +16,17 @@ end
 
 -- For example, changing the color scheme:
 config.color_scheme = 'Dracula+'
-config.font = wezterm.font 'Fira Code Bold'
 config.font_size = 13.0
 
 -- default shell
 {{- if eq .chezmoi.os "windows" }}
 config.default_prog = {'C:/Program Files/nu/bin/nu.exe'}
+config.font = wezterm.font 'Fira Code Bold'
+{{- else if eq .chezmoi.os "darwin" }}
+config.font = wezterm.font 'Hack Nerd Font Propo'
+config.default_prog = {'/opt/homebrew/bin/nu'}
 {{- else }}
+config.font = wezterm.font 'Fira Code Bold'
 config.default_prog = {'/usr/bin/nu'}
 {{- end }}
 
