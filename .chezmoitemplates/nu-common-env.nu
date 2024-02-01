@@ -109,7 +109,9 @@ $env.Path = ($env.Path | split row (char esep) | prepend '~/.local/bin')
 {{- end }}
 {{- if eq .chezmoi.os "darwin" }}
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.docker/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/opt/postgresql@13/bin/')
 {{- end }}
 $env.PYTHON_BUILD_MIRROR_URL = "https://jedore.vercel.app/tools/python-mirrors/"
 

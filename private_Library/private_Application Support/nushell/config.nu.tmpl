@@ -51,6 +51,13 @@ def transe [word: string] {
 def transz [word: string] {
   trans -x $"($env.hostip):7890" zh:en $word
 }
+def divel [imgname: string] {
+  const tmpfile = '/tmp/dive-tmp-image.rar'
+  docker save -o $tmpfile $imgname
+  dive $tmpfile --source=docker-archive
+  rm $tmpfile
+
+}
 
 alias cht = cht.sh
 source ~/.zoxide.nu
