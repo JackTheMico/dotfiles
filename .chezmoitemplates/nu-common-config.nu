@@ -774,4 +774,24 @@ alias lg = lazygit
 alias tree = eza -T
 alias pc = pre-commit
 alias httpe = ^http
+
+def gitjackinit [] {
+  git config user.name "jackwenyoung"
+  git config user.email "dlwxxxdlw@gmail.com"
+  git config user.signingKey A30DF874D95E6029
+  git config commit.gpgSign true
+}
+
+def gitfireworkinit [] {
+  git config user.name "Jack Deng"
+  git config user.email "jack@fireworkhq.com"
+  git config user.signingKey 944C9860A454A4CA
+  git config commit.gpgSign true
+}
+def divel [imgname: string] {
+  const tmpfile = '/tmp/dive-tmp-image.rar'
+  docker save -o $tmpfile $imgname
+  dive $tmpfile --source=docker-archive
+  rm $tmpfile
+}
 use ~/.cache/starship/init.nu

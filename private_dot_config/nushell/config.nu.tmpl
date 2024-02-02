@@ -49,19 +49,6 @@ def deproxy [] {
   git config --global --unset https.proxy
 }
 
-def gitjackinit [] {
-  git config user.name "jackwenyoung"
-  git config user.email "dlwxxxdlw@gmail.com"
-  git config user.signingKey A30DF874D95E6029
-  git config commit.gpgSign true
-}
-
-def gitfireworkinit [] {
-  git config user.name "Jack Deng"
-  git config user.email "jack@fireworkhq.com"
-  git config user.signingKey 944C9860A454A4CA
-  git config commit.gpgSign true
-}
 
 def transe [word: string] {
   trans -x $"($env.hostip):7890" en:zh $word
