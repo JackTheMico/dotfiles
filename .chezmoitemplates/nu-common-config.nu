@@ -332,6 +332,16 @@ $env.config = {
           )"}
         }
         {
+          name: change_dir_with_fzf
+          modifier: control
+          keycode: char_f
+          mode: [vi_insert, vi_normal]
+          event: {
+            send: executehostcommand,
+            cmd: "cd (ls | where type == dir | each { |it| $it.name} | str join (char nl) | fzf | decode utf-8 | str trim)"
+          }
+        }
+        {
             name: help_menu
             modifier: none
             keycode: f1
@@ -618,19 +628,19 @@ $env.config = {
                 ]
             }
         }
-        {
-            name: move_right_or_take_history_hint
-            modifier: control
-            keycode: char_f
-            mode: emacs
-            event: {
-                until: [
-                    {send: historyhintcomplete}
-                    {send: menuright}
-                    {send: right}
-                ]
-            }
-        }
+        # {
+        #     name: move_right_or_take_history_hint
+        #     modifier: control
+        #     keycode: char_f
+        #     mode: emacs
+        #     event: {
+        #         until: [
+        #             {send: historyhintcomplete}
+        #             {send: menuright}
+        #             {send: right}
+        #         ]
+        #     }
+        # }
         {
             name: redo_change
             modifier: control
