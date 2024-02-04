@@ -102,12 +102,14 @@ $env.NU_PLUGIN_DIRS = [
 
 {{- if eq .chezmoi.os "linux" }}
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend $"(pyenv root)/shims")
 {{- end }}
 
 {{- if eq .chezmoi.os "windows" }}
 $env.Path = ($env.Path | split row (char esep) | prepend '~/.local/bin')
 {{- end }}
 {{- if eq .chezmoi.os "darwin" }}
+$env.PATH = ($env.PATH | split row (char esep) | prepend $"(pyenv root)/shims")
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.docker/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/bin')
