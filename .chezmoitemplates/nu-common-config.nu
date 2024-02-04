@@ -785,6 +785,13 @@ alias tree = eza -T
 alias pc = pre-commit
 alias httpe = ^http
 
+# Register `nu_plugin_query` plugin from `nu -c` (writes/updates $nu.plugin-path)
+# let plugin = ("~/.cargo/bin/" | path join 'nu_plugin_highlight'); nu -c $'register ($plugin); version'
+let plugins = ls ~/.cargo/bin/ | where name =~ 'nu_plugin_*' | get name
+for plugin in $plugins {
+  nu -c $'register ($plugin); version'
+}
+
 def gitjackinit [] {
   git config user.name "jackwenyoung"
   git config user.email "dlwxxxdlw@gmail.com"
