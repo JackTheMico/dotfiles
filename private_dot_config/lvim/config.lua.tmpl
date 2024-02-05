@@ -1,1 +1,13 @@
 {{- template "lvim-common-config.lua" . -}}
+
+-- Set a compatible clipboard manager
+vim.g.clipboard = {
+  copy = {
+    ["+"] = "/mnt/d/scoop/shims/win32yank.exe -i --crlf",
+    ["*"] = "/mnt/d/scoop/shims/win32yank.exe -i --crlf",
+  },
+  paste = {
+    ["+"] = "/mnt/d/scoop/shims/win32yank.exe -o --lf",
+    ["*"] = "/mnt/d/scoop/shims/win32yank.exe -o --lf",
+  },
+}
