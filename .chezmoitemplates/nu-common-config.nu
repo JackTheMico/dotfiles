@@ -784,6 +784,7 @@ alias lg = lazygit
 alias tree = eza -T
 alias pc = pre-commit
 alias httpe = ^http
+alias md = mkdir
 
 # Register `nu_plugin_query` plugin from `nu -c` (writes/updates $nu.plugin-path)
 # let plugin = ("~/.cargo/bin/" | path join 'nu_plugin_highlight'); nu -c $'register ($plugin); version'
