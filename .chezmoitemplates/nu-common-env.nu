@@ -106,6 +106,12 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend $"(pyenv root)/shims")
 {{- end }}
 
+{{ if eq .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+$env.PATH = ($env.PATH | split row (char esep) | append '/mnt/c/Windows/System32')
+{{   end }}
+{{ end }}
+
 {{- if eq .chezmoi.os "windows" }}
 $env.Path = ($env.Path | split row (char esep) | prepend '~/.local/bin')
 {{- end }}
