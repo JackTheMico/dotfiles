@@ -789,8 +789,13 @@ alias httpe = ^http
 # let plugin = ("~/.cargo/bin/" | path join 'nu_plugin_highlight'); nu -c $'register ($plugin); version'
 let plugins = ls ~/.cargo/bin/ | where name =~ 'nu_plugin_*' | get name
 for plugin in $plugins {
-  nu -c $'register ($plugin); version'
+  nu -c $'register ($plugin)'
 }
+
+# carapace
+$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
+mkdir ~/.cache/carapace
+carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 
 def gitjackinit [] {
   git config user.name "jackwenyoung"
