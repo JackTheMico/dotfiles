@@ -7,7 +7,6 @@ vim.opt.relativenumber = true
 lvim.format_on_save = false
 
 lvim.plugins = {
-  { "soywod/himalaya.vim" },
   {
     "iamcco/markdown-preview.nvim",
     build = "cd app ;npm install",
