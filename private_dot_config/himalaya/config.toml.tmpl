@@ -1,0 +1,59 @@
+[firework]
+backend = "imap"
+email = "{{ (keepassxc "himalaya-firework").UserName }}"
+default = true
+display-name = "{{ keepassxcAttribute "himalaya-firework" "display-name" }}"
+imap-host = "imap.gmail.com"
+imap-port = 993
+imap-ssl = true
+imap-login = "{{ (keepassxc "himalaya-firework").UserName }}"
+imap-auth = "passwd"
+sender = "smtp"
+smtp-host = "smtp.gmail.com"
+smtp-port = 465
+smtp-ssl = true
+smtp-login = "{{ (keepassxc "himalaya-firework").UserName }}"
+smtp-auth = "passwd"
+downloads-dir = "~/Downloads/gmail_firework"
+signature = """
+{{ keepassxcAttribute "himalaya-firework" "signature" }}"""
+
+[firework.imap-passwd]
+raw = "{{ (keepassxc "himalaya-firework").Password }}"
+
+[firework.smtp-passwd]
+raw = "{{ (keepassxc "himalaya-firework").Password }}"
+
+[firework.pgp]
+backend = "none"
+
+
+
+[jackwenyoung]
+backend = "imap"
+email = "{{ (keepassxc "himalaya-jackwenyoung").UserName }}"
+default = true
+display-name = "{{ keepassxcAttribute "himalaya-jackwenyoung" "display-name" }}"
+imap-host = "imap.gmail.com"
+imap-port = 993
+imap-ssl = true
+imap-login = "{{ (keepassxc "himalaya-jackwenyoung").UserName }}" 
+imap-auth = "passwd"
+sender = "smtp"
+smtp-host = "smtp.gmail.com"
+smtp-port = 465
+smtp-ssl = true
+smtp-login = "{{ (keepassxc "himalaya-jackwenyoung").UserName }}"  
+smtp-auth = "passwd"
+downloads-dir = "~/Downloads/gmail_jackwenyoung"
+signature = """
+{{ keepassxcAttribute "himalaya-jackwenyoung" "signature" }}"""
+
+[jackwenyoung.imap-passwd]
+raw = "{{ (keepassxc "himalaya-jackwenyoung").Password }}"
+
+[jackwenyoung.smtp-passwd]
+raw = "{{ (keepassxc "himalaya-jackwenyoung").Password }}"
+
+[jackwenyoung.pgp]
+backend = "none"
