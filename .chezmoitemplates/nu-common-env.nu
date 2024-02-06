@@ -124,5 +124,6 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/opt/post
 {{- end }}
 $env.PYTHON_BUILD_MIRROR_URL = "https://jedore.vercel.app/tools/python-mirrors/"
 
+atuin init nu | save ~/.cache/atuin/init.nu
 source ~/.cache/carapace/init.nu
 starship init nu | save -f ~/.cache/starship/init.nu
