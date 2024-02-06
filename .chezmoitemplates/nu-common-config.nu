@@ -316,22 +316,6 @@ $env.config = {
             }
         }
         {
-            name: history_menu
-            modifier: control
-            keycode: char_r
-            mode: [emacs, vi_insert, vi_normal]
-            event: { send: ExecuteHostCommand cmd: "commandline (
-            history
-              | each { |it| $it.command }
-              | uniq
-              | reverse
-              | str join (char -i 0)
-              | fzf --read0 --layout=reverse --height=40% -q (commandline)
-              | decode utf-8
-              | str trim
-          )"}
-        }
-        {
           name: change_dir_with_fzf
           modifier: control
           keycode: char_f
