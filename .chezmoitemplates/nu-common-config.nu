@@ -854,5 +854,5 @@ def divel [imgname: string] {
   dive $tmpfile --source=docker-archive
   rm $tmpfile
 }
-use ~/.cache/atuin/init.nu
+source ~/.cache/atuin/init.nu
 use ~/.cache/starship/init.nu
