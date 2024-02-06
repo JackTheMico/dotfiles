@@ -299,24 +299,6 @@ $env.config = {
                 description_text: yellow
             }
         }
-        {
-          name: fzf_dir_menu_nu_ui
-          only_buffer_difference: true
-          marker: "# "
-              type: {
-                  layout: list
-                  page_size: 30
-              }
-              style: {
-                  text: "#000"
-                  selected_text: { fg: "#800000" attr: r }
-                  description_text: "#66ff66"
-              }       
-          source: { |buffer, position|
-                fd -t d | sk -f $buffer
-                | each { |v| { value: ($v | str trim) }}
-          }
-        }
     ]
 
     keybindings: [
@@ -332,15 +314,6 @@ $env.config = {
                     { edit: complete }
                 ]
             }
-        }
-        {
-          name: fzf_dir_menu_nu_ui
-          modifier: control
-          keycode: char_t
-          mode: [emacs vi_insert vi_normal]
-          event: {
-            send: menu name: fzf_dir_menu_nu_ui
-          }
         }
         {
             name: help_menu
@@ -833,6 +806,40 @@ $env.config = {
             completer: $external_completer
         }
     }
+    menus: [
+      {
+          name: fzf_dir_menu
+          only_buffer_difference: true
+          marker: "# "
+          type: {
+              layout: columnar
+              columns: 1
+              col_width: 20
+              col_padding: 2
+          }
+          style: {
+              text: green
+              selected_text: green_reverse
+              description_text: yellow
+          }
+          source: { |buffer, position|
+              fd -t d | fzf --no-sort --tac  
+              | lines
+              | each { |v|  { value: ($v | str trim) } }
+          }
+      }
+    ]
+    keybindings: [
+        {
+          name: fzf_dir_menu
+          modifier: control
+          keycode: char_t
+          mode: [emacs vi_insert vi_normal]
+          event: {
+            send: menu name: fzf_dir_menu
+          }
+        }
+    ]
 }
 
 
