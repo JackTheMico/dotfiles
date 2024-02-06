@@ -319,7 +319,7 @@ $env.config = {
           name: change_dir_with_fzf
           modifier: control
           keycode: char_f
-          mode: [vi_insert, vi_normal]
+          mode: [emacs, vi_insert, vi_normal]
           event: {
             send: executehostcommand,
             cmd: "cd (ls | where type == dir | each { |it| $it.name} | str join (char nl) | fzf | decode utf-8 | str trim)"
