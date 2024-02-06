@@ -318,7 +318,7 @@ $env.config = {
         {
           name: change_dir_with_fzf
           modifier: control
-          keycode: char_f
+          keycode: char_t
           mode: [emacs, vi_insert, vi_normal]
           event: {
             send: executehostcommand,
