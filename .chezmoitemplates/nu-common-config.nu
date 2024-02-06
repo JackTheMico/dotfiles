@@ -299,6 +299,24 @@ $env.config = {
                 description_text: yellow
             }
         }
+        {
+          name: fzf_dir_menu_nu_ui
+          only_buffer_difference: true
+          marker: "# "
+              type: {
+                  layout: list
+                  page_size: 30
+              }
+              style: {
+                  text: "#000"
+                  selected_text: { fg: "#800000" attr: r }
+                  description_text: "#66ff66"
+              }       
+          source: { |buffer, position|
+                fd -t d | sk -f $buffer
+                | each { |v| { value: ($v | str trim) }}
+          }
+        }
     ]
 
     keybindings: [
@@ -316,13 +334,12 @@ $env.config = {
             }
         }
         {
-          name: change_dir_with_fzf
+          name: fzf_dir_menu_nu_ui
           modifier: control
           keycode: char_t
-          mode: [emacs, vi_insert, vi_normal]
+          mode: [emacs vi_insert vi_normal]
           event: {
-            send: executehostcommand,
-            cmd: "cd (ls | where type == dir | each { |it| $it.name} | str join (char nl) | fzf | decode utf-8 | str trim)"
+            send: menu name: fzf_dir_menu_nu_ui
           }
         }
         {
