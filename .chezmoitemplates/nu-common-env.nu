@@ -100,8 +100,9 @@ $env.NU_PLUGIN_DIRS = [
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 
-$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.cargo/bin')
 {{- if eq .chezmoi.os "linux" }}
+atuin init nu | save -f ~/.cache/atuin/init.nu
+$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.cargo/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend $"(pyenv root)/shims")
 {{- end }}
@@ -113,9 +114,13 @@ $env.PATH = ($env.PATH | split row (char esep) | append '/mnt/c/Windows/System32
 {{ end }}
 
 {{- if eq .chezmoi.os "windows" }}
+$env.Path = ($env.Path | split row (char esep) | prepend '~/.cargo/bin')
 $env.Path = ($env.Path | split row (char esep) | prepend '~/.local/bin')
+$env.Path = ($env.Path | split row (char esep) | prepend 'D:/scoop/shims')
 {{- end }}
 {{- if eq .chezmoi.os "darwin" }}
+atuin init nu | save -f ~/.cache/atuin/init.nu
+$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.cargo/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend $"(pyenv root)/shims")
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.docker/bin')
@@ -124,6 +129,8 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/opt/post
 {{- end }}
 $env.PYTHON_BUILD_MIRROR_URL = "https://jedore.vercel.app/tools/python-mirrors/"
 
-atuin init nu | save -f ~/.cache/atuin/init.nu
-source ~/.cache/carapace/init.nu
+let carapace_exists = '~/.cache/carapace' | path exists
+if $carapace_exists == true {'carapace dir exists'} else { mkdir ~/.cache/carapace }
+carapace _carapace nushell | save -f ~/.cache/carapace/init.nu
 starship init nu | save -f ~/.cache/starship/init.nu
+zoxide init nushell | str replace --all "-- $rest" "-- ...$rest" | str replace --all "def-env" "def --env" | save -f ~/.zoxide.nu

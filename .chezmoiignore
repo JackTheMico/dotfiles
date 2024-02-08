@@ -2,6 +2,8 @@
 codes
 *.sh
 Library
+.config/himalaya
+nuplugins_install.nu
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}

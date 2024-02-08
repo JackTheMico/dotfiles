@@ -770,10 +770,8 @@ for plugin in $plugins {
 
 # carapace
 $env.CARAPACE_BRIDGES = 'argcompetion' # optional
-mkdir ~/.cache/carapace
-carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
-let nushell_completer = {|spans|
-    carapace-bridge _carapace nushell '' argcomplete ...$spans | from json
+let carapace_completer = {|spans|
+    carapace $spans.0 nushell ...$spans | from json
 }
 let zoxide_completer = {|spans|
     $spans | skip 1 | zoxide query -l $in | lines | where {|x| $x != $env.PWD}
@@ -862,5 +860,9 @@ def divel [imgname: string] {
   dive $tmpfile --source=docker-archive
   rm $tmpfile
 }
+{{- if ne .chezmoi.os "windows" }}
 source ~/.cache/atuin/init.nu
+{{- end }}
+source ~/.cache/carapace/init.nu
 use ~/.cache/starship/init.nu
+source ~/.zoxide.nu
