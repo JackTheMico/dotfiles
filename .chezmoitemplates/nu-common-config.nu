@@ -866,3 +866,4 @@ source ~/.cache/atuin/init.nu
 source ~/.cache/carapace/init.nu
 use ~/.cache/starship/init.nu
 source ~/.zoxide.nu
+neofetch
