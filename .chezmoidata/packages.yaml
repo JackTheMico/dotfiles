@@ -1,0 +1,23 @@
+packages:
+  linux:
+    yay:
+      - git
+      - atuin
+      - bat
+      - cargo
+      - carapace-bin
+      - carapace-bridge
+      - chezmoi
+      - fzf
+      - keepassxc
+      - lazygit
+      - nushell
+      - tmux
+      - pyenv
+      - python-poetry
+      - python-pipx
+      - tig
+      - fd
+      - ripgrep
+      - starship
+      - zoxide

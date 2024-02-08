@@ -1,0 +1,7 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+{{ range .packages.linux.yay -}}
+yay -S --noconfirm --needed {{ . | quote }}
+{{ end -}}
+{{ end -}}
