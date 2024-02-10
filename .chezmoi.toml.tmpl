@@ -1,0 +1,13 @@
+encryption = "gpg"
+[gpg]
+    recipient = "A30DF874D95E6029"
+[git]
+    autoCommit = true
+    autoPush = false
+{{ if eq .chezmoi.os "linux" }}
+  {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+[keepassxc]
+    args = ["--key-file", "/home/jackwenyoung/.ssh/id_jack_windows"]
+    database = "/mnt/f/keepass/Jack.kdbx"
+  {{   end }}
+{{ end }}
