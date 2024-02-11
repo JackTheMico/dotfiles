@@ -17,6 +17,7 @@ end
 -- For example, changing the color scheme:
 config.color_scheme = 'Dracula+'
 config.font_size = 13.0
+config.scrollback_lines = 10000
 
 -- default shell
 {{- if eq .chezmoi.os "windows" }}
@@ -58,6 +59,21 @@ config.keys = {
     key = 'l',
     mods = 'LEADER',
     action = act.ShowLauncher,
+  },
+  {
+    key = 'q',
+    mods = 'LEADER',
+    action = act.QuickSelect,
+  },
+  {
+    key = 'k',
+    mods = 'SHIFT',
+    action = act.ScrollByPage(-1),
+  },
+  {
+    key = 'j',
+    mods = 'SHIFT',
+    action = act.ScrollByPage(1),
   },
 }
 
