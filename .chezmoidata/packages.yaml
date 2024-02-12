@@ -19,5 +19,6 @@ packages:
       - tig
       - fd
       - ripgrep
+      - wezterm
       - starship
       - zoxide
