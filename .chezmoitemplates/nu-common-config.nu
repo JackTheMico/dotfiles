@@ -760,6 +760,7 @@ alias pc = pre-commit
 alias httpe = ^http
 alias md = mkdir
 alias hy = himalaya
+alias la = ls -a
 
 # Register `nu_plugin_query` plugin from `nu -c` (writes/updates $nu.plugin-path)
 # let plugin = ("~/.cargo/bin/" | path join 'nu_plugin_highlight'); nu -c $'register ($plugin); version'
