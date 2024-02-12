@@ -4,10 +4,16 @@ encryption = "gpg"
 [git]
     autoCommit = true
     autoPush = false
+[hooks.read-source-state.pre]
+    command = ".local/share/chezmoi/.install-password-manager.sh"
 {{ if eq .chezmoi.os "linux" }}
   {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 [keepassxc]
     args = ["--key-file", "/home/jackwenyoung/.ssh/id_jack_windows"]
     database = "/mnt/f/keepass/Jack.kdbx"
+  {{   else }}
+[keepassxc]
+    args = ["--key-file", "/home/jackwenyoung/.ssh/id_jack_windows"]
+    database = "~/nutstore/keepass/Jack.kdbx"
   {{   end }}
 {{ end }}
