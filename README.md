@@ -39,7 +39,7 @@ Terminal session recorder 📹
 ### Terminal
 #### [WezTerm](https://github.com/wez/wezterm)
 A GPU-accelerated cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust
-![](https://github.com/JackTheMico/dotfiles/blob/master/wezterm.gif)
+![](https://github.com/JackTheMico/dotfiles/blob/main/wezterm.gif)
 
 ---
 
