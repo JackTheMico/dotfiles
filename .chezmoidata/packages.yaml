@@ -7,7 +7,6 @@ packages:
       - cargo
       - carapace-bin
       - carapace-bridge
-      - chezmoi
       - fzf
       - keepassxc
       - lazygit

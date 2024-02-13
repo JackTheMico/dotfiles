@@ -101,6 +101,7 @@ $env.NU_PLUGIN_DIRS = [
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 
 {{- if eq .chezmoi.os "linux" }}
+mkdir ~/.cache/atuin
 atuin init nu | save -f ~/.cache/atuin/init.nu
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.cargo/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
@@ -119,6 +120,7 @@ $env.Path = ($env.Path | split row (char esep) | prepend '~/.local/bin')
 $env.Path = ($env.Path | split row (char esep) | prepend 'D:/scoop/shims')
 {{- end }}
 {{- if eq .chezmoi.os "darwin" }}
+mkdir ~/.cache/atuin
 atuin init nu | save -f ~/.cache/atuin/init.nu
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.cargo/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend $"(pyenv root)/shims")
@@ -131,6 +133,8 @@ $env.PYTHON_BUILD_MIRROR_URL = "https://jedore.vercel.app/tools/python-mirrors/"
 
 let carapace_exists = '~/.cache/carapace' | path exists
 if $carapace_exists == true {'carapace dir exists'} else { mkdir ~/.cache/carapace }
+mkdir ~/.cache/carapace
 carapace _carapace nushell | save -f ~/.cache/carapace/init.nu
+mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
 zoxide init nushell | str replace --all "-- $rest" "-- ...$rest" | str replace --all "def-env" "def --env" | save -f ~/.zoxide.nu
