@@ -11,7 +11,6 @@ Linux)
     # commands to install password-manager-binary on Linux
     # use pacman because I use Manjaro
     sudo pacman-mirrors --country China
-    sudo pacman -Syu
     sudo pacman -S --noconfirm --needed keepassxc
     ;;
 *)
