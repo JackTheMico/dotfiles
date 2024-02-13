@@ -1,6 +1,8 @@
 {{- template "lvim-common-config.lua" . -}}
 
 -- Set a compatible clipboard manager
+{{ if eq .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 vim.g.clipboard = {
   copy = {
     ["+"] = "/mnt/d/scoop/shims/win32yank.exe -i --crlf",
@@ -11,3 +13,5 @@ vim.g.clipboard = {
     ["*"] = "/mnt/d/scoop/shims/win32yank.exe -o --lf",
   },
 }
+{{   end }}
+{{ end }}

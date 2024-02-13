@@ -1,5 +1,5 @@
 packages:
-  linux:
+  wsl:
     yay:
       - git
       - atuin
@@ -11,7 +11,42 @@ packages:
       - keepassxc
       - lazygit
       - neovim
+      - nodejs
+      - npm
+      - make
+      - httpie
+      - the_silver_searcher
+      - nushell
+      - tmux
+      - pyenv
+      - python-poetry
+      - python-pipx
+      - tig
+      - fd
+      - ripgrep
+      - wezterm
+      - starship
+      - zoxide
+
+  linux:
+    yay:
+      - git
+      - atuin
+      - bat
+      - brave-bin
+      - cargo
+      - carapace-bin
+      - carapace-bridge
+      - fzf
+      - keepassxc
+      - lazygit
+      - neovim
+      - nodejs
+      - npm
+      - make
+      - httpie
       - ttf-fira-code
+      - the_silver_searcher
       - nushell
       - tmux
       - pyenv
