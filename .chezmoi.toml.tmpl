@@ -11,9 +11,11 @@ encryption = "gpg"
 [keepassxc]
     args = ["--key-file", "/home/jackwenyoung/.ssh/id_jack_windows"]
     database = "/mnt/f/keepass/Jack.kdbx"
+    mode = "open"
   {{   else }}
 [keepassxc]
     args = ["--key-file", "/home/jackwenyoung/.ssh/id_jack_windows"]
     database = "~/Nutstore Files/keepass/Jack.kdbx"
+    mode = "open"
   {{   end }}
 {{ end }}
