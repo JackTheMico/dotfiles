@@ -11,14 +11,13 @@ def --env enproxy [] {
   [$env.HTTP_PROXY, $env.HTTPS_PROXY, $env.FTP_PROXY, $env.RSYNC_PROXY]
 }
 
-def deproxy [] {
-  env -u https_proxy
-  env -u http_proxy
-  env -u ftp_proxy
-  env -u rsync_proxy
+def --env deproxy [] {
+  hide-env HTTP_PROXY
+  hide-env HTTPS_PROXY
+  hide-env FTP_PROXY
+  hide-env RSYNC_PROXY
   git config --global --unset http.proxy
-  git config --global --unset https.proxy
-  null
+  git config --global --unset https.proxy | null
 }
 
 
