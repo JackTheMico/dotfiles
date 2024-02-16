@@ -866,6 +866,7 @@ def divel [imgname: string] {
 source ~/.cache/atuin/init.nu
 {{- end }}
 source ~/.cache/carapace/init.nu
+source ~/.config/nushell/completions/lf.nu
 use ~/.cache/starship/init.nu
 source ~/.zoxide.nu
 neofetch

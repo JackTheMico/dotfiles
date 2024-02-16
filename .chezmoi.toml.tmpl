@@ -3,7 +3,7 @@ encryption = "gpg"
     recipient = "A30DF874D95E6029"
 [git]
     autoCommit = true
-    autoPush = false
+    autoPush = true
 [hooks.read-source-state.pre]
     command = ".local/share/chezmoi/.install-password-manager.sh"
 {{ if eq .chezmoi.os "linux" }}
