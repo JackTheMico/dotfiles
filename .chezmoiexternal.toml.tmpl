@@ -1,4 +1,19 @@
 {{ if ne .chezmoi.os "windows" }}
+[".config/lf/preview"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/thimc/lfimg/master/preview"
+    refreshPeriod = "168h"
+    executable = true
+[".config/lf/cleaner"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/thimc/lfimg/master/cleaner"
+    refreshPeriod = "168h"
+    executable = true
+[".local/bin/lfrun"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/thimc/lfimg/master/lfrun"
+    refreshPeriod = "168h"
+    executable = true
 [".local/bin/cht.sh"]
     type = "file"
     url = "https://cht.sh/:cht.sh"

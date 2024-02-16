@@ -33,9 +33,11 @@ config.background = {
   }
 }
 {{- else if eq .chezmoi.os "darwin" }}
+# TODO: add gif background
 config.font = wezterm.font 'Hack Nerd Font Propo'
 config.default_prog = {'/opt/homebrew/bin/nu'}
 {{- else }}
+# TODO: add gif background
 config.font = wezterm.font 'FiraCode-Bold'
 config.default_prog = {'/usr/bin/nu'}
 {{- end }}

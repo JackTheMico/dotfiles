@@ -18,15 +18,23 @@ packages:
       - the_silver_searcher
       - nushell
       - tmux
+      - ueberzug
+      - ffmpegthumbnailer
+      - imagemagick
+      - poppler
+      - epub-thumbnailer
+      - wkhtmltopdf
       - pyenv
       - python-poetry
       - python-pipx
       - tig
+      - trashy
       - fd
       - ripgrep
       - wezterm
       - starship
       - zoxide
+      - zsh # for lf meida preview
 
   linux:
     yay:
@@ -49,12 +57,20 @@ packages:
       - the_silver_searcher
       - nushell
       - tmux
+      - ueberzug
+      - ffmpegthumbnailer
+      - imagemagick
+      - poppler
+      - epub-thumbnailer
+      - wkhtmltopdf
       - pyenv
       - python-poetry
       - python-pipx
       - tig
+      - trashy
       - fd
       - ripgrep
       - wezterm
       - starship
       - zoxide
+      - zsh
