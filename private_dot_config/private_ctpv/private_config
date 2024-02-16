@@ -1,0 +1,3 @@
+set shell "/usr/bin/bash"
+set forcechafa
+set showgpg
