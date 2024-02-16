@@ -4,8 +4,10 @@ encryption = "gpg"
 [git]
     autoCommit = true
     autoPush = true
+{{ if ne .chezmoi.os "windows" }}
 [hooks.read-source-state.pre]
     command = ".local/share/chezmoi/.install-password-manager.sh"
+{{ end }}
 {{ if eq .chezmoi.os "linux" }}
   {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 [keepassxc]
