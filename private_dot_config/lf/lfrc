@@ -1,6 +1,7 @@
 set dirpreview true
 set preview true
 set sixel true
+set drawbox
 
 set previewer ctpv
 set cleaner ctpvclear
@@ -26,9 +27,22 @@ cmd mkfile ${{
   $EDITOR $ans
 }}
 
-cmd setwallpaper ${{
-    setwallpaper "$f"
+# bash
+
+cmd z %{{
+	result="$(zoxide query --exclude $PWD $@ | sed 's/\\/\\\\/g;s/"/\\"/g')"
+	lf -remote "send $id cd \"$result\""
 }}
+
+cmd zi ${{
+	result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
+	lf -remote "send $id cd \"$result\""
+}}
+
+cmd on-cd &{{
+    zoxide add "$PWD"
+}}
+
 
 # Archive bindings
 cmd unarchive ${{
@@ -57,7 +71,7 @@ cmd trash ${{
 }}
 
 cmd restore_trash ${{
-  trash-restore
+  trash restore
 }}
 
 # Bindings
@@ -79,7 +93,6 @@ map <enter> open
 map R reload
 map mf mkfile
 map md mkdir
-map bg setwallpaper
 map C clear
 
 # Movement
@@ -88,3 +101,5 @@ map gc cd ~/.config
 map gj cd ~/codes/jackwenyoung
 map gf cd ~/codes/firework
 map gt cd ~/.local/share/Trash/files
+map zz z
+map zi zi
