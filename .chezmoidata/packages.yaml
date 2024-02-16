@@ -19,11 +19,10 @@ packages:
       - nushell
       - tmux
       - ueberzug
-      - ffmpegthumbnailer
+      - chaka
       - imagemagick
       - poppler
-      - epub-thumbnailer
-      - wkhtmltopdf
+      - cptv-git
       - pyenv
       - python-poetry
       - python-pipx
@@ -58,11 +57,10 @@ packages:
       - nushell
       - tmux
       - ueberzug
-      - ffmpegthumbnailer
+      - chaka
       - imagemagick
       - poppler
-      - epub-thumbnailer
-      - wkhtmltopdf
+      - cptv-git
       - pyenv
       - python-poetry
       - python-pipx

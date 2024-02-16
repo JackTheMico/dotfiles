@@ -130,6 +130,7 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/opt/postgresql@13/bin/')
 {{- end }}
 $env.PYTHON_BUILD_MIRROR_URL = "https://jedore.vercel.app/tools/python-mirrors/"
+$env.LF_ICONS = "~/.config/lf/icons"
 
 let carapace_exists = '~/.cache/carapace' | path exists
 if $carapace_exists == true {'carapace dir exists'} else { mkdir ~/.cache/carapace }
