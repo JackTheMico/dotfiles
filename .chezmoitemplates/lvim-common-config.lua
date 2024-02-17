@@ -3,6 +3,7 @@
 -- Forum: https://www.patternreddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 vim.opt.relativenumber = true
+-- Tamporary Settings for tcss
 vim.filetype.add({
   extension = {
     tcss = "css",
@@ -13,6 +14,7 @@ lvim.format_on_save = false
 lvim.transparent_window = true
 
 lvim.plugins = {
+  { "Textualize/tcss-vscode-extension" },
   {
     "iamcco/markdown-preview.nvim",
     build = "cd app ;npm install",
