@@ -33,6 +33,7 @@ packages:
       - ripgrep
       - wezterm
       - starship
+      - smassh
       - zoxide
       - zsh # for lf meida preview
 
@@ -72,5 +73,6 @@ packages:
       - ripgrep
       - wezterm
       - starship
+      - smassh
       - zoxide
       - zsh

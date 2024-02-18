@@ -14,6 +14,7 @@ lvim.format_on_save = false
 lvim.transparent_window = true
 
 lvim.plugins = {
+  { "xiyaowong/telescope-emoji.nvim" },
   { "Textualize/tcss-vscode-extension" },
   {
     "iamcco/markdown-preview.nvim",
@@ -275,6 +276,7 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "media_files")
   pcall(telescope.load_extension, "undo")
   pcall(telescope.load_extension, "luasnip")
+  pcall(telescope.load_extension, "emoji")
   -- any other extensions loading
 end
 -- pcall(function()
@@ -322,6 +324,8 @@ lvim.builtin.which_key.mappings["t"] = {
   c = { "<cmd>Telescope neoclip<cr>", "Neoclip" },
   l = { "<cmd>Telescope luasnip<cr>", "Luasnip" },
   u = { "<cmd>Telescope undo<cr>", "Undo" },
+  e = { "<cmd>Telescope emoji<cr>", "Emoji" },
+  f = { "<cmd>Telescope frecency<cr>", "Frecency" },
 }
 lvim.builtin.which_key.mappings["S"] = {
   name = "Session",
