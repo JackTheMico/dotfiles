@@ -868,6 +868,9 @@ def pomodoro [minutes: int = 25 --name(-n): string = "work"] {
 {{   end -}}
 {{ end -}}
 }
+
+alias pow = pomodoro
+alias pob = pomodoro 10 -n break
 def divel [imgname: string] {
   const tmpfile = '/tmp/dive-tmp-image.rar'
   docker save -o $tmpfile $imgname
