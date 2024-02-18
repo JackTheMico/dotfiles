@@ -856,6 +856,18 @@ def gitfireworkinit [] {
   git config user.signingKey 944C9860A454A4CA
   git config commit.gpgSign true
 }
+def pomodoro [minutes: int = 25 --name(-n): string = "work"] {
+  echo $"Starting ($name) pomodoro for ($minutes) minutes"
+  timer $"($minutes)m" -n $name
+{{ if eq .chezmoi.os "linux" -}}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+  let notify = "/mnt/d/scoop/wslns/wsl-notify-send.exe"
+  ^$notify -t 5 $"Pomodoro ($name) done"
+{{   else }}
+  notify-send -t 5 $"Pomodoro ($name) done"
+{{   end -}}
+{{ end -}}
+}
 def divel [imgname: string] {
   const tmpfile = '/tmp/dive-tmp-image.rar'
   docker save -o $tmpfile $imgname
