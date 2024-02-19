@@ -366,7 +366,8 @@ set -g mouse on
 # replace C-b by C-a instead of using both prefixes
 # set -gu prefix2
 # unbind C-a
-# unbind C-b
+unbind C-b
+bind -r o display-popup -E "tmux new-session -A -s scratch"
 # set -g prefix C-a
 # bind C-a send-prefix
 
