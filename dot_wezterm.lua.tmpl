@@ -23,15 +23,16 @@ config.scrollback_lines = 10000
 {{- if eq .chezmoi.os "windows" }}
 config.default_prog = {'C:/Program Files/nu/bin/nu.exe'}
 config.font = wezterm.font 'Fira Code Bold'
-config.background = {
-  {
-    source = {
-      File = 'D:/jackwenyoung/Pictures/background/spiderman-1.gif'
-    },
-    width = '100%', 
-    hsb = { brightness = 0.2 }
-  }
-}
+config.window_backgrouund_opacity = 0.1
+-- config.background = {
+--   {
+--    source = {
+--      File = 'D:/jackwenyoung/Pictures/background/spiderman-1.gif'
+--    },
+--    width = '100%', 
+--    hsb = { brightness = 0.2 }
+--  }
+--}
 {{- else if eq .chezmoi.os "darwin" }}
 # TODO: add gif background
 config.font = wezterm.font 'Hack Nerd Font Propo'
