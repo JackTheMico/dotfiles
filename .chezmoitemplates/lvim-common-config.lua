@@ -11,9 +11,18 @@ vim.filetype.add({
 })
 
 lvim.format_on_save = false
+lvim.colorscheme = "desert"
 lvim.transparent_window = true
 
 lvim.plugins = {
+  {
+      "sontungexpt/witch",
+      priority = 1000,
+      lazy = false,
+      config = function(_, opts)
+          require("witch").setup(opts)
+      end,
+  },
   { "xiyaowong/telescope-emoji.nvim" },
   { "Textualize/tcss-vscode-extension" },
   {
@@ -325,7 +334,7 @@ lvim.builtin.which_key.mappings["t"] = {
   l = { "<cmd>Telescope luasnip<cr>", "Luasnip" },
   u = { "<cmd>Telescope undo<cr>", "Undo" },
   e = { "<cmd>Telescope emoji<cr>", "Emoji" },
-  f = { "<cmd>Telescope frecency<cr>", "Frecency" },
+  f = { "<cmd>Telescope frecency<cr>", "Emoji" },
 }
 lvim.builtin.which_key.mappings["S"] = {
   name = "Session",
