@@ -15,6 +15,7 @@ lvim.colorscheme = "desert"
 lvim.transparent_window = true
 
 lvim.plugins = {
+  { "frenzyexists/aquarium-vim" },
   {
       "sontungexpt/witch",
       priority = 1000,
