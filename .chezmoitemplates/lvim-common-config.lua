@@ -13,8 +13,37 @@ vim.filetype.add({
 lvim.format_on_save = false
 lvim.colorscheme = "desert"
 lvim.transparent_window = true
+lvim.builtin.treesitter.rainbow.enable = true
 
 lvim.plugins = {
+  {
+    "wakatime/vim-wakatime"
+  },
+  {
+    "Pocco81/auto-save.nvim",
+    config = function()
+      require("auto-save").setup()
+    end,
+  },
+  {
+    "folke/lsp-colors.nvim",
+    event = "BufRead",
+  },
+  {
+    "norcalli/nvim-colorizer.lua",
+      config = function()
+        require("colorizer").setup({ "css", "scss", "html", "javascript" }, {
+            RGB = true, -- #RGB hex codes
+            RRGGBB = true, -- #RRGGBB hex codes
+            RRGGBBAA = true, -- #RRGGBBAA hex codes
+            rgb_fn = true, -- CSS rgb() and rgba() functions
+            hsl_fn = true, -- CSS hsl() and hsla() functions
+            css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+            css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+            })
+    end,
+  },
+  { "Mofiqul/dracula.nvim" },
   { "frenzyexists/aquarium-vim" },
   {
       "sontungexpt/witch",
@@ -123,6 +152,19 @@ lvim.plugins = {
     end
   },
   { "tpope/vim-repeat" },
+  {
+    "itchyny/vim-cursorword",
+      event = {"BufEnter", "BufNewFile"},
+      config = function()
+        vim.api.nvim_command("augroup user_plugin_cursorword")
+        vim.api.nvim_command("autocmd!")
+        vim.api.nvim_command("autocmd FileType NvimTree,lspsagafinder,dashboard,vista let b:cursorword = 0")
+        vim.api.nvim_command("autocmd WinEnter * if &diff || &pvw | let b:cursorword = 0 | endif")
+        vim.api.nvim_command("autocmd InsertEnter * let b:cursorword = 0")
+        vim.api.nvim_command("autocmd InsertLeave * let b:cursorword = 1")
+        vim.api.nvim_command("augroup END")
+        end
+  },
   {
     "folke/todo-comments.nvim",
     event = "BufRead",
