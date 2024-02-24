@@ -118,6 +118,7 @@ $env.PATH = ($env.PATH | split row (char esep) | append '/mnt/c/Windows/System32
 $env.Path = ($env.Path | split row (char esep) | prepend '~/.cargo/bin')
 $env.Path = ($env.Path | split row (char esep) | prepend '~/.local/bin')
 $env.Path = ($env.Path | split row (char esep) | prepend 'D:/scoop/shims')
+$env.Path = ($env.Path | split row (char esep) | prepend '~/.pyenv/pyenv-win/bin/pyenv.ps1')
 {{- end }}
 {{- if eq .chezmoi.os "darwin" }}
 mkdir ~/.cache/atuin
