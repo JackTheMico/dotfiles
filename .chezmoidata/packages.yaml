@@ -30,6 +30,7 @@ packages:
       - python-pipx
       - tig
       - timer-bin
+      - luarocks
       - trashy
       - fd
       - ripgrep
@@ -69,6 +70,7 @@ packages:
       - pyenv
       - python-poetry
       - python-pipx
+      - luarocks
       - tig
       - timer-bin
       - trashy
