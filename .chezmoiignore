@@ -2,6 +2,7 @@ LICENSE
 LICENSE.*
 README.md
 .pre-commit-config.yaml
+.luacheckrc
 {{ if eq .chezmoi.os "windows" }}
 codes
 *.sh
