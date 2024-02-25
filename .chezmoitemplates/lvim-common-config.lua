@@ -428,7 +428,7 @@ lvim.autocommands = {
 	{
 		"BufEnter",
 		{
-			pattern = { "*.tmpl", "*.py", "*.toml", "*.css", "*.tcss", ".lua" },
+			pattern = { "*.tmpl", "*.py", "*.toml", "*.css", "*.tcss", "*.lua" },
 			command = "setlocal shiftwidth=4 tabstop=4 softtabstop=4",
 		},
 	},
