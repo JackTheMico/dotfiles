@@ -55,6 +55,7 @@ lvim.plugins = {
 		end,
 	},
 	{ "xiyaowong/telescope-emoji.nvim" },
+	{ "tsakirist/telescope-lazy.nvim" },
 	{ "Textualize/tcss-vscode-extension" },
 	{
 		"iamcco/markdown-preview.nvim",
@@ -87,13 +88,13 @@ lvim.plugins = {
 		event = "BufEnter",
 		config = function()
 			-- Change '<C-g>' here to any keycode you like.
-			vim.keymap.set("i", "<C-g>", function()
+			vim.keymap.set("i", "<C-o>", function()
 				return vim.fn["codeium#Accept"]()
 			end, { expr = true, silent = true })
-			vim.keymap.set("i", "<c-;>", function()
+			vim.keymap.set("i", "<c-j>", function()
 				return vim.fn["codeium#CycleCompletions"](1)
 			end, { expr = true, silent = true })
-			vim.keymap.set("i", "<c-,>", function()
+			vim.keymap.set("i", "<c-k>", function()
 				return vim.fn["codeium#CycleCompletions"](-1)
 			end, { expr = true, silent = true })
 			vim.keymap.set("i", "<c-x>", function()
@@ -343,6 +344,7 @@ lvim.builtin.telescope.on_config_done = function(telescope)
 	pcall(telescope.load_extension, "undo")
 	pcall(telescope.load_extension, "luasnip")
 	pcall(telescope.load_extension, "emoji")
+	pcall(telescope.load_extension, "lazy")
 	-- any other extensions loading
 end
 -- pcall(function()
@@ -385,8 +387,11 @@ lvim.builtin.which_key.mappings["<space>"] = {
 }
 lvim.builtin.which_key.mappings["t"] = {
 	name = "Telescope",
+	b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+	h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
 	c = { "<cmd>Telescope neoclip<cr>", "Neoclip" },
-	l = { "<cmd>Telescope luasnip<cr>", "Luasnip" },
+	s = { "<cmd>Telescope luasnip<cr>", "Snippets" },
+	l = { "<cmd>Telescope lazy<cr>", "Lazy" },
 	u = { "<cmd>Telescope undo<cr>", "Undo" },
 	e = { "<cmd>Telescope emoji<cr>", "Emoji" },
 	f = { "<cmd>Telescope frecency<cr>", "Emoji" },
