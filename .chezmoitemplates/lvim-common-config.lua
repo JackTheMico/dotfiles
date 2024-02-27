@@ -385,8 +385,14 @@ lvim.builtin.which_key.mappings["<space>"] = {
 	v = { "<cmd>ToggleTerm direction=vertical<cr>", "Vertical Term" },
 	t = { "<cmd>ToggleTerm direction=tab<cr>", "Tab Term" },
 }
+lvim.builtin.which_key.mappings["bt"] = {
+	"<cmd>Telescope buffers<cr>",
+	"Buffers",
+}
 lvim.builtin.which_key.mappings["t"] = {
 	name = "Telescope",
+	t = { "<cmd>TranslateW<cr>", "Translate" },
+	r = { "<cmd>TranslateR<cr>", "Replace with the translation" },
 	b = { "<cmd>Telescope buffers<cr>", "Buffers" },
 	h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
 	c = { "<cmd>Telescope neoclip<cr>", "Neoclip" },
