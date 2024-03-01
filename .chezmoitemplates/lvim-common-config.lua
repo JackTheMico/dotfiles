@@ -16,6 +16,29 @@ lvim.transparent_window = true
 lvim.builtin.treesitter.rainbow.enable = true
 
 lvim.plugins = {
+	{
+		"nvim-neorg/neorg",
+		config = function()
+			require("neorg").setup({
+				load = {
+					["core.defaults"] = {}, -- Loads default behaviour
+					["core.concealer"] = {}, -- Adds pretty icons to your documents
+					["core.dirman"] = { -- Manages Neorg workspaces
+						config = {
+							workspaces = {
+								notes = "~/neorg/notes",
+								firework = "~/neorg/firework",
+								personal = "~/neorg/personal",
+							},
+						},
+					},
+					["core.completion"] = {},
+				},
+			})
+		end,
+		run = ":Neorg sync-parsers",
+		requires = "nvim-lua/plenary.nvim",
+	},
 	{ "voldikss/vim-translator" },
 	{
 		"wakatime/vim-wakatime",

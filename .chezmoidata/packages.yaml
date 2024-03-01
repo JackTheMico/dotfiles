@@ -7,7 +7,7 @@ packages:
       - cargo
       - carapace-bin
       - carapace-bridge
-      - dooit
+      - github-cli
       - fzf
       - keepassxc
       - lazygit
@@ -48,7 +48,7 @@ packages:
       - cargo
       - carapace-bin
       - carapace-bridge
-      - dooit
+      - github-cli
       - fzf
       - keepassxc
       - lazygit
