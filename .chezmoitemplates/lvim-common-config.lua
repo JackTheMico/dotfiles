@@ -10,12 +10,16 @@ vim.filetype.add({
 	},
 })
 
+vim.opt.foldlevel = 99
+vim.opt.conceallevel = 2
+
 lvim.format_on_save = false
 lvim.colorscheme = "desert"
 lvim.transparent_window = true
 lvim.builtin.treesitter.rainbow.enable = true
 
 lvim.plugins = {
+	{ "rebelot/kanagawa.nvim" },
 	{
 		"nvim-neorg/neorg",
 		config = function()
@@ -33,11 +37,12 @@ lvim.plugins = {
 						},
 					},
 					["core.completion"] = {},
+					["core.integrations.telescope"] = {},
 				},
 			})
 		end,
 		build = ":Neorg sync-parsers",
-		dependencies = "nvim-lua/plenary.nvim",
+		dependencies = { "nvim-lua/plenary.nvim", "nvim-neorg/neorg-telescope" },
 	},
 	{ "voldikss/vim-translator" },
 	{
@@ -161,28 +166,6 @@ lvim.plugins = {
 			require("lsp_signature").on_attach()
 		end,
 	},
-	{
-		"romgrk/nvim-treesitter-context",
-		config = function()
-			require("treesitter-context").setup({
-				enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-				throttle = true, -- Throttles plugin updates (may improve performance)
-				max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-				line_numbers = true,
-				-- patterns = {     -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
-				--   -- For all filetypes
-				--   -- Note that setting an entry here replaces all other patterns for this entry.
-				--   -- By setting the 'default' entry below, you can control which nodes you want to
-				--   -- appear in the context window.
-				--   default = {
-				--     'class',
-				--     'function',
-				--     'method',
-				--   },
-				-- },
-			})
-		end,
-	},
 	{ "tpope/vim-repeat" },
 	{
 		"tpope/vim-surround",
@@ -235,53 +218,11 @@ lvim.plugins = {
 		event = "BufRead",
 	},
 	{
-		"romgrk/nvim-treesitter-context",
-		config = function()
-			require("treesitter-context").setup({
-				enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-				throttle = true, -- Throttles plugin updates (may improve performance)
-				max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-				patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
-					-- For all filetypes
-					-- Note that setting an entry here replaces all other patterns for this entry.
-					-- By setting the 'default' entry below, you can control which nodes you want to
-					-- appear in the context window.
-					default = {
-						"class",
-						"function",
-						"method",
-					},
-				},
-			})
-		end,
-	},
-	{
 		"f-person/git-blame.nvim",
 		event = "BufRead",
 		config = function()
 			vim.cmd("highlight default link gitblame SpecialComment")
 			require("gitblame").setup({ enabled = false })
-		end,
-	},
-	{
-		"romgrk/nvim-treesitter-context",
-		config = function()
-			require("treesitter-context").setup({
-				enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-				throttle = true, -- Throttles plugin updates (may improve performance)
-				max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-				patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
-					-- For all filetypes
-					-- Note that setting an entry here replaces all other patterns for this entry.
-					-- By setting the 'default' entry below, you can control which nodes you want to
-					-- appear in the context window.
-					default = {
-						"class",
-						"function",
-						"method",
-					},
-				},
-			})
 		end,
 	},
 	{
@@ -324,23 +265,6 @@ lvim.plugins = {
 		dependencies = "hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 	},
-	-- {
-	--   "AckslD/swenv.nvim",
-	--   config = function()
-	--     require('swenv').setup({
-	--       -- Should return a list of tables with a `name` and a `path` entry each.
-	--       -- Gets the argument `venvs_path` set below.
-	--       -- By default just lists the entries in `venvs_path`.
-	--       get_venvs = function(venvs_path)
-	--         return require('swenv.api').get_venvs(venvs_path)
-	--       end,
-	--       -- Path passed to `get_venvs`.
-	--       venvs_path = vim.fn.expand('~/.cache/pypoetry/virtualenvs'),
-	--       -- Something to do after setting an environment
-	--       post_set_venv = nil,
-	--     })
-	--   end
-	-- },
 	{
 		"ggandor/leap.nvim",
 		name = "leap",
@@ -348,14 +272,18 @@ lvim.plugins = {
 			require("leap").create_default_mappings()
 		end,
 	},
-	-- {
-	--   "folke/trouble.nvim",
-	--   cmd = "TroubleToggle",
-	-- },
 	{ "mfussenegger/nvim-dap-python" },
 	{ "nvim-neotest/neotest" },
 	{ "nvim-neotest/neotest-python" },
 }
+
+-- Neorg
+require("nvim-treesitter.configs").setup({
+	ensure_installed = { "norg" },
+	highlight = {
+		enable = true,
+	},
+})
 
 -- Setup dap-python
 local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
@@ -370,9 +298,9 @@ lvim.builtin.telescope.on_config_done = function(telescope)
 	pcall(telescope.load_extension, "lazy")
 	-- any other extensions loading
 end
--- pcall(function()
---   require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
--- end)
+pcall(function()
+	require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
+end)
 local dapython = require("dap-python")
 dapython.test_runner = "pytest"
 dapython.setup(mason_path .. "packages/debugpy/venv/bin/python")
@@ -396,11 +324,25 @@ linters.setup({
 })
 
 -- Key Mappings
-lvim.builtin.which_key.mappings["P"] = {
-	name = "Python",
-	i = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Pick Env" },
-	d = { "<cmd>lua require('swenv.api').get_current_venv()<cr>", "Show Env" },
-}
+-- Neorg
+local neorg_callbacks = require("neorg.core.callbacks")
+
+neorg_callbacks.on_event("core.keybinds.events.enable_keybinds", function(_, keybinds)
+	-- Map all the below keybinds only when the "norg" mode is active
+	keybinds.map_event_to_mode("norg", {
+		n = { -- Bind keys in normal mode
+			{ "<C-s>", "core.integrations.telescope.find_linkable" },
+		},
+
+		i = { -- Bind in insert mode
+			{ "<C-l>", "core.integrations.telescope.insert_link" },
+		},
+	}, {
+		silent = true,
+		noremap = true,
+	})
+end)
+
 lvim.builtin.which_key.mappings["<space>"] = {
 	name = "Term",
 	f = { "<cmd>ToggleTerm<cr>", "FloatTerm" },
