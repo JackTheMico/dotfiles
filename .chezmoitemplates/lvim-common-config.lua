@@ -36,8 +36,8 @@ lvim.plugins = {
 				},
 			})
 		end,
-		run = ":Neorg sync-parsers",
-		requires = "nvim-lua/plenary.nvim",
+		build = ":Neorg sync-parsers",
+		dependencies = "nvim-lua/plenary.nvim",
 	},
 	{ "voldikss/vim-translator" },
 	{
