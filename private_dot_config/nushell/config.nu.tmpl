@@ -1,5 +1,8 @@
 {{- template "nu-common-config.nu" . -}}
 
+alias fuck = with-env {TF_ALIAS: "fuck", PYTHONIOENCODING: "utf-8"} {
+    thefuck (history | last 1 | get command.0)
+}
 
 def --env enproxy [] {
   $env.HTTP_PROXY = $"http://($env.hostip):7890"
