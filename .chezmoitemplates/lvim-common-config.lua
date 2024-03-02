@@ -34,9 +34,14 @@ lvim.plugins = {
 								firework = "~/neorg/firework",
 								personal = "~/neorg/personal",
 							},
+							default_workspace = "personal",
 						},
 					},
-					["core.completion"] = {},
+					["core.completion"] = {
+						config = {
+							engine = "nvim-cmp",
+						},
+					},
 					["core.integrations.telescope"] = {},
 				},
 			})
