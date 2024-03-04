@@ -1,4 +1,42 @@
 packages:
+  darwin:
+    brew:
+      - git
+      - atuin
+      - bat
+      - cargo
+      - carapace-bin
+      - carapace-bridge
+      - github-cli
+      - fzf
+      - keepassxc
+      - lazygit
+      - neovim
+      - nodejs
+      - npm
+      - make
+      - httpie
+      - jekyll
+      - the_silver_searcher
+      - nushell
+      - tmux
+      - ueberzug
+      - chaka
+      - imagemagick
+      - poppler
+      - cptv-git
+      - pyenv
+      - python-poetry
+      - python-pipx
+      - tig
+      - timer-bin
+      - luarocks
+      - trashy
+      - fd
+      - ripgrep
+      - starship
+      - smassh
+      - zoxide
   wsl:
     yay:
       - git

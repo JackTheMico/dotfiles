@@ -1,4 +1,8 @@
+{{ if eq .chezmoi.os "linux" -}}
 #!/usr/sbin/env nu
+{{ else -}}
+#!/opt/homebrew/bin/nu
+{{ end -}}
 cargo install nu_plugin_gstat@0.89.0
 cargo install nu_plugin_net
 cargo install nu_plugin_highlight

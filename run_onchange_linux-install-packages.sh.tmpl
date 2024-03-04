@@ -11,3 +11,6 @@ yay -S --noconfirm --needed {{ . | quote }}
 {{ end -}}
 {{   end -}}
 {{ end -}}
+
+{{ if eq .chezmoi.os "darwin" -}}
+{{ end -}}
