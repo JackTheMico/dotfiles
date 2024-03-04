@@ -17,7 +17,6 @@ end
 -- For example, changing the color scheme:
 config.color_scheme = 'Dracula+'
 -- config.color_scheme = 'Humanoid dark (base16)'
-config.font_size = 15.0
 config.scrollback_lines = 10000
 
 -- default shell
@@ -25,23 +24,16 @@ config.scrollback_lines = 10000
 config.default_prog = {'C:/Program Files/nu/bin/nu.exe'}
 config.font = wezterm.font 'Hack Nerd Font Mono Bold'
 config.window_background_opacity = 0.6
--- config.background = {
---   {
---    source = {
---      File = 'D:/jackwenyoung/Pictures/background/spiderman-1.gif'
---    },
---    width = '100%', 
---    hsb = { brightness = 0.2 }
---  }
---}
+config.font_size = 14.0
 {{- else if eq .chezmoi.os "darwin" }}
-# TODO: add gif background
-config.font = wezterm.font 'Hack Nerd Font Propo'
+config.window_background_opacity = 0.6
+config.font = wezterm.font 'Hack Nerd Font Mono Bold'
 config.default_prog = {'/opt/homebrew/bin/nu'}
+config.font_size = 16.0
 {{- else }}
-# TODO: add gif background
-config.font = wezterm.font 'FiraCode-Bold'
+config.font = wezterm.font 'Hack Nerd Font Mono Bold'
 config.default_prog = {'/usr/bin/nu'}
+config.font_size = 16.0
 {{- end }}
 
 -- key mappings
