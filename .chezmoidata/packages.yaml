@@ -30,6 +30,10 @@ packages:
       - python-pipx
       - tig
       - timer-bin
+      - task
+      - timew
+      - taskwarrior-tui
+      - bugwarrior
       - luarocks
       - trashy
       - fd
@@ -68,6 +72,10 @@ packages:
       - python-pipx
       - tig
       - timer-bin
+      - task
+      - timew
+      - taskwarrior-tui
+      - bugwarrior
       - luarocks
       - trashy
       - fd
@@ -111,6 +119,10 @@ packages:
       - luarocks
       - tig
       - timer-bin
+      - task
+      - timew
+      - taskwarrior-tui
+      - bugwarrior
       - trashy
       - fd
       - ripgrep

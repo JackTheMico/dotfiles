@@ -19,6 +19,23 @@ lvim.transparent_window = true
 lvim.builtin.treesitter.rainbow.enable = true
 
 lvim.plugins = {
+	{
+		"baliestri/aura-theme",
+		lazy = false,
+		priority = 1000,
+		config = function(plugin)
+			vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
+			vim.cmd([[colorscheme aura-dark]])
+		end,
+	},
+	{ "EdenEast/nightfox.nvim" },
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
+	{ "savq/melange-nvim" },
 	{ "rebelot/kanagawa.nvim" },
 	{
 		"nvim-neorg/neorg",
