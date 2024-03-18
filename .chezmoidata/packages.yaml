@@ -11,6 +11,7 @@ packages:
       - fzf
       - keepassxc
       - lazygit
+      - lazydocker
       - neovim
       - nodejs
       - npm
@@ -53,6 +54,7 @@ packages:
       - fzf
       - keepassxc
       - lazygit
+      - lazydocker
       - neovim
       - nodejs
       - npm
@@ -98,6 +100,7 @@ packages:
       - fzf
       - keepassxc
       - lazygit
+      - lazydocker
       - neovim
       - nodejs
       - npm
