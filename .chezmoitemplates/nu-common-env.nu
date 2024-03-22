@@ -121,14 +121,14 @@ $env.Path = ($env.Path | split row (char esep) | prepend 'D:/scoop/shims')
 $env.Path = ($env.Path | split row (char esep) | prepend '~/.pyenv/pyenv-win/bin/pyenv.ps1')
 {{- end }}
 {{- if eq .chezmoi.os "darwin" }}
-mkdir ~/.cache/atuin
-atuin init nu | save -f ~/.cache/atuin/init.nu
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.cargo/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend $"(pyenv root)/shims")
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.docker/bin')
-$env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/opt/postgresql@13/bin/')
+mkdir ~/.cache/atuin
+atuin init nu | save -f ~/.cache/atuin/init.nu
 {{- end }}
 $env.PYTHON_BUILD_MIRROR_URL = "https://jedore.vercel.app/tools/python-mirrors/"
 $env.LF_ICONS = "~/.config/lf/icons"
