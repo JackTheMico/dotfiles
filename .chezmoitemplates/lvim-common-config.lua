@@ -20,6 +20,13 @@ lvim.builtin.treesitter.rainbow.enable = true
 
 lvim.plugins = {
 	{
+		"nvim-pack/nvim-spectre",
+		event = "BufRead",
+		config = function()
+			require("spectre").setup()
+		end,
+	},
+	{
 		"baliestri/aura-theme",
 		lazy = false,
 		priority = 1000,
@@ -389,12 +396,12 @@ lvim.builtin.which_key.mappings["t"] = {
 	e = { "<cmd>Telescope emoji<cr>", "Emoji" },
 	f = { "<cmd>Telescope frecency<cr>", "Emoji" },
 }
-lvim.builtin.which_key.mappings["S"] = {
-	name = "Session",
-	c = { "<cmd>lua require('persistence').load()<cr>", "Restore last session for current dir" },
-	l = { "<cmd>lua require('persistence').load({ last = true })<cr>", "Restore last session" },
-	q = { "<cmd>lua require('persistence').stop()<cr>", "Quit without saving session" },
-}
+-- lvim.builtin.which_key.mappings["S"] = {
+-- 	name = "Session",
+-- 	c = { "<cmd>lua require('persistence').load()<cr>", "Restore last session for current dir" },
+-- 	l = { "<cmd>lua require('persistence').load({ last = true })<cr>", "Restore last session" },
+-- 	q = { "<cmd>lua require('persistence').stop()<cr>", "Quit without saving session" },
+-- }
 lvim.keys.normal_mode["<S-h>"] = "<cmd>BufferLineCyclePrev<cr>"
 lvim.keys.normal_mode["<S-l>"] = "<cmd>BufferLineCycleNext<cr>"
 lvim.keys.insert_mode["jk"] = "<Esc>"
@@ -406,6 +413,14 @@ lvim.builtin.which_key.mappings["w"] = {
 	s = { "<cmd>SymbolsOutline<cr>", "SymbolsOutline" },
 	d = { "<cmd>q<cr>", "Close" },
 }
+
+-- Spectre
+lvim.builtin.which_key.mappings["ss"] = { "<cmd>lua require('spectre').toggle()<cr>", "Toggle Spectre" }
+-- lvim.builtin.which_key.vmappings["sw"] = { "<cmd>lua require('spectre').open_visual()<cr>", "Search selected word" }
+lvim.builtin.which_key.mappings["sw"] =
+	{ "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Search current word" }
+lvim.builtin.which_key.mappings["sp"] =
+	{ "<cmd>lua require('spectre').open_file_search({select_word=true})<cr>", "Search on current file" }
 
 -- Neotest
 lvim.builtin.which_key.mappings["dm"] = { "<cmd>lua require('neotest').run.run()<cr>", "Test Method" }
