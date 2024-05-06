@@ -302,6 +302,7 @@ lvim.plugins = {
 		end,
 	},
 	{ "mfussenegger/nvim-dap-python" },
+	{ "nvim-neotest/nvim-nio" },
 	{ "nvim-neotest/neotest" },
 	{ "nvim-neotest/neotest-python" },
 }
