@@ -44,35 +44,6 @@ lvim.plugins = {
 	},
 	{ "savq/melange-nvim" },
 	{ "rebelot/kanagawa.nvim" },
-	{
-		"nvim-neorg/neorg",
-		config = function()
-			require("neorg").setup({
-				load = {
-					["core.defaults"] = {}, -- Loads default behaviour
-					["core.concealer"] = {}, -- Adds pretty icons to your documents
-					["core.dirman"] = { -- Manages Neorg workspaces
-						config = {
-							workspaces = {
-								notes = "~/neorg/notes",
-								firework = "~/neorg/firework",
-								personal = "~/neorg/personal",
-							},
-							default_workspace = "personal",
-						},
-					},
-					["core.completion"] = {
-						config = {
-							engine = "nvim-cmp",
-						},
-					},
-					["core.integrations.telescope"] = {},
-				},
-			})
-		end,
-		build = ":Neorg sync-parsers",
-		dependencies = { "nvim-lua/plenary.nvim", "nvim-neorg/neorg-telescope" },
-	},
 	{ "voldikss/vim-translator" },
 	{
 		"wakatime/vim-wakatime",
@@ -307,14 +278,6 @@ lvim.plugins = {
 	{ "nvim-neotest/neotest-python" },
 }
 
--- Neorg
-require("nvim-treesitter.configs").setup({
-	ensure_installed = { "norg" },
-	highlight = {
-		enable = true,
-	},
-})
-
 -- Setup dap-python
 local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
 -- Setup Telescope extensions
@@ -354,24 +317,6 @@ linters.setup({
 })
 
 -- Key Mappings
--- Neorg
-local neorg_callbacks = require("neorg.core.callbacks")
-
-neorg_callbacks.on_event("core.keybinds.events.enable_keybinds", function(_, keybinds)
-	-- Map all the below keybinds only when the "norg" mode is active
-	keybinds.map_event_to_mode("norg", {
-		n = { -- Bind keys in normal mode
-			{ "<C-s>", "core.integrations.telescope.find_linkable" },
-		},
-
-		i = { -- Bind in insert mode
-			{ "<C-l>", "core.integrations.telescope.insert_link" },
-		},
-	}, {
-		silent = true,
-		noremap = true,
-	})
-end)
 
 lvim.builtin.which_key.mappings["<space>"] = {
 	name = "Term",
