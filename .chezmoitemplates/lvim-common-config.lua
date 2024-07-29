@@ -26,6 +26,7 @@ lvim.plugins = {
 			require("spectre").setup()
 		end,
 	},
+    {   "towolf/vim-helm" },
 	{
 		"baliestri/aura-theme",
 		lazy = false,
