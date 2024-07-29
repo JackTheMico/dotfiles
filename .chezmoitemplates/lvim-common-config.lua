@@ -279,6 +279,18 @@ lvim.plugins = {
 	{ "nvim-neotest/neotest-python" },
 }
 
+
+local lspconfig = require('lspconfig')
+
+lspconfig.helm_ls.setup {
+  settings = {
+    ['helm-ls'] = {
+      yamlls = {
+        path = "yaml-language-server",
+      }
+    }
+  }
+}
 -- Setup dap-python
 local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
 -- Setup Telescope extensions
