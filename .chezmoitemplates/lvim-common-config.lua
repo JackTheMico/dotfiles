@@ -14,7 +14,7 @@ vim.opt.foldlevel = 99
 vim.opt.conceallevel = 2
 
 lvim.format_on_save = false
-lvim.colorscheme = "desert"
+lvim.colorscheme = "dracula"
 lvim.transparent_window = true
 lvim.builtin.treesitter.rainbow.enable = true
 
