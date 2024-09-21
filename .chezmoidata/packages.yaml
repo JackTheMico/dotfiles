@@ -40,6 +40,7 @@ packages:
       - trashy
       - fd
       - ripgrep
+      - ruff
       - starship
       - smassh
       - zoxide
@@ -132,6 +133,7 @@ packages:
       - trashy
       - fd
       - ripgrep
+      - ruff
       - wezterm
       - starship
       - smassh
@@ -141,3 +143,4 @@ packages:
   kali:
     apt:
       - neovim
+      - ruff
