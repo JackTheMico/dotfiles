@@ -89,7 +89,7 @@ packages:
       - zoxide
       - zsh # for lf meida preview
 
-  linux:
+  manjaro:
     yay:
       - git
       - atuin
@@ -137,3 +137,7 @@ packages:
       - smassh
       - zoxide
       - zsh
+
+  kali:
+    apt:
+      - neovim
