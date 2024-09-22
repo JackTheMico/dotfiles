@@ -1,0 +1,4 @@
+#!/bin/bash
+{{ if eq .osid "linux-kali"}}
+curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
+{{ end -}}

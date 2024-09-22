@@ -92,5 +92,17 @@ packages:
 
   kali:
     apt:
+      - git
+      - tig
+      - bat
+      - cargo
+      - fzf
+      - golang
+      - apt-transport-https
       - neovim
-      - ruff
+      - neofetch
+      - pipx  # use this to install ruff
+      - python3-poetry
+      - zoxide
+      - fd-find
+      - ripgrep

@@ -6,7 +6,7 @@ yay -S --noconfirm --needed {{ . | quote }}
 {{ end -}}
 {{ else if eq .osid "linux-kali"}}
 {{ range .packages.kali.apt -}}
-sudo apt install {{ . | quote }}
+sudo apt install -y {{ . | quote }}
 {{ end -}}
 {{ end -}}
 

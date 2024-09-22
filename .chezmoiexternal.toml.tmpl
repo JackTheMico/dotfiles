@@ -4,3 +4,10 @@
     url = "https://github.com/gpakosz/.tmux.git"
     refreshPeriod = "168h"
 {{ end }}
+{{ if eq .osid "linux-kali" }}
+{{ $neovimVersion := "0.10.1" -}}
+[".nvim"]
+    type = "archive"
+    url = "https://github.com/neovim/neovim/releases/download/v{{ $neovimVersion }}/nvim-linux64.tar.gz"
+    refreshPeriod = "168h"
+{{ end }}

@@ -100,7 +100,18 @@ $env.NU_PLUGIN_DIRS = [
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 
-{{- if eq .chezmoi.os "linux" }}
+{{- if eq .osid "linux-kali"}}
+$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.atuin/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.cargo/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.pyenv/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '~/go/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.nvim/nvim-linux64/bin/')
+$env.PATH = ($env.PATH | split row (char esep) | prepend $"(pyenv root)/shims")
+atuin init nu | save -f ~/.cache/atuin/init.nu
+{{- end }}
+
+{{- if eq .osid "linux-manjaro" }}
 mkdir ~/.cache/atuin
 atuin init nu | save -f ~/.cache/atuin/init.nu
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.cargo/bin')
@@ -108,7 +119,7 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend $"(pyenv root)/shims")
 {{- end }}
 
-{{ if eq .chezmoi.os "linux" }}
+{{ if eq .osid "linux-manjaro" }}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 $env.PATH = ($env.PATH | split row (char esep) | append '/mnt/c/Windows/System32')
 {{   end }}
