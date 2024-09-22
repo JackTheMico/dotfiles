@@ -2,19 +2,16 @@
 #!/bin/bash
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 
-{{ range .packages.wsl.yay -}}
-yay -S --noconfirm --needed {{ . | quote }}
-{{ end -}}
-{{ else if eq .osid "linux-manjaro" }}
+{{      if eq .osid "linux-manjaro" }}
 {{ range .packages.linux.yay -}}
 yay -S --noconfirm --needed {{ . | quote }}
 {{ end -}}
-{{   end -}}
-{{ else if eq .osid "linux-kali"}}
+{{      end -}}
+{{      else if eq .osid "linux-kali"}}
 {{ range .packages.kali.apt -}}
 sudo apt install {{ . | quote }}
 {{ end -}}
-{{ end -}}
+{{      end -}}
 
 {{ if eq .chezmoi.os "darwin" -}}
 {{ end -}}
