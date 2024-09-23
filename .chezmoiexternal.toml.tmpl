@@ -6,8 +6,17 @@
 {{ end }}
 {{ if eq .osid "linux-kali" }}
 {{ $neovimVersion := "0.10.1" -}}
+{{ $scack4allVersion := "2.9.1" -}}
 [".nvim"]
     type = "archive"
     url = "https://github.com/neovim/neovim/releases/download/v{{ $neovimVersion }}/nvim-linux64.tar.gz"
+    refreshPeriod = "168h"
+["hackingtool"]
+    type = "git-repo"
+    url = "https://github.com/Z4nzu/hackingtool.git"
+    refreshPeriod = "168h"
+["scan4all"]
+    type = "archive"
+    url = "https://github.com/GhostTroops/scan4all/releases/download/{{ $scack4allVersion }}/scan4all_{{ $scack4allVersion }}_linux_amd64.zip"
     refreshPeriod = "168h"
 {{ end }}

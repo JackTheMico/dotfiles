@@ -99,10 +99,15 @@ packages:
       - fzf
       - golang
       - apt-transport-https
-      - neovim
+      - libssl-dev
+      - liblzma-dev
+      - libpcap-dev
       - neofetch
+      - nodejs
       - pipx  # use this to install ruff
+      - python3
       - python3-poetry
+      - python3-openssl
       - zoxide
       - fd-find
       - ripgrep
