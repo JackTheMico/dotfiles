@@ -104,6 +104,7 @@ packages:
       - libpcap-dev
       - neofetch
       - nodejs
+      - npm
       - pipx  # use this to install ruff
       - python3
       - python3-poetry
