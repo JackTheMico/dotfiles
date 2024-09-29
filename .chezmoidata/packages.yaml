@@ -98,6 +98,7 @@ packages:
       - cargo
       - fzf
       - golang
+      - httpie
       - apt-transport-https
       - libssl-dev
       - liblzma-dev
@@ -105,7 +106,7 @@ packages:
       - neofetch
       - nodejs
       - npm
-      - pipx  # use this to install ruff
+      - pipx # use this to install ruff
       - python3
       - python3-poetry
       - python3-openssl
