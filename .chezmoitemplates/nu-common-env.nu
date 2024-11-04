@@ -130,6 +130,7 @@ $env.Path = ($env.Path | split row (char esep) | prepend '~/.cargo/bin')
 $env.Path = ($env.Path | split row (char esep) | prepend '~/.local/bin')
 $env.Path = ($env.Path | split row (char esep) | prepend 'D:/scoop/shims')
 $env.Path = ($env.Path | split row (char esep) | prepend '~/.pyenv/pyenv-win/bin/pyenv.ps1')
+$env.NAVI_PATH = "D:\\codes\\cheats"
 {{- end }}
 {{- if eq .chezmoi.os "darwin" }}
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/homebrew/bin')

@@ -2,6 +2,8 @@ encryption = "gpg"
 {{ $osid := .chezmoi.os }}
 {{ if hasKey .chezmoi.osRelease "id" }}
 {{   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id }}
+{{ else }}
+{{   $osid = "windows"}}
 {{ end }}
 [gpg]
     recipient = "A30DF874D95E6029"
