@@ -72,7 +72,6 @@ packages:
       - poppler
       - cptv-git
       - pyenv
-      - python-poetry
       - python-pipx
       - python-boto3
       - tig
