@@ -909,4 +909,6 @@ source ~/.config/nushell/completions/lf.nu
 use ~/.cache/starship/init.nu
 source ~/.zoxide.nu
 source ($nu.default-config-dir | path join "navi-integration.nu")
+{{- if ne .chezmoi.os "windows" }}
 neofetch
+{{- end }}
