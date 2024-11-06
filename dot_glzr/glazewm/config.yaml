@@ -111,7 +111,7 @@ workspaces:
     keep_alive: true
     bind_to_monitor: 0
   - name: '4'
-    display_name: "4|Tools"
+    display_name: "4|Slack"
     keep_alive: true
     bind_to_monitor: 0
   - name: '5'
@@ -134,6 +134,12 @@ window_rules:
   - commands: ["move --workspace 3"]
     match:
       - window_process: { regex: "Spotify" }
+  - commands: ["move --workspace 4"]
+    match:
+      - window_process: { regex: "Slack" }
+  - commands: ["move --workspace 5"]
+    match:
+      - window_process: { regex: "WezTerm" }
   - commands: ['ignore']
     match:
       # Ignores any Zebar windows.
