@@ -119,6 +119,8 @@ workspaces:
     keep_alive: true
     bind_to_monitor: 1
   - name: '6'
+    display_name: "5|Tick"
+    keep_alive: true
     bind_to_monitor: 1
   - name: '7'
     bind_to_monitor: 1
@@ -140,6 +142,9 @@ window_rules:
   - commands: ["move --workspace 5"]
     match:
       - window_process: { regex: "WezTerm" }
+  - commands: ["move --workspace 6"]
+    match:
+      - window_process: { regex: "滴答" }
   - commands: ['ignore']
     match:
       # Ignores any Zebar windows.
