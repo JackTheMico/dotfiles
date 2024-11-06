@@ -141,7 +141,7 @@ window_rules:
       - window_process: { regex: "Slack|slack" }
   - commands: ["move --workspace 5"]
     match:
-      - window_process: { regex: "WezTerm" }
+      - window_process: { regex: "WezTerm|wezterm|nu" }
   - commands: ["move --workspace 6"]
     match:
       - window_process: { regex: "滴答|TickTick" }
