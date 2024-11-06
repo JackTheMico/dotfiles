@@ -119,7 +119,7 @@ workspaces:
     keep_alive: true
     bind_to_monitor: 1
   - name: '6'
-    display_name: "5|Tick"
+    display_name: "6|Tick"
     keep_alive: true
     bind_to_monitor: 1
   - name: '7'
@@ -138,13 +138,13 @@ window_rules:
       - window_process: { regex: "Spotify" }
   - commands: ["move --workspace 4"]
     match:
-      - window_process: { regex: "Slack" }
+      - window_process: { regex: "Slack|slack" }
   - commands: ["move --workspace 5"]
     match:
       - window_process: { regex: "WezTerm" }
   - commands: ["move --workspace 6"]
     match:
-      - window_process: { regex: "滴答" }
+      - window_process: { regex: "滴答|TickTick" }
   - commands: ['ignore']
     match:
       # Ignores any Zebar windows.
