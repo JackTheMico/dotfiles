@@ -87,7 +87,6 @@ packages:
       - fd
       - ripgrep
       - starship
-      - smassh
       - zoxide
       - zsh # for lf meida preview
   kali:
