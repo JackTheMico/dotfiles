@@ -8,6 +8,10 @@ yay -S --noconfirm --needed {{ . | quote }}
 {{ range .packages.kali.apt -}}
 sudo apt install -y {{ . | quote }}
 {{ end -}}
+{{ else if eq .osid "windows" }}
+{{ range .packages.windows.scoop -}}
+scoop install {{ . | quote }}
+{{ end -}}
 {{ end -}}
 
 {{ if eq .chezmoi.os "darwin" -}}

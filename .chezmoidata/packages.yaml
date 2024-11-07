@@ -74,6 +74,8 @@ packages:
       - pyenv
       - python-pipx
       - python-boto3
+      - python-commitizen
+      - pre-commit
       - tig
       - timer-bin
       - task
@@ -88,7 +90,6 @@ packages:
       - smassh
       - zoxide
       - zsh # for lf meida preview
-
   kali:
     apt:
       - git
@@ -113,3 +114,19 @@ packages:
       - fd-find
       - ripgrep
       - trash-cli
+  windows:
+    scoop:
+      - git
+      - nushell
+      - starship
+      - wezterm
+      - lazygit
+      - navi
+      - pipx
+      - keepassxc
+      - gpg
+      - rust
+      - pre-commit
+      - zoxide
+      - vivaldi
+      - zoom
