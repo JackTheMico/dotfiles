@@ -1,6 +1,6 @@
 customCommands:
   - key: "C"
-    command: "cz -n cz_conventional_emoji c"
+    command: "cz -n cz_gitmoji c"
     description: "commit with commitizen"
     context: "files"
     loadingText: "opening commitizen commit tool"
