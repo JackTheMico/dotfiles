@@ -445,6 +445,8 @@ run-shell ~/.tmux/plugins/tmux-continuum/continuum.tmux
 run-shell ~/.tmux/plugins/tmux-resurrect/resurrect.tmux
 run-shell ~/.tmux/plugins/tmux-copycat/copycat.tmux
 run-shell ~/.tmux/plugins/tmux-sidebar/sidebar.tmux
+run-shell ~/.tmux/plugins/tmux-fpp/fpp.tmux
+run-shell ~/.tmux/plugins/tmux-thumbs/tmux-thumbs.tmux
 
 
 # -- custom variables ----------------------------------------------------------
