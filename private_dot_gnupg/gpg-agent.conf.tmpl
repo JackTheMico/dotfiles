@@ -1,5 +1,10 @@
-default-cache-ttl 34560000
-max-cache-ttl 34560000
+default-cache-ttl 86400
+max-cache-ttl 86400
+no-grab
+no-allow-external-cache
+pinentry-timeout 86400
 {{ if eq .chezmoi.os "darwin"}}
 pinentry-program /opt/homebrew/bin/pinentry-mac
+{{ else if eq .chezmoi.os "linux"}}
+pinentry-program /usr/sbin/pinentry-curses
 {{ end }}
