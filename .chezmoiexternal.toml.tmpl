@@ -19,13 +19,17 @@
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tmux-sidebar"
     refreshPeriod = "168h"
-[".tmux/plugins/tmux-thumbs"]
+# [".tmux/plugins/tmux-thumbs"]  # NOTE: Not working
+#     type = "git-repo"
+#     url = "https://github.com/fcsonline/tmux-thumbs"
+#     refreshPeriod = "168h"
+# [".tmux/plugins/tmux-fpp"]  # NOTE: Not working
+#     type = "git-repo"
+#     url = "https://github.com/tmux-plugins/tmux-fpp"
+#     refreshPeriod = "168h"
+[".tmux/plugins/tmux-easy-motion"]
     type = "git-repo"
-    url = "https://github.com/fcsonline/tmux-thumbs"
-    refreshPeriod = "168h"
-[".tmux/plugins/tmux-fpp"]
-    type = "git-repo"
-    url = "https://github.com/tmux-plugins/tmux-fpp"
+    url = "https://github.com/IngoMeyer441/tmux-easy-motion"
     refreshPeriod = "168h"
 {{ end }}
 {{ if eq .osid "linux-kali" }}
