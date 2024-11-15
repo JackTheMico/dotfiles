@@ -1,3 +1,7 @@
+[wsl2]
+memory=16GB
+processors=8
+
 [experimental]
 autoMemoryReclaim=gradual
 networkingMode=mirrored
