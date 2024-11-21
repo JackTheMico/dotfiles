@@ -65,6 +65,7 @@ packages:
       - ueberzug
       - chaka
       - imagemagick
+      - ltex-ls-bin
       - poppler
       - cptv-git
       - pyenv
@@ -75,7 +76,6 @@ packages:
       - ruff
       - pre-commit
       - tig
-      - timer-bin
       - luarocks
       - trashy
       - fd
