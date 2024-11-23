@@ -6,12 +6,12 @@ alias fuck = with-env {TF_ALIAS: "fuck", PYTHONIOENCODING: "utf-8"} {
 
 
 def --env enproxy [] {
-  $env.HTTP_PROXY = $"http://127.0.0.1:7897"
-  $env.HTTPS_PROXY = $"http://127.0.0.1:7897"
-  $env.FTP_PROXY = $"http://127.0.0.1:7897"
-  $env.ALL_PROXY = $"socks5://127.0.0.1:7898"
-  git config --global http.proxy $"http://127.0.0.1:7897"
-  git config --global https.proxy $"http://127.0.0.1:7897"
+  $env.HTTP_PROXY = $"http://172.24.80.1:7897"
+  $env.HTTPS_PROXY = $"http://172.24.80.1:7897"
+  $env.FTP_PROXY = $"http://172.24.80.1:7897"
+  $env.ALL_PROXY = $"socks5://172.24.80.1:7898"
+  git config --global http.proxy $"http://172.24.80.1:7897"
+  git config --global https.proxy $"http://172.24.80.1:7897"
   [$env.HTTP_PROXY, $env.HTTPS_PROXY, $env.FTP_PROXY, $env.ALL_PROXY]
 }
 
@@ -26,10 +26,10 @@ def --env deproxy [] {
 
 
 def transe [word: string] {
-  trans -x $"127.0.0.1:7897" en:zh $word
+  trans -x $"172.24.80.1:7897" en:zh $word
 }
 def transz [word: string] {
-  trans -x $"127.0.0.1:7897" zh:en $word
+  trans -x $"172.24.80.1:7897" zh:en $word
 }
 
 alias cht = cht.sh
