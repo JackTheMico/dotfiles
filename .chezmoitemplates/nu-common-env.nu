@@ -142,6 +142,7 @@ mkdir ~/.cache/atuin
 atuin init nu | save -f ~/.cache/atuin/init.nu
 {{- end }}
 $env.PYTHON_BUILD_MIRROR_URL = "https://mirrors.huaweicloud.com/python/"
+$env.PYTHONPYCACHEPREFIX = "~/.cache/python/"
 $env.LF_ICONS = "~/.config/lf/icons"
 $env.BUNDLE_PATH = "~/.cache/bundle"
 $env.SLS_GEO_LOCATION = "no-cn"
