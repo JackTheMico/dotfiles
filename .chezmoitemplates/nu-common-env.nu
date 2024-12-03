@@ -122,10 +122,12 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend $"(pyenv root)/shims")
 {{ if eq .osid "linux-manjaro" }}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 $env.PATH = ($env.PATH | split row (char esep) | append '/mnt/c/Windows/System32')
+$env.PYTHONPYCACHEPREFIX = "~/.cache/python/"
 {{   end }}
 {{ end }}
 
 {{- if eq .chezmoi.os "windows" }}
+$env.PYTHONPYCACHEPREFIX = $"($env.USERPROFILE)/.cache/python/"
 $env.Path = ($env.Path | split row (char esep) | prepend '~/.cargo/bin')
 $env.Path = ($env.Path | split row (char esep) | prepend '~/.local/bin')
 $env.Path = ($env.Path | split row (char esep) | prepend 'D:/scoop/shims')
@@ -142,7 +144,6 @@ mkdir ~/.cache/atuin
 atuin init nu | save -f ~/.cache/atuin/init.nu
 {{- end }}
 $env.PYTHON_BUILD_MIRROR_URL = "https://mirrors.huaweicloud.com/python/"
-$env.PYTHONPYCACHEPREFIX = "~/.cache/python/"
 $env.LF_ICONS = "~/.config/lf/icons"
 $env.BUNDLE_PATH = "~/.cache/bundle"
 $env.SLS_GEO_LOCATION = "no-cn"
