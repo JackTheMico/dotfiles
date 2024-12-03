@@ -122,7 +122,7 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend $"(pyenv root)/shims")
 {{ if eq .osid "linux-manjaro" }}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 $env.PATH = ($env.PATH | split row (char esep) | append '/mnt/c/Windows/System32')
-$env.PYTHONPYCACHEPREFIX = "~/.cache/python/"
+$env.PYTHONPYCACHEPREFIX = $"($env.HOME)/.cache/python/"
 {{   end }}
 {{ end }}
 
