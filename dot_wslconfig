@@ -5,6 +5,7 @@ processors=8
 [experimental]
 autoMemoryReclaim=gradual
 dnsTunneling=true
-firewall=true
+firewall=false
 autoProxy=false
 sparseVhd=true
+networkingMode=mirrored
