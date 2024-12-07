@@ -3,8 +3,12 @@ max-cache-ttl 86400
 no-grab
 no-allow-external-cache
 pinentry-timeout 86400
-{{ if eq .chezmoi.os "darwin"}}
+{{- if eq .chezmoi.os "darwin"}}
 pinentry-program /opt/homebrew/bin/pinentry-mac
-{{ else if eq .chezmoi.os "linux"}}
+{{- end }}
+{{- if eq .osid "linux-manjaro"}}
 pinentry-program /usr/sbin/pinentry-curses
-{{ end }}
+{{- end }}
+{{- if eq .osid "linux-kali"}}
+pinentry-program /usr/bin/pinentry-curses
+{{- end }}
