@@ -788,10 +788,10 @@ alias la = ls -a
 
 # Register `nu_plugin_query` plugin from `nu -c` (writes/updates $nu.plugin-path)
 # let plugin = ("~/.cargo/bin/" | path join 'nu_plugin_highlight'); nu -c $'register ($plugin); version'
-let plugins = ls ~/.cargo/bin/ | where name =~ 'nu_plugin_*' | get name
-for plugin in $plugins {
-  nu -c $'register ($plugin)'
-}
+# let plugins = ls ~/.cargo/bin/ | where name =~ 'nu_plugin_*' | get name
+# for plugin in $plugins {
+#   nu -c $'register ($plugin)'
+# }
 
 # carapace
 $env.CARAPACE_BRIDGES = 'argcompetion' # optional
@@ -880,19 +880,37 @@ def gitfireworkinit [] {
   git config user.signingKey 944C9860A454A4CA
   git config commit.gpgSign true
 }
-def pomodoro [minutes: int = 25 --name(-n): string = "work"] {
-  echo $"Starting ($name) pomodoro for ($minutes) minutes"
-  timer $"($minutes)m" -n $name
-{{ if eq .chezmoi.os "linux" -}}
-{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
-  let notify = "/mnt/d/scoop/wslns/wsl-notify-send.exe"
-  ^$notify -t 5 $"Pomodoro ($name) done"
-{{   else }}
-  notify-send -t 5 $"Pomodoro ($name) done"
-{{   end -}}
-{{ end -}}
+
+def --env deproxy [] {
+  hide-env HTTP_PROXY
+  hide-env HTTPS_PROXY
+  hide-env FTP_PROXY
+  hide-env ALL_PROXY
+  git config --global --unset http.proxy
+  git config --global --unset https.proxy | null
 }
 
+{{- if eq .chezmoi.os "windows" }}
+def --env enproxy [] {
+  $env.HTTP_PROXY = $"http://127.0.0.1:7897"
+  $env.HTTPS_PROXY = $"http://127.0.0.1:7897"
+  $env.FTP_PROXY = $"http://127.0.0.1:7897"
+  $env.ALL_PROXY = $"socks5://127.0.0.1:7898"
+  git config --global http.proxy $"http://127.0.0.1:7897"
+  git config --global https.proxy $"http://127.0.0.1:7897"
+  [$env.HTTP_PROXY, $env.HTTPS_PROXY, $env.FTP_PROXY, $env.ALL_PROXY]
+}
+{{- else }}
+def --env enproxy [] {
+  $env.HTTP_PROXY = $"http://172.24.80.1:7897"
+  $env.HTTPS_PROXY = $"http://172.24.80.1:7897"
+  $env.FTP_PROXY = $"http://172.24.80.1:7897"
+  $env.ALL_PROXY = $"socks5://172.24.80.1:7898"
+  git config --global http.proxy $"http://172.24.80.1:7897"
+  git config --global https.proxy $"http://172.24.80.1:7897"
+  [$env.HTTP_PROXY, $env.HTTPS_PROXY, $env.FTP_PROXY, $env.ALL_PROXY]
+}
+{{- end }}
 alias pow = pomodoro
 alias pob = pomodoro 10 -n break
 def divel [imgname: string] {
