@@ -117,6 +117,8 @@ atuin init nu | save -f ~/.cache/atuin/init.nu
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.cargo/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend $"(pyenv root)/shims")
+$env.PNPM_HOME = $"($env.HOME)/.local/share/pnpm"
+$env.PATH = ($env.PATH | split row (char esep) | prepend $env.PNPM_HOME )
 {{- end }}
 
 {{ if eq .osid "linux-manjaro" }}
