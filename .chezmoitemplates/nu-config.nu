@@ -865,7 +865,17 @@ $env.config = {
           event: {
             send: menu name: fzf_dir_menu
           }
-        }
+        },
+        {
+          name: fzf_files
+          modifier: control
+          keycode: char_f
+          mode: [emacs vi_insert vi_normal]
+          event: {
+            send: executehostcommand
+            cmd: "commandline edit --insert (fzf -m --layout=reverse)"
+          }
+        },
     ]
 }
 
