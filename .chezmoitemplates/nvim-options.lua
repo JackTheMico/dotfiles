@@ -8,3 +8,7 @@ vim.g.lazyvim_python_lsp = "pylsp"
 vim.g.lazyvim_python_ruff = "ruff"
 -- LSP Server to use for PHP.
 vim.g.lazyvim_php_lsp = "intelephense"
+
+-- Enable the option to require a Prettier config file
+-- If no prettier config file is found, the formatter will not be used
+vim.g.lazyvim_prettier_needs_config = true
