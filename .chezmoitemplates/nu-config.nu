@@ -873,7 +873,7 @@ $env.config = {
           mode: [emacs vi_insert vi_normal]
           event: {
             send: executehostcommand
-            cmd: "commandline edit --insert (fzf -m --layout=reverse)"
+            cmd: "commandline edit --insert (fzf -m --layout=reverse | xargs -d '\n')"
           }
         },
     ]
