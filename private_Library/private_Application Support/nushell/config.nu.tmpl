@@ -1,4 +1,4 @@
-{{- template "nu-common-config.nu" . -}}
+{{- template "nu-config.nu" . -}}
 
 let fish_completer = {|spans|
     fish --command $'complete "--do-complete=($spans | str join " ")"'
