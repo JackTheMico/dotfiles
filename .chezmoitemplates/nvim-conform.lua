@@ -7,9 +7,9 @@ return {
 			python = { "isort", "ruff_format" },
 			markdown = { "markdownlint-cli2" },
 			json = { "biome" },
-			astro = { "prettier", "biome" },
-			javascript = { "prettier", "biome" },
-			typescript = { "prettier", "biome" },
+			astro = { "biome" },
+			javascript = { "biome" },
+			typescript = { "biome" },
 		},
 	},
 }

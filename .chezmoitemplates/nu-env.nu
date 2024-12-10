@@ -108,6 +108,7 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.pyenv/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/go/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.nvim/nvim-linux64/bin/')
 $env.PATH = ($env.PATH | split row (char esep) | prepend $"(pyenv root)/shims")
+$env.PYTHONPYCACHEPREFIX = $"($env.HOME)/.cache/python/"
 atuin init nu | save -f ~/.cache/atuin/init.nu
 {{- end }}
 
@@ -116,17 +117,15 @@ mkdir ~/.cache/atuin
 atuin init nu | save -f ~/.cache/atuin/init.nu
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.cargo/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.pyenv/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend $"(pyenv root)/shims")
 $env.PNPM_HOME = $"($env.HOME)/.local/share/pnpm"
 $env.PATH = ($env.PATH | split row (char esep) | prepend $env.PNPM_HOME )
+$env.PATH = ($env.PATH | split row (char esep) | append '/mnt/c/Windows/System32')
+$env.VIRTUALENV_CONFIG_FILE = $"($env.HOME)/.config/virtualenv/virtualenv.ini"
+$env.PYTHONPYCACHEPREFIX = $"($env.HOME)/.cache/python/"
 {{- end }}
 
-{{ if eq .osid "linux-manjaro" }}
-{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-$env.PATH = ($env.PATH | split row (char esep) | append '/mnt/c/Windows/System32')
-$env.PYTHONPYCACHEPREFIX = $"($env.HOME)/.cache/python/"
-{{   end }}
-{{ end }}
 
 {{- if eq .chezmoi.os "windows" }}
 $env.PYTHONPYCACHEPREFIX = $"($env.USERPROFILE)/.cache/python/"
