@@ -122,6 +122,7 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend $"(pyenv root)/shims")
 $env.PNPM_HOME = $"($env.HOME)/.local/share/pnpm"
 $env.PATH = ($env.PATH | split row (char esep) | prepend $env.PNPM_HOME )
 $env.PATH = ($env.PATH | split row (char esep) | append '/mnt/c/Windows/System32')
+$env.PATH = ($env.PATH | split row (char esep) | append '/mnt/d/scoop/shims')
 $env.VIRTUALENV_CONFIG_FILE = $"($env.HOME)/.config/virtualenv/virtualenv.ini"
 $env.PYTHONPYCACHEPREFIX = $"($env.HOME)/.cache/python/"
 {{- end }}

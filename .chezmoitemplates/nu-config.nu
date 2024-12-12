@@ -915,17 +915,16 @@ def --env enproxy [] {
 }
 {{- else }}
 def --env enproxy [] {
-  $env.HTTP_PROXY = $"http://172.24.80.1:7897"
-  $env.HTTPS_PROXY = $"http://172.24.80.1:7897"
-  $env.FTP_PROXY = $"http://172.24.80.1:7897"
-  $env.ALL_PROXY = $"socks5://172.24.80.1:7898"
-  git config --global http.proxy $"http://172.24.80.1:7897"
-  git config --global https.proxy $"http://172.24.80.1:7897"
+  $env.HTTP_PROXY = $"http://127.0.0.1:7897"
+  $env.HTTPS_PROXY = $"http://127.0.0.1:7897"
+  $env.FTP_PROXY = $"http://127.0.0.1:7897"
+  $env.ALL_PROXY = $"socks5://127.0.0.1:7898"
+  git config --global http.proxy $"http://127.0.0.1:7897"
+  git config --global https.proxy $"http://127.0.0.1:7897"
   [$env.HTTP_PROXY, $env.HTTPS_PROXY, $env.FTP_PROXY, $env.ALL_PROXY]
 }
 {{- end }}
-alias pow = pomodoro
-alias pob = pomodoro 10 -n break
+
 def divel [imgname: string] {
   const tmpfile = '/tmp/dive-tmp-image.rar'
   docker save -o $tmpfile $imgname
