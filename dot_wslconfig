@@ -6,6 +6,6 @@ processors=8
 autoMemoryReclaim=gradual
 dnsTunneling=true
 firewall=false
-autoProxy=true
+autoProxy=false
 sparseVhd=true
 networkingMode=mirrored
