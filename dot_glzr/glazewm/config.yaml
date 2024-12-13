@@ -195,39 +195,39 @@ binding_modes:
 keybindings:
   # Shift focus in a given direction.
   - commands: ['focus --direction left']
-    bindings: ['alt+u', 'alt+left']
+    bindings: ['alt+q', 'alt+left']
   - commands: ['focus --direction right']
-    bindings: ['alt+p', 'alt+right']
+    bindings: ['alt+r', 'alt+right']
   - commands: ['focus --direction up']
-    bindings: ['alt+i', 'alt+up']
+    bindings: ['alt+w', 'alt+up']
   - commands: ['focus --direction down']
-    bindings: ['alt+o', 'alt+down']
+    bindings: ['alt+e', 'alt+down']
 
   # Move focused window in a given direction.
   - commands: ['move --direction left']
-    bindings: ['alt+shift+u', 'alt+shift+left']
+    bindings: ['alt+shift+q', 'alt+shift+left']
   - commands: ['move --direction right']
-    bindings: ['alt+shift+p', 'alt+shift+right']
+    bindings: ['alt+shift+r', 'alt+shift+right']
   - commands: ['move --direction up']
-    bindings: ['alt+shift+i', 'alt+shift+up']
+    bindings: ['alt+shift+w', 'alt+shift+up']
   - commands: ['move --direction down']
-    bindings: ['alt+shift+o', 'alt+shift+down']
+    bindings: ['alt+shift+e', 'alt+shift+down']
 
   # Resize focused window by a percentage or pixel amount.
   - commands: ['resize --width -2%']
-    bindings: ['alt+q']
+    bindings: ['alt+z']
   - commands: ['resize --width +2%']
-    bindings: ['alt+r']
+    bindings: ['alt+v']
   - commands: ['resize --height +2%']
-    bindings: ['alt+w']
+    bindings: ['alt+x']
   - commands: ['resize --height -2%']
-    bindings: ['alt+e']
+    bindings: ['alt+c']
 
   # As an alternative to the resize keybindings above, resize mode enables
   # resizing via arrow keys or HJKL. The binding mode is defined above with
   # the name 'resize'.
   - commands: ['wm-enable-binding-mode --name resize']
-    bindings: ['alt+r']
+    bindings: ['alt+g']
 
   # Disables all keybindings until alt+shift+p is pressed again.
   - commands: ['wm-enable-binding-mode --name pause']
@@ -236,7 +236,7 @@ keybindings:
   # Change tiling direction. This determines where new tiling windows will
   # be inserted.
   - commands: ['toggle-tiling-direction']
-    bindings: ['alt+v']
+    bindings: ['alt+p']
 
   # Change focus from tiling windows -> floating -> fullscreen.
   - commands: ['wm-cycle-focus']
@@ -277,7 +277,7 @@ keybindings:
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
-  - commands: ['shell-exec cmd']
+  - commands: ['shell-exec wezterm']
     bindings: ['alt+enter']
 
   # Focus the next/previous workspace defined in `workspaces` config.
