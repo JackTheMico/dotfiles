@@ -174,13 +174,13 @@ binding_modes:
   - name: 'resize'
     keybindings:
       - commands: ['resize --width -2%']
-        bindings: ['h', 'left']
+        bindings: ['u', 'left']
       - commands: ['resize --width +2%']
-        bindings: ['l', 'right']
+        bindings: ['p', 'right']
       - commands: ['resize --height +2%']
-        bindings: ['k', 'up']
+        bindings: ['i', 'up']
       - commands: ['resize --height -2%']
-        bindings: ['j', 'down']
+        bindings: ['o', 'down']
       # Press enter/escape to return to default keybindings.
       - commands: ['wm-disable-binding-mode --name resize']
         bindings: ['escape', 'enter']
@@ -195,23 +195,23 @@ binding_modes:
 keybindings:
   # Shift focus in a given direction.
   - commands: ['focus --direction left']
-    bindings: ['alt+h', 'alt+left']
+    bindings: ['alt+u', 'alt+left']
   - commands: ['focus --direction right']
-    bindings: ['alt+l', 'alt+right']
+    bindings: ['alt+p', 'alt+right']
   - commands: ['focus --direction up']
-    bindings: ['alt+k', 'alt+up']
+    bindings: ['alt+i', 'alt+up']
   - commands: ['focus --direction down']
-    bindings: ['alt+j', 'alt+down']
+    bindings: ['alt+o', 'alt+down']
 
   # Move focused window in a given direction.
   - commands: ['move --direction left']
-    bindings: ['alt+shift+h', 'alt+shift+left']
+    bindings: ['alt+shift+u', 'alt+shift+left']
   - commands: ['move --direction right']
-    bindings: ['alt+shift+l', 'alt+shift+right']
+    bindings: ['alt+shift+p', 'alt+shift+right']
   - commands: ['move --direction up']
-    bindings: ['alt+shift+k', 'alt+shift+up']
+    bindings: ['alt+shift+i', 'alt+shift+up']
   - commands: ['move --direction down']
-    bindings: ['alt+shift+j', 'alt+shift+down']
+    bindings: ['alt+shift+o', 'alt+shift+down']
 
   # Resize focused window by a percentage or pixel amount.
   - commands: ['resize --width -2%']
