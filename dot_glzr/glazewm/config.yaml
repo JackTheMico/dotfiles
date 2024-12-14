@@ -268,7 +268,7 @@ keybindings:
 
   # Re-evaluate configuration file.
   - commands: ['wm-reload-config']
-    bindings: ['alt+shift+r']
+    bindings: ['alt+shift+n']
 
   # Redraw all windows.
   - commands: ['wm-redraw']
