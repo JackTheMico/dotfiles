@@ -860,7 +860,7 @@ $env.config = {
         {
           name: fzf_dir_menu
           modifier: control
-          keycode: char_t
+          keycode: char_s
           mode: [emacs vi_insert vi_normal]
           event: {
             send: menu name: fzf_dir_menu
