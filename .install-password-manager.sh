@@ -19,6 +19,6 @@ Kali)
   ;;
 *)
   echo "unsupported OS"
-  exit 1
+  exit 0
   ;;
 esac
