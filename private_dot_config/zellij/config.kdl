@@ -169,9 +169,9 @@ keybinds clear-defaults=true {
         }
         bind "Ctrl w" {
             // Disable the autolock plugin.
-            MessagePlugin "autolock" {payload "enable";};
+            MessagePlugin "autolock" {payload "toggle";};
             // Unlock Zellij.
-            SwitchToMode "Normal";
+            // SwitchToMode "Normal";
         }
     }
     shared_except "locked" "move" {
