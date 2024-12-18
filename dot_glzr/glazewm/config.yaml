@@ -227,7 +227,7 @@ keybindings:
   # resizing via arrow keys or HJKL. The binding mode is defined above with
   # the name 'resize'.
   - commands: ['wm-enable-binding-mode --name resize']
-    bindings: ['alt+g']
+    bindings: ['alt+l']
 
   # Disables all keybindings until alt+shift+p is pressed again.
   - commands: ['wm-enable-binding-mode --name pause']
