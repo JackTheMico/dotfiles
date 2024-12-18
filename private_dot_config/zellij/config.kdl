@@ -10,7 +10,7 @@ keybinds clear-defaults=true {
         }
         bind "Ctrl w" {
             // Disable the autolock plugin.
-            MessagePlugin "autolock" {payload "disable";};
+            MessagePlugin "autolock" {payload "toggle";};
             // Unlock Zellij.
             SwitchToMode "Normal";
         }
@@ -171,7 +171,7 @@ keybinds clear-defaults=true {
             // Disable the autolock plugin.
             MessagePlugin "autolock" {payload "toggle";};
             // Unlock Zellij.
-            // SwitchToMode "Normal";
+            SwitchToMode "Normal";
         }
     }
     shared_except "locked" "move" {
@@ -298,7 +298,7 @@ plugins {
         // (An existing scheduled reaction prevents additional reactions.)
         reaction_seconds "0.3"
         // Print to Zellij log? (default=false)
-        print_to_log true
+        print_to_log false
     }
 }
 
