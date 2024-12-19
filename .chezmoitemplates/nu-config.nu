@@ -785,6 +785,7 @@ alias httpe = ^http
 alias md = mkdir
 alias hy = himalaya
 alias la = ls -a
+alias zj = zellij
 {{- if eq .osid "linux-kali"}}
 alias bat = batcat
 {{- end}}
