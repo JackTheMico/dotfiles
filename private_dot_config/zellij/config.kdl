@@ -8,7 +8,7 @@ keybinds clear-defaults=true {
             // Disable the autolock plugin.
             SwitchToMode "normal"; 
         }
-        bind "Ctrl w" {
+        bind "Ctrl e" {
             // Disable the autolock plugin.
             MessagePlugin "autolock" {payload "toggle";};
             // Unlock Zellij.
@@ -167,7 +167,7 @@ keybinds clear-defaults=true {
                 debug false                     // display debug info, config, parse command etc
             }
         }
-        bind "Ctrl w" {
+        bind "Ctrl e" {
             // Disable the autolock plugin.
             MessagePlugin "autolock" {payload "toggle";};
             // Unlock Zellij.
