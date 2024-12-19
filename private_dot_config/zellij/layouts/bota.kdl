@@ -22,9 +22,16 @@ layout {
         }
     }
     tab name="Pytest" cwd="/home/jackwenyoung/codes/firework/gravity/bota/" hide_floating_panes=true {
-        pane name="pytest" borderless=true {
-            command "poetry"
-            args "run" "pytest"
+        pane name="pytest" borderless=true
+        floating_panes {
+            pane cwd="/home/jackwenyoung/codes/firework/gravity/bota"{
+                command "poetry"
+                args "run" "pytest"
+            }
+            pane cwd="/home/jackwenyoung/codes/firework/gravity/bota"{
+                command "poetry"
+                args "run" "pre-commit"
+            }
         }
     }
     tab name="Kulala" cwd="/home/jackwenyoung/codes/jackwenyoung/kulala/" {
