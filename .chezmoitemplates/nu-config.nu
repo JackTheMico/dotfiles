@@ -918,6 +918,10 @@ def --env y [...args] {
 	rm -fp $tmp
 }
 
+def yfzf [package: string] {
+  yay -Sslq $package | fzf --multi --preview 'yay -Si {1}' | lines | yay -S ...$in
+}
+
 {{- if eq .chezmoi.os "windows" }}
 def --env enproxy [] {
   $env.HTTP_PROXY = $"http://127.0.0.1:7897"
