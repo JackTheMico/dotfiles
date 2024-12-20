@@ -151,7 +151,11 @@ $env.config = {
     }
 
     rm: {
+{{- if eq .osid "termux" }}
+        always_trash: false # always act as if -t was given. Can be overridden with -p
+{{- else }}
         always_trash: true # always act as if -t was given. Can be overridden with -p
+{{- end }}
     }
 
     table: {
@@ -902,6 +906,16 @@ def --env deproxy [] {
   hide-env ALL_PROXY
   git config --global --unset http.proxy
   git config --global --unset https.proxy | null
+}
+
+def --env y [...args] {
+	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
+	yazi ...$args --cwd-file $tmp
+	let cwd = (open $tmp)
+	if $cwd != "" and $cwd != $env.PWD {
+		cd $cwd
+	}
+	rm -fp $tmp
 }
 
 {{- if eq .chezmoi.os "windows" }}
