@@ -149,7 +149,12 @@ keybinds clear-defaults=true {
         bind "Alt i" { MoveTab "left"; }
         bind "Alt n" { NewPane; }
         bind "Alt o" { MoveTab "right"; }
-        bind "Ctrl q" { Quit; }
+        // bind "Ctrl q" { Quit; }
+        bind "Ctrl q" {
+            LaunchOrFocusPlugin "zj-quit" {
+                floating true
+            }
+        }
 
         // Intercept `Enter`.
         bind "Enter" {
