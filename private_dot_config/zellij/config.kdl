@@ -288,6 +288,10 @@ plugins {
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
     }
+    zj-quit location="file:/path/to/zj-quit.wasm" {
+        confirm_key "y"
+        cancel_key "n"
+    }
         // Define the "autolock" plugin.
     autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
         // Enabled at start?

@@ -922,6 +922,10 @@ def yfzf [package: string] {
   yay -Sslq $package | fzf --multi --preview 'yay -Si {1}' | lines | yay -S ...$in
 }
 
+def wgete [url: string] {
+  wget -e "https_proxy=http://127.0.0.1:7897" $url
+}
+
 {{- if eq .chezmoi.os "windows" }}
 def --env enproxy [] {
   $env.HTTP_PROXY = $"http://127.0.0.1:7897"
