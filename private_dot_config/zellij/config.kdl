@@ -288,7 +288,7 @@ plugins {
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
     }
-    zj-quit location="file:/path/to/zj-quit.wasm" {
+    zj-quit location="file:~/.config/zellij/plugins/zj-quit.wasm" {
         confirm_key "y"
         cancel_key "n"
     }
