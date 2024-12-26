@@ -6,7 +6,7 @@ return {
 		-- util for handling paths
 		"nvim-lua/plenary.nvim",
 		-- optional for nvim-cmp integration
-		"hrsh7th/nvim-cmp",
+		-- "hrsh7th/nvim-cmp",
 		-- optional for telescope integration
 		"nvim-telescope/telescope.nvim",
 	},
