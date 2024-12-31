@@ -1,6 +1,6 @@
 return {
 	{
-		"epwalsh/obsidian.nvim",
+		"JackTheMico/obsidian.nvim",
 		version = "v3.9.0", -- recommended, use latest release instead of latest commit
 		lazy = true,
 		completion = {
@@ -12,16 +12,8 @@ return {
 			-- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
 			-- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
 			-- refer to `:h file-pattern` for more examples
-			"BufReadPre /mnt/d/nutstore/Obsidian-Vaults/Family/*.md",
-			"BufNewFile /mnt/d/nutstore/Obsidian-Vaults/Family/*.md",
-			"BufReadPre /mnt/d/nutstore/Obsidian-Vaults/Coding/*.md",
-			"BufNewFile /mnt/d/nutstore/Obsidian-Vaults/Coding/*.md",
-			"BufReadPre /mnt/d/nutstore/Obsidian-Vaults/Hacking/*.md",
-			"BufNewFile /mnt/d/nutstore/Obsidian-Vaults/Hacking/*.md",
-			"BufReadPre /mnt/d/nutstore/Obsidian-Vaults/Firework/*.md",
-			"BufNewFile /mnt/d/nutstore/Obsidian-Vaults/Firework/*.md",
-			"BufReadPre /mnt/d/nutstore/Obsidian-Vaults/Myth/*.md",
-			"BufNewFile /mnt/d/nutstore/Obsidian-Vaults/Myth/*.md",
+			"BufReadPre /mnt/d/nutstore/Obsidian-Vaults/文漾/*.md",
+			"BufNewFile /mnt/d/nutstore/Obsidian-Vaults/文漾/*.md",
 		},
 		dependencies = {
 			-- Required.
@@ -30,30 +22,14 @@ return {
 		opts = {
 			workspaces = {
 				{
-					name = "Family",
-					path = "/mnt/d/nutstore/Obsidian-Vaults/Family",
-				},
-				{
-					name = "Firework",
-					path = "/mnt/d/nutstore/Obsidian-Vaults/Firework",
-				},
-				{
-					name = "Coding",
-					path = "/mnt/d/nutstore/Obsidian-Vaults/Coding",
-				},
-				{
-					name = "Hacking",
-					path = "/mnt/d/nutstore/Obsidian-Vaults/Hacking",
-				},
-				{
-					name = "Myth",
-					path = "/mnt/d/nutstore/Obsidian-Vaults/Myth",
+					name = "wenyoung",
+					path = "/mnt/d/nutstore/Obsidian-Vaults/文漾",
 				},
 			},
 			-- Optional, for templates (see below).
 			templates = {
-				folder = "/mnt/d/nutstore/Obsidian-Vaults/Hacking/obtemplates",
-				date_format = "%Y-%m-%d",
+				folder = "/mnt/d/nutstore/Obsidian-Vaults/文漾/templates",
+				date_format = "%d-%m-%Y",
 				time_format = "%H:%M",
 				-- A map for custom variables, the key should be the variable and the value a function
 				substitutions = {},
