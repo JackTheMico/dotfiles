@@ -1,23 +1,19 @@
 {{ if ne .chezmoi.os "windows" }}
-[".tmux"]
-    type = "git-repo"
-    url = "https://github.com/gpakosz/.tmux.git"
-    refreshPeriod = "168h"
-[".tmux/plugins/tmux-continuum"]
+[".config/tmux/plugins/tmux-continuum"]
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tmux-continuum"
     refreshPeriod = "168h"
-[".tmux/plugins/tmux-resurrect"]
+[".config/tmux/plugins/tmux-resurrect"]
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tmux-resurrect"
     refreshPeriod = "168h"
-[".tmux/plugins/tmux-copycat"]
+[".config/tmux/plugins/tmux-copycat"]
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tmux-copycat"
     refreshPeriod = "168h"
-[".tmux/plugins/tmux-sidebar"]
+[".config/tmux/plugins/tmux-yank"]
     type = "git-repo"
-    url = "https://github.com/tmux-plugins/tmux-sidebar"
+    url = "https://github.com/tmux-plugins/tmux-yank"
     refreshPeriod = "168h"
 # [".tmux/plugins/tmux-thumbs"]  # NOTE: Not working
 #     type = "git-repo"
@@ -27,11 +23,15 @@
 #     type = "git-repo"
 #     url = "https://github.com/tmux-plugins/tmux-fpp"
 #     refreshPeriod = "168h"
-[".tmux/plugins/tmux-easy-motion"]
+[".config/tmux/plugins/catppuccin/tmux"]
+    type="git-repo"
+    url="https://github.com/catppuccin/tmux.git"
+    refreshPeriod = "168h"
+[".config/tmux/plugins/tmux-easy-motion"]
     type = "git-repo"
     url = "https://github.com/IngoMeyer441/tmux-easy-motion"
     refreshPeriod = "168h"
-[".tmux/plugins/tmux-sessionx"]
+[".config/tmux/plugins/tmux-sessionx"]
     type = "git-repo"
     url = "https://github.com/omerxx/tmux-sessionx.git"
     refreshPeriod = "168h"
