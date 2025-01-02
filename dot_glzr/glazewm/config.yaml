@@ -115,15 +115,15 @@ workspaces:
     keep_alive: true
     bind_to_monitor: 0
   - name: '5'
-    display_name: "5|Thunderbird"
+    display_name: "5|Wave"
     keep_alive: true
     bind_to_monitor: 1
   - name: '6'
-    display_name: "6|WezTerm"
+    display_name: "6|Hyper"
     keep_alive: true
     bind_to_monitor: 1
   - name: '7'
-    display_name: "7|Tick"
+    display_name: "7|Obsidian"
     keep_alive: true
     bind_to_monitor: 1
   - name: '8'
@@ -145,13 +145,13 @@ window_rules:
       - window_process: { regex: "Slack|slack" }
   - commands: ["move --workspace 5"]
     match:
-      - window_process: { regex: "Thunderbird|thunderbird" }
+      - window_process: { regex: "Waveterm|waveterm" }
   - commands: ["move --workspace 6"]
     match:
-      - window_process: { regex: "WezTerm|wezterm|nu" }
+      - window_process: { regex: "Hyper|hyper" }
   - commands: ["move --workspace 7"]
     match:
-      - window_process: { regex: "滴答|TickTick" }
+      - window_process: { regex: "Obsidian|obsidian" }
   - commands: ['ignore']
     match:
       # Ignores any Zebar windows.
@@ -196,10 +196,10 @@ keybindings:
   # Shift focus in a given direction.
   - commands: ['focus --direction left']
     bindings: ['alt+q', 'alt+left']
-  - commands: ['focus --direction right']
-    bindings: ['alt+r', 'alt+right']
-  - commands: ['focus --direction up']
-    bindings: ['alt+w', 'alt+up']
+  # - commands: ['focus --direction right']
+  #   bindings: ['alt+r', 'alt+right']
+  # - commands: ['focus --direction up']
+  #   bindings: ['alt+w', 'alt+up']
   - commands: ['focus --direction down']
     bindings: ['alt+e', 'alt+down']
 
@@ -248,7 +248,7 @@ keybindings:
 
   # Change the focused window to be tiling.
   - commands: ['toggle-tiling']
-    bindings: ['alt+t']
+    bindings: ['alt+shift+t']
 
   # Change the focused window to be fullscreen.
   - commands: ['toggle-fullscreen']
@@ -256,7 +256,7 @@ keybindings:
 
   # Minimize focused window.
   - commands: ['toggle-minimized']
-    bindings: ['alt+m']
+    bindings: ['alt+shift+m']
 
   # Close focused window.
   - commands: ['close']
