@@ -150,6 +150,7 @@ $env.PYTHON_BUILD_MIRROR_URL = "https://mirrors.huaweicloud.com/python/"
 $env.LF_ICONS = "~/.config/lf/icons"
 $env.BUNDLE_PATH = "~/.cache/bundle"
 $env.SLS_GEO_LOCATION = "no-cn"
+$env.ENTR_INOTIFY_WORKAROUND = "true"
 
 let carapace_exists = '~/.cache/carapace' | path exists
 if $carapace_exists == true {'carapace dir exists'} else { mkdir ~/.cache/carapace }
