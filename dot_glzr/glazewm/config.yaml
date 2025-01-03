@@ -145,7 +145,7 @@ window_rules:
       - window_process: { regex: "Slack|slack" }
   - commands: ["move --workspace 5"]
     match:
-      - window_process: { regex: "Waveterm|waveterm|wave" }
+      - window_process: { regex: "Waveterm|waveterm|wave|.*AI-Native.*" }
   - commands: ["move --workspace 6"]
     match:
       - window_process: { regex: "Hyper|hyper" }
