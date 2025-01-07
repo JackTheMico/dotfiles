@@ -787,7 +787,7 @@ alias tree = eza -T
 alias pc = pre-commit
 alias httpe = ^http
 alias md = mkdir
-alias hy = himalaya
+alias hy = proxychains himalaya
 alias la = ls -a
 alias zj = zellij
 {{- if eq .osid "linux-kali"}}
