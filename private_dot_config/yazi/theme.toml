@@ -1,0 +1,6 @@
+[flavor]
+use = "catppuccin-mocha"
+# use = "kanagawa"
+# use = "everforest-medium"
+# use = "catppuccin-macchiato"
+# use = "tokyo-night"

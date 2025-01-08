@@ -1,0 +1,57 @@
+[manager]
+prepend_keymap = [
+  { on = [
+    "1",
+  ], run = "plugin relative-motions --args=1", desc = "Move in relative steps" },
+  { on = [
+    "2",
+  ], run = "plugin relative-motions --args=2", desc = "Move in relative steps" },
+  { on = [
+    "3",
+  ], run = "plugin relative-motions --args=3", desc = "Move in relative steps" },
+  { on = [
+    "4",
+  ], run = "plugin relative-motions --args=4", desc = "Move in relative steps" },
+  { on = [
+    "5",
+  ], run = "plugin relative-motions --args=5", desc = "Move in relative steps" },
+  { on = [
+    "6",
+  ], run = "plugin relative-motions --args=6", desc = "Move in relative steps" },
+  { on = [
+    "7",
+  ], run = "plugin relative-motions --args=7", desc = "Move in relative steps" },
+  { on = [
+    "8",
+  ], run = "plugin relative-motions --args=8", desc = "Move in relative steps" },
+  { on = [
+    "9",
+  ], run = "plugin relative-motions --args=9", desc = "Move in relative steps" },
+  { on = [
+    "l",
+  ], run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+  { on = [
+    "c",
+    "a",
+  ], run = "plugin compress", desc = "Archive selected files" },
+  { on = [
+    "E",
+  ], run = "plugin eza-preview", desc = "Toggle tree/list dir preview" },
+  { on = [
+    "-",
+  ], run = "plugin eza-preview --args='--inc-level'", desc = "Increment tree level" },
+  { on = [
+    "_",
+  ], run = "plugin eza-preview --args='--dec-level'", desc = "Decrement tree level" },
+  { on = [
+    "$",
+  ], run = "plugin eza-preview --args='--toggle-follow-symlinks'", desc = "Toggle tree follow symlinks" },
+]
+append_keymap = [
+  { on = "u", run = "plugin restore", desc = "Restore last deleted files/folders" },
+  # or du like me
+  { on = [
+    "d",
+    "u",
+  ], run = "plugin restore", desc = "Restore last deleted files/folders" },
+]

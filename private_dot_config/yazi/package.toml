@@ -1,0 +1,35 @@
+[[plugin.deps]]
+use = "boydaihungst/restore"
+rev = "49c3e55"
+
+[[plugin.deps]]
+use = "Rolv-Apneseth/starship"
+rev = "9c37d37"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "600614a"
+
+[[plugin.deps]]
+use = "ahkohd/eza-preview"
+rev = "5ef05bc"
+
+[[plugin.deps]]
+use = "KKV9/compress"
+rev = "60b24af"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "600614a"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "600614a"
+
+[[plugin.deps]]
+use = "dedukun/relative-motions"
+rev = "df97039"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "8458d25"
