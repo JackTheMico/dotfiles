@@ -22,3 +22,8 @@ Library
 {{ if eq .chezmoi.os "darwin" }}
 AppData
 {{ end }}
+
+{{ if eq .osid "termux" }}
+AppData
+Library
+{{ end }}
