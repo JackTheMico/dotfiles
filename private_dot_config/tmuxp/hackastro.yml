@@ -1,0 +1,17 @@
+session_name: hastro
+windows:
+  - window_name: neovim
+    layout: main-vertical
+    start_directory: ~/codes/jackwenyoung/astro/hackastro/
+    options:
+      main-pane-width: 67%
+    panes:
+      - shell_command:
+          - nvim
+      - shell_command:
+          - just watch-check
+  - window_name: Frosti
+    start_directory: ~/codes/jackwenyoung/astro/Frosti/
+    panes:
+      - shell_command:
+          - nvim

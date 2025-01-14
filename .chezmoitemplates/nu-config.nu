@@ -789,7 +789,7 @@ alias httpe = ^http
 alias md = mkdir
 alias hy = proxychains himalaya
 alias la = ls -a
-alias zj = zellij
+alias j = just
 {{- if eq .osid "linux-kali"}}
 alias bat = batcat
 {{- end}}
