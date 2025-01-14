@@ -1,4 +1,4 @@
 [[session]]
 name = "astro"
 path = "~/codes/jackwenyoung/astro/hackastro/"
-startup_command = "tmuxp load hakcastro"
+startup_command = "tmuxp load hackastro"
