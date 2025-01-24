@@ -1,7 +1,7 @@
 return {
 	"allaman/emoji.nvim",
 	version = "1.0.0", -- optionally pin to a tag
-	ft = { "markdown", "yaml", "python", "lua", "astro" }, -- adjust to your needs
+	ft = { "markdown", "yaml", "python", "lua", "astro", "mdx" }, -- adjust to your needs
 	dependencies = {
 		-- util for handling paths
 		"nvim-lua/plenary.nvim",
