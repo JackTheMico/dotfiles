@@ -1,5 +1,7 @@
 # Jack Wenyoung's dotfiles
 
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
+
 After I tried with Manjaro and NixOS, I found the best Linux distribution is
 Windows11(and the Linux subsystems on it).
 So here are the open-source treasures I use on it, managed by [Chezmoi](https://www.chezmoi.io)
