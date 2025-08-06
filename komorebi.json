@@ -1,0 +1,100 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.37/schema.json",
+  "app_specific_configuration_path": "$Env:USERPROFILE/applications.json",
+  "animation": {
+    "enabled": true,
+    "duration": 250,
+    "fps": 60,
+    "style": "EaseInOutCubic"
+  },
+  "window_hiding_behaviour": "Cloak",
+  "cross_monitor_move_behaviour": "Insert",
+  "default_workspace_padding": 5,
+  "default_container_padding": 5,
+  "border": true,
+  "border_width": 13,
+  "border_offset": -1,
+  "theme": {
+    "palette": "Catppuccin",
+    "name": "Macchiato",
+    "unfocused_border": "Sky",
+    "single_border": "Flamingo",
+    "bar_accent": "Flamingo"
+  },
+  "transparency": true,
+  "transparency_alpha": 185,
+  "monitors": [
+    {
+      "workspaces": [
+        {
+          "name": "一",
+          "layout": "BSP"
+        },
+        {
+          "name": "二",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "三",
+          "layout": "HorizontalStack"
+        },
+        {
+          "name": "四",
+          "layout": "UltrawideVerticalStack"
+        },
+        {
+          "name": "五",
+          "layout": "Rows"
+        },
+        {
+          "name": "六",
+          "layout": "Grid"
+        },
+        {
+          "name": "七",
+          "layout": "RightMainVerticalStack"
+        }
+      ]
+    },
+    {
+      "workspaces": [
+        {
+          "name": "一",
+          "layout": "BSP"
+        },
+        {
+          "name": "貳",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "叁",
+          "layout": "HorizontalStack"
+        },
+        {
+          "name": "肆",
+          "layout": "UltrawideVerticalStack"
+        },
+        {
+          "name": "伍",
+          "layout": "Rows"
+        },
+        {
+          "name": "陆",
+          "layout": "Grid"
+        },
+        {
+          "name": "柒",
+          "layout": "RightMainVerticalStack"
+        }
+      ]
+    }
+  ],
+  "display_index_preferences": {
+    "0": "HKC27A9-5&2643dc9f&0&UID4356",
+    "1": "LHCFFFF-5&2643dc9f&0&UID4352"
+  },
+  "bar_configurations": [
+    "$Env:USERPROFILE/komorebi.bar.monitor1.json",
+    "$Env:USERPROFILE/komorebi.bar.monitor2.json"
+  ]
+}
