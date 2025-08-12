@@ -43,6 +43,7 @@ bars:
           "home",
           "komorebi_workspaces",
           "komorebi_active_layout",
+          "komorebi_stack",
           "active_window",
         ]
       center: [
@@ -156,6 +157,38 @@ widgets:
         left: 8
         bottom: 0
         right: 8
+  komorebi_stack:
+    type: "komorebi.stack.StackWidget"
+    options:
+      label_offline: "Offline"
+      label_window: "{process}"
+      label_window_active: "{title}"
+      label_no_window: "No Window"
+      label_zero_index: false
+      show_icons: "always"
+      icon_size: 14
+      max_length: 10
+      max_length_active: 20
+      max_length_ellipsis: ".."
+      hide_if_offline: false
+      show_only_stack: false
+      animation: true
+      enable_scroll_switching: true
+      container_shadow:
+        enabled: true
+        color: "#000000"
+        offset: [0, 1]
+        radius: 2
+      btn_shadow:
+        enabled: true
+        color: "#000000"
+        offset: [0, 1]
+        radius: 2
+      label_shadow:
+        enabled: true
+        color: "#000000"
+        offset: [0, 1]
+        radius: 2
   komorebi_active_layout:
     type: "komorebi.active_layout.ActiveLayoutWidget"
     options:

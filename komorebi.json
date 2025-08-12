@@ -53,6 +53,18 @@
         {
           "name": "七",
           "layout": "RightMainVerticalStack"
+        },
+        {
+          "name": "八",
+          "layout": "BSP"
+        },
+        {
+          "name": "九",
+          "layout": "BSP"
+        },
+        {
+          "name": "零",
+          "layout": "BSP"
         }
       ]
     },
@@ -85,6 +97,18 @@
         {
           "name": "柒",
           "layout": "RightMainVerticalStack"
+        },
+        {
+          "name": "霸",
+          "layout": "BSP"
+        },
+        {
+          "name": "玖",
+          "layout": "BSP"
+        },
+        {
+          "name": "〇",
+          "layout": "BSP"
         }
       ]
     }
