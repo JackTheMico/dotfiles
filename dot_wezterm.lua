@@ -21,11 +21,41 @@ config.color_scheme = "Catppuccin Mocha"
 -- 其他选项： "Dracula", "One Dark (base16)", "Solarized Dark"
 config.harfbuzz_features = { "calt=1", "clig=1", "liga=1" } -- 启用连字
 config.window_background_opacity = 0.75
+config.text_background_opacity = 0.9
+config.adjust_window_size_when_changing_font_size = false
 config.window_padding = { left = 5, right = 5, top = 5, bottom = 2 } -- 内边距
 config.hide_tab_bar_if_only_one_tab = true -- 单标签页时隐藏标签栏
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 config.tab_max_width = 25
+config.window_decorations = "RESIZE"
+config.show_new_tab_button_in_tab_bar = false
+
+-- Key Bindings
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
+config.keys = {
+	{
+		key = "|",
+		mods = "LEADER|SHIFT",
+		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+	},
+	{
+		key = "-",
+		mods = "LEADER",
+		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+	},
+	{
+		key = "w",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.CloseCurrentPane({ confirm = true }),
+	},
+	-- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
+	{
+		key = "a",
+		mods = "LEADER|CTRL",
+		action = wezterm.action.SendKey({ key = "a", mods = "CTRL" }),
+	},
+}
 
 -- Performance
 config.max_fps = 60 -- 限制刷新率
