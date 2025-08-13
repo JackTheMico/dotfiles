@@ -86,3 +86,4 @@ $env.PROMPT_MULTILINE_INDICATOR = "::: "
 # alias
 alias czi = chezmoi
 alias lg = lazygit
+alias ff = fastfetch
