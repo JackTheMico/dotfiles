@@ -9,6 +9,17 @@ return {
     load = {
       ["core.defaults"] = {},
       ["core.concealer"] = {},
+      ["core.dirman"] = {
+        config = {
+          workspaces = {
+            myth = "~/codes/wyneorg/myth",
+            zhongyi = "~/codes/wyneorg/zhongyi",
+            novel = "~/codes/wyneorg/novel",
+            family = "~/codes/wyneorg/family",
+          },
+          index = "index.norg",
+        }
+      },
     },
   },
 }

@@ -7,4 +7,6 @@ AppData
 komorebi.json
 dot_config/yasb
 dot_config/whkdrc
+{{- else}}
+dot_config/private_fish
 {{- end}}
