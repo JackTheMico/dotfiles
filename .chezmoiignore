@@ -2,7 +2,7 @@ README.md
 LICENSE
 LICENSE_CN
 
-{{- if eq .chezmoi.hostname "localhost"}}
+{{- if ne .osid "windows"}}
 AppData
 komorebi.json
 dot_config/yasb
