@@ -30,6 +30,7 @@ config.tab_bar_at_bottom = true
 config.tab_max_width = 25
 config.window_decorations = "RESIZE"
 config.show_new_tab_button_in_tab_bar = false
+config.enable_scroll_bar = true
 
 -- Key Bindings
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }

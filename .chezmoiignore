@@ -1,3 +1,10 @@
 README.md
 LICENSE
 LICENSE_CN
+
+{{- if eq .chezmoi.hostname "localhost"}}
+AppData
+komorebi.json
+dot_config/yasb
+dot_config/whkdrc
+{{- end}}
