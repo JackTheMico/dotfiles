@@ -22,7 +22,7 @@
     "bar_accent": "Flamingo"
   },
   "transparency": true,
-  "transparency_alpha": 185,
+  "transparency_alpha": 220,
   "monitors": [
     {
       "workspaces": [
