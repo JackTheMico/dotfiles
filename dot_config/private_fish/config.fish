@@ -8,3 +8,4 @@ starship init fish | source
 alias czi chezmoi
 alias md mkdir
 alias lg lazygit
+alias ff fastfetch
