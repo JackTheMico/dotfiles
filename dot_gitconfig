@@ -3,7 +3,7 @@
 	email = dlwxxxdlw@gmail.com
 	signingKey = A30DF874D95E6029
 [core]
-	autocrlf = true
+	autocrlf = false
 [commit]
 	gpgsign = true
 [tag]
