@@ -9,4 +9,4 @@ alias czi chezmoi
 alias md mkdir
 alias lg lazygit
 alias ff fastfetch
-alias refish source ~/.config/fish/config.fish
+alias refish 'source ~/.config/fish/config.fish'
