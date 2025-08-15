@@ -3,6 +3,8 @@ if status is-interactive
 end
 set -gx EDITOR nvim
 set -gx GPG_TTY $(tty)
+set -gx http_proxy 'http://127.0.0.1:7897'
+set -gx https_proxy 'http://127.0.0.1:7897'
 
 zoxide init fish | source
 starship init fish | source
