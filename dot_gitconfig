@@ -1,0 +1,10 @@
+[user]
+	name = Jack Wenyoung
+	email = dlwxxxdlw@gmail.com
+	signingKey = A30DF874D95E6029
+[core]
+	autocrlf = true
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
