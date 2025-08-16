@@ -38,13 +38,12 @@ bars:
       bottom: 0
       right: 6
     widgets:
-      left:
-        [
+      left: [
           "home",
           "komorebi_workspaces",
           "komorebi_active_layout",
           "komorebi_stack",
-          "active_window",
+          # "active_window",
         ]
       center: [
           "clock",
