@@ -50,12 +50,22 @@ config.keys = {
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.CloseCurrentPane({ confirm = true }),
 	},
-	-- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
 	{
-		key = "a",
-		mods = "LEADER|CTRL",
-		action = wezterm.action.SendKey({ key = "a", mods = "CTRL" }),
+		key = "q",
+		mods = "LEADER",
+		action = wezterm.action.QuickSelect,
 	},
+	{
+		key = "l",
+		mods = "LEADER",
+		action = wezterm.action.ShowLauncher,
+	},
+	-- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
+	-- {
+	-- 	key = "a",
+	-- 	mods = "LEADER|CTRL",
+	-- 	action = wezterm.action.SendKey({ key = "a", mods = "CTRL" }),
+	-- },
 }
 
 -- Performance
