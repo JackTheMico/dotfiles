@@ -7,6 +7,7 @@ set -gx http_proxy 'http://127.0.0.1:7897'
 set -gx https_proxy 'http://127.0.0.1:7897'
 set -gx PATH $HOME/.local/bin $PATH
 set -gx PNPM_HOME $HOME/pnpm_home
+set -gx PATH $HOME/pnpm_home $PATH
 
 zoxide init fish | source
 starship init fish | source
