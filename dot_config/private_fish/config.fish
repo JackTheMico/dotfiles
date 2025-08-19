@@ -12,8 +12,8 @@ zoxide init fish | source
 starship init fish | source
 alias czi chezmoi
 alias ls eza
-alias la eza -a
-alias lt eza -T
+alias la 'eza -a'
+alias lt 'eza -T'
 alias md mkdir
 alias lg lazygit
 alias ff fastfetch
