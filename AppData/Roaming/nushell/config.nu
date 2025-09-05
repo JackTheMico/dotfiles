@@ -28,8 +28,6 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 $env.http_proxy = "http://localhost:7897"
 $env.https_proxy = "http://localhost:7897"
 $env.no_proxy = "localhost,127.0.0.1"
-# EDITOR
-$env.EDITOR = "nvim"
 
 # Key Bindings
 $env.config.keybindings ++= [

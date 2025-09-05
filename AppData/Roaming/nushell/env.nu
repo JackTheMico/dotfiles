@@ -19,3 +19,11 @@
 
 # zoxide
 zoxide init nushell | save -f ~/.zoxide.nu
+
+# EDITOR
+$env.EDITOR = "D:\\Scoop\\apps\\neovim\\current\\bin\\nvim.exe"
+
+# yazi
+$env.YAZI_FILE_ONE = "D:\\Program Files\\Git\\usr\\bin\\file.exe"
+$env.VISUAL = "D:\\Scoop\\apps\\neovim\\current\\bin\\nvim.exe"
+$env.PATH ++= ["D:\\Scoop\\apps\\neovim\\current\\bin\\nvim.exe"]
