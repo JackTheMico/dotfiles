@@ -125,3 +125,6 @@ def --env y [...args] {
 }
 # Koji
 source ./koji_completions.nu
+
+# carapace
+source ~/.cache/carapace/init.nu
