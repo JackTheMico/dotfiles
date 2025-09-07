@@ -123,3 +123,5 @@ def --env y [...args] {
 	}
 	rm -fp $tmp
 }
+# Koji
+source ./koji_completions.nu
