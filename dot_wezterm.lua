@@ -15,7 +15,7 @@ config.font = wezterm.font_with_fallback({
 	"JetBrains Mono", -- 推荐：免费且支持连字
 })
 
-config.font_size = 12.0
+config.font_size = 10.0
 -- or, changing the font size and color scheme.
 config.color_scheme = "Catppuccin Mocha"
 -- 其他选项： "Dracula", "One Dark (base16)", "Solarized Dark"

@@ -8,5 +8,11 @@
 	gpgsign = true
 [tag]
 	gpgSign = true
+{{ if eq .osid "windows" }}
 [gpg]
 	program = D:/Scoop/apps/gnupg/current/bin/gpg2.exe
+[http]
+  proxy = socks5://127.0.0.1:7898
+[https]
+  proxy = socks5://127.0.0.1:7898
+{{ end }}
