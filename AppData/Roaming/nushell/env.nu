@@ -26,7 +26,7 @@ $env.EDITOR = "D:\\Scoop\\apps\\neovim\\current\\bin\\nvim.exe"
 # yazi
 $env.YAZI_FILE_ONE = "D:\\Program Files\\Git\\usr\\bin\\file.exe"
 $env.VISUAL = "D:\\Scoop\\apps\\neovim\\current\\bin\\nvim.exe"
-$env.PATH ++= ["D:\\Scoop\\apps\\neovim\\current\\bin\\nvim.exe"]
+$env.PATH ++= ["D:\\Scoop\\apps\\neovim\\current\\bin\\nvim.exe", "C:\\Users\\dlwxx\\.local\\bin"]
 
 # carapace completions
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
