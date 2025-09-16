@@ -2,6 +2,9 @@ return {
   "allaman/emoji.nvim",
   version = "5.0.0", -- optionally pin to a tag
   ft = "markdown", -- adjust to your needs
+  keys = {
+    { "<leader>se", "<cmd>Emoji<cr>", desc = "Serch Emoji" },
+  },
   dependencies = {
     -- util for handling paths
     "nvim-lua/plenary.nvim",
@@ -23,6 +26,6 @@ return {
     require("emoji").setup(opts)
     -- optional for telescope integration
     -- local ts = require("telescope").load_extension("emoji")
-    vim.keymap.set("n", "<leader>se", ts.emoji, { desc = "[S]earch [E]moji" })
+    -- vim.keymap.set("n", "<leader>se", ts.emoji, { desc = "[S]earch [E]moji" })
   end,
 }
