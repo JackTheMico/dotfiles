@@ -9,4 +9,6 @@ dot_config/yasb
 dot_config/whkdrc
 {{- else}}
 dot_config/private_fish
+dot_config/fish
+dot_config/nvim
 {{- end}}
