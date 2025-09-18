@@ -112,7 +112,7 @@ $env.PROMPT_MULTILINE_INDICATOR = "::: "
 # alias
 alias czi = chezmoi
 alias lg = lazygit
-alias ytmp3 = "yt-dlp -x -f bestaudio --audio-format mp3 "
+alias ytmp3 = yt-dlp -x -f bestaudio --audio-format mp3 
 
 # Yazi
 def --env y [...args] {
