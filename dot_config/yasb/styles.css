@@ -1,355 +1,453 @@
-/* 
-This is default and very simple styles file for Yasb. 
-For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
-*/
-:root {
-    --mauve: #cba6f7;
-    --red: #f38ba8;
-    --yellow: #f9e2af;
-    --blue: #89b4fa;
-    --lavender: #b4befe;
-    --text: #cdd6f4;
-    --subtext1: #bac2de;
-    --subtext0: #a6adc8;
-    --overlay2: #9399b2;
-    --overlay1: #7f849c;
-    --overlay0: #6c7086;
-    --surface2: #585b70;
-    --surface1: #45475a;
-    --surface0: #282936;
-    --base: #1e1e2e;
-    --crust: rgba(32, 32, 43, 0.92);
-}
 * {
-    font-size: 16px;
-    color: var(--text);
-    font-weight: 800;
-    font-family: "Maple Mono NF CN";
-    margin: 1;
-    padding: 0;
+  font-size: 12px;
+  color: #cdd6f4;
+  font-weight: 500;
+  font-family: "JetBrainsMono NFP";
+  margin: 0;
+  padding: 0;
 }
+
 .yasb-bar {
-    padding: 0;
-    margin: 0;
-    background-color: var(--crust);
-    border-radius: 8px;
-    border: 1px solid #313244;
-}
-/* Global styles for ToolTip */
-.tooltip {
-    background-color: #18191a;
-    border: 1px solid #36383a;
-    border-radius: 4px;
-    color: #a6adc8;
-    padding: 6px 12px;
-    font-size: 13px;
-    font-family: 'Segoe UI';
-    font-weight: 600;
-    margin-top: 4px;
-}
-/* Global context menu style */
-.context-menu,
-.context-menu .menu-checkbox {
-    background-color: #202020;
-    border: none;
-    padding: 4px 0px;
-    font-family: 'Segoe UI';
-    font-size: 12px;
-    color: #FFFFFF;
-}
-.context-menu::right-arrow {
-    width: 8px;
-    height: 8px;
-    padding-right: 24px;
-}
-.context-menu::item,
-.context-menu .menu-checkbox {
-    background-color: transparent;
-    padding: 6px 12px;
-    margin: 2px 6px;
-    border-radius: 6px;
-    min-width: 100px;
-}
-
-.context-menu::item:selected,
-.context-menu .menu-checkbox:hover {
-    background-color: #3a3a3a;
-    color: #FFFFFF;
-}
-
-.context-menu::separator {
-    height: 1px;
-    background-color: #404040;
-    margin: 4px 8px;
-}
-.context-menu::item:disabled {
-    color: #666666;
-    background-color: transparent;
-}
-
-.context-menu .menu-checkbox .checkbox {
-    border: none;
-    padding: 8px 16px;
-    font-size: 12px;
-    margin: 0;
-    color: #FFFFFF;
-    font-family: 'Segoe UI'
-}
-.context-menu .submenu::item:disabled {
-    margin: 0;
-    padding-left: 16px;
-}
-.context-menu .menu-checkbox .checkbox:unchecked {
-    color: #999
-}
-.context-menu .menu-checkbox .checkbox::indicator {
-    width: 12px;
-    height: 12px;
-    margin-left: 0px;
-    margin-right: 8px;
-}
-.context-menu .menu-checkbox .checkbox::indicator:unchecked {
-    background: #444444;
-    border-radius: 2px;
-}
-.context-menu .menu-checkbox .checkbox::indicator:checked {
-    background: #007acc;
-    border-radius: 2px;
-}
-.context-menu .menu-checkbox .checkbox:focus {
-    outline: none;
+  padding: 0;
+  margin: 0;
 }
 
 .widget {
-    padding: 0 12px;
-    margin: 0;
+  background-color: #1e1e2e;
+  padding: 0 8px;
+  margin: 0;
 }
-.icon {
-    font-size: 16px;
-}
+
 .widget .label {
-    padding: 0px 2px;
+  padding: 1px 2px 1px 2px;
 }
+
+.widget .label.alt {
+  padding: 1px 8px 1px 8px;
+}
+
+.active-window-widget {
+  border-radius: 18px;
+  margin-left: 8px
+}
+
+.container-left,
+.container-center,
+.container-right {
+  margin: 0;
+  padding: 0;
+}
+
+.clock-widget {
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+}
+
+.apps-widget {
+  padding: 0 2px;
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+}
+
 .komorebi-active-layout {
-    padding: 0 4px 0 0;
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  padding: 0 4px 0 0;
 }
+
 .komorebi-active-layout .label {
-    font-weight: 600;
-    padding: 2px 0 0 0;
+  font-weight: 600;
+  padding: 2px 0 0 0;
 }
+
+.wifi-widget {
+  padding: 0 4px 0 4px;
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+}
+
 .apps-widget .widget-container,
 .komorebi-workspaces .widget-container,
+.wifi-widget .widget-container,
 .komorebi-active-layout .widget-container {
-    background-color: var(--surface1);
-    margin: 3px 0 3px 0;
-    border-radius: 12px;
-    border: 1px solid var(--surface0);
+  background-color: #313244;
+  margin: 4px 0px 4px 0;
+  border-radius: 14px;
 }
-.komorebi-workspaces .widget-container {
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
-    margin-left: 4px;
+
+.apps-widget .widget-container {
+  margin-right: 2px;
 }
-.komorebi-workspaces {
-    border-top-right-radius: 14px;
-    border-bottom-right-radius: 14px;
-    padding: 0 4px 0 0;
-}
-.komorebi-workspaces .offline-status {
-    color: var(--surface2);
-    font-size: 12px;
-    padding: 0 0 0 4px;
-    font-weight: 600;
-}
+
 .komorebi-workspaces .ws-btn {
-    border: none;
-    background-color: transparent;
-    margin: 0;
-    font-size: 12px;
-    color: var(--overlay1);
-    height: 28px;
-    width: 18px;
+  font-size: 16px;
+  background-color: transparent;
+  margin: 0 4px 0 4px;
+  color: #95a0ad;
+  border: none;
 }
-.komorebi-workspaces .ws-btn:hover {
-    color: var(--subtext1);
-}
+
 .komorebi-workspaces .ws-btn.populated {
-    color: transparent;
-    width: 10px;
-    height: 10px;
-    background-color: var(--lavender);
-    border-radius: 5px;
-    margin: 0 4px;
-    font-size: 1px;
+  color: #fc7aa5;
 }
+
+.komorebi-workspaces .ws-btn:hover,
+.komorebi-workspaces .ws-btn.populated:hover,
 .komorebi-workspaces .ws-btn.active {
-    color: transparent;
-    background-color: var(--blue);
-    width: 36px;
-    max-width: 36px;
-    height: 10px;
-    margin: 0 4px;
-    border-radius: 5px;
+  color: #98bbe9;
+  background-color: transparent;
 }
-.apps-widget {
-    padding: 0 4px 0 2px;
+
+.komorebi-workspaces .float-override {
+  color: #0eb986;
+  font-size: 14px;
+  padding: 0 0 0 8px;
 }
+
+.komorebi-stack {
+  border-radius: 18px;
+  margin-left: 8px
+}
+
+.komorebi-stack .window.active {
+  background-color: #313244;
+  border-radius: 18px;
+  height: auto;
+  margin-left: 8px;
+}
+
 .apps-widget .label {
-    font-size: 14px;
-    padding: 0 2px;
-    color: var(--subtext0);
+  font-size: 14px;
+  padding: 0 2px;
 }
+
 .apps-widget .label:hover {
-    color: var(--text);
+  color: #fff;
+}
+
+/*POWER MENU WIDGET*/
+/* Uptime text */
+.uptime {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-weight: 600;
+  font-family: "Segoe UI";
 }
 
 .power-menu-widget .label {
-    color: #f38ba8;
-    font-size: 13px;
+  color: #f38ba8;
+  font-size: 13px;
 }
+
 .power-menu-popup {
-    background-color: transparent
+  background-color: rgba(24, 24, 37, 0.9);
+  border-radius: 12px;
+  border: 4px solid rgb(41, 42, 58);
 }
+
 .power-menu-popup .button {
-    padding: 0;
-    width: 180px;
-    height: 230px;
-    border-radius: 8px;
-    background-color: var(--crust);
-    color: var(--text);
-    border-left: 4px solid rgba(58, 59, 83, 0);
-    border-right: 4px solid rgba(58, 59, 83, 0);
-    border-top: 4px solid rgba(58, 59, 83, 0);
-    border-bottom: 4px solid rgba(58, 59, 83, 0);
-    margin: 0px;
+  padding: 0;
+  width: 240px;
+  height: 120px;
+  border-radius: 8px;
+  background-color: rgb(41, 42, 58);
+  font-family: "Segoe UI";
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 8px;
 }
+
 .power-menu-popup .button.hover {
-    background-color: var(--base);
-    border-left: 4px solid var(--base);
-    border-right: 4px solid var(--base);
-    border-top: 4px solid var(--base);
-    border-bottom: 4px solid var(--base);
+  background-color: rgb(55, 56, 75);
+  border: 1px solid rgb(55, 56, 75);
 }
 
 .power-menu-popup .button .label {
-    margin-bottom: 8px;
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--overlay2)
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  font-family: "Segoe UI";
 }
+
 .power-menu-popup .button .icon {
-    font-size: 64px;
-    padding-top: 32px;
-    color: var(--surface2)
+  font-size: 48px;
+  padding-top: 8px;
+  color: rgba(255, 255, 255, 0.25);
 }
 
 .power-menu-popup .button.cancel .icon {
-    padding: 0;
-    margin: 0;
+  color: rgba(243, 139, 168, 0.55);
 }
+
 .power-menu-popup .button.cancel .label {
-    color: var(--red);
-    margin: 0;
+  color: rgba(243, 139, 168, 0.95);
 }
-.power-menu-popup .button.cancel {
-    height: 32px;
-    border-radius: 4px;
+
+.power-menu-popup .button.shutdown .icon {
+  color: rgba(137, 180, 250, 0.55);
 }
-.uptime {
-    font-size: 14px;
-    margin-bottom: 10px;
-    color: var(--surface2);
-    font-weight: 600;
+
+.power-menu-popup .button.shutdown .label {
+  color: rgba(137, 180, 250, 0.95);
 }
-.microphone-widget {
-    padding: 0 6px 0 6px;
+
+/* ICONS */
+.icon {
+  font-size: 16px;
 }
-.microphone-widget .icon {
-    font-size: 18px;
-}
-.microphone-widget .icon {
-    color: var(--mauve);
-}
+
 .volume-widget .icon {
-    font-size: 17px;
-    color: var(--blue);
-    margin: 0px 2px 0 0;
+  color: #89b4fa;
+  margin: 1px 2px 0 0;
 }
-.weather-widget,
-.volume-widget {
-    padding: 0 6px;
+
+.cpu-widget .icon,
+.memory-widget .icon {
+  font-size: 14px;
+  color: #cba6f7;
+  margin: 0 2px 1px 0;
 }
+
+.memory-widget .icon {
+  color: #a6c9f7;
+}
+
+.wifi-widget .icon {
+  color: #43d8d8;
+  padding: 0 7px;
+  margin: 0;
+}
+
+/* Memory widget usage colors. Uncomment if you want to color of the battery widget icon to change based on status */
+
+/*
+.memory-widget.status-low .icon {
+  color: #a6e3a1;
+}
+.memory-widget.status-medium .icon {
+  color: #f9e2af;
+}
+.memory-widget.status-high .icon {
+  color: #fab387;
+}
+.memory-widget.status-critical .icon {
+  color: #f38ba8;
+}
+*/
+
+/* Battery widget value colors. Uncomment if you want to color of the battery widget icon to change based on status */
+
+/*
+.battery-widget.status-charging .icon {
+  color: #74c7ec;
+}
+.battery-widget.status-full .icon {
+  color: #94e2d5;
+}
+.battery-widget.status-high .icon {
+  color: #a6e3a1;
+}
+.battery-widget.status-medium .icon {
+  color: #f9e2af;
+}
+.battery-widget.status-low .icon {
+  color: #fab387;
+}
+.battery-widget.status-critical .icon {
+  color: #f38ba8;
+}
+*/
+
+/* WEATHER WIDGET */
 .weather-widget .icon {
-    font-size: 18px;
-    margin: 0 2px 1px 0;
-    color: var(--yellow);
+  font-size: 16px;
+  margin: 0 2px 1px 0;
 }
+
+.weather-widget .icon.sunnyDay {
+  color: rgb(221, 210, 107);
+}
+
+.weather-widget .icon.clearNight {
+  color: rgb(107, 189, 221);
+  font-size: 22px;
+  margin: 1px 2px 0px 0;
+}
+
+/* 
+.weather-widget .icon.cloudyDay {}
+.weather-widget .icon.cloudyNight {} 
+.weather-widget .icon.rainyDay {} 
+.weather-widget .icon.rainyNight {} 
+.weather-widget .icon.snowyIcyDay {} 
+.weather-widget .icon.snowyIcyNight {} 
+.weather-widget .icon.blizzardDay {} 
+.weather-widget .icon.default {}
+*/
+
+/* home */
+.home-widget {
+  padding: 0 4px 0 12px;
+}
+
+.home-widget .icon {
+  color: var(--lavender);
+}
+
+.home-widget .icon:hover {
+  color: var(--text);
+}
+
+.home-menu {
+  background-color: var(--crust);
+  border-radius: 8px;
+}
+
+.home-menu .menu-item {
+  padding: 8px 48px 9px 16px;
+  font-size: 12px;
+  font-family: 'Segoe UI';
+  color: var(--text);
+  font-weight: 600;
+}
+
+.home-menu .menu-item:hover {
+  background-color: rgba(128, 130, 158, 0.15);
+  color: #fff;
+}
+
+.home-menu .separator {
+  max-height: 1px;
+  background-color: rgba(128, 130, 158, 0.3);
+}
+
+/* MEDIA WIDGET */
 .media-widget {
-    padding: 0;
-    margin: 0;
-    border-radius: 0;
+  padding: 0;
+  padding-left: 2px;
+  margin: 0;
+  border-radius: 16px;
+  margin-right: 8px;
 }
+
 .media-widget .label {
-    color: #bac2db;
-    padding: 0px;
-    padding-right: 4px;
-    font-size: 12px;
+  background-color: rgba(0, 0, 0, 0.0);
 }
+
 .media-widget .btn {
-    color: #7a7f8b;
-    padding: 0 4px;
-    margin: 0;
-    font-family: "Maple Mono NF CN";
-    font-weight: 400;
-    font-size: 20px;
+  color: #acb2c9;
+  padding: 0 3px;
+  margin: 4px 0;
+  font-family: Segoe Fluent Icons;
 }
+
 .media-widget .btn:hover {
-    color: #babfd3;
+  color: #89b4fa;
 }
+
 .media-widget .btn.play {
-    font-size: 24px;
-    color: #989caa;
+  background-color: #313244;
+  border-radius: 14px;
+  font-size: 16px;
 }
+
 .media-widget .btn.disabled:hover,
 .media-widget .btn.disabled {
-    color: #4e525c;
-    background-color: rgba(0, 0, 0, 0);
-    font-size: 20px;
+  color: #4e525c;
+  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0);
 }
-.home-widget {
-    padding: 0 4px 0 12px;
+
+/* GITHUB WIDGET */
+.github-widget {
+  padding: 0 4px;
 }
-.home-widget .icon {
-    color: var(--lavender);
+
+.github-widget .icon {
+  font-size: 14px;
+  color: #cdd6f4
 }
-.home-widget .icon:hover {
-    color: var(--text);
+
+.github-widget .icon.new-notification {
+  color: #f38ba8;
 }
-.home-menu {
-    background-color: var(--crust);
-    border-radius: 8px;
+
+.pomodoro-widget {
+  padding: 0 6px 0 6px;
+  border-radius: 18px;
 }
-.home-menu .menu-item {
-    padding: 8px 48px 9px 16px;
-    font-size: 12px;
-    font-family: 'Segoe UI';
-    color: var(--text);
-    font-weight: 600;
+
+.pomodoro-widget .icon {
+  font-size: 12px;
+  padding-right: 4px;
 }
-.home-menu .menu-item:hover {
-    background-color: rgba(128, 130, 158, 0.15);
-    color: #fff;
+
+.pomodoro-widget .label.paused,
+.pomodoro-widget .icon.paused {
+  color: #7d7e8b;
 }
-.home-menu .separator {
-    max-height: 1px;
-    background-color: rgba(128, 130, 158, 0.3);
+
+.pomodoro-widget .label.work,
+.pomodoro-widget .icon.work {
+  color: #a6e3a1;
 }
-.notification-widget {
-    padding: 0 0px 0 4px;
+
+.pomodoro-widget .label.break,
+.pomodoro-widget .icon.break {
+  color: #89b4fa;
 }
-.notification-widget .icon {
-    font-size: 14px;
+
+/* Pomodoro menu styling */
+.pomodoro-menu {
+  background-color: rgba(17, 17, 27, 0.2);
+  border-radius: 8px;
 }
-.notification-widget .icon.new-notification {
-    color: var(--blue);
+
+.pomodoro-menu .header {
+  font-size: 16px;
+  font-weight: 600;
+  max-height: 0px;
+  color: #ffffff;
+}
+
+.pomodoro-menu .status {
+  font-size: 18px;
+  font-weight: 600;
+  color: #cdd6f4;
+}
+
+.pomodoro-menu .session {
+  font-size: 12px;
+  color: #a6adc8;
+}
+
+.pomodoro-menu .button {
+  background-color: #3f4053;
+  color: #cdd6f4;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+
+.pomodoro-menu .button.start {
+  background-color: #3f4053;
+}
+
+.pomodoro-menu .button.reset {
+  background-color: #3f4053;
+}
+
+.pomodoro-menu .button:hover {
+  background-color: rgba(255, 255, 255, 0.158);
+}
+
+.pomodoro-menu .button.pause {
+  background-color: #a6e3a1;
+  color: #1e1e2e;
+}
+
+.pomodoro-menu .button:pressed {
+  background-color: #5a5b6e;
 }

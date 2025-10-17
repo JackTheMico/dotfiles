@@ -109,6 +109,20 @@ $env.PROMPT_INDICATOR_VI_INSERT = ": "
 $env.PROMPT_INDICATOR_VI_NORMAL = "〉"
 $env.PROMPT_MULTILINE_INDICATOR = "::: "
 
+# Scoop search enhancement
+def scoop-search-enhanced [query?: string] {
+    if $query == null {
+        scoop-search
+    } else {
+        scoop-search $query
+    }
+}
+
+alias ss = scoop-search-enhanced
+alias sua = scoop update -a
+alias si = scoop install
+alias sui = scoop uninstall
+
 # alias
 alias czi = chezmoi
 alias lg = lazygit
@@ -124,8 +138,6 @@ def --env y [...args] {
 	}
 	rm -fp $tmp
 }
-# Koji
-source ./koji_completions.nu
 
 # carapace
 source ~/.cache/carapace/init.nu
