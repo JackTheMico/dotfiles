@@ -11,8 +11,7 @@ config.initial_cols = 120
 config.initial_rows = 28
 config.default_prog = { "nu.exe" }
 config.font = wezterm.font_with_fallback({
-	"Maple Mono NF CN",
-	"JetBrains Mono", -- 推荐：免费且支持连字
+	"JetBrainsMono NF SemiBold", -- 推荐：免费且支持连字
 })
 
 config.font_size = 10.0
