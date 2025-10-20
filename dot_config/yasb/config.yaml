@@ -81,7 +81,7 @@ widgets:
         - { title: "Pictures", path: "~\\Pictures" }
       system_menu: true
       power_menu: true
-      blur: false
+      blur: true
   disk:
       type: "yasb.disk.DiskWidget"
       options:
@@ -332,7 +332,7 @@ widgets:
         buttons:
           lock: ["\uea75","Lock"]
           signout: ["\udb80\udf43","Sign out"]
-          #sleep: ["\u23fe","Sleep"]
+          sleep: ["\u23fe","Sleep"]
           shutdown: ["\uf011","Shut Down"]
           restart: ["\uead2","Restart"]
           hibernate: ["\uf28e","Hibernate"]
