@@ -42,6 +42,7 @@ bars:
           "komorebi_workspaces",
           "komorebi_active_layout",
           "komorebi_stack",
+          # "active_window",
           "taskbar"
         ] 
       center: [
@@ -181,7 +182,7 @@ widgets:
           label_workspace_populated_btn: "\udb81\udc3e"
           label_default_name: "{index}"
           label_zero_index: false
-          hide_empty_workspaces: false
+          hide_empty_workspaces: true
           hide_if_offline: false
           container_padding: 
             top: 0
@@ -226,10 +227,10 @@ widgets:
       label_zero_index: false
       show_icons: "always"
       icon_size: 18
-      max_length: 56
-      max_length_active: 56
+      max_length: 31
+      max_length_active: 31
       max_length_ellipsis: "..."
-      hide_if_offline: false
+      hide_if_offline: true
       show_only_stack: false
       animation: true
       enable_scroll_switching: true
