@@ -88,13 +88,15 @@
 }
 
 .komorebi-workspaces .ws-btn.populated {
-  color: #fc7aa5;
+  /* color: #fc7aa5; */
+  color: #98bbe9;
 }
 
 .komorebi-workspaces .ws-btn:hover,
 .komorebi-workspaces .ws-btn.populated:hover,
 .komorebi-workspaces .ws-btn.active {
-  color: #98bbe9;
+  color: deeppink;
+  /* color: #98bbe9; */
   background-color: transparent;
 }
 
