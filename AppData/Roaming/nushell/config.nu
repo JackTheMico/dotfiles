@@ -48,7 +48,7 @@ $env.config.keybindings ++= [
     mode: emacs
     event: {
       send: executehostcommand
-      cmd: "commandline edit --replace (history | each { |it| $it.command } | uniq | reverse | fzf --layout=reverse --height=40% -q (commandline) | decode utf-8 | str substring 12..-1)"
+      cmd: "commandline edit --replace (history | each { |it| $it.command } | uniq | reverse | fzf --layout=reverse --height=40% -q (commandline) | decode utf-8 | str substring 12..-50)"
     }
   },
   {
@@ -119,6 +119,8 @@ def scoop-search-enhanced [query?: string] {
 }
 
 alias ss = scoop-search-enhanced
+alias su = scoop update
+alias sst = scoop status
 alias sua = scoop update -a
 alias si = scoop install
 alias sui = scoop uninstall
