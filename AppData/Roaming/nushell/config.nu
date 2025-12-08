@@ -118,6 +118,14 @@ def scoop-search-enhanced [query?: string] {
     }
 }
 
+def rgkm [query?: string] {
+  if $query == null {
+    echo '必须是一个中文'
+  } else {
+    rg $'^($query)\t.*' ~/AppData/Roaming/Rime/kongmingma.dict.yaml | lines | reverse
+  }
+}
+
 alias ss = scoop-search-enhanced
 alias su = scoop update
 alias sst = scoop status
