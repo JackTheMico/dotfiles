@@ -3,9 +3,15 @@
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
+
+encryption = "gpg"
+
 [data]
     osid = {{ $osid | quote }}
 
 [git]
     autoCommit = true
-    autoPush = false
+    autoPush = true
+
+[gpg]
+    recipient = "A30DF874D95E6029"
