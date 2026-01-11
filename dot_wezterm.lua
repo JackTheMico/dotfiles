@@ -11,10 +11,11 @@ config.initial_cols = 120
 config.initial_rows = 28
 config.default_prog = { "nu.exe" }
 config.font = wezterm.font_with_fallback({
-	"JetBrainsMono NF SemiBold", -- 推荐：免费且支持连字
+	-- "JetBrainsMono NF SemiBold", -- 推荐：免费且支持连字
+	"MonaspiceRn NF Medium", -- 推荐：免费且支持连字
 })
 
-config.font_size = 10.0
+config.font_size = 12.0
 -- or, changing the font size and color scheme.
 config.color_scheme = "Catppuccin Mocha"
 -- 其他选项： "Dracula", "One Dark (base16)", "Solarized Dark"
