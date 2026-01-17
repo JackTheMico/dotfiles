@@ -1,0 +1,5 @@
+[mgr]
+prepend_keymap = [
+  { on = ["i"], run = "plugin flash", desc = "Flash Jump" },
+  { on = ["g", "f"], run = "plugin flash --autocd --show_status", desc = "Smart Jump" }
+]
