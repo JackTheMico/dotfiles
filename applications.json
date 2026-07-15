@@ -510,6 +510,13 @@
     ]
   },
   "Discord": {
+    "ignore": [
+      {
+        "kind": "Exe",
+        "id": "Discord.exe",
+        "matching_strategy": "Equals"
+      }
+    ],
     "tray_and_multi_window": [
       {
         "kind": "Exe",
@@ -597,6 +604,24 @@
         "kind": "Exe",
         "id": "EADesktop.exe",
         "matching_strategy": "Equals"
+      }
+    ]
+  },
+  "Everywhere": {
+    "tray_and_multi_window": [
+      {
+        "kind": "Exe",
+        "id": "Everywhere.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
+  "Everywhere2": {
+    "tray_and_multi_window": [
+      {
+        "kind": "Title",
+        "id": "Everywhere",
+        "matching_strategy": "StartsWith"
       }
     ]
   },
@@ -2029,6 +2054,22 @@
       ]
     ]
   },
+  "Pogget": {
+    "ignore": [
+      {
+        "kind": "Exe",
+        "id": "Pogget.exe",
+        "matching_strategy": "Equals"
+      }
+    ],
+    "tray_and_multi_window": [
+      {
+        "kind": "Exe",
+        "id": "Pogget.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
   "Process Hacker": {
     "ignore": [
       {
@@ -2190,6 +2231,20 @@
       }
     ]
   },
+  "Rubick": {
+    "ignore": [
+      {
+        "kind": "Exe",
+        "id": "Rubick.exe",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Exe",
+        "id": "rubick.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
   "Rider": {
     "ignore": [
       {
@@ -2339,6 +2394,22 @@
       {
         "kind": "Exe",
         "id": "SnippingTool.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
+  "SyncClipboard": {
+    "ignore": [
+      {
+        "kind": "Exe",
+        "id": "SyncClipboard.exe",
+        "matching_strategy": "Legacy"
+      }
+    ],
+    "tray_and_multi_window": [
+      {
+        "kind": "Exe",
+        "id": "SyncClipboard.exe",
         "matching_strategy": "Equals"
       }
     ]
@@ -3083,6 +3154,11 @@
     ],
     "ignore": [
       {
+        "kind": "Exe",
+        "id": "explorer.exe",
+        "matching_strategy": "Equals"
+      },
+      {
         "kind": "Class",
         "id": "NativeHWNDHost",
         "matching_strategy": "Equals"
@@ -3118,10 +3194,24 @@
     ]
   },
   "Windows Terminal": {
-    "tray_and_multi_window": [
+    "ignore": [
       {
         "kind": "Exe",
         "id": "WindowsTerminal.exe",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Exe",
+        "id": "windowsterminal.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
+  "Wez Terminal": {
+    "ignore": [
+      {
+        "kind": "Exe",
+        "id": "wezterm-gui.exe",
         "matching_strategy": "Equals"
       }
     ]
@@ -3185,6 +3275,15 @@
       {
         "kind": "Exe",
         "id": "zebar.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
+  "ZeroLaunch": {
+    "ignore": [
+      {
+        "kind": "Exe",
+        "id": "zerolaunch-rs.exe",
         "matching_strategy": "Equals"
       }
     ]
