@@ -1,5 +1,16 @@
 [mgr]
 prepend_keymap = [
-  { on = ["i"], run = "plugin flash", desc = "Flash Jump" },
-  { on = ["g", "f"], run = "plugin flash --autocd --show_status", desc = "Smart Jump" }
+    { on = [ "y" ], run = [ "yank", 'plugin clipboard -- --action=copy' ], desc = "Yank selected files (copy)" },
+    { on = [ "x" ], run = [ "yank --cut", 'plugin clipboard -- --action=copy' ], desc = "Yank selected files (cut)" },
+    { on = [ "<C-p>" ], run = 'plugin clipboard -- --action=paste', desc = "Paste yanked system clipboard files" },
+    { on = [ "i" ], run = "plugin easyjump", desc = "Jump to file" },
+    { on = [ "C" ], run = "plugin ouch", desc = "Compress with ouch" },
+    { on = [ "[" ], run = "plugin whoosh jump_by_key", desc = "Jump bookmark by key" },
+    { on = [ "]", "a" ], run = "plugin whoosh save", desc = "Add bookmark (hovered)" },
+    { on = [ "]", "A" ], run = "plugin whoosh save_cwd", desc = "Add bookmark (cwd)" },
+    { on = [ "]", "f" ], run = "plugin whoosh jump_by_fzf", desc = "Jump bookmark by fzf" },
+    { on = [ "]", "d" ], run = "plugin whoosh delete_by_key", desc = "Delete bookmark by key" },
+    { on = [ "]", "D" ], run = "plugin whoosh delete_by_fzf", desc = "Delete bookmark by fzf" },
+    { on = [ "]", "t" ], run = "plugin whoosh save_temp", desc = "Add temp bookmark (hovered)" },
+    { on = [ "]", "T" ], run = "plugin whoosh save_cwd_temp", desc = "Add temp bookmark (cwd)" },
 ]
