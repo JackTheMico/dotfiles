@@ -1,5 +1,3 @@
 [flavor]
-light = "kanagawa-lotus"
 dark = "monokai"
-# dark = "dracula"
-# dark = "catppuccin-macchiato"
+light = "gruvbox-light"
