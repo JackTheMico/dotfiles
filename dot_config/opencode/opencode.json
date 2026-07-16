@@ -1,0 +1,25 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "sivtr": {
+      "command": [
+        "sivtr",
+        "mcp",
+        "serve"
+      ],
+      "enabled": true,
+      "type": "local"
+    },
+    "memorix": {
+      "type": "local",
+      "command": [
+        "memorix",
+        "serve"
+      ]
+    }
+  },
+  "plugin": [
+    "openrtk"
+  ],
+  "shell": "D:\\Scoop\\shims\\nu.exe"
+}
