@@ -9,5 +9,4 @@ dot_config/yasb
 dot_config/whkdrc
 {{- else}}
 .config/nvim
-.config/fish
 {{- end}}
