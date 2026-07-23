@@ -22,12 +22,12 @@ source ~/.zoxide.nu
 
 # starship
 mkdir ($nu.data-dir | path join "vendor/autoload")
-starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+^'D:\Scoop\apps\starship\current\starship.exe' init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
 # proxy
-$env.http_proxy = "http://localhost:7897"
-$env.https_proxy = "http://localhost:7897"
-$env.no_proxy = "localhost,127.0.0.1"
+# $env.http_proxy = "http://localhost:7897"
+# $env.https_proxy = "http://localhost:7897"
+# $env.no_proxy = "localhost,127.0.0.1"
 
 # Key Bindings
 $env.config.keybindings ++= [
@@ -138,6 +138,39 @@ alias czi = chezmoi
 alias lg = lazygit
 alias ytmp3 = yt-dlp -x -f bestaudio --audio-format mp3 
 
+# 代理地址（可修改）
+const PROXY = "http://127.0.0.1:7897"
+
+# 启停代理的开关函数
+def --env proxy-on [] {
+    export-env {
+        $env.http_proxy  = $PROXY
+        $env.https_proxy = $PROXY
+        $env.all_proxy   = $PROXY          # 可选：统一 socks/http/https
+        # $env.no_proxy    = "localhost,127.0.0.1,::1"  # 可选：排除本地地址
+    }
+    print $"Proxy 已启用: ($PROXY)"
+}
+
+def --env proxy-off [] {
+    export-env {
+        $env.http_proxy  = null
+        $env.https_proxy = null
+        $env.all_proxy   = null
+        # $env.no_proxy    = null          # 根据需要
+    }
+    print "Proxy 已关闭"
+}
+
+# 可选：一个 toggle 函数（根据当前状态切换）
+def --env proxy-toggle [] {
+    if ($env.http_proxy? | is-not-empty) and ($env.http_proxy == $PROXY) {
+        proxy-off
+    } else {
+        proxy-on
+    }
+}
+
 # Yazi
 def --env y [...args] {
 	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
@@ -151,3 +184,39 @@ def --env y [...args] {
 
 # carapace
 source ~/.cache/carapace/init.nu
+source ~/AppData/Roaming/nushell/uv_completions.nu
+use completions *
+
+# >>> sivtr shell integration >>>
+$env.SIVTR_TERMINAL_ID = $"($nu.pid)"
+if (($env.SIVTR_PROMPT_WRAPPED? | default false) != true) {
+    let _sivtr_orig_prompt_command = ($env.PROMPT_COMMAND? | default {|| "" })
+    $env.SIVTR_PROMPT_CACHE = ($nu.temp-dir | path join $"sivtr_prompt_($nu.pid).txt")
+    def _sivtr_render_prompt [] {
+        do --ignore-errors $_sivtr_orig_prompt_command | default ""
+    }
+    $env.PROMPT_COMMAND = {||
+        let rendered = (_sivtr_render_prompt | into string)
+        do --ignore-errors { $rendered | save --force $env.SIVTR_PROMPT_CACHE }
+        $rendered
+    }
+
+    def --env _sivtr_precmd [] {
+        let last = (history | last 1 | get 0?)
+        $env.SIVTR_COMMAND_CWD = ($env.SIVTR_NEXT_COMMAND_CWD? | default "")
+        if $last != null {
+            $env.SIVTR_LAST_COMMAND = ($last.command? | default "")
+            $env.SIVTR_LAST_COMMAND_ID = (($last.start_timestamp? | default (date now)) | into string)
+            $env.SIVTR_COMMAND_DURATION_MS = (($last.duration? | default "") | into string)
+        }
+        $env.SIVTR_COMMAND_ENDED_AT = (date now | into string)
+        $env.SIVTR_LAST_EXIT_CODE = ($env.LAST_EXIT_CODE? | default "" | into string)
+        $env.SIVTR_LAST_PROMPT = (do --ignore-errors { open --raw $env.SIVTR_PROMPT_CACHE } | default "")
+        try { ^sivtr flush } catch {}
+        $env.SIVTR_NEXT_COMMAND_CWD = (pwd)
+    }
+    $env.config.hooks.pre_prompt = ($env.config.hooks.pre_prompt? | default [] | append {|| _sivtr_precmd })
+    $env.SIVTR_PROMPT_WRAPPED = true
+}
+# <<< sivtr shell integration <<<
+
