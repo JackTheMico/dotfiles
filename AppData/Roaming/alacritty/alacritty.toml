@@ -1,6 +1,9 @@
 [general]
 import = ['C:\Users\dlwxx\AppData\Roaming\alacritty\themes\material_theme.toml']
 
+[terminal.shell]
+program = "D:\\Scoop\\apps\\nu\\current\\nu.exe"
+
 [font]
 size = 14.0
 
@@ -19,3 +22,5 @@ style = "Italic"
 [font.normal]
 family = "FiraCode Nerd Font"
 style = "Regular"
+
+[terminal]
