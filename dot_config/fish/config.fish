@@ -20,6 +20,11 @@ alias pu=paruse
 # 代理配置 (Proxy Configuration) — 修改此处以适配你的代理端口
 set -g PROXY_ADDR "127.0.0.1:7890"
 
+# sudoedit
+set -gx SUDO_EDITOR nvim
+set -gx EDITOR nvim
+set -gx BROWSER qutebrowser
+
 # 开启代理
 function proxy_on
     set -gx http_proxy "http://$PROXY_ADDR"
@@ -34,6 +39,11 @@ function proxy_off
     set -e https_proxy
     set -e all_proxy
     echo "[-] 终端代理已关闭"
+end
+
+# yt-dlp music
+function ytbili
+    yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata --cookies-from-browser firefox $argv
 end
 
 # 查看代理状态
