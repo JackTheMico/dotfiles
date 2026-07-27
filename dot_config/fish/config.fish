@@ -87,11 +87,24 @@ if status is-interactive
     # No greeting
     set fish_greeting
 
-    # Tab 智能自动补全：优先采纳灰色历史建议，无建议时触发 Tab 列表补全
+    # Tab 智能自动补全：第一次采纳灰色建议，第二次弹出补全菜单
     function custom_tab_complete
-        if commandline -f accept-autosuggestion
-            # 成功采纳自动提示建议
+        if set -q __fish_pending_tab
+            # 第二次按 Tab：清除标记，弹出补全列表
+            set -e __fish_pending_tab
+            commandline -f complete
+            return
+        end
+
+        # 第一次按 Tab：先尝试采纳灰色自动建议
+        set -l cmd_before (commandline)
+        commandline -f accept-autosuggestion
+
+        if test (commandline) != "$cmd_before"
+            # 成功采纳建议，设置标记让下次 Tab 弹出补全
+            set -g __fish_pending_tab
         else
+            # 无建议可采纳，直接弹出补全
             commandline -f complete
         end
     end
@@ -170,6 +183,22 @@ if status is-interactive
         alias ls 'eza --icons=auto'
     end
     alias q 'qs -c ii'
+end
+
+# Fish ssh agent 设置
+# 启动 ssh-agent 并设置环境变量
+# 检查 ssh-agent 是否已经在运行
+if test -z "$SSH_AGENT_PID"
+    eval (ssh-agent -c)
+    set -Ux SSH_AGENT_PID $SSH_AGENT_PID
+    set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
+end
+
+# 自动添加密钥
+# -q 表示安静模式，如果密钥未加载则添加
+# 你可以将 ~/.config/id_github 替换为你实际的密钥路径
+if not ssh-add -l | grep -q "/.ssh/id_github"
+    ssh-add ~/.ssh/id_github
 end
 
 # Set up fzf key bindings
