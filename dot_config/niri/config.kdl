@@ -323,7 +323,7 @@ binds {
     Mod+E       { spawn "nautilus"; }
 
     Mod+Z                { focus-column-left; }
-    Mod+C                { focus-column-right; }
+    Mod+L                { focus-column-right; }
 
     Mod+D                { focus-workspace-down; }
     Mod+U                { focus-workspace-up; }
@@ -355,7 +355,7 @@ binds {
     Mod+Shift+3          { move-column-to-workspace 3; }
 
     Mod+Shift+S          { screenshot; }
-    Mod+L                { spawn "swaylock"; }
+    Mod+Ctrl+L          { spawn "swaylock"; }
     Mod+Slash            { show-hotkey-overlay; }
 
     XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "2%+"; }
