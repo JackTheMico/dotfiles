@@ -2,7 +2,9 @@
 include "monitor.kdl"
 // 动态引入视觉特效样式 (普通模式 vs 护眼模式)
 include "effects.kdl"
-spawn-at-startup "niri-sidebar" "listen"
+workspace "ndrop"
+spawn-at-startup "niri" "msg" "action" "focus-workspace-down"
+
 
 gestures {
     hot-corners {
@@ -312,6 +314,11 @@ binds {
     Mod+Shift+E          { quit; }
     Mod+Shift+R          { spawn "niri" "msg" "action" "load-config-file"; }
 
+    // ndrop
+    Mod+E { spawn "ndrop" "kitty" "--class" "kitty_termusic"; }
+    Mod+B { spawn "ndrop" "obsidian" "--class" "obsidian"; }
+    // Mod+a { spawn "ndrop" "kitty" "--class" "kitty_hx" "hx"; }
+
     Mod+R       { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
     Mod+X       { spawn "noctalia" "msg" "panel-toggle" "session"; }
     Mod+I       { spawn "noctalia" "msg" "settings-toggle"; }
@@ -320,7 +327,7 @@ binds {
     Mod+Shift+W { spawn "noctalia" "msg" "panel-toggle" "noctalia/mpvpaper:picker"; }
     Mod+N       { spawn "~/.config/niri/toggle-eyecare.sh"; }
     Mod+Return  { spawn "kitty"; }
-    Mod+E       { spawn "nautilus"; }
+    // Mod+E       { spawn "nautilus"; }
 
     Mod+Z                { focus-column-left; }
     Mod+L                { focus-column-right; }
