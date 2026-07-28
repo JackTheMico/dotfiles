@@ -16,6 +16,8 @@ alias refish='source ~/.config/fish/config.fish'
 alias efish='nvim ~/.config/fish/config.fish'
 alias czi=chezmoi
 alias pu=paruse
+alias lg=lazygit
+alias md=mkdir
 
 # 代理配置 (Proxy Configuration) — 修改此处以适配你的代理端口
 set -g PROXY_ADDR "127.0.0.1:7890"
@@ -42,7 +44,7 @@ function proxy_off
 end
 
 # yt-dlp music
-function ytbili
+function ytbi
     yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata --cookies-from-browser firefox $argv
 end
 
@@ -87,26 +89,28 @@ if status is-interactive
     # No greeting
     set fish_greeting
 
-    # Tab 智能自动补全：第一次采纳灰色建议，第二次弹出补全菜单
+    # Tab 智能自动补全
+    #  - 补全菜单已显示 → 在选项间导航（选择下一个候选项）
+    #  - 有灰色自动建议 → 优先采纳建议
+    #  - 无建议可采纳 → 弹出补全菜单
     function custom_tab_complete
-        if set -q __fish_pending_tab
-            # 第二次按 Tab：清除标记，弹出补全列表
-            set -e __fish_pending_tab
+        # 若补全菜单（pager）已显示，直接导航到下一选项
+        if commandline -P
             commandline -f complete
             return
         end
 
-        # 第一次按 Tab：先尝试采纳灰色自动建议
+        # 尝试采纳灰色自动建议
         set -l cmd_before (commandline)
         commandline -f accept-autosuggestion
 
         if test (commandline) != "$cmd_before"
-            # 成功采纳建议，设置标记让下次 Tab 弹出补全
-            set -g __fish_pending_tab
-        else
-            # 无建议可采纳，直接弹出补全
-            commandline -f complete
+            # 成功采纳了灰色建议
+            return
         end
+
+        # 无建议可采纳，弹出补全菜单
+        commandline -f complete
     end
 
     function fish_user_key_bindings
@@ -208,3 +212,6 @@ end
 fzf --fish | source
 thefuck --alias | source
 zoxide init fish | source
+
+# Added by codebase-memory-mcp install
+fish_add_path /home/jackwy/.local/bin
