@@ -19,6 +19,8 @@ workspace_rule = true
 mark = true
 sticky = true
 
+
+# FIXME: Not working
 [piri.scratchpad]
 default_size = "40% 60%"
 default_margin = 50
@@ -34,11 +36,19 @@ move_to_workspace = "tmp"
 # - idx@output: workspace index on specific monitor, e.g., "1@DP-2", "1@HDMI-A-1"
 # - name@output: workspace name on specific monitor, e.g., "browser@DP-2"
 # Note: Matching order is idx@output first, then name@output, then name, then idx. ID (u64) is not used for matching.
+
+# TODO: empty should co-work with singleton
 [empty.media] # workspace index
 command = "kitty termusic"
 
 [empty.browser] # workspace name
 command = "qutebrowser"
+
+[empty.coding]
+command = "kitty"
+
+[empty.chat]
+command = "linuxqq %U"
 
 # Scratchpads configuration
 # Format: [scratchpads.{name}]
@@ -120,7 +130,7 @@ open_on_workspace = "coding"
 # app_id = "^code$"
 # open_on_workspace = "dev"
 [[window_rule]]
-app_id = "singleton.kitty.termusic"
+app_id = "singleton.kittymusic"
 open_on_workspace = "media"
 
 # Example: app_id as a list (any one matches)
@@ -133,14 +143,16 @@ open_on_workspace = "media"
 title = ".*Chrome.*"
 open_on_workspace = "browser"
 
+# FIXME: Not working
 [singleton.browser]
 command = 'qutebrowser'
+app_id = 'singleton.browser'
 
 
 [singleton.term]
 # command = 'GTK_IM_MODULE=wayland ghostty --class=singleton.term'
-command = 'kitty'
-app_id = 'singleton.kitty.termusic'
+command = 'kitty termusic'
+app_id = 'singleton.kittymusic'
 
 # Mark plugin:
 # Runtime-only named marks for quick focus.
