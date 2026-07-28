@@ -2,9 +2,6 @@
 include "monitor.kdl"
 // 动态引入视觉特效样式 (普通模式 vs 护眼模式)
 include "effects.kdl"
-workspace "ndrop"
-spawn-at-startup "niri" "msg" "action" "focus-workspace-down"
-
 
 gestures {
     hot-corners {
@@ -313,11 +310,6 @@ binds {
     Mod+Q                { close-window; }
     Mod+Shift+E          { quit; }
     Mod+Shift+R          { spawn "niri" "msg" "action" "load-config-file"; }
-
-    // ndrop
-    Mod+E { spawn "ndrop" "kitty" "--class" "kitty_termusic"; }
-    Mod+B { spawn "ndrop" "obsidian" "--class" "obsidian"; }
-    // Mod+a { spawn "ndrop" "kitty" "--class" "kitty_hx" "hx"; }
 
     Mod+R       { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
     Mod+X       { spawn "noctalia" "msg" "panel-toggle" "session"; }
