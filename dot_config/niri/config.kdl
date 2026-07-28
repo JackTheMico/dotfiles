@@ -9,6 +9,13 @@ gestures {
     }
 }
 
+// My personal named workspace
+workspace "media" {}
+workspace "coding" {}
+workspace "browser" {}
+workspace "chat" {}
+
+
 input {
     keyboard {
         xkb
@@ -128,6 +135,8 @@ environment {
 }
 
 spawn-at-startup "noctalia"
+
+spawn-at-startup "bash -c piri daemon > /dev/null 2>&1 &"
 
 hotkey-overlay {
     skip-at-startup
