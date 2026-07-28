@@ -2,6 +2,7 @@
 include "monitor.kdl"
 // 动态引入视觉特效样式 (普通模式 vs 护眼模式)
 include "effects.kdl"
+spawn-at-startup "niri-sidebar" "listen"
 
 gestures {
     hot-corners {
@@ -309,7 +310,6 @@ binds {
     Mod+Tab repeat=false { toggle-overview; }
     Mod+Q                { close-window; }
     Mod+Shift+E          { quit; }
-
     Mod+Shift+R          { spawn "niri" "msg" "action" "load-config-file"; }
 
     Mod+R       { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
@@ -471,3 +471,4 @@ window-rule {
     default-column-width { fixed 532; }
     default-window-height { fixed 925; }
 }
+
