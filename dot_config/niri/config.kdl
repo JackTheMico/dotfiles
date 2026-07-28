@@ -326,6 +326,7 @@ binds {
     Mod+C                { focus-column-right; }
 
     Mod+D                { focus-workspace-down; }
+    Mod+U                { focus-workspace-up; }
 
     Mod+H                { focus-column-left; }
     Mod+J                { focus-window-down; }
