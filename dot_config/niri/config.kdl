@@ -11,8 +11,8 @@ gestures {
 
 // My personal named workspace
 workspace "media" {}
-workspace "coding" {}
 workspace "browser" {}
+workspace "coding" {}
 workspace "chat" {}
 
 

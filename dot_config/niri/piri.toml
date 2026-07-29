@@ -56,7 +56,7 @@ command = "linuxqq %U"
 direction = "fromTop"
 # command = "GTK_IM_MODULE=wayland ghostty --class=float.dropterm"
 command = "alacritty"
-app_id = "float.dropterm"
+app_id = "alacritty"
 size = "50% 65%"
 margin = 50
 sticky = false  # Optional: follow focused workspace (handled by sticky plugin)
