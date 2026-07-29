@@ -14,6 +14,8 @@ end
 
 alias refish='source ~/.config/fish/config.fish'
 alias efish='nvim ~/.config/fish/config.fish'
+alias ekmd='nvim ~/.local/share/fcitx5/rime/kongmingma.dict.yaml'
+alias ekms='nvim ~/.local/share/fcitx5/rime/kongmingma.schema.yaml'
 alias czi=chezmoi
 alias pu=paruse
 alias lg=lazygit

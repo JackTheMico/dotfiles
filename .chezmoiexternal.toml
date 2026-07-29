@@ -1,0 +1,4 @@
+[".config/yazi/searchjump.yazi/main.lua"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/DreamMaoMao/yazi-config/refs/heads/master/plugins/searchjump.yazi/main.lua"
+  refreshPeriod = "168h"
