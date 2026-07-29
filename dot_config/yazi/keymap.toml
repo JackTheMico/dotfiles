@@ -1,0 +1,4 @@
+[[mgr.prepend_keymap]]
+on   = [ "i" ]
+run  = "plugin searchjump"
+desc = "searchjump"
