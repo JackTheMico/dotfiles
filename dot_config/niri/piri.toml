@@ -1,230 +1,31 @@
-# Piri Configuration File
-# Copy this file to ~/.config/niri/piri.toml
+window_rule = []
+swallow = []
 
 [niri]
-# Optional: Path to niri socket
-# If not specified, will use $XDG_RUNTIME_DIR/niri or /tmp/niri
-# socket_path = "/tmp/niri"
 
-# Plugin control: enable/disable plugins
-# If not specified, plugins are disabled by default
-[piri.plugins]
-scratchpads = true
-empty = true
-window_rule = true
-singleton = true
-window_order = false
-swallow = true
-workspace_rule = true
-mark = true
-sticky = true
-
-
-# FIXME: Not working
 [piri.scratchpad]
-default_size = "40% 60%"
+default_size = "75% 60%"
 default_margin = 50
-# Optional: move hidden scratchpads to a specific workspace
-move_to_workspace = "tmp"
 
-# Plugins configuration
-# Empty plugin: executes commands when switching to empty workspaces
-# Format: [empty.{workspace}]
-# Workspace identifier can be:
-# - name (String): workspace name, e.g., "main", "work"
-# - idx (u8): workspace index, e.g., "1", "2", "3"
-# - idx@output: workspace index on specific monitor, e.g., "1@DP-2", "1@HDMI-A-1"
-# - name@output: workspace name on specific monitor, e.g., "browser@DP-2"
-# Note: Matching order is idx@output first, then name@output, then name, then idx. ID (u64) is not used for matching.
+[piri.plugins]
 
-# TODO: empty should co-work with singleton
-[empty.media] # workspace index
-command = "kitty termusic"
-
-[empty.browser] # workspace name
-command = "qutebrowser"
-
-[empty.coding]
-command = "kitty"
-
-[empty.chat]
-command = "linuxqq %U"
-
-# Scratchpads configuration
-# Format: [scratchpads.{name}]
-[scratchpads.term]
-direction = "fromTop"
-# command = "GTK_IM_MODULE=wayland ghostty --class=float.dropterm"
-command = "alacritty"
-app_id = "alacritty"
-size = "50% 65%"
-margin = 50
-sticky = false  # Optional: follow focused workspace (handled by sticky plugin)
-
-# Example: scratchpad with swallow_to_focus enabled
-# When shown, the window will be swallowed into the currently focused window
-# [scratchpads.preview]
-# direction = "fromRight"
-# command = "imv"
-# app_id = "imv"
-# size = "60% 80%"
-# margin = 50
-# swallow_to_focus = true  # Optional: swallow into focused window when shown
-
-# Example: scratchpad with sticky behavior (delegates to sticky plugin)
-[scratchpads.note]
-direction = "fromLeft"
-command = "obsidian"
-app_id = "float.obsidian"
-size = "70% 80%"
-margin = 20
-sticky = true  # Optional: follow focused workspace (handled by sticky plugin)
-
-# Example: scratchpad that auto-hides when focus is lost
-# Note: sticky and auto_hide_on_focus_loss cannot both be enabled
-# [scratchpads.calc]
-# direction = "fromBottom"
-# command = "gnome-calculator"
-# app_id = "org.gnome.Calculator"
-# size = "30% 40%"
-# margin = 50
-# auto_hide_on_focus_loss = true  # Optional: auto-hide when window loses focus
-
-
-# Window rules: automatically move windows to workspaces based on app_id or title
-# Format: [[window_rule]]
-# - app_id: regex pattern to match window app_id (optional, but at least one of app_id or title must be specified)
-# - title: regex pattern to match window title (optional, but at least one of app_id or title must be specified)
-# - open_on_workspace: workspace to move matching windows to (exact name or idx match,
-#   supports monitor scoping with "idx@output" or "name@output" syntax, e.g., "1@DP-2")
-# - focus_command: command to execute when window gains focus (optional)
-# Note:
-#   - If both app_id and title are specified, the rule matches if EITHER matches (OR logic)
-#   - At least one of open_on_workspace or focus_command must be specified
-#   - Workspace matching: exact name match first, then exact idx match
-#   - Matching order: first matching rule is applied
-# Example: match by app_id regex pattern, move to workspace by idx
-[[window_rule]]
-app_id = ".*firefox.*"
-open_on_workspace = "browser"
-
-# Example: match by title regex pattern, move to workspace by idx, with focus_command
-[[window_rule]]
-title = ".*Chrome.*"
-open_on_workspace = "browser"
-# focus_command = "[[ $(fcitx5-remote) -eq 2 ]] && fcitx5-remote -c"
-
-# Example: match by either app_id OR title, move to workspace by name
-[[window_rule]]
-app_id = "code"
-title = ".*VS Code.*"
-open_on_workspace = "coding"
-
-# Example: only focus_command, don't move window
-# [[window_rule]]
-# title = ".*Chrome.*"
-# focus_command = "notify-send 'Chrome focused'"
-
-# Example: exact app_id match (using regex anchors)
-# [[window_rule]]
-# app_id = "^code$"
-# open_on_workspace = "dev"
-[[window_rule]]
-app_id = "singleton.kittymusic"
-open_on_workspace = "media"
-
-# Example: app_id as a list (any one matches)
-# [[window_rule]]
-# app_id = ["code", "code-oss", "codium"]
-# open_on_workspace = "dev"
-
-# Example: title as a list (any one matches)
-[[window_rule]]
-title = ".*Chrome.*"
-open_on_workspace = "browser"
-
-# FIXME: Not working
-[singleton.browser]
-command = 'qutebrowser'
-app_id = 'singleton.browser'
-
-
-[singleton.term]
-# command = 'GTK_IM_MODULE=wayland ghostty --class=singleton.term'
-command = 'kitty termusic'
-app_id = 'singleton.kittymusic'
-
-# Mark plugin:
-# Runtime-only named marks for quick focus.
-# No [mark.*] table is needed; use CLI:
-#   piri mark {name} toggle
-#   piri mark {name} add
-#   piri mark {name} delete
-# Optional: [piri.mark] for refocus feature
-# [piri.mark]
-# refocus = true  # Toggle same mark again to jump back to previous window
-
-# Sticky plugin:
-# Runtime-only sticky floating window state.
-# No [sticky.*] table is needed; use CLI:
-#   piri sticky add
-#   piri sticky add --cross
-#   piri sticky delete
-
-# Window order: reorder windows in workspace based on app_id
-# Format: [piri.window_order] for plugin config, [window_order] for app_id weights
-# - enable_event_listener: enable automatic reordering on events (default: false)
-# - default_weight: default weight for windows not specified (default: 0)
-# - workspaces: list of workspace names/indices to apply ordering (supports "idx@output" syntax, default: all workspaces)
-# Use 'piri window_order toggle' to manually reorder windows in current workspace
 [piri.window_order]
-enable_event_listener = true
+enable_event_listener = false
 default_weight = 0
-# workspaces = ["1", "2", "dev"]  # Optional: only apply to specific workspaces (empty = all)
-
-[window_order]
-# Window-specific weights
-qutebrowser = 80
-obsidian = 75
-kitty = 70
-chromium = 30
+workspaces = []
 
 [piri.swallow]
-use_pid_matching=true
+rules = []
+use_pid_matching = true
 
-[piri.swallow.exclude]
-app_id = [".*mpv.*", ".*dialog.*"]
-title = [".*error.*"]
-
-[[swallow]]
-parent_app_id = [".*terminal.*", ".*alacritty.*", ".*foot.*", ".*ghostty.*"]
-child_app_id = [".*mpv.*", ".*imv.*", ".*feh.*"]
-
-[[swallow]]
-parent_app_id = ["code", "nvim-qt"]
-child_app_id = [".*preview.*", ".*markdown.*"]
-
-# Workspace rule: automatically adjust window widths based on window count
-# Format: [workspace_rule.{workspace}]
-# Workspace identifier can be name (e.g., "browser"), idx (e.g., "1"),
-# or monitor-scoped: "idx@output" (e.g., "1@DP-2"), "name@output" (e.g., "browser@eDP-2")
-# Matching order: idx@output > name@output > name > idx (backward compatible fallback)
-# - auto_width: array where index corresponds to window count (1-based)
-#   Each element can be a string (all windows same width) or array (different widths per window)
-#   Examples:
-#     ["100%", "50%"] - 1 window: 100%, 2 windows: each 50%
-#     ["100%", ["45%", "55%"]] - 1 window: 100%, 2 windows: 45% and 55%
-#     ["100%", "50%", ["30%", "35%", "35%"]] - 1 window: 100%, 2 windows: 50% each, 3 windows: 30%, 35%, 35%
-
-# Default configuration (applies to all workspaces without specific config)
 [piri.workspace_rule]
-auto_width = ["100%", "50%", ["25%","50%","25%"], "25%", "20%"]
-auto_file = true
-# auto_maximize: automatically maximize window when there's only one window, and unmaximize when there are multiple windows
-auto_maximize = true
-# EdgePulse: show left/right edge hint when focused column reaches the workspace edge
+auto_width = []
+auto_tile = false
+auto_fill = false
+auto_maximize = false
+
 [piri.workspace_rule.edge_pulse]
-enabled = true
+enabled = false
 show_left = true
 show_right = true
 width = 14
@@ -234,48 +35,21 @@ left_gradient_end = "#1f4fff"
 right_gradient_start = "#ffd36a"
 right_gradient_end = "#ff7a1f"
 alpha = 0.85
-animation_enabled = true
+animation_enabled = false
 animation_style = "pulse"
-animation_duration = 600
+animation_duration = 600.0
 animation_amplitude = 0.8
 animation_repeat = 3
 
-# Workspace-specific configuration (overrides default)
-[workspace_rule.media]
-auto_width = ["100%", "50%", "33.33%", "25%", "20%"]
+[piri.mark]
+refocus = false
 
-[workspace_rule.chat]
-auto_width = ["100%", "50%", "33.33%", "25%", "20%"]
+[scratchpads]
 
-# Example: workspace with custom widths, including nested arrays
-[workspace_rule.browser]
-# 1 window: 100%, 2 windows: 45% and 55%, 3 windows: 33.33% each
-auto_width = ["100%", ["45%","55%"], ["25%","50%","25%"], "25%", "20%"]
+[empty]
 
-# Example: workspace with different widths for 3 windows
-# [workspace_rule.coding]
-# 1 window: 100%, 2 windows: 50% each, 3 windows: 30%, 35%, 35%
-# auto_width = ["100%", "50%", ["30%", "35%", "35%"]]
+[singleton]
 
-# Example: workspace with auto_maximize enabled
-# [workspace_rule.main]
-# auto_maximize = true
+[window_order]
 
-# --- Monitor-scoped examples ---
-#
-# Exact match: applies to a specific monitor
-# [workspace_rule."1@DP-2"]
-# auto_width = ["100%", "50%", "33.33%"]
-#
-# Display prefix match: applies to all monitors of that type
-# "1@DP" matches DP-1, DP-2, DP-3, ...
-# "1@HDMI" matches HDMI-A-1, HDMI-A-2, ...
-# [workspace_rule."1@DP"]
-# auto_width = ["100%", "50%", "33.33%"]
-# [workspace_rule."1@eDP"]
-# auto_width = ["100%", "50%", "33.33%", "25%"]
-#
-# Per-monitor empty workspace commands
-# [empty."1@HDMI-A-1"]     ← exact match
-# [empty."1@HDMI"]          ← display prefix match
-# command = "alacritty"
+[workspace_rule]
