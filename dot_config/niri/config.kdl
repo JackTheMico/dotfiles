@@ -5,6 +5,13 @@ include "effects.kdl"
 // 引入快捷键绑定配置
 include "binds.kdl"
 
+binds {
+    Mod+Ctrl+h   { move-column-left-or-to-monitor-left; }
+    Mod+Ctrl+l { move-column-right-or-to-monitor-right; }
+    Mod+Ctrl+j  { move-window-down-or-to-workspace-down; }
+    Mod+Ctrl+k    { move-window-up-or-to-workspace-up; }
+}
+
 gestures {
     hot-corners {
         off
