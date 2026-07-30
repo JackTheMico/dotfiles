@@ -74,6 +74,24 @@ reserve_space = false
 show_dots = true
 smart_auto_hide = true
 
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 300.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = true
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 360.0
+
 [hooks]
 theme_mode_changed = ["~/.config/noctalia/theme-sync.sh"]
 wallpaper_changed = ["~/.config/noctalia/wallpaper-hook.sh"]
@@ -92,10 +110,13 @@ major_interval = 4
 visible = true
 
 
+[location]
+custom_schedule = false
+
 [nightlight]
 enabled = false
 temperature_day = 6500
-temperature_night = 6000
+temperature_night = 5500
 
 [osd]
 background_opacity = 0.84999998100101948
@@ -109,7 +130,6 @@ media = false
 [shell]
 font_family = "Noto Sans CJK SC"
 settings_show_advanced = true
-ui_scale = 1.2000000104308128
 
 [shell.greeter_sync]
 auto_sync = true
@@ -118,6 +138,8 @@ privilege_command = "pkexec"
 [shell.panel]
 control_center_placement = "floating"
 control_center_position = "top_right"
+session_placement = "floating"
+session_position = "center"
 transparency_mode = "soft"
 wallpaper_placement = "floating"
 wallpaper_position = "center"
@@ -167,7 +189,7 @@ variant = "default"
 [theme]
 builtin = "Ayu"
 community_palette = "One Dark Two"
-mode = "dark"
+mode = "auto"
 source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
@@ -198,13 +220,6 @@ capsule = false
 
 [widget.mpvpaper]
 type = "noctalia/mpvpaper:mpvpaper"
-
-
-[widget.workspaces]
-style = "regular"        # regular | minimal | focus_hint
-display = "name"         # 关键：改成 name
-# 如果名字比较长，可以控制截断长度
-max_label_chars = 10     # 超过 10 个字符的会截断
 
 [plugin_settings."noctalia/mpvpaper"]
 mpv_options = "--script=~/.config/noctalia/mpv-hook.lua"
