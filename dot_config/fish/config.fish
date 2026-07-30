@@ -82,11 +82,11 @@ function proxy_status
     set -l start (date +%s%3N)
     set -l code (curl -I -s --connect-timeout 3 -o /dev/null -w "%{http_code}" https://www.google.com 2>/dev/null)
     set -l end (date +%s%3N)
-    if test "$code" = "200" -o "$code" = "301" -o "$code" = "302"
+    if test "$code" = 200 -o "$code" = 301 -o "$code" = 302
         set -l duration (math $end - $start)
         echo "成功 (HTTP $code, $duration ms)"
     else
-        echo "失败"
+        echo 失败
     end
 
     echo ""
@@ -105,7 +105,7 @@ end
 function nyxhelp --description "NyxNiri Cheatsheet速查手册"
     set -l section ""
     if test (count $argv) -gt 0
-        if test "$argv[1]" = "--section" -a (count $argv) -ge 2
+        if test "$argv[1]" = --section -a (count $argv) -ge 2
             set section $argv[2]
         else
             set section $argv[1]
@@ -115,52 +115,180 @@ function nyxhelp --description "NyxNiri Cheatsheet速查手册"
     switch "$section"
         case header
             echo ""
-            set_color -o cyan; echo "  [ NyxNiri Dotfiles 终端与桌面速查手册 ]"; set_color normal
+            set_color -o cyan
+            echo "  [ NyxNiri Dotfiles 终端与桌面速查手册 ]"
+            set_color normal
             echo ""
             return
         case cli
-            set_color -o magenta; echo "  [ NyxNiri CLI & 配置快照 ]"; set_color normal
-            set_color -o yellow; echo -n "     nyxniri                 "; set_color green; echo "-> 打开控制面板主菜单"; set_color normal
-            set_color -o yellow; echo -n "     nyxniri doctor          "; set_color green; echo "-> 运行系统全要素诊断"; set_color normal
-            set_color -o yellow; echo -n "     nyxniri snapshot [备注] "; set_color green; echo "-> 创建配置安全快照"; set_color normal
-            set_color -o yellow; echo -n "     nyxniri rollback [序号] "; set_color green; echo "-> 恢复历史配置快照"; set_color normal
-            set_color -o yellow; echo -n "     nyxniri list            "; set_color green; echo "-> 查看所有配置快照"; set_color normal
+            set_color -o magenta
+            echo "  [ NyxNiri CLI & 配置快照 ]"
+            set_color normal
+            set_color -o yellow
+            echo -n "     nyxniri                 "
+            set_color green
+            echo "-> 打开控制面板主菜单"
+            set_color normal
+            set_color -o yellow
+            echo -n "     nyxniri doctor          "
+            set_color green
+            echo "-> 运行系统全要素诊断"
+            set_color normal
+            set_color -o yellow
+            echo -n "     nyxniri snapshot [备注] "
+            set_color green
+            echo "-> 创建配置安全快照"
+            set_color normal
+            set_color -o yellow
+            echo -n "     nyxniri rollback [序号] "
+            set_color green
+            echo "-> 恢复历史配置快照"
+            set_color normal
+            set_color -o yellow
+            echo -n "     nyxniri list            "
+            set_color green
+            echo "-> 查看所有配置快照"
+            set_color normal
             return
         case proxy
-            set_color -o magenta; echo "  [ 网络代理控制 ]"; set_color normal
-            set_color -o yellow; echo -n "     proxy_on [端口/地址]    "; set_color green; echo "-> 开启代理 (默认 127.0.0.1:7890，Starship 实时显示)"; set_color normal
-            set_color -o yellow; echo -n "     proxy_off               "; set_color green; echo "-> 关闭代理 (清除环境变量与 Prompt 标识)"; set_color normal
-            set_color -o yellow; echo -n "     proxy_status            "; set_color green; echo "-> 检查代理连通性、延迟与公网 IP"; set_color normal
+            set_color -o magenta
+            echo "  [ 网络代理控制 ]"
+            set_color normal
+            set_color -o yellow
+            echo -n "     proxy_on [端口/地址]    "
+            set_color green
+            echo "-> 开启代理 (默认 127.0.0.1:7890，Starship 实时显示)"
+            set_color normal
+            set_color -o yellow
+            echo -n "     proxy_off               "
+            set_color green
+            echo "-> 关闭代理 (清除环境变量与 Prompt 标识)"
+            set_color normal
+            set_color -o yellow
+            echo -n "     proxy_status            "
+            set_color green
+            echo "-> 检查代理连通性、延迟与公网 IP"
+            set_color normal
             return
         case pkg
-            set_color -o magenta; echo "  [ 包管理与清理 ]"; set_color normal
-            set_color -o yellow; echo -n "     up / update             "; set_color green; echo "-> 运行 shelly 一键全量更新"; set_color normal
-            set_color -o yellow; echo -n "     in <包名>               "; set_color green; echo "-> 运行 shelly 安装软件包"; set_color normal
-            set_color -o yellow; echo -n "     se                      "; set_color green; echo "-> 模糊搜索软件包并 fzf 交互安装"; set_color normal
-            set_color -o yellow; echo -n "     un                      "; set_color green; echo "-> 模糊搜索已安装包并 fzf 交互卸载"; set_color normal
-            set_color -o yellow; echo -n "     clean [--auto]          "; set_color green; echo "-> 扫描并清理大缓存与日志垃圾"; set_color normal
+            set_color -o magenta
+            echo "  [ 包管理与清理 ]"
+            set_color normal
+            set_color -o yellow
+            echo -n "     up / update             "
+            set_color green
+            echo "-> 运行 shelly 一键全量更新"
+            set_color normal
+            set_color -o yellow
+            echo -n "     in <包名>               "
+            set_color green
+            echo "-> 运行 shelly 安装软件包"
+            set_color normal
+            set_color -o yellow
+            echo -n "     se                      "
+            set_color green
+            echo "-> 模糊搜索软件包并 fzf 交互安装"
+            set_color normal
+            set_color -o yellow
+            echo -n "     un                      "
+            set_color green
+            echo "-> 模糊搜索已安装包并 fzf 交互卸载"
+            set_color normal
+            set_color -o yellow
+            echo -n "     clean [--auto]          "
+            set_color green
+            echo "-> 扫描并清理大缓存与日志垃圾"
+            set_color normal
             return
         case keys bind keybindings
-            set_color -o magenta; echo "  [ Niri 桌面核心快捷键 ]"; set_color normal
-            set_color -o blue; echo -n "     Mod + Return            "; set_color green; echo "-> 启动 Kitty 终端"; set_color normal
-            set_color -o blue; echo -n "     Mod + R / Mod + E       "; set_color green; echo "-> 启动 Noctalia Launcher / Nautilus"; set_color normal
-            set_color -o blue; echo -n "     Mod + Q                 "; set_color green; echo "-> 关闭当前窗口"; set_color normal
-            set_color -o blue; echo -n "     Mod + Tab               "; set_color green; echo "-> 切换工作区概览 (Overview)"; set_color normal
-            set_color -o blue; echo -n "     Mod + Space             "; set_color green; echo "-> 切换预设列宽比例"; set_color normal
-            set_color -o blue; echo -n "     Mod + T                 "; set_color green; echo "-> 切换窗口 浮动 / 平铺"; set_color normal
-            set_color -o blue; echo -n "     Mod + F / Shift+F       "; set_color green; echo "-> 最大化列宽 / 全屏窗口"; set_color normal
-            set_color -o blue; echo -n "     Mod + N                 "; set_color green; echo "-> 切换护眼暖色温模式"; set_color normal
-            set_color -o blue; echo -n "     Mod + L                 "; set_color green; echo "-> 锁定屏幕 (Noctalia Lock)"; set_color normal
-            set_color -o blue; echo -n "     Mod + Shift + S / Print "; set_color green; echo "-> 交互式区域截图"; set_color normal
-            set_color -o blue; echo -n "     Mod + Shift + R         "; set_color green; echo "-> 重载 Niri 桌面配置"; set_color normal
-            set_color -o blue; echo -n "     Mod + Slash (/)        "; set_color green; echo "-> 显示 Niri 原生按键覆盖层"; set_color normal
+            set_color -o magenta
+            echo "  [ Niri 桌面核心快捷键 ]"
+            set_color normal
+            set_color -o blue
+            echo -n "     Mod + Return            "
+            set_color green
+            echo "-> 启动 Kitty 终端"
+            set_color normal
+            set_color -o blue
+            echo -n "     Mod + R / Mod + E       "
+            set_color green
+            echo "-> 启动 Noctalia Launcher / Nautilus"
+            set_color normal
+            set_color -o blue
+            echo -n "     Mod + Q                 "
+            set_color green
+            echo "-> 关闭当前窗口"
+            set_color normal
+            set_color -o blue
+            echo -n "     Mod + Tab               "
+            set_color green
+            echo "-> 切换工作区概览 (Overview)"
+            set_color normal
+            set_color -o blue
+            echo -n "     Mod + Space             "
+            set_color green
+            echo "-> 切换预设列宽比例"
+            set_color normal
+            set_color -o blue
+            echo -n "     Mod + T                 "
+            set_color green
+            echo "-> 切换窗口 浮动 / 平铺"
+            set_color normal
+            set_color -o blue
+            echo -n "     Mod + F / Shift+F       "
+            set_color green
+            echo "-> 最大化列宽 / 全屏窗口"
+            set_color normal
+            set_color -o blue
+            echo -n "     Mod + N                 "
+            set_color green
+            echo "-> 切换护眼暖色温模式"
+            set_color normal
+            set_color -o blue
+            echo -n "     Mod + L                 "
+            set_color green
+            echo "-> 锁定屏幕 (Noctalia Lock)"
+            set_color normal
+            set_color -o blue
+            echo -n "     Mod + Shift + S / Print "
+            set_color green
+            echo "-> 交互式区域截图"
+            set_color normal
+            set_color -o blue
+            echo -n "     Mod + Shift + R         "
+            set_color green
+            echo "-> 重载 Niri 桌面配置"
+            set_color normal
+            set_color -o blue
+            echo -n "     Mod + Slash (/)        "
+            set_color green
+            echo "-> 显示 Niri 原生按键覆盖层"
+            set_color normal
             return
         case shell
-            set_color -o magenta; echo "  [ 终端补全与 fzf ]"; set_color normal
-            set_color -o blue; echo -n "     Tab                     "; set_color green; echo "-> 采纳补全 / 触发列表补全"; set_color normal
-            set_color -o blue; echo -n "     Ctrl + R                "; set_color green; echo "-> fzf 模糊搜索历史命令"; set_color normal
-            set_color -o blue; echo -n "     Ctrl + Alt + F          "; set_color green; echo "-> fzf 模糊查找文件"; set_color normal
-            set_color -o blue; echo -n "     Ctrl + Alt + L / S      "; set_color green; echo "-> fzf 浏览 Git Log / Status"; set_color normal
+            set_color -o magenta
+            echo "  [ 终端补全与 fzf ]"
+            set_color normal
+            set_color -o blue
+            echo -n "     Tab                     "
+            set_color green
+            echo "-> 采纳补全 / 触发列表补全"
+            set_color normal
+            set_color -o blue
+            echo -n "     Ctrl + R                "
+            set_color green
+            echo "-> fzf 模糊搜索历史命令"
+            set_color normal
+            set_color -o blue
+            echo -n "     Ctrl + Alt + F          "
+            set_color green
+            echo "-> fzf 模糊查找文件"
+            set_color normal
+            set_color -o blue
+            echo -n "     Ctrl + Alt + L / S      "
+            set_color green
+            echo "-> fzf 浏览 Git Log / Status"
+            set_color normal
             return
     end
 
@@ -261,7 +389,7 @@ if status is-interactive
     end
 
     # un：模糊搜索已安装的包并用 fzf 交互卸载
-    function un --description "模糊搜索并卸载已安装软件包"
+    function un --description 模糊搜索并卸载已安装软件包
         set -l pkgs (pacman -Qq | fzf --multi --prompt='🗑  卸载 > ' \
             --preview 'pacman -Qi {1}' --preview-window 'right:60%:wrap')
         test -n "$pkgs"; and paru -Rns $pkgs
@@ -338,6 +466,3 @@ end
 fzf --fish | source
 thefuck --alias | source
 zoxide init fish | source
-
-# Added by codebase-memory-mcp install
-fish_add_path /home/jackwy/.local/bin
