@@ -2,3 +2,7 @@
   type = "file"
   url = "https://raw.githubusercontent.com/DreamMaoMao/yazi-config/refs/heads/master/plugins/searchjump.yazi/main.lua"
   refreshPeriod = "168h"
+[".config/qutebrowser/catppuccin"]
+  type = "git-repo"
+  url = "https://github.com/catppuccin/qutebrowser.git"
+  refreshPeriod = "168h"
