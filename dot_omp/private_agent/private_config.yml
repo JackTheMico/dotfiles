@@ -1,0 +1,52 @@
+providers: 
+  webSearchOrder: 
+    - firecrawl
+    - perplexity
+    - gemini
+    - anthropic
+    - codex
+    - xai
+    - zai
+    - exa
+    - tinyfish
+    - jina
+    - kagi
+    - tavily
+    - brave
+    - kimi
+    - parallel
+    - synthetic
+    - searxng
+    - startpage
+    - duckduckgo
+    - ecosia
+    - google
+    - mojeek
+    - public
+modelRoles: 
+  default: opencode-zen/deepseek-v4-flash-free
+symbolPreset: nerd
+theme: 
+  dark: titanium
+  light: light
+setupVersion: 1
+statusLine: 
+  separator: powerline
+  preset: nerd
+  transparent: true
+  compactThinkingLevel: false
+memory: 
+  backend: mnemopi
+bash: 
+  autoBackground: 
+    enabled: true
+bashInterceptor: 
+  enabled: true
+astGrep: 
+  enabled: true
+github: 
+  enabled: true
+vault: 
+  enabled: true
+plan: 
+  defaultOnStartup: true
