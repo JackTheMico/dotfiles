@@ -1,7 +1,7 @@
 function vgrep --description 'Ripgrep search and open nvim at line'
     # 使用 ripgrep 搜索内容，格式化为 file:line:content
     set -l result (rg --line-number --no-heading --color=never "" 2>/dev/null | \
-    fzf --height 40% --layout=reverse \
+    fzf --height 60% --layout=reverse \
         --delimiter ':' \
         --preview 'bat --color=always --highlight-line {2} {1} 2>/dev/null || cat {1}' \
         --preview-window=right:60%:wrap)

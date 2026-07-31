@@ -5,7 +5,7 @@ function vrc --description 'Search and edit neovim config files'
         return 1
     end
     set -l file (fd . --type f --hidden $config_dir 2>/dev/null | \
-    fzf --height 40% --layout=reverse --preview 'bat --color=always {} 2>/dev/null || cat {}' --preview-window=right:50%:wrap)
+    fzf --multi --height 60% --layout=reverse --preview 'bat --color=always {} 2>/dev/null || cat {}' --preview-window=right:50%:wrap)
     if test -n "$file"
         nvim $file
     end
