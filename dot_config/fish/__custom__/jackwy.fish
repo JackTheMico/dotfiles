@@ -30,8 +30,10 @@ end
 
 # Fish ssh agent 设置
 # 启动 ssh-agent 并设置环境变量
-# 同时检查 PID 是否存活，防止重启/崩溃后 universal 变量残留
-if test -z "$SSH_AGENT_PID"; or not kill -0 $SSH_AGENT_PID 2>/dev/null
+# 同时检查 socket 文件与 PID 是否存活，防止重启/崩溃后 universal 变量残留
+# 注意：只检查 PID 不够——agent 进程虽在但 socket 文件丢失时（如 /tmp 清理、agent 重启），
+# ssh-add 会报 "Error connecting to agent: No such file or directory"
+if test -z "$SSH_AGENT_PID"; or test -z "$SSH_AUTH_SOCK"; or not test -S "$SSH_AUTH_SOCK"; or not kill -0 $SSH_AGENT_PID 2>/dev/null
     # 清理可能残留的 universal 变量
     set -e SSH_AGENT_PID
     set -e SSH_AUTH_SOCK
@@ -43,8 +45,8 @@ end
 # 自动添加密钥（仅在 agent 可用时）
 # -q 表示安静模式，如果密钥未加载则添加
 # 你可以将 ~/.ssh/id_github 替换为你实际的密钥路径
-if test -n "$SSH_AUTH_SOCK"; and not ssh-add -l &>/dev/null
-    ssh-add ~/.ssh/id_github
+if test -n "$SSH_AUTH_SOCK"; and test -S "$SSH_AUTH_SOCK"; and not ssh-add -l &>/dev/null
+    ssh-add $HOME/.ssh/id_github 2>/dev/null
 end
 
 # Set up fzf key bindings
