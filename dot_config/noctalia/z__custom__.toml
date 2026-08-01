@@ -1,0 +1,5 @@
+[bar.bar]
+center = ["clock", "cat"]
+
+[widget.cat]
+type = "noctalia/bongocat:cat"
