@@ -1,4 +1,19 @@
 binds {
     XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "1%+"; }
     XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "1%-"; }
+    // 锁定屏幕 (使用 Noctalia 原生锁屏) / Lock screen using Noctalia native lockscreen
+    Mod+Shift+L { spawn "noctalia" "msg" "session" "lock"; }
+
+    // 左手单手焦点控制 / One-handed Left-hand Focus Controls
+    Mod+H { focus-column-left; }
+    Mod+L { focus-column-right; }
+    Mod+J { focus-window-down; }
+    Mod+K { focus-window-up; }
+ 
+    // 截取整个显示器屏幕 / Fullscreen screenshot
+    Mod+Shift+Z  { screenshot-screen; }
+
+    // 截取当前活动窗口 / Active window screenshot
+    Mod+Shift+C   { screenshot-window; }
+
 }
