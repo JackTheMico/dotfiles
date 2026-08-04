@@ -10,13 +10,14 @@ end
 
 # My alias
 alias refish='source ~/.config/fish/config.fish'
-alias efish='nvim ~/.config/fish/config.fish'
+alias efish='nvim ~/.config/fish/conf.d/__custom__/jackwy.fish'
 alias ekmd='nvim ~/.local/share/fcitx5/rime/kongmingma.dict.yaml'
 alias ekms='nvim ~/.local/share/fcitx5/rime/kongmingma.schema.yaml'
 alias czi=chezmoi
 alias pu=paruse
 alias lg=lazygit
 alias md=mkdir
+alias ff=fastfetch
 
 # sudoedit
 set -gx SUDO_EDITOR nvim
