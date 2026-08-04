@@ -24,7 +24,7 @@ providers:
     - mojeek
     - public
 modelRoles: 
-  default: opencode-zen/deepseek-v4-flash-free
+  default: kkaiapi/deepseek-v4-pro:high
 symbolPreset: nerd
 theme: 
   dark: titanium

@@ -12,3 +12,16 @@ require("searchjump"):setup({
 	enable_capital_label = true,
 	search_patterns = { "hell[dk]d", "%d+.1080p", "第%d+集", "第%d+话", "%.E%d+", "S%d+E%d+" },
 })
+
+require("whoosh"):setup {
+	bookmarks = {
+		{ tag = "Home",      path = "~",          key = "h" },
+		{ tag = "Desktop",   path = "~/桌面",       key = "d" },
+		{ tag = "Downloads", path = "~/下载",       key = "o" },
+		{ tag = "Documents", path = "~/文档",       key = "D" },
+		{ tag = "Codes",     path = "~/codes",     key = "c" },
+		{ tag = "Projects",  path = "~/项目",       key = "p" },
+		{ tag = "Nextcloud", path = "~/Nextcloud", key = "n" },
+		{ tag = "Config",    path = "~/.config",   key = "C" },
+	},
+}
