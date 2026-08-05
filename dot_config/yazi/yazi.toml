@@ -1,3 +1,6 @@
+[manager]
+show_hidden = true
+
 [plugin]
   prepend_preloaders = [
     # Replace magick, image, video with mediainfo
