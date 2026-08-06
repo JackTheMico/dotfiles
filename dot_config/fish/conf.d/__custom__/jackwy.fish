@@ -18,6 +18,7 @@ alias pu=paruse
 alias lg=lazygit
 alias md=mkdir
 alias ff=fastfetch
+alias fzfc = 'fc-list : family | fzf | wl-copy'
 
 # sudoedit
 set -gx SUDO_EDITOR nvim
