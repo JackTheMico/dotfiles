@@ -1,3 +1,12 @@
+// 聚焦窗口时显示明显边框，颜色由 noctalia 动态生成（noctalia.kdl 中的 primary，高对比）
+// Visible border on focused window; color comes from noctalia's palette (see noctalia.kdl)
+layout {
+    focus-ring {
+        on
+        width 3
+    }
+}
+
 binds {
     XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "1%+"; }
     XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "1%-"; }
