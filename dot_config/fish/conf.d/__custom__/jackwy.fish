@@ -8,6 +8,9 @@ function y
     command rm -f -- "$tmp"
 end
 
+# Path
+fish_add_path ~/.config/emacs/bin/
+
 # My alias
 alias refish='source ~/.config/fish/config.fish'
 alias efish='nvim ~/.config/fish/conf.d/__custom__/jackwy.fish'
