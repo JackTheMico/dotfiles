@@ -1,0 +1,12 @@
+[Unit]
+Description=Trigger gmi sync every 10 minutes
+
+[Timer]
+# 首次运行错开 mbsync-163（1min），避免开机时两个网络任务同时启动
+OnBootSec=3min
+# 上次同步运行结束（inactive）后每 10 分钟触发一次
+OnUnitActiveSec=10min
+Unit=gmi-sync.service
+
+[Install]
+WantedBy=timers.target
