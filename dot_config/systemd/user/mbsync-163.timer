@@ -1,0 +1,13 @@
+[Unit]
+Description=Trigger mbsync 163 sync every 10 minutes
+
+[Timer]
+# 用户会话启动 1 分钟后首次同步
+OnBootSec=1min
+# 上次同步运行结束（inactive）后每 10 分钟触发一次，
+# 不会因单次同步耗时较长而堆积触发
+OnUnitActiveSec=10min
+Unit=mbsync-163.service
+
+[Install]
+WantedBy=timers.target
