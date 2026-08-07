@@ -12,6 +12,14 @@
         "/home/jackwy/.local/bin/codebase-memory-mcp"
       ]
     },
+    "wigolo": {
+      "command": [
+        "npx",
+        "-y",
+        "wigolo"
+      ],
+      "type": "local"
+    },
     "serena": {
       "type": "local",
       "command": [
