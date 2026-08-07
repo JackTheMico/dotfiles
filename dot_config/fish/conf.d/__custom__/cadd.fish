@@ -1,4 +1,5 @@
 function cadd --description 'Fuzzy search unmanaged files and add to chezmoi'
+    argparse 'e/encrypt' -- $argv
     # 1. 使用 chezmoi unmanaged 获取未管理的文件列表（相对 $HOME 的路径）
     # 2. fzf 加上 -m (multi-select) 允许按 Tab 多选
     # 3. 预览：直接查看 $HOME 下的实际文件内容
@@ -14,7 +15,11 @@ function cadd --description 'Fuzzy search unmanaged files and add to chezmoi'
         for t in $targets
             set -a abs_targets "$HOME/$t"
         end
-        chezmoi add $abs_targets
+        set -l enc
+        if set -q _flag_encrypt
+            set enc --encrypt
+        end
+        chezmoi add $enc $abs_targets
 
         for t in $targets
             echo "Added to chezmoi: $t"

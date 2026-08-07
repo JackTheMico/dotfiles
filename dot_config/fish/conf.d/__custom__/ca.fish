@@ -1,4 +1,5 @@
 function ca --description 'Fuzzy search, preview diff, and add update to chezmoi'
+    argparse 'e/encrypt' -- $argv
     # 预览窗口展示目标文件与 chezmoi 源文件的 diff
     set -l targets (chezmoi managed 2>/dev/null | \
         fzf --multi --height 60% --layout=reverse \
@@ -12,8 +13,11 @@ function ca --description 'Fuzzy search, preview diff, and add update to chezmoi
         for t in $targets
             set -a abs_targets "$HOME/$t"
         end
-
-        chezmoi add $abs_targets
+        set -l enc
+        if set -q _flag_encrypt
+            set enc --encrypt
+        end
+        chezmoi add $enc $abs_targets
 
         for t in $targets
             echo "Added/Updated: $t"
