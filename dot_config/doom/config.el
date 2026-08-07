@@ -2,7 +2,7 @@
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
-
+(setq shell-file-name (executable-find "bash"))
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
@@ -21,8 +21,17 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Maple Mono NF CN" :size 19 :weight 'Medium)
-     doom-variable-pitch-font (font-spec :family "Maple Mono NF CN" :size 13))
+(setq doom-font (font-spec :family "Maple Mono NF CN" :size 23 :weight 'Medium)
+     doom-variable-pitch-font (font-spec :family "LXGW WenKai Screen" :size 21)
+     doom-big-font (font-spec :family "Maple Mono NF CN" :size 36)
+     doom-symbol-font (font-spec :family "Maple Mono NF CN")
+     doom-serif-font (font-spec :family "Noto Serif CJK SC")
+     nerd-icons-font-family "JetBrainsMono Nerd Font Mono")
+
+;; 中文回退：代码中的汉字也用霞鹜文楷（Maple 自带汉字，需覆盖 fontset）
+(after! (doom-ui)
+  (set-fontset-font t 'han (font-spec :family "LXGW WenKai Mono Screen"))
+  (set-fontset-font t 'cjk-misc (font-spec :family "LXGW WenKai Mono Screen")))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to

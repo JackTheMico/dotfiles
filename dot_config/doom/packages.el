@@ -53,4 +53,4 @@
 ;; (unpin! t)
 
 ;; undo-fu conflicts with meow-undo; see doom-meow README
-(package! undo-fu :disable t)
+;; (package! undo-fu :disable t)
