@@ -1,0 +1,23 @@
+[Unit]
+Description=Sync Gmail via gmi (lieer)
+After=network-online.target
+Wants=network-online.target
+# 代理不稳定，执行失败时发桌面通知
+OnFailure=failure-notify@gmi-sync.service
+
+[Service]
+Type=oneshot
+# gmi 在仓库根目录（含 .gmailieer.json）运行
+WorkingDirectory=%h/mail
+# Gmail API 访问需要走本地代理
+Environment=HTTPS_PROXY=http://127.0.0.1:7890
+Environment=HTTP_PROXY=http://127.0.0.1:7890
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+ExecStart=/usr/bin/gmi sync
+# 首次同步/网络慢时耗时较长，放宽超时
+TimeoutStartSec=900
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target
