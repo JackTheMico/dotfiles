@@ -1,0 +1,19 @@
+[Unit]
+Description=Auto sync specific files to Nextcloud folder
+# 等待网络就绪和路径就绪（可选，视情况而定）
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# 关键区别：这里不需要写 User=，因为默认就是当前用户
+# ExecStart 直接写脚本路径，建议用绝对路径
+ExecStart=/home/jackwy/scripts/rime_nextcloud_sync.sh
+# 脚本路径可以用 %h 代替家目录，如：%h/.local/bin/auto_sync.sh
+
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+# 这里的 WantedBy 也是 default.target，表示默认会启动
+WantedBy=default.target

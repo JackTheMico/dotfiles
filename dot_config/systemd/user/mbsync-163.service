@@ -1,0 +1,20 @@
+[Unit]
+Description=Sync 163 mail via mbsync (Coremail ID workaround)
+After=network-online.target
+Wants=network-online.target
+OnFailure=failure-notify@mbsync-163.service
+
+[Service]
+Type=oneshot
+# mbsync 通过 ~/.mbsyncrc 里的 Tunnel 接入 ~/bin/imap163-proxy.py，
+# 该脚本在握手时替 mbsync 注入 IMAP ID 命令（163 Coremail 强制要求）
+ExecStart=/usr/bin/mbsync 163
+Environment=HOME=%h
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+# 首次全量同步（~1800 封邮件）或网络慢时需要几分钟，调大默认 90s 超时
+TimeoutStartSec=600
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target
