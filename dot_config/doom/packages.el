@@ -53,3 +53,16 @@
 
 ;; undo-fu conflicts with meow-undo; see doom-meow README
 ;; (package! undo-fu :disable t)
+
+;; ---- vulpea 知识库（替代 org-roam）----
+;; vulpea / vulpea-ui / vulpea-journal 在 MELPA，straight 自动解析依赖
+;; （vulpea-ui 的依赖 vui 也在 MELPA）。
+;; vulpea-graph 与 graph-fa2 不在任何 package archive，必须用 recipe 从 GitHub 装。
+(package! vulpea)
+(package! vulpea-ui)
+(package! vulpea-journal)
+(package! vulpea-graph :recipe (:host github :repo "neonmei/vulpea-graph"))
+(package! graph-fa2 :recipe (:host github :repo "elij/graph-fa2"))
+
+;; ---- 自动保存（切 buffer/失焦/空闲时写原文件）----
+(package! super-save)

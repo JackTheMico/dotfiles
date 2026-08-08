@@ -47,48 +47,74 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type :relative)
 
-;; org 目录结构（GTD 任务区 + org-roam 知识库分离）：
+;; org 目录结构（GTD 任务区 + vulpea 知识库分离）：
 ;;   ~/org/gtd/    — Org Agenda 任务管理区：inbox.org / projects.org /
 ;;                   tickler.org / calendar.org
-;;   ~/org/roam/   — org-roam 知识库区：index.org 及
+;;   ~/org/roam/   — vulpea 知识库区：index.org 及
 ;;                   quant / tcm / metaphysics / writing / tech 子目录
 ;; org-directory 必须在 org 加载前设置。org 是懒加载的，顶层 setq 时 org
 ;; 尚未加载，下面的 defcustom 同理安全；它们会覆盖 Doom 模块的默认值。
+;; 注意：vulpea 的索引目录由 vulpea-db-sync-directories 单独指定（见下方
+;; vulpea 配置块），org-directory 只影响 agenda / capture / org 全局路径。
 (setq org-directory "~/org/"
       ;; Agenda 只扫 gtd 区（Doom 默认扫整个 ~/org，会把 roam 知识库也卷进 agenda）
       org-agenda-files '("~/org/gtd/")
       ;; capture 的兜底文件（Doom "n" 笔记模板等使用）
-      org-default-notes-file "~/org/gtd/inbox.org"
-      ;; org-roam 知识库根（+roam 已启用；不设的话默认是 ~/org-roam）
-      org-roam-directory "~/org/roam/")
+      org-default-notes-file "~/org/gtd/inbox.org")
+;; 快速打开 gtd 收集箱：vulpea 只索引 roam（vulpea-db-sync-directories），
+;; 不提供 gtd 入口，这里补一个直达键 SPC n i（notes 前缀下 i = inbox）。
+(defun my/org-open-inbox ()
+  "打开 GTD 收集箱（org-default-notes-file）。"
+  (interactive)
+  (find-file org-default-notes-file))
+(map! :leader :desc "Open inbox" "n i" #'my/org-open-inbox)
 ;; Doom 默认 capture 模板的目标改到 gtd 收集箱（默认是 {org-directory}/todo.org）：
 ;; "t"（Personal todo）和 "n"（Personal notes）都先进 inbox.org，
 ;; 符合 GTD "先收集、后分类" 流程。+org-capture-* 是 Doom org 模块的变量，
 ;; 模块先于本文件加载，此处 setq 生效于模块默认值之后。
 (setq +org-capture-todo-file "gtd/inbox.org"
       +org-capture-notes-file "gtd/inbox.org")
+;; org-refile 目标与格式：
+;;   - 当前 buffer / gtd 任务区：refile 到 headline（maxlevel 3 够用）
+;;   - roam 知识库：vulpea 原子笔记是 #+title + :id: 风格、没有 * headline，
+;;     靠 org-refile-use-outline-path 'file 让"文件本身"成为目标（refile = 追加到文件末尾）
+;; 两个坑（都踩过）：
+;;   1. Doom org 模块在 after! org 里覆盖 org-refile-targets，顶层 setq 会被
+;;      冲掉 → 必须放进自己的 (after! org ...) 块，org 加载后才生效。
+;;   2. org-refile-targets 不接受目录字符串（org 会把目录当文件打开而报错
+;;      "must be org-mode"），必须经函数展开成文件列表。
+(defun my/org-refile-roam-files ()
+  "vulpea roam 目录下所有 org 文件，每次 refile 时动态重扫。"
+  (directory-files-recursively "~/org/roam/" "\\.org$"))
+
+(after! org
+  (setq org-refile-targets
+        '((nil :maxlevel . 3)                     ; 当前 buffer 的 headline
+          (org-agenda-files :maxlevel . 3)        ; gtd 任务区 headline
+          (my/org-refile-roam-files :maxlevel . 1))) ; roam 原子笔记（文件级）
+  (setq org-refile-use-outline-path 'file))
 ;; org 里 RET 的 dwim：
-;;   normal/motion 状态 + 光标在链接上  → 打开链接（org-roam 的 node 跳转）
+;;   normal/motion 状态 + 光标在链接上  → 打开链接（vulpea 笔记的 id: 链接跳转）
 ;;   normal/motion 状态 + 光标在 headline → 展开/折叠该节点
 ;;   insert 状态 / 其他位置              → 原 org-return（换行、插入新行）
 ;; 原理：meow normal state 没绑 RET，原本穿透到 org-return；而 org 默认
 ;; `org-return-follows-link' 为 nil，RET 在链接上不跟随（得用 C-c C-o）。
 ;; 这里手动接管链接跟随，且只在 normal/motion 下生效，避免 insert 编辑
-;; 链接文本时按 RET 误触跳转。org-roam 的 [[id:...][标题]] 由 org-id 解析，
+;; 链接文本时按 RET 误触跳转。vulpea 笔记的 [[id:...][标题]] 由 org-id 解析，
 ;; org-open-at-point 即可跳转到对应 note。
 (after! org
   (defun +org-ret-cycle-or-return ()
     "RET dwim in org-mode:
-- open the link at point (org-roam node jump);
+- open the link at point (vulpea note jump);
 - on a heading, open the first link in that heading line, else cycle it;
 - otherwise behave like `org-return'."
     (interactive)
     (cond
      ;; insert 状态：永远换行/插入，不跳转
      ((bound-and-true-p meow-insert-mode) (org-return))
-     ;; 光标在链接上：打开链接（org-roam 跳转）
+     ;; 光标在链接上：打开链接（vulpea 笔记跳转）
      ((org-in-regexp org-link-any-re) (org-open-at-point))
-     ;; headline：heading 行内有链接则直接打开（org-roam 的
+     ;; headline：heading 行内有链接则直接打开（vulpea 笔记的
      ;; `* [[id:...][标题]]' 就是这种情况），否则展开/折叠。
      ;; 用 org-link-open-from-string 绕开 org-open-at-point 在
      ;; headline 上"列出 entry 内链接"的选择菜单，实现一键跳转。
@@ -100,10 +126,91 @@
           (org-cycle))))
      (t (org-return))))
   (map! :map org-mode-map "RET" #'+org-ret-cycle-or-return))
-;; 开启 Org-roam 数据库自动同步
-(org-roam-db-autosync-mode)
-;; 可选：在保存文件时自动更新数据库
-(add-hook 'org-mode-hook #'org-roam-db-autosync-enable)
+;; ---- vulpea 知识库（替代 org-roam）----
+;; vulpea 是纯 org + sqlite 的笔记索引层（v2 完全独立，不依赖 org-roam）；
+;; vulpea-ui 提供 sidebar（stats / outline / backlinks / links 等 widget）；
+;; vulpea-journal 提供日记（基于 vulpea-ui 的 widget）；
+;; vulpea-graph 提供笔记关系图（基于 elij/graph-fa2）。
+(use-package! vulpea
+  :defer nil  ; 启动即加载：autosync 要第一时间开始索引
+  :config
+  ;; 只索引知识库区（GTD 任务区不进索引）
+  (setq vulpea-db-sync-directories '("~/org/roam/"))
+  ;; 首次运行：db 文件不存在则全量扫描建库
+  (unless (file-exists-p vulpea-db-location)
+    (vulpea-db-sync-full-scan))
+  ;; 后台自动同步（保存 / 外部文件变更时增量更新）
+  (vulpea-db-autosync-mode +1))
+
+(use-package! vulpea-ui
+  :after vulpea)
+
+(use-package! vulpea-journal
+  :after (vulpea vulpea-ui)
+  :config
+  ;; 注册 journal widget（sidebar 里的日历、"on this day" 等）
+  (vulpea-journal-setup))
+
+(use-package! vulpea-graph
+  :commands vulpea-graph)
+
+;; ---- inbox 条目 → 新建 vulpea 原子笔记（一键提炼）----
+;; 光标在 org 标题行调用：以条目标题（去 TODO/DONE、优先级、tags）为
+;; 新笔记标题，经 vulpea-create 在 roam 目录新建笔记（自动生成 :id: 与
+;; ${timestamp}_${slug}.org 文件名），子树剪切进新笔记后跳转过去。
+(defun my/org-inbox-to-note ()
+  "把当前 org 条目（整棵子树）移入新建的 vulpea 原子笔记。"
+  (interactive)
+  (require 'vulpea)
+  (unless (org-at-heading-p)
+    (user-error "光标不在 org 标题上"))
+  (let* ((raw-title (org-get-heading t t t t))
+         (title (if (string-empty-p raw-title) "Untitled" raw-title))
+         (note (vulpea-create title))
+         (path (vulpea-note-path note)))
+    (org-cut-subtree)
+    (with-current-buffer (find-file-noselect path)
+      (goto-char (point-max))
+      (unless (bolp) (insert "\n"))
+      (org-paste-subtree 1)
+      (save-buffer))
+    (switch-to-buffer (find-file-noselect path))
+    (message "已移动到 %s" path)))
+
+;; ---- CRM 多选增强：TAB 连续复选 ----
+;; completing-read-multiple（如 vulpea 打 tag）默认靠逗号分隔多选：
+;; 输入 "tag1, tag2" 回车即可一次加多个。下面让 vertico 的 TAB
+;; （vertico-insert）在 CRM 模式下选中候选后自动追加逗号，实现
+;; "TAB → TAB → TAB → RET" 的连续复选；非 CRM 补全不受影响。
+(defadvice! +my-vertico-insert-crm-a ()
+  "`vertico-insert' 后若处于 CRM 模式，自动追加 `crm-separator'。"
+  :after #'vertico-insert
+  (when (eq minibuffer-completion-table #'crm--collection-fn)
+    (insert ", ")))
+
+;; vulpea 键位：SPC n j = journal（替代 org-journal，沿用 Doom 惯例）；
+;; SPC n r = vulpea 笔记（沿用 org-roam 的 r 前缀肌肉记忆）。
+;; 注意：meow Keypad 保留 m / g / 空格 三个键，故 graph 绑 G 而非 g；
+;; j / r 前缀在去掉 +journal / +roam flag 后为空，带 desc 重建安全
+;; （但 n 前缀仍有 Doom 绑定，必须用无 desc 的 :prefix "n"）。
+(map! :leader
+      (:prefix "n"
+       (:prefix ("j" . "journal")
+        :desc "Open journal"          "j" #'vulpea-journal
+        :desc "Today"                 "t" #'vulpea-journal-today
+        :desc "Previous"              "p" #'vulpea-journal-previous
+        :desc "Next"                  "n" #'vulpea-journal-next)
+       (:prefix ("r" . "vulpea")
+        :desc "Find note"            "f" #'vulpea-find
+        :desc "Find backlink"        "b" #'vulpea-find-backlink
+        :desc "Insert link"          "i" #'vulpea-insert
+        :desc "Sync database"        "s" #'vulpea-db-sync-full-scan
+        :desc "Graph"                "G" #'vulpea-graph
+        :desc "Sidebar toggle"       "R" #'vulpea-ui-sidebar-toggle
+        :desc "Collection"           "c" #'vulpea-ui-collection
+        :desc "New note from entry"  "n" #'my/org-inbox-to-note
+        :desc "Add tag"              "t" #'vulpea-buffer-tags-add
+        :desc "Remove tag"           "T" #'vulpea-buffer-tags-remove)))
 
 
 ;; jk 退出 insert 模式 (vim 风格)
@@ -337,6 +444,19 @@
         ("M-b" . dirvish-history-go-backward)
         ("M-e" . dirvish-emerge-menu)))
 
+;; ---- dirvish 入口收拢到 SPC d（d = directory）----
+;; Doom 默认把 dirvish 入口散在 SPC f 下（f /、f p、f P），这里统一
+;; 收到 SPC d；原 SPC f 的三个 dirvish 专属键解除（f - dired-jump、
+;; f d dired 是通用键，保留原位）。SPC d 在 meow 下原本空闲。
+(map! :leader
+      (:prefix ("d" . "directory")
+       :desc "Dirvish"                   "d" #'dirvish
+       :desc "Jump to current dir"       "j" #'dired-jump
+       :desc "Project sidebar"           "s" #'dirvish-side
+       :desc "Sidebar and follow"        "S" #'+dired/dirvish-side-and-follow))
+;; 解除 Doom 默认在 SPC f 下的 dirvish 入口（无 desc，纯 unset）
+(map! :leader "f /" nil "f p" nil "f P" nil)
+
 ;; 删除走系统回收站（配合 quick-access 里的 Trash 入口）
 (setq delete-by-moving-to-trash t)
 
@@ -345,3 +465,101 @@
   :config
   (setq dired-omit-files
         (concat dired-omit-files "\\|^\\..*$")))
+
+
+;; ---- tmux 式会话持久化：daemon + session 自动恢复 ----
+;; 分三层理解：
+;; 1. daemon 常驻：Doom 在图形帧会自动 server-start（lisp/doom.el:537），
+;;    `emacs --daemon` 启动后，emacsclient 连上/断开，buffers/windows/
+;;    workspaces 全都在 daemon 里存活着 —— 这就是 tmux 的 detach。
+;; 2. 重启电脑后恢复：persp-mode（:ui workspaces 的后端）在 Emacs 优雅
+;;    退出时把全部 workspaces + 各自 buffer 列表 + window 布局
+;;    （persp-window-conf）存到 {state}/workspaces/autosave；
+;;    下次启动时 doom-load-session（SPC TAB R 即它，免确认版）一键还原。
+;; 3. 坑：Doom 把 +workspaces-delete-associated-workspace-h 挂在
+;;    server-done-hook —— emacsclient 关 frame（detach）时会连带 kill
+;;    该 frame 关联的 workspace，导致 tabs 丢失。对"detach 保 tab"
+;;    的需求必须移除它。
+(after! persp-mode
+  ;; detach（emacsclient 关 frame）不删除关联的 workspace
+  (remove-hook 'delete-frame-functions #'+workspaces-delete-associated-workspace-h)
+  (remove-hook 'server-done-hook #'+workspaces-delete-associated-workspace-h))
+
+;; 启动后自动恢复上次 session（persp-mode 已在 doom-init-ui 阶段启动；
+;; 此 hook 在 daemon 启动完成时执行）
+(add-hook 'doom-after-init-hook #'doom-load-session)
+
+;; minibuffer 历史 / kill-ring 等也跨会话保留（Emacs 内置 savehist）
+(setq savehist-additional-variables '(kill-ring mark-ring register-alist))
+(savehist-mode 1)
+
+;; ---- 拼写检查：enchant 后端 + en_US 字典 ----
+;; 系统 locale 是 zh_CN.UTF-8，flyspell 默认找 zh_CN 字典 → 报
+;; "No dictionary available for 'zh_CN.UTF-8'"。中文没有拼写字典，
+;; 固定用 en_US（需系统装有 hunspell + hunspell-en_us，见下）。
+(setq ispell-dictionary "en_US")
+
+;; 中文无法拼写检查：跳过含汉字的词，只查英文（避免中文被划红线）
+(defun my/flyspell-skip-cjk ()
+  "当前词含汉字则跳过拼写检查（返回 nil），否则检查。"
+  (let ((word (thing-at-point 'word t)))
+    (or (null word)
+        (not (string-match-p "[一-鿿]" word)))))
+
+(add-hook 'flyspell-mode-hook
+          (lambda ()
+            (setq-local flyspell-generic-check-word-predicate
+                        #'my/flyspell-skip-cjk)))
+
+;; ---- 自动保存：super-save（切 buffer / 失焦 / 空闲 5s 写原文件）----
+;; 新版 super-save 用 hook 驱动（window-buffer-change / focus-change），
+;; 对 daemon + emacsclient 场景友好：切 frame、切 buffer、焦点离开
+;; Emacs（比如切到 qutebrowser）都会保存当前 buffer。
+(use-package! super-save
+  :config
+  (super-save-mode +1)
+  (setq super-save-auto-save-when-idle t  ; 空闲 5 秒也保存（org 打字停顿即落盘）
+        super-save-idle-duration 5
+        ;; tramp 远程文件不自动保存，避免频繁网络写盘卡顿
+        super-save-remote-files nil))
+
+;; ---- daemon 自动检查：配置更新了没重启，主动提醒 ----
+;; 背景：`doom sync` 只装包/生成 autoloads（etc/@/init.d/*-loaddefs*），
+;; 运行中的 daemon 不会自动加载。曾因此 emacs-everywhere 报 void-function。
+;; 这里记录本进程启动时刻，定期比对用户配置与 sync 产物 mtime，发现
+;; 更新就提示重启 —— 免去"改了配置忘了重启"的坑。
+(defvar my/daemon-start-time (current-time)
+  "本进程启动时间（用于检测配置是否在启动后被更新）。")
+
+(defvar my/doom-stale-notified nil
+  "是否已提示过配置过期（避免每 5 分钟刷一次消息）。")
+
+(defun my/doom-config-files ()
+  "返回需监控的配置文件：用户配置 + doom sync 生成的 autoloads。"
+  (append
+   (list (expand-file-name "init.el" doom-user-dir)
+         (expand-file-name "packages.el" doom-user-dir)
+         (expand-file-name "config.el" doom-user-dir))
+   (directory-files-recursively doom-data-dir ".*-loaddefs.*\\.el$")))
+
+(defun my/doom-check-stale-config ()
+  "若发现比本进程启动更晚的配置/autoloads，提示重启 Emacs 使其生效。"
+  (when-let* ((newer (seq-filter
+                      (lambda (f)
+                        (and (file-exists-p f)
+                             (not (time-less-p
+                                   (file-attribute-modification-time (file-attributes f))
+                                   my/daemon-start-time))))
+                      (my/doom-config-files))))
+    (unless my/doom-stale-notified
+      (setq my/doom-stale-notified t)
+      (message (concat "[Doom] 检测到配置文件在启动后更新（"
+                       (mapconcat #'file-name-nondirectory newer ", ")
+                       "），改动尚未生效。请%s："
+                       "`emacsclient --eval \"(kill-emacs)\"` 后重新 `emacs --daemon &`，"
+                       "或在 Emacs 内 M-x doom/restart。")
+               (if (daemonp) "重启 daemon" "重启 Emacs")))))
+
+;; 启动后稍作等待再查一次；之后每 5 分钟复查（emacsclient 连上时 idle timer 会触发）
+(run-with-idle-timer 10 nil #'my/doom-check-stale-config)
+(run-with-timer 300 300 #'my/doom-check-stale-config)
