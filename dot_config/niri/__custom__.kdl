@@ -13,6 +13,8 @@ binds {
     // 锁定屏幕 (使用 Noctalia 原生锁屏) / Lock screen using Noctalia native lockscreen
     Mod+Shift+L { spawn "noctalia" "msg" "session" "lock"; }
 
+    // 用 Emacs 编辑当前输入框 / Edit text with Emacs everywhere
+    Mod+Shift+X { spawn "emacsclient" "-a" "" "--eval" "(emacs-everywhere)"; }
     // 左手单手焦点控制 / One-handed Left-hand Focus Controls
     Mod+H { focus-column-left; }
     Mod+L { focus-column-right; }
