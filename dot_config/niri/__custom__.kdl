@@ -28,3 +28,9 @@ binds {
     Mod+Shift+C   { screenshot-window; }
 
 }
+
+// emacs-everywhere 弹出的小编辑框浮动显示
+window-rule {
+    match title="Emacs Everywhere ::*"
+    open-floating true
+}
