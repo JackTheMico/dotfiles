@@ -6,3 +6,7 @@
   type = "git-repo"
   url = "https://github.com/catppuccin/qutebrowser.git"
   refreshPeriod = "168h"
+[".config/doom/modules/editor/meow"]
+  type = "git-repo"
+  url = "git@github.com:JackTheMico/doom-meow.git"
+  refreshPeriod = "168h"
