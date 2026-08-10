@@ -7,6 +7,12 @@ layout {
     }
 }
 
+cursor {
+    // xcursor-theme "breeze_cursors"
+    xcursor-theme "Adwaita"
+    xcursor-size 48
+}
+
 binds {
     XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "1%+"; }
     XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "1%-"; }

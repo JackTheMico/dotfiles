@@ -6,7 +6,3 @@
   type = "git-repo"
   url = "https://github.com/catppuccin/qutebrowser.git"
   refreshPeriod = "168h"
-[".config/qutebrowser/userscripts/qute-bitwarden"]
-  type = "file"
-  url = "https://raw.githubusercontent.com/qutebrowser/qutebrowser/refs/heads/main/misc/userscripts/qute-bitwarden"
-  refreshPeriod = "168h"
