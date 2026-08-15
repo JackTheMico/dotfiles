@@ -10,7 +10,19 @@
 # alias ll='ls -alF'
 # set -gx EDITOR nvim
 
-# 恢复 fish 默认 Tab 行为：覆盖 config.fish 的 custom_tab_complete 绑定
+# Automatically source all *.fish scripts inside __custom__/ directories if present
+# 自动载入 conf.d/__custom__/ 与 ~/.config/fish/__custom__/ 目录下的所有 *.fish 脚本
+set -l custom_dirs (status dirname)/__custom__ ~/.config/fish/__custom__
+for cdir in $custom_dirs
+    if test -d "$cdir"
+        for f in "$cdir"/*.fish
+            if test -f "$f"
+                source "$f"
+            end
+        end
+    end
+end
+
 if status is-interactive
     function __restore_default_tab --on-event fish_prompt
         bind \t complete
