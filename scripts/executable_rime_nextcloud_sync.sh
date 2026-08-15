@@ -4,7 +4,9 @@
 # 源文件路径（数组，可以写多个）
 SOURCE_FILES=(
   "/home/jackwy/.local/share/fcitx5/rime/kongmingma.schema.yaml"
+  "/home/jackwy/.local/share/fcitx5/rime/kongmingmas.schema.yaml"
   "/home/jackwy/.local/share/fcitx5/rime/kongmingma.dict.yaml"
+  "/home/jackwy/.local/share/fcitx5/rime/kongmingmas.dict.yaml"
 )
 
 # Nextcloud 同步目录
