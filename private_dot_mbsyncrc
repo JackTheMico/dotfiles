@@ -1,0 +1,25 @@
+# 163 的 Coremail IMAP 强制要求客户端发送 ID 命令，否则拒绝 SELECT（Unsafe Login）。
+# mbsync 不支持 ID，因此通过 Tunnel 接入 ~/bin/imap163-proxy.py：
+# 该脚本在握手时替 mbsync 注入一次 ID 命令（TLS 由脚本负责，无需 Host/TLSType）。
+IMAPAccount 163
+User dlwxxxdlw@163.com
+PassCmd "gpg --decrypt --quiet --batch ~/.authinfo.gpg | grep -m 1 imap.163.com | cut -d ' ' -f 6"
+Tunnel "python3 ~/bin/imap163-proxy.py"
+AuthMechs LOGIN
+Timeout 60
+PipelineDepth 1
+
+IMAPStore 163-remote
+Account 163
+
+MaildirStore 163-local
+Path ~/mail/163/
+Inbox ~/mail/163/INBOX
+SubFolders Verbatim
+
+Channel 163
+Far :163-remote:
+Near :163-local:
+Patterns *
+Create Near
+SyncState *
