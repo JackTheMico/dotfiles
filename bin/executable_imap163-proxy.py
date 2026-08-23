@@ -54,7 +54,7 @@ def recv_line(sock):
 
 def main():
     try:
-        raw = socket.create_connection((HOST, PORT), timeout=30)
+        raw = socket.create_connection((HOST, PORT), timeout=10)
         ctx = ssl.create_default_context()
         sock = ctx.wrap_socket(raw, server_hostname=HOST)
     except Exception as e:
