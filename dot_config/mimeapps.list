@@ -1,0 +1,29 @@
+[Default Applications]
+x-scheme-handler/http=brave-origin.desktop
+x-scheme-handler/https=brave-origin.desktop
+text/html=brave-origin.desktop
+x-scheme-handler/discord=vesktop.desktop
+x-scheme-handler/chrome=brave-origin.desktop
+application/x-extension-htm=brave-origin.desktop
+application/x-extension-html=brave-origin.desktop
+application/x-extension-shtml=brave-origin.desktop
+application/xhtml+xml=brave-origin.desktop
+application/x-extension-xhtml=brave-origin.desktop
+application/x-extension-xht=brave-origin.desktop
+x-scheme-handler/zcode=zcode.desktop
+x-scheme-handler/antigravity=antigravity.desktop
+x-scheme-handler/about=brave-origin.desktop
+x-scheme-handler/unknown=brave-origin.desktop
+x-scheme-handler/chromium=brave-origin.desktop
+
+[Added Associations]
+text/html=brave-origin.desktop;org.qutebrowser.qutebrowser.desktop;zen.desktop;
+x-scheme-handler/http=brave-origin.desktop;zen.desktop;
+x-scheme-handler/https=brave-origin.desktop;zen.desktop;
+x-scheme-handler/chrome=brave-origin.desktop;zen.desktop;
+application/x-extension-htm=brave-origin.desktop;zen.desktop;
+application/x-extension-html=brave-origin.desktop;zen.desktop;
+application/x-extension-shtml=brave-origin.desktop;zen.desktop;
+application/xhtml+xml=brave-origin.desktop;zen.desktop;
+application/x-extension-xhtml=brave-origin.desktop;zen.desktop;
+application/x-extension-xht=brave-origin.desktop;zen.desktop;
